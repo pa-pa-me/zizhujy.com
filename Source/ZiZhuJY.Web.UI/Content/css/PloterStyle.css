@@ -1,0 +1,182 @@
+﻿#canvas
+{
+    width: 300px;
+    height: 200px;
+    margin: auto auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#taDataPoints
+{
+    width: 240px;
+    min-width: 10px;
+    height: 300px;
+    min-height: 10px;
+}
+
+input[type=button]
+{
+    background-color: #b200ff;
+    border: solid 2px #421C52;
+    cursor: pointer;
+    color: white;
+}
+
+input[type=button]:hover
+{
+    background-color: white;
+    color: black;
+    border: solid 2px #800080;
+    cursor: pointer;
+}
+
+.errorBox
+{
+    border: solid 2px red;
+    background-color: #ffc5c5;
+}
+
+#statsColumn
+{
+    background-color: #800080;
+}
+
+#statsColumn .title
+{
+    z-index: 2;
+    background-color: #800080;
+}
+
+#fits table
+{
+    margin: 5px;
+}
+
+.metro-box
+{
+    background-color: white;
+    padding: 15px;
+    color: #421C52;
+    border: solid 4px #800080;
+}
+
+.metro-box:hover
+{
+    border: solid 4px #F60;
+}
+
+.metro-box h2
+{
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+.metro-box-table
+{
+    background-color: white;
+    padding: 0;
+    margin-bottom: 5px;
+    color: #421C52;
+    border: solid 4px #800080;
+}
+
+.metro-box-table:hover
+{
+    border: solid 4px #F60;
+}
+
+.metro-box-table .header
+{
+    background-color: #b200ff;
+    color: white;
+    padding: 7px 18px;
+}
+
+.metro-box-table .header h3
+{
+    padding: 0;
+    margin: 0;
+    font-size: smaller;
+}
+
+.metro-box-table .content
+{
+    padding: 1px 10px;
+}
+
+.clearFloat
+{
+    float: none;
+    clear: both;
+}
+
+#error-message-wrapper
+{
+    position: absolute;
+    max-height: 400px;
+    max-width: 550px;
+    z-index: 9999;
+    left: 350px;
+    top: 15%;
+    border: none;
+    padding: 0;
+    display: none;
+}
+
+#error-message-wrapper .title
+{
+    background-color: red;
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    height: 25px;
+    position: relative;
+    width: auto; /* this is very important ! */
+}
+
+#error-message
+{
+    position: relative;
+    padding: 5px 10px;
+    overflow: auto;
+    word-wrap: break-word;
+}
+
+.mask
+{
+    position: absolute;
+    left: 330px;
+    top: 30px;
+    bottom: 50px;
+    right: 0;
+    background-color: black;
+    opacity: 0.8;
+    z-index: 10;
+    display: none;
+}
+
+.left
+{
+    float: left;
+}
+
+.right 
+{
+    float: right;
+}
+
+.listview li 
+{
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#ploter-logo 
+{
+    width: 100%;
+    height: 100%;
+    background: url('../Images/Apps/WideLogo.png') no-repeat;
+}

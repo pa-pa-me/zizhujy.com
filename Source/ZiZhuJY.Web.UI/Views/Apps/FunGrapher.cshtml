@@ -1,0 +1,106 @@
+﻿@using System.Web.Optimization
+@using ZiZhuJY.Web.UI.Utility
+@{
+    ViewBag.Title = HttpContext.GetLocalResourceObject(this.VirtualPath, "PageTitle");
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section metas {
+    <meta name="keywords" content="@HttpContext.GetLocalResourceObject(this.VirtualPath, "SeoKeywords")" />
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(this.VirtualPath, "SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+    <link href="@System.Web.Optimization.BundleTable.Bundles.ResolveBundleUrl("~/Content/css/App/FunGrapherStyles")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/iconfontsFico.css")" rel="Stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Scripts/mathquill/mathquill.css?minify=true")" rel="Stylesheet" type="text/css" />
+    <script type="text/javascript">
+        ;
+        Globalize.addCultureInfo("default", { messages: @Html.Raw(ResourceHelper.JsonResource(this.VirtualPath))});
+    </script>
+    @*<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/excanvas.min.js")"></script><![endif]-->*@
+    @*For the sake of Browser Mode: IE 10, Document Mode: IE 7*@
+    <!--[if IE]><script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/excanvas.min.js")"></script><![endif]-->
+    @Scripts.Render("~/Scripts/FunctionGrapher/js")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/FunctionGrapher/FunctionGrapherNew.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/flot/jquery.flot.menuBar.js")"></script>
+    <script type="text/javascript">
+        ;(function ($, parser) {
+            // Globalization
+            $(document).ready(function () {
+                $.extend(parser.errorEnum, {
+                        EVALUATION_OPERATOR_EXPECTED: {message: Globalize.localize("EVALUATION_OPERATOR_EXPECTED")},
+                        OPEN_BRACE_EXPECTED: {message: Globalize.localize("OPEN_BRACE_EXPECTED")},
+                        LATEX_OPEN_BRACE_EXPECTED: {message: Globalize.localize("LATEX_OPEN_BRACE_EXPECTED")},
+                        CLOSING_BRACE_EXPECTED: {message: Globalize.localize("CLOSING_BRACE_EXPECTED")},
+                        LATEX_CLOSING_BRACE_EXPECTED: {message: Globalize.localize("LATEX_CLOSING_BRACE_EXPECTED")},
+                        DEPENDENT_VAR_Y_EXPECTED: {message: Globalize.localize("DEPENDENT_VAR_Y_EXPECTED")},
+                        SEMICOLON_EXPECTED: {message: Globalize.localize("SEMICOLON_EXPECTED")},
+                        DEPENDENT_VAR_X_EXPECTED: {message: Globalize.localize("DEPENDENT_VAR_X_EXPECTED")},
+                        OPEN_PARENTHESIS_EXPECTED: {message: Globalize.localize("OPEN_PARENTHESIS_EXPECTED")},
+                        CLOSING_PARENTHESIS_EXPECTED: {message: Globalize.localize("CLOSING_PARENTHESIS_EXPECTED")},
+                        LATEX_COMMAND_EXPECTED: {message: Globalize.localize("LATEX_COMMAND_EXPECTED")}, 
+                        DIGITAL_NUMBER_EXPECTED: {message: Globalize.localize("DIGITAL_NUMBER_EXPECTED")},
+                        VAR_Y_EXPECTED: {message: Globalize.localize("VAR_Y_EXPECTED")},
+                        VAR_X_EXPECTED: {message: Globalize.localize("VAR_X_EXPECTED")},
+                        VAR_T_EXPECTED: {message: Globalize.localize("VAR_T_EXPECTED")},
+                        VARIABLE_NAME_EXPECTED: {message: Globalize.localize("VARIABLE_NAME_EXPECTED")},
+                        CONSTANT_VALUE_EXPECTED: {message: Globalize.localize("CONSTANT_VALUE_EXPECTED")}, 
+                        FUNCTION_EXPECTED: {message: Globalize.localize("FUNCTION_EXPECTED")},
+                        COMMA_EXPECTED: {message: Globalize.localize("COMMA_EXPECTED")},
+                        END_OF_SOURCE_EXPECTED: {message: Globalize.localize("END_OF_SOURCE_EXPECTED")},
+                        EQUAL_SIGN_EXPECTED: {message: Globalize.localize("EQUAL_SIGN_EXPECTED")},
+                        POSITIVE_SIGN_EXPECTED: {message: Globalize.localize("POSITIVE_SIGN_EXPECTED")},
+                        NEGATIVE_SIGN_EXPECTED: {message: Globalize.localize("NEGATIVE_SIGN_EXPECTED")},
+                        UNKNOWN_ERROR: {message: Globalize.localize("UNKNOWN_ERROR")},
+                        UNEXPECTED_END_OF_SOURCE: {message: Globalize.localize("UNEXPECTED_END_OF_SOURCE")},
+                        LESS_THAN_EXPECTED: {message: Globalize.localize("LESS_THAN_EXPECTED")},
+                        LEFT_COMMAND_EXPECTED: {message: Globalize.localize("LEFT_COMMAND_EXPECTED")},
+                        RIGHT_COMMAND_EXPECTED: {message: Globalize.localize("RIGHT_COMMAND_EXPECTED")},
+                        PIPE_EXPECTED: {message: Globalize.localize("PIPE_EXPECTED")},
+                        UNEXPECTED_RIGHT_COMMAND: {message: Globalize.localize("UNEXPECTED_RIGHT_COMMAND")},
+                        UNKNOWN_LATEX_COMMAND_MET: {message: Globalize.localize("UNKNOWN_LATEX_COMMAND_MET")}
+                });
+            });
+        })(jQuery, zizhujy.com.LaTexParser);
+    </script>
+}
+
+<zizhujy pageId="Home"></zizhujy>
+<div id="funGrapher">
+    <div id="canvasWrapper">
+        <div id="canvas"><div id="loading">@HttpContext.GetLocalResourceObject(this.VirtualPath, "Loading")</div></div>
+    </div>
+    <div id="controls">   
+        <div id="leftPanel">
+            <div class="title">
+                <label for="taFunctionList" style="float: left;">@HttpContext.GetLocalResourceObject(this.VirtualPath, "FunctionsTitle")</label>
+                <span style="float: left;">(<a id="example-link" href="http://zizhujy.com/FunctionGrapher?examples=true&src=baiduApp&fns=base64%252FWyJ5PSh4LTUpXjMiLCJ5PS14XFxsZWZ0XFx7MDx4PDJcXHNxcnR7Mn1cXHJpZ2h0XFx9IiwieT14XFxsZWZ0XFx7LTJcXHNxcnR7Mn08eDwwXFxyaWdodFxcfSIsIng9NFxcY29zKHQpO3k9NFxcc2luKHQpIiwieT1cXGxlZnR8eCtzaW5cXGxlZnQoeFxccmlnaHQpXFxyaWdodHwiXQ%253D%253D" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "Examples")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "Examples")</a>)</span>
+                <input type="button" style="float: right;" id="btnClearAll" value="×" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "ClearAll")" />
+                <div class="clearFloat"></div>
+            </div>
+            <div class="placeHolder" style="height: 30px;"></div>
+            <div class="expressionLine">
+                <div id="taExpression3" class="expressionBox"><span class="mathquill-editable"></span><span class="icon clear">×</span></div>
+            </div>
+        </div>
+        <div class="clearFloat"></div>
+    </div>
+    <div id="adZone">
+    @{
+        if (!Request.Url.Host.Contains("localhost"))
+        {
+            //@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "AdZone").ToString())
+        } 
+    }
+    </div>
+</div>
+@section appFooter {
+    <div class="app-footer">
+        <span style="float: left; width: 72px; overflow: hidden; display: inline-block; padding: 0; margin: 0;">@Html.ActionLink(HttpContext.GetLocalResourceObject(this.VirtualPath, "AboutMe").ToString(), "About", "Home", new { src = "baiduApp" }, new { target = "_blank" })</span>
+        <span style="float: right; width: 468px; display: inline-block; padding: 0; margin: 0;">
+        </span>
+    </div>
+}
+@section Scripts{
+    <div id="mask-layer"><div class="mask"></div><div class="content"><h2>@HttpContext.GetLocalResourceObject(this.VirtualPath, "Drawing")</h2><p>@HttpContext.GetLocalResourceObject(this.VirtualPath, "DrawingDesc")</p></div><textarea id="noop" rows="0" cols="0"></textarea></div>
+    <script type="text/javascript" src="http://app.baidu.com/static/appstore/monitor.st"></script>
+}

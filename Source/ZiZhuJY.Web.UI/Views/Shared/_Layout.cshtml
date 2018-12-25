@@ -1,0 +1,63 @@
+﻿@using ZiZhuJY.Web.UI.App_GlobalResources
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css?minify=true")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    @RenderSection("metas", false)
+    @{
+        if(!Request.Url.Host.Contains("localhost")){
+            @Html.Raw(HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "TrackingCode").ToString())
+        }
+    }
+</head>
+
+<body>
+    <div class="page">
+        @if (!ViewBag.HideHeader == true) {
+            <div id="header">
+                <div id="adBannerLink">@Html.Raw(HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "AdBannerLink").ToString())</div>
+                <div id="title">
+                    @{
+                        string applicationName = ViewBag.ApplicationName;
+                        if (string.IsNullOrEmpty(applicationName)) {
+                            applicationName = Application.Name;
+                        }
+                    }
+                    <h1>@applicationName @Html.Raw(ViewBag.ApplicationNameRemark)</h1>
+                </div>
+
+                <div id="logindisplay">
+                    @*@Html.Partial("_LogOnPartial") *@
+                    @Html.Partial("_CultureSelectionPartial")
+                </div>
+
+                <div class="clearFloat"></div>
+
+                <div id="menucontainer">
+                    <ul id="menu">
+                        <li>@Html.ActionLink(HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkHome").ToString(), "Index", "Home")</li>
+                        @*<li><a href="@Url.Content("~/FunctionGraffiti")">@HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkFunctionGraffti").ToString()</a></li>*@
+                        <li><a href="@Url.Content("~/Plotter")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MenuLinkPloter").ToString()</a></li>
+                        <li><a href="@Url.Content("~/Matrix")">@HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkMatrix").ToString()</a></li>
+                        <li><a href="@Url.Content("~/blog")">@HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkBlog").ToString()</a></li>
+                        @*<li>@Html.ActionLink(HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkToolBox").ToString(), "Index", "ToolBox")</li>*@
+                        <li>@Html.ActionLink(HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkApplicationFactory").ToString(), "Index", "ApplicationFactory")</li>
+                        <li>@Html.ActionLink(HttpContext.GetLocalResourceObject("~/Views/Shared/_Layout.cshtml", "MenuLinkAbout").ToString(), "About", "Home")</li>
+                    </ul>
+
+                </div>
+            </div>
+        }
+        <div id="main">
+            @RenderBody()
+            <div class="clearFloat"></div>
+            <div id="footer">
+                @*@Html.Partial("_SetCulturePartial")*@
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,206 @@
+﻿@using ZiZhuJY.ImageHandler
+@model ZiZhuJY.Web.UI.Models.TextWatermarkModel
+@{
+    const string THIS_FILE_PATH = "~/Views/Watermark/Index.cshtml";
+    ViewBag.Title = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Title").ToString();
+
+    List<WatermarkPostion> positions = new List<WatermarkPostion>();
+    positions.Add(WatermarkPostion.TopLeft);
+    positions.Add(WatermarkPostion.TopCenter);
+    positions.Add(WatermarkPostion.TopRight);
+    positions.Add(WatermarkPostion.MiddleLeft);
+    positions.Add(WatermarkPostion.MiddleCenter);
+    positions.Add(WatermarkPostion.MiddleRight);
+    positions.Add(WatermarkPostion.BottomLeft);
+    positions.Add(WatermarkPostion.BottomCenter);
+    positions.Add(WatermarkPostion.BottomRight);
+
+    List<SelectListItem> positionList = new SelectList(positions).ToList();
+    for(int i = 0; i < positionList.Count; i++) {
+        positionList[i].Value = positionList[i].Text;
+        positionList[i].Text = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, positionList[i].Value.ToString()).ToString();
+    }
+    positionList[positionList.Count - 1].Selected = true;
+
+    Array fontFamilies = (new System.Drawing.Text.InstalledFontCollection()).Families;
+    List<string> fontFamilyNameList = new List<string>();
+    foreach (object ff in fontFamilies)
+    {
+        fontFamilyNameList.Add(((System.Drawing.FontFamily)ff).Name);
+    }
+
+    List<System.Drawing.FontStyle> fontStyles = new List<System.Drawing.FontStyle>();
+    fontStyles.Add(System.Drawing.FontStyle.Bold);
+        
+}
+@section metas {
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoDescription")" />
+    <style type="text/css">
+        #divAdvancedSettings
+        {
+            border: solid 1px gray;
+            margin: 1em 0 0 0;
+        }
+    
+        #divAdvancedSettingsTitle
+        {
+            background-color: Lime;
+            margin: 0 0 0 0;
+            padding: 5px 0 5px 5px;
+            cursor: pointer;
+        }
+    
+        #divAdvancedSettingsBody
+        {
+            padding: 5px 10px;
+        }
+    
+        .hided
+        {
+            display: none;
+        }
+    
+        #divForm
+        {
+        }
+    
+        #divPreview
+        {
+        }
+    
+        #divResult
+        {
+        }
+    
+        .clearFloat
+        {
+            float: none;
+            clear: both;
+        }
+    </style>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+        $(document).ready(function () {
+            $("#divAdvancedSettingsTitle").click(function () {
+                var hided = $("#divAdvancedSettingsBody").hasClass("hided");
+                if (hided) {
+                    $("#divAdvancedSettingsBody").removeClass("hided");
+                } else {
+                    $("#divAdvancedSettingsBody").addClass("hided");
+                }
+            });
+            @*
+            $("#fileImage").change(function (e) {
+                var fileInput = $(this);
+                var filePath = fileInput.val();
+
+                //$("#divPreview").html("<img src='file:\/\/\/" + filePath + "' alt='test' />");
+            });
+
+            $("#btnSubmit").click(function (e) {
+                var btn = $(this);
+                //alert('hello');
+                //e.preventDefault();
+            });
+
+            // Attach a submit handler to the form 
+    //        $("#fmWatermarkInfo").submit(function (event) {
+    //            // stop form from submitting normally
+    //            event.preventDefault();
+
+    //            // Get some values from elements on the page 
+    //            var $form = $(this);
+    //            var actionUrl = $form.attr("action");
+
+    //            $("#btnSubmit").attr("disabled", true);
+
+    //            // Send the data using post and put the results in a div
+    //            // Show waiting dialog here
+    //            $.post(actionUrl, function (data) {
+    //                var content = $(data).find("#content");
+    //                alert(data.toString());
+    //                $("#divResult").empty().append(content);
+    //                $("#btnSubmit").attr("disabled", false);
+    //            });
+    //        });*@
+        });
+    //-->
+    </script>
+}
+<h2>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Header").ToString()<span style="font-size: smaller; float: right;"><a href="@Url.Content("~/Watermark/ImageWatermark")" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ImageWatermarkLinkTitle")">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ImageWatermarkLinkText")</a></span></h2>
+<div id="divForm">
+    @using (Html.BeginForm("WatermarkText", "Watermark", FormMethod.Post, new { enctype = "multipart/form-data", id = "fmWatermarkInfo", target = "_blank" }))
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Description").ToString()</legend>
+            <div class="editor-label">@Html.LabelFor(model => model.File)</div>
+            <div class="editor-field">@Html.Raw("<input id='fileImage' type='file' name='File' data-val='true' data-val-required='" + "请选择一个图像！" + "'  />")
+                @Html.ValidationMessageFor(model => model.File)</div>
+            <div id="divPreview">
+                
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.CopyrightText)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.CopyrightText)
+                @Html.ValidationMessageFor(model => model.CopyrightText)
+            </div>
+            <div id="divAdvancedSettings">
+                <div id="divAdvancedSettingsTitle">
+                    <strong>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "AdvancedSettingsTitle").ToString()</strong></div>
+                <div id="divAdvancedSettingsBody" class="hided">
+                    <div class="editor-label">@Html.LabelFor(model => model.CopyrightPosition)</div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.CopyrightPosition, positionList)
+                    </div>
+                    <div class="editor-label">
+                        @Html.LabelFor(model => model.FontFamily)
+                    </div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.FontFamily, new SelectList(fontFamilyNameList, "Arial"))
+                    </div>
+                    <div class="editor-label">
+                        Font Style 字体样式</div>
+                    <div class="editor-field">
+                        @Html.CheckBoxFor(model => model.Bold) @Html.LabelFor(model => model.Bold)
+                        @Html.CheckBoxFor(model => model.Italic) @Html.LabelFor(model => model.Italic)
+                        @Html.CheckBoxFor(model => model.Underline) @Html.LabelFor(model => model.Underline)
+                        @Html.CheckBoxFor(model => model.StrikeThrough) @Html.LabelFor(model => model.StrikeThrough)
+                    </div>
+                </div>
+            </div>
+            @*
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ShadowOpacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ShadowOpacity)
+            @Html.ValidationMessageFor(model => model.ShadowOpacity)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TextOpacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.TextOpacity)
+            @Html.ValidationMessageFor(model => model.TextOpacity)
+        </div>*@
+            <p>
+                <input id="btnSubmit" type="submit" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Submit").ToString()" />
+            </p>
+            <div id="divResult">
+            
+            </div>
+        </fieldset>
+    }
+</div>
+
+<div class="clearFloat">
+</div>
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>

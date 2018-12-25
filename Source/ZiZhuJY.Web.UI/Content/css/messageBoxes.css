@@ -1,0 +1,23 @@
+﻿.messageBox {
+    position: absolute;
+    border: solid 1px #8BB9FF;
+    display: none;
+    left: 60px;
+    top: 30px;
+    background-color: #DDEAFF;
+}
+
+.messageBox .header {
+    padding: 5px;
+}
+
+.messageBox .header .closeButton {
+    float: right;
+    color: Red;
+    text-decoration: none;
+}
+
+.messageBox .body {
+    padding: 0 5px;
+    color: Black;
+}

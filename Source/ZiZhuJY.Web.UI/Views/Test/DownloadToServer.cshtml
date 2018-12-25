@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "DownloadToServer";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+<h2>DownloadToServer</h2>
+
+@using(Html.BeginForm("DownloadToServer", "Test", FormMethod.Post)){
+    <div>
+        <fieldset>
+            <legend>下载到Server</legend>
+            <div class="editor-label"><label for="txtUrl">Url:</label></div>
+            <div class="editor-field"><input type="text" id="txtUrl" name="url" /></div>
+            <div class="editor-label"><label for="txtVirtualPath">Virtual Path:</label></div>
+            <div class="editor-field"><input type="text" id="txtVirtualPath" name="virtualPath" /></div>
+            <p><input type="submit" value="submit" /></p>
+        </fieldset>
+    </div>
+}

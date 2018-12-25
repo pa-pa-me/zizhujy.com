@@ -1,0 +1,61 @@
+﻿@{    
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+@section metas {
+    <style type="text/css">
+    <!--
+        .hidden {
+            display: none;
+        }
+
+        .flag {
+            color: Red;
+            font-weight: bold;
+            font-size: larger;
+            margin: 5px;
+        }
+
+        ul li {
+            cursor: pointer;
+        }
+
+        table, table th, table td {
+            border: solid 1px black;
+        }
+    -->
+    </style>
+    <script src="@Url.Content("~/Scripts/zizhujy.com.DataTable.js?date=" + DateTime.Now.ToString())" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/zizhujy.com.Collection.js?date=" + DateTime.Now.ToString())" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+        ; (function ($) {
+            $(document).ready(function () {
+                var dt = new zizhujy.com.DataTable();
+                dt.columns.add("Col 1");
+                dt.columns.add("Col 2");
+                dt.rows.add("11", "12");
+                dt.rows.add("21", "22");
+                $("#test").html(dt.toHtml());
+                $("#log").html(zizhujy.com.serializeObjectToHTML(dt));
+
+                $(".tree-node").find("li").live("click", function (e) {
+                    $(this).find("> ul").toggleClass("hidden");
+                    var $flag = $(this).find("> .flag");
+                    if ($flag.length <= 0)
+                        $flag = $("<span class='flag'></span>").prependTo($(this));
+                    $flag.html($(this).find("> ul").hasClass("hidden") ? "+" : "");
+                    e.stopPropagation();
+                });
+            });
+        })(jQuery);
+
+    //-->
+    </script>
+}
+<h2>Index</h2>
+<div id="test">
+
+</div>
+
+<div id="log"></div>

@@ -1,0 +1,48 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@model HandleErrorInfo
+
+@{
+    ViewBag.Title = this.Localize("PageTitle");
+}
+
+<h2>
+    @this.Localize("ErrorTitle")
+</h2>
+<p>
+    @ViewBag.Message
+</p>
+
+<div>
+    @if (Model != null)
+    {
+        <h3>@this.Localize("ErrorDetails")</h3>
+        <ul>
+            <li>
+                <strong>@this.Localize("ErrorMessage")</strong>
+                @Model.Exception.Message
+            </li>
+            <li>
+                <strong>@this.Localize("ExceptionDetails")</strong>
+                @Model.Exception.ToString()
+            </li>
+            <li>
+                <strong>@this.Localize("ActionName")</strong>
+                @Model.ActionName
+            </li>
+            <li>
+                <strong>@this.Localize("ControllerName")</strong>
+                @Model.ControllerName
+            </li>
+        </ul>
+
+        if (Model.Exception.InnerException != null)
+        {
+        <h3>@this.Localize("InnerException")</h3>
+        <div>@Model.Exception.InnerException</div>
+        }
+    }
+</div>
+
+@section Cultures{
+    @this.RenderCultureSelection()
+}

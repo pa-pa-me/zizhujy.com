@@ -1,0 +1,15 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    Layout = "~/Views/Shared/_JsLibLayout.cshtml";
+    ViewBag.CurrentPage = this;
+}
+
+<h3>@this.Localize("Demo")</h3>
+<ul>
+    <li>
+        @Html.ActionLink(this.Localize("FullExample"), "FlotComments", new { example = "FullExample" }, new { target = "_blank" })
+    </li>
+    <li>
+        @Html.ActionLink(this.Localize("CustomCommentExample"), "FlotComments", new { example = "CustomCommentExample" }, new { target = "_blank" }))
+    </li>
+</ul>

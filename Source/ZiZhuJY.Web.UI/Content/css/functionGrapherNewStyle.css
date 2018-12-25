@@ -1,0 +1,308 @@
+﻿/* Function Grapher page style
+----------------------------------------------*/
+
+#funGrapher {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-bottom: 0;
+    position: relative;
+}
+
+/* Canvas 
+--------------------------------------------*/
+
+#canvasWrapper {
+    padding: 0;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    float: left;
+    position: relative;
+    /*border: solid 1px black;*/
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    margin: auto auto;
+    overflow: hidden;
+    position: relative;
+    min-width: 320px;
+    min-height: 320px;
+}
+
+#loading 
+{
+    font-size: xx-large;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 100%;
+    margin: 60px 0 0 60px;
+    padding: 0 0 0 60px;
+    background: url('../Images/loading.gif') no-repeat left center;
+}
+
+/* Controls
+----------------------------------------------------------------------------*/
+
+#controls {
+    float: right;
+    width: 336px;
+    height: 100%;
+    /*border: solid 1px black;*/
+    position: absolute;
+    right: 0;
+    z-index: 10;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+}
+
+#leftPanel {
+    padding: 0 5px 0 5px;
+    overflow: visible;
+    clear: both;
+    float: none;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    position: relative;
+}
+
+#leftPanel .title
+{
+    position: fixed;
+    right: 26px;
+    height: 30px;
+    /*width: auto;*/
+    width: 300px;
+    z-index: 99;
+    background-color: #FFFFFF;
+    text-shadow: 1px 1px 5px rgba(100, 100, 100, 0.75);
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+.expressionLine {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border-top: solid 1px #421C52;
+    border-bottom: solid 1px #421C52;
+    /*padding right for the error icon*/
+    padding: 3px 30px 3px 3px;
+    border-collapse: collapse;
+    position: relative;
+    margin-bottom: -1px;
+}
+
+.expressionBox {
+    margin: 0;
+    font-size: 150%;
+    font-family: "Times New Roman","Symbola-mq",serif;
+    letter-spacing: 2px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    position: relative;
+}
+
+.expressionBox span.mathquill-editable 
+{
+    width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+    /* For the space of clear × button */
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+
+.expressionBox span 
+{
+    /*height: 100%;*/
+    border: none;
+}
+
+.expressionBox .clear 
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    color: #ddd;
+}
+
+.expressionBox .clear:hover 
+{
+    color: Black;
+}
+
+.error
+{
+    /*border: solid 2px red;*/
+    background-color: #FFBBBB;
+}
+
+/* AdZone
+------------------------------------------------------*/
+
+.adZone 
+{
+    /*border: solid 1px black;*/
+    box-sizing: border-box;
+    position: relative;
+}
+
+#examples 
+{
+    position: absolute;
+    /*right: 0;*/
+    right: -360px;
+    z-index: 99;
+    height: 100%;
+}
+
+#examples .indicator
+{
+    padding: 2px 8px;
+    overflow: visible;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: 360px;
+    /*right: 0;*/
+    cursor: pointer;
+    font-weight: bold;
+    border: solid 1px #d0d0d0;
+    background-color: #f5f5f5;
+    color: #666;
+}
+
+#examples .indicator:hover 
+{
+    background-color: White;
+    color: Black;
+}
+
+#examples .content
+{
+    width: 360px;
+    height: 100%;
+    background-color: White;
+    border: solid 1px #d0d0d0;
+    box-sizing: border-box;
+    position: absolute;
+    right: 0;
+    /*left: 0;*/
+    top: 0;
+    display: none;
+    overflow: auto;
+    padding: 5px;
+}
+
+/* Misc 
+------------------------------------------------------*/
+
+#mask-layer
+{
+    position: static;
+    display: none;
+}
+
+#mask-layer .mask
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background-color: Black;
+    opacity: 0.5;
+}
+
+#mask-layer div.content
+{
+    text-align: center;
+    background-color: #421C52;
+    color: White;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 1em 0;
+    z-index: 1000;
+}
+
+#mask-layer textarea#noop
+{
+    width: 0;
+    height: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#save-image-panel 
+{
+    position: absolute;
+    z-index: 1001;
+    right: 0;
+    top: 30px;
+    display: none;
+    height: auto;
+    width: 300px;
+    padding: 5px 10px;
+    background-color: White;
+    border: solid 2px gray;
+}
+
+.canvas-image
+{
+    position: absolute;
+    z-index: 1000;
+}
+
+.error-message-box 
+{
+    position: absolute;
+    z-index: 1000;
+    min-width: 100px;
+    width: auto;
+    min-height: 50px;
+    border: solid 2px #FF6600;
+    top: 0;
+    left: 15px;
+    display: none;
+    background-color: White;
+    padding: 5px 10px;
+}
+
+.active 
+{
+    display: block;
+}
+
+.error-icon-box 
+{
+    background: url('../Images/error.png') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 150;
+    cursor: pointer;
+}
+
+.error-icon-box span 
+{
+    color: yellow;
+    font-size: 28px;
+    line-height: 28px;    
+    margin-top: -4px;    
+}

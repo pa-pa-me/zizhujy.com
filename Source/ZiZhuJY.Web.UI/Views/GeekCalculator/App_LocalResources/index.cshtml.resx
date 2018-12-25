@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>计算器, 科学, 极客</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>一款牛屄的急速的科学计算器。在你输入数学计算式的同时在旁边即时显示计算结果，让极客们爱不释手。</value>
+  </data>
+  <data name="SeoTitle" xml:space="preserve">
+    <value>极客计算器 -- 牛屄的科学计算器，快速无与伦比！</value>
+  </data>
+  <data name="ClearExpressions" xml:space="preserve">
+    <value>清除算式</value>
+  </data>
+  <data name="GetLinkTitle" xml:space="preserve">
+    <value>获取链接</value>
+  </data>
+  <data name="GetLinkMessageTitle" xml:space="preserve">
+    <value>获取包含当前算式的永久链接。</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="GeekCalculator" xml:space="preserve">
+    <value>极客计算器</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>特性：</value>
+  </data>
+  <data name="Fast" xml:space="preserve">
+    <value>极速：</value>
+  </data>
+  <data name="FastDescription" xml:space="preserve">
+    <value>即时响应，就在你输入的时候显示结果。如果你不小心输入了不正确的算式，它会立即提示输入的错误信息以帮助你更正；</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>自由：</value>
+  </data>
+  <data name="FreeDescription" xml:space="preserve">
+    <value>你只用专注于输入数学算式，而结果自动在旁边呈现；</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>过程</value>
+  </data>
+  <data name="StepDescription" xml:space="preserve">
+    <value>可以一行一行地将算式列出来，方便地用于展示你的解题过程；</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>分享：</value>
+  </data>
+  <data name="ShareDescription" xml:space="preserve">
+    <value>点击“获取链接”，随时将你的计算过程保存下来或者分享出去。</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>示例：</value>
+  </data>
+  <data name="BasicExample" xml:space="preserve">
+    <value>基本示例</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>教程：</value>
+  </data>
+  <data name="TutorialDescription" xml:space="preserve">
+    <value>还没来得及写。不过，它的使用真的非常简单，你可以通过查看示例学会。然后，你可以将你的经验发布在你的博客上，或者将你的计算过程的链接粘贴在你的微博上，大家可以通过你的实际使用获得启发。</value>
+  </data>
+  <data name="YouChooseLinkTitle" xml:space="preserve">
+    <value>你选择哪个？</value>
+  </data>
+  <data name="YouChooseLinkText" xml:space="preserve">
+    <value>一个小小的改变将会大大不同，你选择什么样的改变呢？</value>
+  </data>
+  <data name="DecimalFractionConvertionDescription" xml:space="preserve">
+    <value>小数与分数快速转换；将无限循环小数转换为分数表示。</value>
+  </data>
+  <data name="DecimalFractionConvertion" xml:space="preserve">
+    <value>小数分数互换</value>
+  </data>
+  <data name="DecimalFractionConvertionLinkTitle" xml:space="preserve">
+    <value>将小数转换为分数表示</value>
+  </data>
+  <data name="DecimalFractionConvertionLinkText" xml:space="preserve">
+    <value>将小数转换成它的分数形式，你甚至可以将一个无限循环小数转换成它的精确分数表示！ 想知道这是怎么做到的？这篇博文有详细的算法描述：《&lt;strong&gt;&lt;a href="http://zizhujy.com/blog/post/2014/01/21/%E5%B0%86%E5%B0%8F%E6%95%B0%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%88%86%E6%95%B0%E7%9A%84%E7%AE%97%E6%B3%95.aspx" target="_blank"&gt;将小数转化为分数的算法&lt;/a&gt;&lt;/strong&gt;》。</value>
+  </data>
+  <data name="Infinite" xml:space="preserve">
+    <value>无限大量</value>
+  </data>
+  <data name="InfiniteIntro" xml:space="preserve">
+    <value>分母是符号0的分数，称为无限大量。在这个以符号0作为分母的量中，可以加入或取出任何量而无任何变化发生，就像在毁灭世界或创造世界的时期，那个无穷的、不变的上帝没有发生任何变化一样，虽然有大量种类的生物被吞没或产生出来。</value>
+  </data>
+  <data name="MathHistory" xml:space="preserve">
+    <value>——— 【英】斯科特 《数学史》</value>
+  </data>
+</root>

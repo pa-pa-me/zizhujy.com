@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="auto_scroll_label" xml:space="preserve">
+    <value>Auto Scroll</value>
+  </data>
+  <data name="current_url_label" xml:space="preserve">
+    <value>Current URL:</value>
+  </data>
+  <data name="Go.Button.Text" xml:space="preserve">
+    <value>Go</value>
+  </data>
+  <data name="goButtonText" xml:space="preserve">
+    <value>Go &gt;&gt;</value>
+  </data>
+  <data name="http_request_queue_label" xml:space="preserve">
+    <value>Queued Http Requests:</value>
+  </data>
+  <data name="http_request_sent_label" xml:space="preserve">
+    <value>Sent Http Requests:</value>
+  </data>
+  <data name="image_checked_label" xml:space="preserve">
+    <value>Images Checked:</value>
+  </data>
+  <data name="image_queue_label" xml:space="preserve">
+    <value>Queued Images:</value>
+  </data>
+  <data name="pause" xml:space="preserve">
+    <value>Pause ||</value>
+  </data>
+  <data name="resume" xml:space="preserve">
+    <value>Resume &gt;&gt;</value>
+  </data>
+  <data name="Seo.Description.Text" xml:space="preserve">
+    <value>With Beauty Image Explorer, you can explorer only images without the need to page down, page down, ...., nor be busy with closing the pop up windows.</value>
+  </data>
+  <data name="Seo.Keywords.Text" xml:space="preserve">
+    <value>Image, Explorer</value>
+  </data>
+  <data name="status_label" xml:space="preserve">
+    <value>Status:</value>
+  </data>
+  <data name="stop_button" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="Banner.Title.Text" xml:space="preserve">
+    <value>Beauty Image Explorer</value>
+  </data>
+  <data name="Raw_AdZone" xml:space="preserve">
+    <value>&lt;script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- Image Explorer App Ad --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="9558341781"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="Raw_Description" xml:space="preserve">
+    <value>&lt;p&gt;Just want to see pictures, but they keep you clicking next page buttons on and on? Once you click a button/link, many pop ups make you busy on closing them? Want to get all the beautiful pictures just by one clicking and then sit back and just watch them?&lt;/p&gt;
+            &lt;p&gt;This app can help you out of this problem, this app understands you and meets this exact need! Type your favorate url and then hit Enter, and see what it can give you!&lt;/p&gt;
+            &lt;p&gt;Screenshot:&lt;/p&gt;
+            &lt;p&gt;&lt;img src="https://lh6.googleusercontent.com/EByn5s2LEPfNx4Q26a9-CLSgOc95NCTQl_Fj5D3LZ1A38v4XEBAi2ll5uwBwd_txtUz94ZDRsQ=s640-h400-e365-rw" alt="Beauty Image Explorer"/&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="Seo.Title.Text" xml:space="preserve">
+    <value>Beauty Image Explorer - Exploer images only!</value>
+  </data>
+</root>

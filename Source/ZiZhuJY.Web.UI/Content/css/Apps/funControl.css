@@ -1,0 +1,102 @@
+﻿
+.expressionLine {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    border-top: solid 1px #421C52;
+    border-bottom: solid 1px #421C52;
+    /*padding right for the error icon*/
+    padding: 3px 30px 3px 3px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    margin-bottom: -1px;
+}
+
+.expressionBox {
+    margin: 0;
+    font-size: 150%;
+    font-family: "Times New Roman","Symbola-mq",serif;
+    letter-spacing: 2px;
+    height: auto;
+    width: auto;
+    max-width: 100%;
+    position: relative;
+}
+
+    .expressionBox span.mathquill-editable {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        /* For the space of clear × button */
+        padding-right: 20px;
+        box-sizing: border-box;
+        display: block;
+        /* cross browser min-height */
+        min-height: 1em;
+        height: auto !important;
+        /* Underscore hack for IE */
+        _height: 1em;
+        /* Underscore hack for IE */
+        /* cross browser min-height */
+    }
+
+        .expressionBox span.mathquill-editable > * {
+            display: inline-block;
+        }
+
+    .expressionBox span {
+        /*height: 100%;*/
+        border: none;
+    }
+
+    .expressionBox .clear {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        color: #ddd;
+    }
+
+        .expressionBox .clear:hover {
+            color: Black;
+        }
+
+.error {
+    background-color: #fbb;
+}
+
+.error-icon-box {
+    background: url('../../Images/error.png') no-repeat center center;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 150;
+    cursor: pointer;
+}
+
+    .error-icon-box span {
+        color: yellow;
+        font-size: 30px!important;
+        line-height: 30px;
+        display: inline-block;
+        margin-top: -2px;
+        margin-left: -1px;
+    }
+
+.error-message-box {
+    background-color: #ddd;
+    border: solid 1px red;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+}
+
+.active {
+    background-color: #999;
+}

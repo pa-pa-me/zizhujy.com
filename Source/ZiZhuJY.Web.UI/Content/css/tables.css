@@ -1,0 +1,431 @@
+﻿/* 仿Google的表格样式; 涂鸦， 2010-1-21 */
+table.tbLikeGoogle 
+{
+    border: solid 1px #CCCCCC;
+    border-collapse: collapse;
+    width: 99%;
+    background-color: White;
+}
+
+table.tbLikeGoogle tr
+{
+    border: solid 1px #CCCCCC;
+}
+
+/* 鼠标经过的样式 */
+table.tbLikeGoogle tr:hover
+{
+    background-color: #F1FCFF;
+}    
+
+table.tbLikeGoogle thead tr 
+{
+    border-bottom: solid 1px #a6a6a6;
+}
+
+/* 表头当鼠标经过时样式不变 */
+table.tbLikeGoogle thead tr:hover
+{
+    border-bottom: solid 1px #a6a6a6;
+    background-color: transparent;
+}
+
+table.tbLikeGoogle tr td 
+{
+    padding: 6px 0 6px 3px;
+    /* IE 7 及以下不支持 tr 的border属性 */
+    border-top: solid 1px #CCCCCC;
+    border-bottom: solid 1px #CCCCCC;
+    text-align: left;
+}
+
+/* 链接样式 */
+table.tbLikeGoogle tr td a:link 
+{
+    padding: 0!important;
+    margin: 0!important;
+    color: #2244DD!important;
+    text-decoration: underline!important;
+}
+
+table.tbLikeGoogle tr td a:link 
+{
+    padding: 0!important;
+    margin: 0!important;
+    color: #2244DD!important;
+    text-decoration: underline!important;
+}
+
+table.tbLikeGoogle tr td a:link 
+{
+    padding: 0!important;
+    margin: 0!important;
+    color: #2244DD!important;
+    text-decoration: underline!important;
+}
+
+table.tbLikeGoogle tr td a:link 
+{
+    padding: 0!important;
+    margin: 0!important;
+    color: #2244DD!important;
+    text-decoration: underline!important;
+}
+
+table.tbLikeGoogle thead tr th
+{
+    /* IE 7 及以下不支持 tr 的border属性 */
+    border-bottom: solid 1px #a6a6a6;
+    text-align: left;
+    padding: 6px 0 6px 3px;
+    vertical-align: top;
+}
+
+table.tbLikeGoogle thead tr th .filter 
+{
+    font-weight: normal;
+}
+/* 仿Google的表格样式；结束 */
+
+/* 涂鸦表格样式；涂鸦，2010-8-15 */
+table.tbDoodles 
+{
+    color: Black;
+    border-collapse: collapse;
+    width: auto;
+    border: solid 1px #666;
+    border-spacing: 0; /* 控制单元格之间的距离。IE6及更低版本不理解此属性，需要在<table />元素中添加 cellspacing="0" */
+}
+
+table.tbDoodles caption 
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+table.tbDoodles col 
+{
+    border-right: solid 1px #ccc;
+}
+
+/* 最后一列的效果 */
+table.tbDoodles col.LastCol, table.tbDoodles col.lastCol, table.tbDoodles col.lastColumn, table.tbDoodles col.LastColumn
+{
+    border: none;
+}
+
+table.tbDoodles th, table.tbDoodles td 
+{
+    padding: 0.1em 1em;
+}
+
+table.tbDoodles .lastColCell 
+{
+    border: none;
+}
+
+table.tbDoodles thead 
+{
+    background: #fff url(../images/bar.gif) repeat-x left center;
+    /*border-top: solid 1px #a5a5a5;*/
+    border-bottom: solid 1px #a5a5a5;
+}
+
+table.tbDoodles th 
+{
+    font-weight: normal;
+    text-align: left;
+}
+
+table.tbDoodles #idListPostHead 
+{
+    text-indent: -1000em;
+}
+
+/* 此Style为了通用而设置，其实与上面的效果一样 */
+table.tbDoodles .ListPostHead 
+{
+    text-indent: -1000em;
+}
+
+table.tbDoodles .odd 
+{
+    background-color: #edf5ff;
+}
+
+table.tbDoodles tr:nth-child(odd) 
+{
+    background-color: #edf5ff;
+}
+
+table.tbDoodles thead tr:nth-child(odd) 
+{
+    background-color: Transparent;
+}
+
+table.tbDoodles tr.selected 
+{
+    background-color: #6fb3ff;
+    color: #fff;
+}
+
+table.tbDoodles tr:hover 
+{
+    background-color: #3d80df;
+    color: #fff;
+}
+
+table.tbDoodles thead tr:hover 
+{
+    background-color: Transparent;
+    color: inherit;
+}
+/* 涂鸦表格样式；结束 */
+
+table.tbGridView {
+    border-collapse: collapse;
+    border: solid 1px black;
+}
+
+table.tbGridView th, table.tbGridView td {
+    border: solid 1px black;
+    padding: 5px 1em;
+}
+
+table.errorList {
+    border-collapse: collapse;
+    border: solid 1px gray;
+}
+
+table.errorList caption {
+    font-weight: bold;
+    font-size: larger;
+    text-align: left;
+}
+
+table.errorList tr {
+    cursor: default;
+}
+
+table.errorList td, table.errorList th {
+    border: solid 1px gray;
+}
+
+table.errorList thead {
+    background-color: #cccccc;
+}
+
+table.errorList thead th, table.errorList thead td {
+    padding: 3px 10px;
+}
+
+table.errorList tbody tr:hover {
+    background-color: #eeeeee;
+}
+
+table.errorList tbody tr:active, table.errorList tbody tr.selected {
+    background-color: #3333ff;
+    color: White;
+}
+
+/* Win 8 Apps表格样式；jeff@zizhujy.com，2012-12-9 */
+table.tbWin8Apps 
+{
+    color: #421C52;
+    border-collapse: collapse;
+    width: auto;
+    /*border: solid 1px #800080;*/
+    border: none;
+    border-spacing: 0; /* 控制单元格之间的距离。IE6及更低版本不理解此属性，需要在<table />元素中添加 cellspacing="0" */
+}
+
+table.tbWin8Apps caption 
+{
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1em 0;
+}
+
+table.tbWin8Apps col 
+{
+    border-right: solid 1px #ccc;
+}
+
+/* 最后一列的效果 */
+table.tbWin8Apps col.LastCol, table.tbWin8Apps col.lastCol, table.tbDoodles col.lastColumn, table.tbWin8Apps col.LastColumn
+{
+    border: none;
+}
+
+table.tbWin8Apps th, table.tbWin8Apps td 
+{
+    padding: 0.1em 1em;
+}
+
+table.tbWin8Apps .lastColCell 
+{
+    border: none;
+}
+
+table.tbWin8Apps thead 
+{
+    /*background: #ccc url(../images/bar.gif) repeat-x left center;*/
+    /*border-top: solid 1px #a5a5a5;*/
+    /*border-bottom: solid 1px #b200ff;*/
+    height: 30px;
+    color: black;
+}
+
+table.tbWin8Apps th 
+{
+    font-weight: bold;
+    text-align: left;
+}
+
+table.tbWin8Apps #idListPostHead 
+{
+    text-indent: -1000em;
+}
+
+/* 此Style为了通用而设置，其实与上面的效果一样 */
+table.tbWin8Apps .ListPostHead 
+{
+    text-indent: -1000em;
+}
+
+table.tbWin8Apps .odd 
+{
+    background-color: #fee0ff;
+}
+
+table.tbWin8Apps tr:nth-child(odd) 
+{
+    background-color: #fee0ff;
+}
+
+table.tbWin8Apps thead tr:nth-child(odd) 
+{
+    background-color: Transparent;
+}
+
+table.tbWin8Apps tr.selected 
+{
+    background-color: #6fb3ff;
+    color: #fff;
+}
+
+table.tbWin8Apps tr:hover 
+{
+    background-color: #421C52;
+    color: #fff;
+}
+
+table.tbWin8Apps thead tr:hover 
+{
+    background-color: Transparent;
+    color: inherit;
+}
+/* Win8 Apps表格样式；结束 */
+
+﻿table.grid {
+    border-collapse: separate;
+    border-spacing: 0;
+    border: solid 1px #8ec5dc;
+    empty-cells: show;
+    font-family: Tahoma, Verdana, Arial, "Helvetica Neue", Helvetica, SimSun, Sans-Serif;
+    background-color: white;
+}
+
+table.grid caption {
+    font-weight: bold;
+    margin: 1em 0 0.1em 0;
+}
+
+table.grid thead {
+    background: #b6dff0 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA0CAMAAAB8fKKlAAAAP1BMVEXK7/7F6/q95fW54fHC6fm44PC75PO23/DL7/7K7v2+5vXH7fzH7Py85fTJ7f3A5/e64vPJ7v3B6PjE6vrL8P5TyNMmAAAAK0lEQVR4Xp3BhRGAQAwAsPQd1/1nZQcuGF5wmewWqxAexe0wSzbNKav6Xx9XjwGYdKpf2wAAAABJRU5ErkJggg==') repeat-x 0 0;
+    color: #4d90aa;
+}
+
+table.grid th, table.grid td {
+    padding: 5px 1em;
+    vertical-align: middle;
+    white-space: normal;
+    word-wrap: normal;
+    word-break: normal;
+    text-overflow: ellipsis;
+}
+
+table.grid thead tr {
+    border-bottom: none;
+}
+
+table.grid thead tr th, table.grid thead tr td {
+    border-top: none;
+    border-bottom: none;
+    border-right: solid 1px white;
+}
+
+    table.grid thead tr th:last-child, table.grid thead tr td:last-child {
+        border-right: none;
+    }
+
+table.grid tbody tr {
+    background: none;
+}
+
+table.grid tbody th, table.grid tbody td {
+    border-bottom: dashed 1px #cccccc;
+    border-right: dashed 1px #eeeeee;
+}
+
+    table.grid tbody th:last-child, table.grid tbody td:last-child {
+        border-right: none;
+    }
+
+    table.grid tbody tr:last-child th, table.grid tbody tr:last-child td {
+        border-bottom: none;
+    }
+
+table.grid col {
+    border-right: dashed 1px #eeeeee;
+}
+
+table.grid col:last-child {
+    border-right: none;
+}
+
+table.layout-table {
+    
+}
+
+table.layout-table td {
+    height: 100%;
+}
+
+/* From twitter bootstrap */
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background-color: #f9f9f9;
+}
+
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+.table-hover tbody tr.success:hover > td {
+  background-color: #d0e9c6;
+}
+
+.table-hover tbody tr.error:hover > td {
+  background-color: #ebcccc;
+}
+
+.table-hover tbody tr.warning:hover > td {
+  background-color: #faf2cc;
+}
+
+.table-hover tbody tr.info:hover > td {
+  background-color: #c4e3f3;
+}

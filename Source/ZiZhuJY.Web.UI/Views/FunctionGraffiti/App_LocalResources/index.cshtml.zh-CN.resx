@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CharmingCurve" xml:space="preserve">
+    <value>迷人的曲线。</value>
+  </data>
+  <data name="Circle" xml:space="preserve">
+    <value>如何画单位圆？</value>
+  </data>
+  <data name="ClickToSeeGraph" xml:space="preserve">
+    <value>点击查看示例</value>
+  </data>
+  <data name="Darts" xml:space="preserve">
+    <value>飞镖。</value>
+  </data>
+  <data name="FunctionsTitle" xml:space="preserve">
+    <value>函数：</value>
+  </data>
+  <data name="GraphButtonText" xml:space="preserve">
+    <value>作图！(G)</value>
+  </data>
+  <data name="InputFunctions" xml:space="preserve">
+    <value>在函数框里输入：</value>
+  </data>
+  <data name="InstructionsDesc1" xml:space="preserve">
+    <value>在上面的文本框里，输入一个或者多个函数，然后点击“作图”按钮。可以使用分号分隔多个函数。可以使用注释，如 /* 这里是注释 */</value>
+  </data>
+  <data name="InstructionsDesc2" xml:space="preserve">
+    <value>在下面有一些有趣的示例，你可以依次点击查看它们的图形。</value>
+  </data>
+  <data name="InstructionsDesc3" xml:space="preserve">
+    <value>祝你画图愉快！</value>
+  </data>
+  <data name="InstructionsTitle" xml:space="preserve">
+    <value>操作提示：</value>
+  </data>
+  <data name="Jiong" xml:space="preserve">
+    <value>冏。</value>
+  </data>
+  <data name="LinkButtonText" xml:space="preserve">
+    <value>获取链接 (L)</value>
+  </data>
+  <data name="LinkLabelText" xml:space="preserve">
+    <value>链接到此图：</value>
+  </data>
+  <data name="LiXinBlog" xml:space="preserve">
+    <value>力新博客</value>
+  </data>
+  <data name="Nappe" xml:space="preserve">
+    <value>水帘。</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>函数涂鸦板 - 最好的在线函数画图工具！在线函数绘图，没有数量上限。</value>
+  </data>
+  <data name="PointsCountTip" xml:space="preserve">
+    <value>可不填。点数越多越精确，默认500点，最多10000点。</value>
+  </data>
+  <data name="PointsCountTitle" xml:space="preserve">
+    <value>点数：</value>
+  </data>
+  <data name="Provide" xml:space="preserve">
+    <value>提供</value>
+  </data>
+  <data name="ResetButtonText" xml:space="preserve">
+    <value>清除 (R)</value>
+  </data>
+  <data name="ScaleOfTAxiesTitle" xml:space="preserve">
+    <value>t值范围：</value>
+  </data>
+  <data name="ScaleOfXAxiesTitle" xml:space="preserve">
+    <value>x值范围：</value>
+  </data>
+  <data name="ScaleOfYAxiesTitle" xml:space="preserve">
+    <value>y值范围：</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>函数涂鸦板。最好在线函数作图器。多函数支持，没有函数数量上限，一次可以作出任意个函数的图形。它也是一款小巧的图形计算器，在线绘图，方程求解。各种有趣函数图形的示例；在线函数图形生成，轻松地在线函数画图。</value>
+  </data>
+  <data name="ShareButtonText" xml:space="preserve">
+    <value>分享 (S)</value>
+  </data>
+  <data name="Smoke" xml:space="preserve">
+    <value>烟。</value>
+  </data>
+  <data name="Spaghetti" xml:space="preserve">
+    <value>一根意大利面条。</value>
+  </data>
+  <data name="Spiral" xml:space="preserve">
+    <value>螺旋。</value>
+  </data>
+  <data name="Thanks" xml:space="preserve">
+    <value>感谢</value>
+  </data>
+  <data name="TightEncirclement" xml:space="preserve">
+    <value>天罗地网。</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>自变量或者因变量请用小写 x 或者小写 y 表示。平方用x^2，三次方用x^3，依次类推。因变量y=部分可省略，多个函数用；号分隔。</value>
+  </data>
+  <data name="TitleOfWaterStream" xml:space="preserve">
+    <value>细水长流。</value>
+  </data>
+  <data name="ToTitle" xml:space="preserve">
+    <value>到</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>&lt;h1&gt;函数涂鸦板 &lt;span style="font-size: xx-small; color: Red;"&gt;在线函数作图！&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.zizhujy.com/blog/page/%E5%87%BD%E6%95%B0%E6%B6%82%E9%B8%A6%E6%9D%BF.aspx" target="_blank"&gt;查看介绍&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>函数涂鸦板, 涂鸦板, 函数作图, 函数作图器, 作图器, 图形, 在线画图, 在线作图, 在线函数作图器, 2维函数图形, 图形计算器</value>
+  </data>
+  <data name="ListOfFunctions" xml:space="preserve">
+    <value>&lt;a href="http://www.zizhujy.com/blog/post/2011/10/10/%E5%9C%A8%E7%BA%BF%E5%87%BD%E6%95%B0%E6%B6%82%E9%B8%A6%E6%9D%BF%E6%89%80%E6%94%AF%E6%8C%81%E7%9A%84%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8.aspx" title="全部函数列表" target="_blank"&gt;全部函数列表&lt;/a&gt;</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>函数涂鸦板</value>
+  </data>
+  <data name="ApplicationNameRemark" xml:space="preserve">
+    <value>&lt;span style="color: white; font-size: small; background-color: red; padding: 5px 10px;"&gt;在线绘制函数图像！&lt;/span&gt;&lt;span style="margin-left: 100px; font-size: small; display: none;"&gt;&lt;a style="color: yellow; display: none;" href="/Ploter"&gt;转到描点器！&lt;/a&gt;&lt;/span&gt;</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="CommentTitle" xml:space="preserve">
+    <value>添加评论</value>
+  </data>
+  <data name="ThirdPartyCommentCode" xml:space="preserve">
+    <value>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zizhujy-zhcn'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;a href="http://disqus.com" class="dsq-brlink"&gt;blog comments powered by &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="Ad" xml:space="preserve">
+    <value>&lt;a href="/Ploter" title="转到描点器！"&gt;&lt;img src="/Content/Images/Ploter.png" alt="描点器" /&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="AutoYRangeLabel" xml:space="preserve">
+    <value>自动</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>图例</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>&lt;p&gt;烟（二） &lt;a href="javascript:jGraffiti.graph('sin(x) + (1/100)*cos(100*x);', -0.1, 0.1, -0.1, 0.1, null, null, 500, false);"
+            title="烟（二）" target="_self"&gt;点击查看示例&lt;/a&gt;&lt;/p&gt;
+    &lt;p style="text-indent: 2em;"&gt;在函数框里输入：&lt;/p&gt;
+    &lt;pre class="brush: javascript"&gt;sin(x) + (1/100)*cos(100*x);&lt;/pre&gt;</value>
+  </data>
+  <data name="NewVersion" xml:space="preserve">
+    <value>新版可用，支持隐函数作图！</value>
+  </data>
+</root>

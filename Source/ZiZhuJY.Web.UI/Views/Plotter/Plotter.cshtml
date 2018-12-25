@@ -1,0 +1,479 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    // For Handsontable display
+    Layout = "~/Views/Shared/_ThreeColumnsLayout_IE10.cshtml";
+    ViewBag.Title = this.Localize("PageTitle");
+    ViewBag.BannerTitle = this.Localize("BannerTitle");
+}
+
+@section metas{
+    @Html.RenderCommonMetas()
+}
+
+@section HeaderStyles{
+    @Html.RenderCsses("~/Content/css/tables.css", "~/Content/css/math.css", "~/Content/css/Apps/PlotterStyle.css", "~/Scripts/jquery-ui/css/ui-lightness/jquery-ui-1.10.4.css")
+
+    @Html.RenderCsses("~/Scripts/handsontable/touchpad/jquery.contextMenu.css",
+            "~/Scripts/handsontable/touchpad/jquery.handsontable.css",
+                    "~/Scripts/handsontable/touchpad/jquery.handsontable.controller.css")
+
+    <style type="text/css">
+        .handsontable .currentRow {
+            background-color: #E7E8EF;
+        }
+
+        .handsontable .currentCol {
+            background-color: #F9F9FB;
+        }
+
+        label {
+            display: inline-block;
+        }
+
+        .tbDoodles tbody th, .tbDoodles tbody td {
+            padding: 0.5em 1em;
+        }
+    </style>
+}
+
+@section HeaderScripts{
+    @Html.RenderJavaScripts("~/Scripts/jquery-ui/js/jquery-ui-1.10.4.js", "~/Scripts/Maths/zizhujy.com.Matrix.js", "~/Scripts/Maths/jStats-1.1.0.js", "~/Scripts/Apps/Ploter/jPoints.js", "~/Scripts/Apps/Ploter/jPloter.js", "~/Scripts/zizhujy.com.Console.js")
+    @Html.RenderJavaScripts("~/Scripts/jquery.colorhelpers.js", "~/Scripts/bigjs/big.js")
+    <!--[if lte IE 8]>
+        <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/excanvas.min.js")"></script>
+    <![endif]-->
+    @Html.RenderJavaScripts("~/Scripts/flot/flot/lib/jquery.drag.js", "~/Scripts/flot/flot/lib/jquery.mousewheel.js", "~/Scripts/flot/flot/jquery.flot.js", "~/Scripts/flot/jquery.flot.resize.js")
+    @*<script src="@Url.Content("~/Scripts/flot/jquery.flot.canvas.js")" type="text/javascript"></script>*@
+    <script type="text/javascript">
+        Globalize.addCultureInfo("default", {
+            messages: @Html.Raw(ResourceHelper.JsonResource(VirtualPath))
+        });
+    </script>
+    @Html.RenderJavaScripts(
+    
+    "~/Scripts/handsontable/touchpad/jquery.handsontable.js",
+            "~/Scripts/handsontable/touchpad/bootstrap-typeahead.js",
+            "~/Scripts/handsontable/touchpad/jquery.autoresize.js",
+            "~/Scripts/handsontable/touchpad/jquery.expage.js",
+            "~/Scripts/handsontable/touchpad/jquery.contextMenu.js",
+            "~/Scripts/handsontable/touchpad/jquery.handsontable.controller.js")
+
+    @Html.RenderJavaScripts(
+    "~/Scripts/flot/coordinate/jquery.flot.coordinate.js",
+    "~/Scripts/base64.js",
+    "~/Scripts/drawing/canvas2image.js",
+    "~/Scripts/flot/flot/jquery.flot.navigate.js",
+    "~/Scripts/flot/jquery.flot.tooltip.js",
+    "~/Scripts/flot/navigationControl/jquery.flot.navigationControl.js",
+    "~/Scripts/flot/jquery.flot.menuBar.js",
+    "~/Scripts/Apps/Ploter/Plotter.js"
+    )
+}
+@section pageid{
+    <zizhujy pageid="Plotter"></zizhujy>
+}
+@section col1{
+    <div id="chart-area" style="clear: both; float: none;">
+        <div id="canvas" style="width: 100%; min-height: 300px;">
+        </div>
+        <div style="margin: 1em 0; text-indent: 2em; font-size: smaller; color: gray;">
+            @this.Localize("ChartInteractiveTip")
+        </div>
+    </div>
+    <div id="options" class="metro-box">
+        <input type="checkbox" id="chkLinearFit" style="color: #FF0000;" /><label for="chkLinearFit"
+                                                                                  style="color: #FF0000;">@this.Localize("linearFit")</label>
+<input type="checkbox" id="chkQuadraticFit" style="color: #800080;" /><label for="chkQuadraticFit"
+                                                                             style="color: #800080;">@this.Localize("quadraticFit")</label>
+<input type="checkbox" id="chkCubicFit" style="color: #090;" /><label for="chkCubicFit"
+                                                                      style="color: #090;">@this.Localize("cubicFit")</label>
+<input type="checkbox" id="chkExpFit" style="color: #009;" /><label for="chkExpFit"
+                                                                    style="color: #009;">@this.Localize("exponentialFit")</label>
+<input type="checkbox" id="chkLogFit" style="color: #0000FF;" /><label for="chkLogFit"
+                                                                       style="color: #0000FF;">@this.Localize("logarithmFit")</label>
+<input type="checkbox" id="chkPolynomialFit" style="color: #F08;" /><label for="chkPolynomialFit"
+                                                                           style="color: #F08;">@this.Localize("polynomialFit.pre")</label><input type="text" id="txtPower" value="4" style="width: 25px; min-width: 10px; margin: 0; padding: 0;" />
+<label for="chkPolynomialFit" style="color: #F08;">@this.Localize("polynomialFit.post")</label>
+<div class="clearFloat">
+</div>
+</div>
+<div id="predictColumn">
+    <div>
+        <div class="header">
+            <h3>@this.Localize("estimateOrPredict")</h3>
+</div>
+<div class="content" style="margin-bottom: 1em;">
+    <p>@this.Localize("estimateOrPredict.text")</p>
+<label for="txtX">@this.Localize("input.x.here")</label>
+<input type="text" id="txtX" style="width: 35px;" />
+<input type="button" id="btnEsitmateAndPredict" value="@this.Localize("estimateOrPredict")" />
+</div>
+<div id="fits" style="overflow: auto;">
+    <table class="tbDoodles">
+        <thead>
+            <tr>
+                <th>
+                    @this.Localize("model.name")
+</th>
+<th>
+    @this.Localize("formula.expression")
+</th>
+<th>
+    @this.Localize("parameters")
+</th>
+<th>
+    @this.Localize("square.sum.of.fitting.errors")
+</th>
+<th>
+    x
+</th>
+<th>
+    y
+</th>
+</tr>
+</thead>
+<tbody>
+    <tr>
+        <th>
+            {0}
+        </th>
+        <td>
+            {1}
+        </td>
+        <td>
+            {2}
+        </td>
+        <td>
+            {3}
+        </td>
+        <td>
+            {4}
+        </td>
+        <td>
+            {5}
+        </td>
+    </tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="clearFloat">
+</div>
+</div>
+
+@Html.RenderAds(this.Localize("AdZoneSkyScraper"), "adZone", "width: 300px; height: 600px; margin-top: 10px; margin-right: 5px;")
+
+@Html.RenderAds(this.Localize("AdZoneSkyScraper"), "adZone", "width: 300px; height: 600px; margin-top: 10px; margin-left: 5px; float: right;")
+}
+
+@section col2{
+    <div id="input-area">
+        <div>
+            <button type="button" id="btnPlot" accesskey="P">
+                @Html.Raw(this.Localize("plot"))
+            </button>
+            <button type="button" id="btnClear" accesskey="C">
+                @Html.Raw(this.Localize("clear"))
+            </button>
+        </div>
+        <div style="display: block; height:auto; position: relative;">
+            <div id="data-area" class="handsontable dataTable"></div>
+        </div>
+    </div>
+    <div id="aboutColumn">
+        <div class="metro-box">
+            <h2>@this.Localize("about")</h2>
+            <p style="text-indent: 2em;">@this.Localize("about.text1")</p>
+            <h3><strong>@this.Localize("about.text2")</strong></h3>
+            <p style="text-align: left; text-indent: 2em;">@this.Localize("about.text3")</p>
+        </div>
+        <div class="clearFloat">
+        </div>
+    </div>
+}
+
+@section col3 {
+    <div id="statsColumn">
+        <div id="statsX">
+            <div class="header">
+                <h3>@this.Localize("stats.for.x")</h3>
+            </div>
+            <div class="content" style="overflow: auto;">
+                <table class="tbDoodles">
+                    <thead>
+                        <tr>
+                            <th>
+                                <span>@this.Localize("stats")</span>
+                            </th>
+                            <th>
+                                @this.Localize("value")
+                            </th>
+                            <th>
+                                @this.Localize("name.of.stats")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                n
+                            </th>
+                            <td>
+                                {0}
+                            </td>
+                            <th>
+                                @this.Localize("count")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="math-bar">x</span>
+                            </th>
+                            <td>
+                                {2}
+                            </td>
+                            <th>
+                                @this.Localize("mean")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Sx
+                            </th>
+                            <td>
+                                {4}
+                            </td>
+                            <th>
+                                @this.Localize("sample.standard.deviation")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                S<sup>2</sup>x
+                            </th>
+                            <td>
+                                {6}
+                            </td>
+                            <th>
+                                @this.Localize("sample.variance")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                σx
+                            </th>
+                            <td>
+                                {8}
+                            </td>
+                            <th>
+                                @this.Localize("population.standard.deviation")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                σ<sup>2</sup>x
+                            </th>
+                            <td>
+                                {10}
+                            </td>
+                            <th>
+                                @this.Localize("population.variance")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Σx
+                            </th>
+                            <td>
+                                {12}
+                            </td>
+                            <th>
+                                @this.Localize("sum")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Σx<sup>2</sup>
+                            </th>
+                            <td>
+                                {14}
+                            </td>
+                            <th>
+                                @this.Localize("sum.of.squares")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Σxy
+                            </th>
+                            <td>
+                                {1}
+                            </td>
+                            <th>
+                                @this.Localize("sum.of.product")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                r
+                            </th>
+                            <td>
+                                {16}
+                            </td>
+                            <th>
+                                @this.Localize("correlation.coefficient.with.y")
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div id="statsY">
+            <div class="header">
+                <h3>@this.Localize("stats.for.y")</h3>
+            </div>
+            <div class="content" style="overflow: auto;">
+                <table class="tbDoodles">
+                    <thead>
+                        <tr>
+                            <th>
+                                @this.Localize("stats")
+                            </th>
+                            <th>
+                                @this.Localize("value")
+                            </th>
+                            <th>
+                                @this.Localize("name.of.stats")
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>
+                                n
+                            </th>
+                            <td>
+                                {0}
+                            </td>
+                            <th>
+                                @this.Localize("count")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span class="math-bar">y</span>
+                            </th>
+                            <td>
+                                {3}
+                            </td>
+                            <th>
+                                @this.Localize("mean")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Sy
+                            </th>
+                            <td>
+                                {5}
+                            </td>
+                            <th>
+                                @this.Localize("sample.standard.deviation")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                S<sup>2</sup>y
+                            </th>
+                            <td>
+                                {7}
+                            </td>
+                            <th>
+                                @this.Localize("sample.variance")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                σy
+                            </th>
+                            <td>
+                                {9}
+                            </td>
+                            <th>
+                                @this.Localize("population.standard.deviation")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                σ<sup>2</sup>y
+                            </th>
+                            <td>
+                                {11}
+                            </td>
+                            <th>
+                                @this.Localize("population.variance")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Σy
+                            </th>
+                            <td>
+                                {13}
+                            </td>
+                            <th>
+                                @this.Localize("sum")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Σy<sup>2</sup>
+                            </th>
+                            <td>
+                                {15}
+                            </td>
+                            <th>
+                                @this.Localize("sum.of.squares")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                Σyx
+                            </th>
+                            <td>
+                                {1}
+                            </td>
+                            <th>
+                                @this.Localize("sum.of.product")
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>
+                                r
+                            </th>
+                            <td>
+                                {16}
+                            </td>
+                            <th>
+                                @this.Localize("correlation.coefficient.with.x")
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="clearFloat">
+        </div>
+    </div>
+    
+    @Html.RenderAds(this.Localize("AdZone"), "adZone", "width: 336px; height: 280px; float: right; margin-top: 10px;")
+}
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}
+
+@section Scripts{
+    <div id="error-message" title="@this.Localize("please.pay.attention")">
+    </div>
+}

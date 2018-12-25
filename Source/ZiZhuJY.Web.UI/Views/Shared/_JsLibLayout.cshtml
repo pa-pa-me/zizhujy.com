@@ -1,0 +1,170 @@
+﻿@using ZiZhuJY.Common.Helpers
+@using ZiZhuJY.Web.UI.Helpers
+
+@{
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+    var page = (WebViewPage)ViewBag.CurrentPage;
+
+    ViewBag.Title = page.Localize("PageTitle");
+}
+
+@section HeaderScripts{
+    @page.RenderCommonMetas()
+    @Html.RenderCsses("~/Scripts/syntaxhighlighter_3.0.83/styles/shCore.css",
+    "~/Scripts/syntaxhighlighter_3.0.83/styles/shThemeDefault.css", "~/Content/css/effects.css")
+    @Html.RenderJavaScripts(
+                    "~/Scripts/xregexp/xregexp.js",
+                    "~/Scripts/syntaxhighlighter_3.0.83/src/shCore.js",
+                    "~/Scripts/syntaxhighlighter_3.0.83/scripts/shAutoloader.js",
+                    "~/Scripts/effects/jquery.rwdImageMaps.js")
+
+    <style type="text/css">
+        .wrapper {
+        }
+
+        .container {
+            width: 100%;
+            float: left;
+            margin-right: -320px;
+        }
+
+        .content {
+            margin-right: 320px;
+        }
+
+            .content img {
+                max-width: 100%;
+            }
+
+        .sidebar {
+            width: 300px;
+            float: right;
+            padding: 1em 0 1em 0;
+        }
+
+        .fork {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 200px;
+        }
+
+        .fork img {
+            max-width: 100%;
+        }
+
+        .fork-placeholder {
+            height: 50px;
+        }
+
+        body .syntaxhighlighter .line {
+            white-space: pre-wrap !important;
+        }
+    </style>
+    <script type="text/javascript" id="line-word-wrap-syntax-highlighter">
+        $(function () {
+            // Line wrap back
+            var shLineWrap = function () {
+                // Fix by Jeff Tian that make it work with the collapsed setting
+                $('.syntaxhighlighter:not(.collapsed)').each(function () {
+                    // Fetch
+                    var $sh = $(this),
+                        $gutter = $sh.find('td.gutter'),
+                        $code = $sh.find('td.code')
+                    ;
+                    // Cycle through lines
+                    $gutter.children('.line').each(function (i) {
+                        // Fetch
+                        var $gutterLine = $(this),
+                            $codeLine = $code.find('.line:nth-child(' + (i + 1) + ')')
+                        ;
+                        //alert($gutterLine);
+                        // Fetch height
+                        var height = $codeLine.height() || 0;
+                        if (!height) {
+                            height = 'auto';
+                        }
+                        else {
+                            height = height += 'px';
+                            //alert(height);
+                        }
+                        // Copy height over
+                        $gutterLine.attr('style', 'height: ' + height + ' !important'); // fix by Edi, for JQuery 1.7+ under Firefox 15.0
+                    });
+                });
+            };
+
+            // Line wrap back when syntax highlighter has done it's stuff
+            var shLineWrapWhenReady = function () {
+                if ($('.syntaxhighlighter').length === 0) {
+                    setTimeout(shLineWrapWhenReady, 100);
+                }
+                else {
+                    shLineWrap();
+                    // Fix by Jeff Tian that make it work with the collapsed setting
+                    if ($(".syntaxhighlighter.collapsed").length > 0) {
+                        setTimeout(shLineWrapWhenReady, 100);
+                    }
+                }
+            };
+
+            // Fire
+            shLineWrapWhenReady();
+
+            // Fix by Jeff Tian that make it work after window resized.
+            $(window).resize(function (event) {
+                shLineWrapWhenReady();
+            });
+        });
+
+        $(document).ready(function(e) {
+            $("img[usemap]").rwdImageMaps();
+        });
+    </script>
+}
+
+<div class="wrapper">
+    <div class="container">
+        <div class="content">
+            @Html.Markdown(
+            NetworkFileHelper.GetNetworkFileTextContent(page.Localize("README_URI")),
+            new Dictionary<string, object>(){
+                {"UrlBaseLocation", page.Localize("UrlBase")}
+            })
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="fork-placeholder">
+            
+        </div>
+        @RenderBody()
+        @Html.RenderAds(this.Localize("AdZone"), "adZone", "width: 300px; height: 600px; margin-top: 1em 0 1em 1em;")
+    </div>
+    <div class="clearFloat"></div>
+
+    <div class="fork">
+            <img src="@Url.Content("~/Content/Images/fork.png")" title="@this.Localize("ForkMeOnGitHub")" alt="@this.Localize("ForkMeOnGitHub")" usemap="#fork-me-map"/>
+            
+            <map name="fork-me-map">
+                <area shape="poly" coords="0,0,142,0,312,98,312,180" href="@page.Localize("ForkMeOnGitHubUrl")" alt="@this.Localize("ForkMeOnGitHub")" target="_blank" title="@this.Localize("ForkMeOnGitHub")"/>
+            </map>
+    </div>
+</div>
+
+
+@section Cultures
+{
+    @page.RenderCultureSelection()
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        // highlight
+        SyntaxHighlighter.autoloader(
+            'js jscript javascript	@Url.Content("~/Scripts/syntaxhighlighter_3.0.83/scripts/shBrushJScript.js")',
+            'xml xhtml xslt html @Url.Content("~/Scripts/syntaxhighlighter_3.0.83/scripts/shBrushXml.js")'
+        );
+        SyntaxHighlighter.all();
+    </script>
+}

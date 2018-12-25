@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FunctionsTitle" xml:space="preserve">
+    <value>请输入函数表达式：</value>
+  </data>
+  <data name="GraphButtonText" xml:space="preserve">
+    <value>作图</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>趣涂在线函数画图 - 小巧灵活的在线绘图应用，支持隐函数作图！在线探索各种函数图形。</value>
+  </data>
+  <data name="ResetButtonText" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="ScaleOfTAxiesTitle" xml:space="preserve">
+    <value>t 从 </value>
+  </data>
+  <data name="ScaleOfXAxiesTitle" xml:space="preserve">
+    <value>x 从 </value>
+  </data>
+  <data name="ScaleOfYAxiesTitle" xml:space="preserve">
+    <value>y 从</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>在线函数画图，绘制给定函数的图像。这是一款小巧灵活的在线函数作图工具，多函数支持，而且能够作出隐函数图像！支持 LaTex 表达式，还可以用作在线公式编辑器、图形计算器。在线探索一次函数、二次函数、多项式函数、指数函数、对数函数、三角函数以及各类隐函数图形图像。</value>
+  </data>
+  <data name="ToTitle" xml:space="preserve">
+    <value>到</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>函数涂鸦板, 涂鸦板, 函数作图, 函数作图器, 作图器, 图形, 在线画图, 在线作图, 在线函数作图器, 2维函数图形, 图形计算器,隐函数作图, 函数图像</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>图例</value>
+  </data>
+  <data name="LogoPath" xml:space="preserve">
+    <value>~/Content/Images/funGrapherLogo_zh-CN.png</value>
+  </data>
+  <data name="LogoRaw" xml:space="preserve">
+    <value>&lt;a href="#" onclick="return false;" title="趣涂在线函数画图"&gt;&lt;img src="{0}" alt="趣涂 函数作图器！" /&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>设置</value>
+  </data>
+  <data name="LockRatio" xml:space="preserve">
+    <value>锁定比例</value>
+  </data>
+  <data name="CloseMsg" xml:space="preserve">
+    <value>关闭信息窗口</value>
+  </data>
+  <data name="CloseTips" xml:space="preserve">
+    <value>关闭帮助</value>
+  </data>
+  <data name="ShowHelp" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>&lt;p&gt;自变量或者因变量请用小写 x 或者小写 y 表示。平方用x^2，三次方用x^3，依次类推。多个函数用;号分隔。&lt;/p&gt;
+&lt;p&gt;目前只支持&lt;strong style="color: red;"&gt;显式函数&lt;/strong&gt;，即如下函数是有效的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;y = x^2 + 2;&lt;/li&gt;
+&lt;li&gt;x = y^3 + 2;&lt;/li&gt;
+&lt;li style="color: red;"&gt;即必须以y = 或者x = 开头，以;号结尾。&lt;/li&gt;
+&lt;li style="color: red;"&gt;若以y = 开头，则等号右边的自变量必须为x；若以x = 开头，则等号右边的自变量必须为y。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样的函数（隐函数）是无效的：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;x + y = 5;&lt;/li&gt;
+&lt;li&gt;x^2 + y^2 = 1;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;对于三角函数，应使用如下输入方式（即函数名后跟着&lt;strong style="color: red;"&gt;小括号&lt;/strong&gt;）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;y = sin&lt;span style="color: red;"&gt;(&lt;/span&gt;x&lt;span style="color: red;"&gt;)&lt;/span&gt;;&lt;/li&gt;
+&lt;li&gt;y = cos&lt;span style="color: red;"&gt;(&lt;/span&gt;2*x&lt;span style="color: red;"&gt;)&lt;/span&gt;;&lt;/li&gt;
+&lt;li&gt;y = tan&lt;span style="color: red;"&gt;(&lt;/span&gt;0.5*x&lt;span style="color: red;"&gt;)&lt;/span&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;支持这样的函数组表达式（注意用大括号括起来，函数体内部用;号分隔）：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{x = sin(t); y = cos(t)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;本工具支持的函数清单见&lt;a href="http://www.zizhujy.com/blog/post/2011/10/10/%E5%9C%A8%E7%BA%BF%E5%87%BD%E6%95%B0%E6%B6%82%E9%B8%A6%E6%9D%BF%E6%89%80%E6%94%AF%E6%8C%81%E7%9A%84%E5%87%BD%E6%95%B0%E5%88%97%E8%A1%A8.aspx" target="_blank" title="在线函数画图工具支持的函数列表"&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;运算符号的输入如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;加：+&lt;/li&gt;
+&lt;li&gt;减：-&lt;/li&gt;
+&lt;li&gt;乘：*&lt;/li&gt;
+&lt;li&gt;除：/&lt;/li&gt;
+&lt;li&gt;乘方：^&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;在图形界面上，滚动鼠标滚轮，可以缩放图形。&lt;/p&gt;</value>
+  </data>
+  <data name="GetLinkTitle" xml:space="preserve">
+    <value>获取链接（&lt;span style="text-decoration: underline;"&gt;L&lt;/span&gt;）</value>
+  </data>
+  <data name="CloseLinkDialog" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="GetLinkMessageTitle" xml:space="preserve">
+    <value>获取当前页面图形的永久链接。</value>
+  </data>
+  <data name="BannerTitle" xml:space="preserve">
+    <value>函数涂鸦板 &lt;span style="color: red; font-weight: normal; font-size: small;"&gt;在线函数画图，支持隐函数！&lt;/span&gt;</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="TipForSavingGraph" xml:space="preserve">
+    <value>要保存当前图形，您可以直接在图形上“按鼠标右键”，然后选择”另存为……“选项。</value>
+  </data>
+  <data name="Context" xml:space="preserve">
+    <value>相关输入</value>
+  </data>
+  <data name="ErrorList" xml:space="preserve">
+    <value>输入有些错误：</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>索引</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>消息</value>
+  </data>
+  <data name="CLOSING_BRACE_EXPECTED" xml:space="preserve">
+    <value>期待一个关闭的花括号 "}" 。</value>
+  </data>
+  <data name="CLOSING_PARENTHESIS_EXPECTED" xml:space="preserve">
+    <value>期待一个关闭的括号 ")" 。</value>
+  </data>
+  <data name="COMMA_EXPECTED" xml:space="preserve">
+    <value>期待一个逗号 ","  。</value>
+  </data>
+  <data name="CONSTANT_VALUE_EXPECTED" xml:space="preserve">
+    <value>期待一个常量值 (如 PI) 。</value>
+  </data>
+  <data name="DEPENDENT_VAR_X_EXPECTED" xml:space="preserve">
+    <value>期待因变量 x 。</value>
+  </data>
+  <data name="DEPENDENT_VAR_Y_EXPECTED" xml:space="preserve">
+    <value>期待因变量 y 。</value>
+  </data>
+  <data name="DIGITAL_NUMBER_EXPECTED" xml:space="preserve">
+    <value>期待一个数字 (如 123.123) 。</value>
+  </data>
+  <data name="END_OF_SOURCE_EXPECTED" xml:space="preserve">
+    <value>期待输入结束。</value>
+  </data>
+  <data name="EQUAL_SIGN_EXPECTED" xml:space="preserve">
+    <value>期待一个等于号  '=' 。</value>
+  </data>
+  <data name="EVALUATION_OPERATOR_EXPECTED" xml:space="preserve">
+    <value>期待一个赋值符号 "=" 。</value>
+  </data>
+  <data name="FUNCTION_EXPECTED" xml:space="preserve">
+    <value>期待一个函数名 (如 sin 或 cos) 。</value>
+  </data>
+  <data name="LATEX_COMMAND_EXPECTED" xml:space="preserve">
+    <value>期待一个 LaTex 命令 (如 \\frac 或 \\sqrt) 。</value>
+  </data>
+  <data name="NEGATIVE_SIGN_EXPECTED" xml:space="preserve">
+    <value>期待一个负号 '-' 。</value>
+  </data>
+  <data name="OPEN_BRACE_EXPECTED" xml:space="preserve">
+    <value>期待一个开始的花括号 "{" 。</value>
+  </data>
+  <data name="OPEN_PARENTHESIS_EXPECTED" xml:space="preserve">
+    <value>期待一个开始的括号 "(" 。</value>
+  </data>
+  <data name="POSITIVE_SIGN_EXPECTED" xml:space="preserve">
+    <value>期待一个正号 '+' 。</value>
+  </data>
+  <data name="SEMICOLON_EXPECTED" xml:space="preserve">
+    <value>期待一个分号 ";" 。</value>
+  </data>
+  <data name="UNEXPECTED_END_OF_SOURCE" xml:space="preserve">
+    <value>输入意外结束。</value>
+  </data>
+  <data name="UNKNOWN_ERROR" xml:space="preserve">
+    <value>未知错误。</value>
+  </data>
+  <data name="VARIABLE_NAME_EXPECTED" xml:space="preserve">
+    <value>期待变量名  (如 abc) 。</value>
+  </data>
+  <data name="VAR_T_EXPECTED" xml:space="preserve">
+    <value>期待变量 t 。</value>
+  </data>
+  <data name="VAR_X_EXPECTED" xml:space="preserve">
+    <value>期待变量 x 。</value>
+  </data>
+  <data name="VAR_Y_EXPECTED" xml:space="preserve">
+    <value>期待变量 y 。</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>或者</value>
+  </data>
+  <data name="Drawing" xml:space="preserve">
+    <value>正在计算</value>
+  </data>
+  <data name="DrawingDesc" xml:space="preserve">
+    <value>请稍等片刻，正在努力地计算中……</value>
+  </data>
+  <data name="RefreshGraph" xml:space="preserve">
+    <value>刷新</value>
+  </data>
+  <data name="OldVersion" xml:space="preserve">
+    <value>访问旧版</value>
+  </data>
+  <data name="RIGHT_COMMAND_EXPECTED" xml:space="preserve">
+    <value>期待 LaTex 命令 '\\right'。</value>
+  </data>
+  <data name="UNEXPECTED_RIGHT_COMMAND" xml:space="preserve">
+    <value>遇到了意外的 LaTex 命令 '\\right'。</value>
+  </data>
+  <data name="UNKNOWN_LATEX_COMMAND_MET" xml:space="preserve">
+    <value>遇到了不认识的 LaTex 命令。</value>
+  </data>
+  <data name="LESS_THAN_EXPECTED" xml:space="preserve">
+    <value>期待小于号 '&lt; '。</value>
+  </data>
+  <data name="LATEX_CLOSING_BRACE_EXPECTED" xml:space="preserve">
+    <value>期待在 LaTex 命令中的结尾的花括号： "\\}"。</value>
+  </data>
+  <data name="LATEX_OPEN_BRACE_EXPECTED" xml:space="preserve">
+    <value>期待在 LaTex 命令中的开头的花括号： "\\{"。</value>
+  </data>
+  <data name="LEFT_COMMAND_EXPECTED" xml:space="preserve">
+    <value>期待 LaTex 命令 '\\left'。</value>
+  </data>
+  <data name="PIPE_EXPECTED" xml:space="preserve">
+    <value>期待管道符（竖线） '|'。</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>切换全屏</value>
+  </data>
+  <data name="SaveAsBMP" xml:space="preserve">
+    <value>保存为 BMP 格式的图片...</value>
+  </data>
+  <data name="SaveAsJPEG" xml:space="preserve">
+    <value>保存为 JPEG 格式的图片...</value>
+  </data>
+  <data name="SaveAsPNG" xml:space="preserve">
+    <value>保存为 PNG 格式的图片...</value>
+  </data>
+  <data name="ToggleNavigationControl" xml:space="preserve">
+    <value>显示/隐藏 控制面板</value>
+  </data>
+  <data name="SaveAsImagePlugin.notSupportMessage" xml:space="preserve">
+    <value>当前浏览器不支持创建图片文件，请手动按 Print Screen 键保存图形。</value>
+  </data>
+  <data name="ClearAll" xml:space="preserve">
+    <value>清除全部（&lt;span style="text-decoration: underline;"&gt;C&lt;/span&gt;）</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>示例：</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>正在加载中…… 就快出来了！  ^_^</value>
+  </data>
+  <data name="FlotOptionButtonTitle" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="FlotOptionsPopUpTitle" xml:space="preserve">
+    <value>选项：</value>
+  </data>
+  <data name="FlotOptionsPopUp_ShowLegend" xml:space="preserve">
+    <value>图例</value>
+  </data>
+  <data name="FunGrapher" xml:space="preserve">
+    <value>趣涂函数涂鸦板：</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>特性：</value>
+  </data>
+  <data name="Fast" xml:space="preserve">
+    <value>极速：</value>
+  </data>
+  <data name="FastDescription" xml:space="preserve">
+    <value>就在你输入函数表达式时，图形就帮你呈现出来了。如果输入有误，也能立即得到提示。</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>自由：</value>
+  </data>
+  <data name="FreeDescription" xml:space="preserve">
+    <value>函数表达式个数没有限制，当你想要添加一个函数表达式，只需按回车键就好。</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>分享：</value>
+  </data>
+  <data name="ShareDescription" xml:space="preserve">
+    <value>你随时可以生成一个到你当前画好的图形的永久链接，可以保存起来或者分享出去。</value>
+  </data>
+  <data name="Art" xml:space="preserve">
+    <value>艺术：</value>
+  </data>
+  <data name="ArtDescription" xml:space="preserve">
+    <value>你甚至可以用它来进行艺术创作，看看示例，以及别人的作品，你能得到启发吗？</value>
+  </data>
+  <data name="BasicExample" xml:space="preserve">
+    <value>基本示例</value>
+  </data>
+  <data name="AdvancedExample" xml:space="preserve">
+    <value>高级示例</value>
+  </data>
+  <data name="PlotImplicitFunctions" xml:space="preserve">
+    <value>画隐函数</value>
+  </data>
+  <data name="WaitingCaution" xml:space="preserve">
+    <value>（需要耗费多一点时间，请耐心等待……）</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>画廊：</value>
+  </data>
+  <data name="WaterStream" xml:space="preserve">
+    <value>细水长流</value>
+  </data>
+  <data name="TightEncirclement" xml:space="preserve">
+    <value>天罗地网</value>
+  </data>
+  <data name="Spiral" xml:space="preserve">
+    <value>螺旋</value>
+  </data>
+  <data name="Darts" xml:space="preserve">
+    <value>飞镖</value>
+  </data>
+  <data name="Nappe" xml:space="preserve">
+    <value>水帘</value>
+  </data>
+  <data name="CharmingCurve" xml:space="preserve">
+    <value>迷人的曲线</value>
+  </data>
+  <data name="SleepyFace" xml:space="preserve">
+    <value>囧（困乏的人脸）</value>
+  </data>
+  <data name="RhythmRipple" xml:space="preserve">
+    <value>律动波纹</value>
+  </data>
+  <data name="Explore" xml:space="preserve">
+    <value>探索函数图形图像:</value>
+  </data>
+  <data name="LinearFunction" xml:space="preserve">
+    <value>线性（一次）函数</value>
+  </data>
+  <data name="QuadraticFunction" xml:space="preserve">
+    <value>二次函数</value>
+  </data>
+  <data name="CubicFunction" xml:space="preserve">
+    <value>三次函数</value>
+  </data>
+  <data name="PolynomialFunction" xml:space="preserve">
+    <value>多项式函数</value>
+  </data>
+  <data name="ExponentialFunction" xml:space="preserve">
+    <value>指数函数</value>
+  </data>
+  <data name="LogarithmFunction" xml:space="preserve">
+    <value>对数函数</value>
+  </data>
+  <data name="TrigonometricFunction" xml:space="preserve">
+    <value>三角函数</value>
+  </data>
+  <data name="UnitCircle" xml:space="preserve">
+    <value>单位圆</value>
+  </data>
+  <data name="HyperbolaCurve" xml:space="preserve">
+    <value>双曲线</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>教程：</value>
+  </data>
+  <data name="TutorialDescription" xml:space="preserve">
+    <value>还没来得及写。不过，它的使用真的非常简单，你可以通过查看示例学会。然后，你可以将你的经验发布在你的博客上，或者将你的计算过程的链接粘贴在你的微博上，大家可以通过你的实际使用获得启发。</value>
+  </data>
+  <data name="LittleHorse" xml:space="preserve">
+    <value>王小川画的《小马过河》</value>
+  </data>
+  <data name="LittleHorseTitle" xml:space="preserve">
+    <value>搜狗 CEO 王小川用函数画图创作了一幅作品《小马过河》。</value>
+  </data>
+</root>

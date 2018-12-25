@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PageTitle" xml:space="preserve">
+    <value>田杰的简历</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>开发者田杰的简历</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>田杰,开发者,简历</value>
+  </data>
+  <data name="RESUME_URI" xml:space="preserve">
+    <value>https://raw.githubusercontent.com/Jeff-Tian/Resume/master/default.md</value>
+  </data>
+  <data name="RESUME_CSS_URI" xml:space="preserve">
+    <value>https://raw.githubusercontent.com/Jeff-Tian/Resume/master/resume.css</value>
+  </data>
+  <data name="RESUME_Content" xml:space="preserve">
+    <value>&lt;h2&gt;简历&lt;/h2&gt;
+&lt;hr style="background-color: #cccccc; height: 1px;" /&gt;
+&lt;div id="bio" class="section"&gt;
+    &lt;h3&gt;简介&lt;/h3&gt;
+    &lt;div style="float: left; margin-right: 1em;"&gt;
+        &lt;img src="../../Content/Images/JeffTian.jpg" style="width: 140px;" /&gt;
+    &lt;/div&gt;
+    &lt;p&gt;田杰，本科学历，7 年工作经验。热爱编程，追求高质量的软件产品，目前在一个企业内部 CRM 系统部门担任高级软件工程师。喜欢学习计算机技术并擅长将所学转化到平时的工作中去。在过去的工作中，由于善于解决问题，勇于承担挑战，努力取得好的业绩而多次获奖。 在业余时间做自己的网站、写技术博客，在 GitHub 上也非常活跃！&lt;/p&gt;
+    
+    &lt;div class="clearFloat"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="contact" class="section"&gt;
+    &lt;h3&gt;联系方式：&lt;/h3&gt;
+    &lt;p&gt;
+        &lt;strong&gt;电子邮箱：&lt;/strong&gt; 
+        &lt;a href="mailto:jeff.tian@outlook.com" title="联系我！"&gt;jeff.tian@outlook.com&lt;/a&gt;
+        &lt;strong&gt;个人网站：&lt;/strong&gt;
+        &lt;a href="http://zizhujy.com" title="我的网站" target="_blank"&gt;http://zizhujy.com&lt;/a&gt;
+        &lt;strong&gt;Github:&lt;/strong&gt;
+        &lt;a href="https://github.com/Jeff-Tian" title="我的 Github" target="_blank"&gt;https://github.com/Jeff-Tian&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id="focuses" class="section"&gt;
+    &lt;h3&gt;强项&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;JavaScript, Css, Html&lt;/li&gt;
+        &lt;li&gt;C#, ASP.NET MVC, SQL&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="work" class="section"&gt;
+    &lt;h3&gt;工作经历&lt;/h3&gt;
+    &lt;h4&gt;英孚教育高级软件工程师&lt;/h4&gt;
+    &lt;p class="period"&gt;&lt;i&gt;2013年6月 – 现在&lt;/i&gt;&lt;/p&gt;
+    &lt;p&gt;
+        在这个企业内部 CRM 系统里我主要领导开发图形功能。我在 GitHub 上有参与的一个 JavaScript 图形库项目也与此有关。在这个团队中，从前端来说，我利用纯熟的 JavaScript 功底设计并实现对开发者和用户都很友好的界面；从后台来说，我利用严格的数学推理和论证来设计并实现强健的算法（实例：http://zizhujy.com/blog/post/2014/01/12/SalesLeadsForceDistributiveDispatchingAlgorithm.aspx ）。
+    &lt;/p&gt;
+    &lt;h4&gt;外派到微软任软件开发测试工程师&lt;/h4&gt;
+    &lt;div class="special"&gt;2012年度明星员工奖！&lt;img src="../../Content/Images/About/StarStaffReward.jpg" alt="2012年度明星员工奖！" style="height: 300px;" /&gt;&lt;/div&gt;
+    &lt;p class="period"&gt;&lt;i&gt;2011年4月份 - 2013年6月&lt;/i&gt;&lt;/p&gt;
+    &lt;p&gt;作为一名软件开发测试工程师，除了日常的测试工作外，我开发了一些给测试团队使用的自动化测试工具，以及其他给内部用户（比如微软科学家等）使用的系统。&lt;/p&gt;
+    &lt;h5&gt;跨域和计算机的自动部署并执行的测试框架&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：测试团队&lt;/li&gt;
+	&lt;li&gt;主要特性：
+		&lt;ul&gt;
+			&lt;li&gt;支持图形用户界面以及命令行。&lt;/li&gt;
+			&lt;li&gt;跨计算机域自动部署、运行、并收集运行结果和发送邮件报告。&lt;/li&gt;
+			&lt;li&gt;易扩展并方便地和其他已有测试用例集成。&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;h5&gt;在线Python&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：微软科学家团队&lt;/li&gt;
+	&lt;li&gt;这是一个作为Python宿主的ASP.NET MVC 网页应用程序。由于科学家习惯于使用Python，而且他们在平时的工作中已经写了好些Python脚本，后来想要一个在线的集中的管理平台，用来添加新的脚本和维护已有脚本，并能够被来自不同地区的其他成员方便地运行。使用此系统，便可以在线的维护Python脚本并运行，不需要本机安装Python环境。&lt;/li&gt;
+	&lt;/ul&gt;
+    &lt;div class="special"&gt;优秀员工奖！&lt;img src="../../Content/Images/About/ExcellentStaffReward.jpg" alt="优秀员工奖！" style="width: 100%;" /&gt;&lt;/div&gt;
+&lt;h5&gt;在线版本验证测试系统&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：测试团队&lt;/li&gt;
+	&lt;li&gt;这是一个ASP.NET 网页应用程序，它用来管理各个测试分团队的版本验证测试。主要包含如下功能：
+		&lt;ul&gt;
+			&lt;li&gt;与源代码管理系统(如Team Foundation Server)集成，当开发人员提交代码时会自动触发执行。&lt;/li&gt;
+			&lt;li&gt;不同的分团队可配置自己的测试用例，可以方便地使用xml定制&lt;/li&gt;
+			&lt;li&gt;报告功能&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;h5&gt;HTML5 视频自动测试组件&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：测试团队&lt;/li&gt;
+	&lt;li&gt;	这是一个基于javascript的在线测试套件或者框架，用来自动化测试HTML5视频控制器。&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class="clearFloat"&gt;&lt;/div&gt;
+
+    &lt;h4&gt;嘉里大通任软件开发工程师&lt;/h4&gt;
+    &lt;p class="period"&gt;&lt;i&gt;2010年2月 - 2011年4月&lt;/i&gt;&lt;/p&gt;
+    &lt;h5&gt;快件分拣系统&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：管理团队和快件操作人员&lt;/li&gt;
+	&lt;li&gt;该系统由SQL server、ASP.NET MVC网页应用程序、WCF服务以及手持扫描枪的客户端组成。主要功能：
+		&lt;ul&gt;
+			&lt;li&gt;分拣过程的实时监控和报告功能&lt;/li&gt;
+			&lt;li&gt;为快件操作人员进行实时的分拣提示，减少了人为错误&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+
+&lt;h5&gt;诺基亚仓储管理系统&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：诺基亚公司外包给嘉里大通的仓储管理人员&lt;/li&gt;
+	&lt;li&gt;这是为诺基亚在北京新成立的仓库开发的使用ASP.NET实现的工作流程解决方案。主要功能：
+		&lt;ul&gt;
+			&lt;li&gt;收货、理货、自动补货、发货；条码箱单打印；报告功能等……&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+    &lt;h4&gt;DHL任销售分析员&lt;/h4&gt;
+    &lt;p class="period"&gt;&lt;i&gt;2007年7月份 - 2009年9月份&lt;/i&gt;&lt;/p&gt;
+    &lt;h5&gt;重货调价系统&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;用户：销售部&lt;/li&gt;
+	&lt;li&gt;这是一个完整的Excel VBA应用程序。主要功能：
+		&lt;ul&gt;
+			&lt;li&gt;为发货量大的客户给予特价优惠&lt;/li&gt;
+			&lt;li&gt;为销售自动填写审批申请表格&lt;/li&gt;
+			&lt;li&gt;经理审批辅助功能&lt;/li&gt;
+			&lt;li&gt;一键生成销售部各种月报表&lt;/li&gt;
+			&lt;li&gt;使用指数平滑法对销售业绩进行预测&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id="other-works" class="section"&gt;
+    &lt;h3&gt;其他&lt;/h3&gt;
+    &lt;h4&gt;&lt;i&gt;为&lt;a href="https://github.com/Jeff-Tian" title="Jeff Tian on Github" target="_blank"&gt;众多Github项目&lt;/a&gt;做了贡献&lt;/i&gt;&lt;/h4&gt;
+    &lt;h4&gt;&lt;i&gt;为开源博客系统&lt;a href="http://www.dotnetblogengine.net/" title="BlogEngine.NET"&gt;BlogEngine.NET&lt;/a&gt;做的贡献：&lt;/i&gt;&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="http://dnbegallery.org/cms/List/Extensions/ImageGuard" title="为BlogEngine.NET开发的图片守卫插件"&gt;图片守卫插件&lt;/a&gt;， 
+            &lt;a href="http://dnbegallery.org/cms/List/Extensions/BetterWordCount" title="为BlogEngine.NET开发的更好的字数统计插件"&gt;增强的字数统计插件&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="http://dnbegallery.org/cms/List/Widgets/FileSystemManager" title="为BlogEngine.NET开发的文件管理系统部件"&gt;文件管理系统部件&lt;/a&gt;
+            
+            &lt;a href="http://dnbegallery.org/cms/List/Extensions/MarkdownDeepFormatter" title="为BlogEngine.NET开发的Mark down 格式化插件"&gt;Mark down 格式化插件&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+	&lt;h4&gt;&lt;i&gt;&lt;a href="http://apps.microsoft.com/windows/zh-CN/app/963f612f-2eed-4175-9b2b-06de964f9eeb" title="统计计算器Windows 8 应用"&gt;统计计算器 Windows 8 应用&lt;/a&gt;&lt;/i&gt;&lt;/h4&gt;
+    
+    &lt;h4&gt;为 Javascript 图形库 &lt;a href="https://github.com/flot/flot" title="Flot - Attractive JavaScript charts for jQuery" target="_blank"&gt;Flot&lt;/a&gt; 做的贡献&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;            
+            &lt;a href="https://github.com/flot/flot/pull/1178" title="Goal map feature" target="_blank"&gt;Goal map feature&lt;/a&gt;，
+            &lt;a href="http://jeff-tian.github.io/jquery.flot.saveAsImage.js/" title="Exporting image plugin" target="_blank"&gt;Exporting image plugin&lt;/a&gt;，
+            &lt;a href="https://github.com/Jeff-Tian/jquery.flot.navigationControl" title="Navigation control plugin" target="_blank"&gt;Navigation control plugin&lt;/a&gt;，
+            …
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h4&gt;&lt;i&gt;Chrome 应用商店&lt;/i&gt;&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/image-explorer/bjplaimfmacmplmlacojiafeoojonmfk" title="Image explorer" target="_blank"&gt;网页读图插件&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/fun-grapher/finpihnfokdnmcjaifhjgnbfaadlckih?utm_source=chrome-ntp-launcher" title="Fun Grapher" target="_blank"&gt;趣涂在线函数画图应用&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id="education" class="section"&gt;
+    &lt;h3&gt;教育背景&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;h4&gt;数学自然科学学士&lt;/h4&gt;
+            &lt;p class="period"&gt;&lt;i&gt;苏州大学&lt;/i&gt;&lt;/p&gt;
+            &lt;p class="period"&gt;&lt;i&gt;2003 - 2007&lt;/i&gt;&lt;/p&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="miscellaneous" class="section"&gt;
+    &lt;h3&gt;自我评价&lt;/h3&gt;
+    &lt;p&gt;勤奋、坚持、出色的团队合作&lt;/p&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>打印</value>
+  </data>
+  <data name="PDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="ResumePDFFileName" xml:space="preserve">
+    <value>Resume of Jeff Tian.pdf</value>
+  </data>
+</root>

@@ -1,0 +1,69 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@using ZiZhuJY.Web.UI.Utility
+@{    
+    const string THIS_FILE_PATH = "~/Views/ApplicationFactory/Index.cshtml";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+    ViewBag.Title = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Title").ToString();
+}
+@section HeaderScripts {
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoDescription")" />
+    <style type="text/css">
+        #main ul li {
+            margin: 10px 0;
+        }
+
+        #main ul li.new 
+        {
+            padding: 5px 0;
+        }
+
+            #main ul li.new a {
+                background-color: yellow;
+                border: solid 1px red;
+                padding: 5px;
+            }
+    </style>
+}
+@section additionalHeader {
+    <div>
+        <h2>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Header").ToString()</h2>
+    </div>
+}
+
+<zizhujy pageId="ApplicationFactory"></zizhujy>
+
+<ul>
+    <li>
+        <a href="@Url.Content("~/FunctionGraffiti")" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "FunctionGraffitiTitle")"><strong>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "FunctionGraffitiText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/Ploter")" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "PloterTitle")"><strong>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "PloterText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/Watermark")" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "WatermarkTitle")"><strong>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "WatermarkText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/Watermark/ImageWatermark")" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ImageWatermarkTitle")"><strong>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ImageWatermarkText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/String")" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "StringTitle")"><strong>@HttpContext.GetLocalResourceObject(this.VirtualPath, "StringText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/Apps/IcoMaker")" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "IcoMakerTitle")"><strong>@HttpContext.GetLocalResourceObject(this.VirtualPath, "IcoMakerText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/Apps/Decompressor")" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "DecompressorTitle")"><strong>@HttpContext.GetLocalResourceObject(this.VirtualPath, "DecompressorText")</strong></a>
+    </li>
+    <li>
+        <a href="@Url.Content("~/Apps/WhereAreYouNow")" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "WhereAreYouNowTitle")"><strong>@HttpContext.GetLocalResourceObject(this.VirtualPath, "WhereAreYouNowText")</strong></a>
+    </li>
+    <li class="new">
+        <a href="@Url.Content("~/Apps/ImageExplorer")" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "ImageExplorerTitle")"><strong>@HttpContext.GetLocalResourceObject(this.VirtualPath, "ImageExplorerText")</strong></a>
+    </li>
+</ul>
+
+<p>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Description").ToString()</p>
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}

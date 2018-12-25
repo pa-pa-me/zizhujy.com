@@ -1,0 +1,1 @@
+﻿This folder is for temporary uses, for example, generated PDF files will be put here first, and then be deleted.

@@ -1,0 +1,174 @@
+﻿@{
+    ViewBag.Title = "ParserQunit";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section metas{
+    <link href="@Url.Content("~/Scripts/jquery-qunit/qunit/qunit.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexLex.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexParser.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery-qunit/qunit/qunit.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+        (function ($, lex, parser) {
+            test("y = sin(10*x);", function () {
+                parser.init("y = sin(10*x);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+            });
+
+            test("More testing", function () {
+                parser.init("y = cos(2*x);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x ^ 3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x/3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = -x/3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 0;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("x = 0;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("{x = 5*cos(t); y = 5*sin(t)}");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x ^ 2;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x ^ -2;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x ^ + 2;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x ^ (-3/2);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^2^3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = (x^2)^3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^(2^3);");
+                parser.run();
+
+                parser.init("y = sin(x)^2;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = sin(x^2);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^(-2)^3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^2^-3;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 2^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = e^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 5^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 20^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^sin(2);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = e^+x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 8^-x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 12.897^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^42.93;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^.98;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = .99^x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^sin(x);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x^-x;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = 0.577^-.97;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x.5;");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = x*(x+6)*(x-9);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y = tan(x);");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+
+                parser.init("y=\\frac{\\sqrt{x}}{2}");
+                parser.run();
+                equal(parser.errorList.length, 0, "The error list should be a 0 length Array ({0}).".format(parser.source));
+            });
+        })(jQuery, zizhujy.com.LaTexLex, zizhujy.com.LaTexParser);
+    //-->
+    </script>
+}
+<div id="qunit"></div>
+<div id="qunit-fixture">test markup</div>

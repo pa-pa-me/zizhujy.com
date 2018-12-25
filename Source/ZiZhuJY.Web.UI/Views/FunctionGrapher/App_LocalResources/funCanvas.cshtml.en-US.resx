@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FunctionsTitle" xml:space="preserve">
+    <value>Function expressions:</value>
+  </data>
+  <data name="GraphButtonText" xml:space="preserve">
+    <value>Graph</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Fun Grapher - Online Function Grapher, multiple functions and implicit functions plotting support.Graph Calculator. Function Graph exploring.</value>
+  </data>
+  <data name="ResetButtonText" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ScaleOfTAxiesTitle" xml:space="preserve">
+    <value>t</value>
+  </data>
+  <data name="ScaleOfXAxiesTitle" xml:space="preserve">
+    <value>x</value>
+  </data>
+  <data name="ScaleOfYAxiesTitle" xml:space="preserve">
+    <value>y</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>Plot and graph equations online!. This is an easy to use Online Function Grapher, supporting multiple functions and even implict functions plotting &amp; graphing!  And supporting LaTex expression, can be used as an online equation editor or graphing calculator as well. Explore all kinds of functions' graphs online.</value>
+  </data>
+  <data name="ToTitle" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>FunGrapher, grapher, graph, function, calculator, implicit</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>Legend</value>
+  </data>
+  <data name="LogoPath" xml:space="preserve">
+    <value>~/Content/Images/funGrapherLogo_zh-CN.png</value>
+  </data>
+  <data name="LogoRaw" xml:space="preserve">
+    <value>&lt;a href="#" onclick="return false;" title="FunGrapher - Graph functions for fun!"&gt;&lt;img src="{0}" alt="FunGrapher - Graph for fun!" /&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="Setting" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="LockRatio" xml:space="preserve">
+    <value>Lock Ratio</value>
+  </data>
+  <data name="CloseMsg" xml:space="preserve">
+    <value>Close message window</value>
+  </data>
+  <data name="CloseTips" xml:space="preserve">
+    <value>Close help</value>
+  </data>
+  <data name="ShowHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>&lt;p&gt;Use x/y to denote the independent/dependent variables. Use x^2 to denote the square power to x and x^3 to denote the cube power to x and so on. Use semicolon (;) to separate multiple functions.&lt;/p&gt;
+&lt;p&gt;Currently this tool only supports &lt;strong style="color: red;"&gt;Explicit Function&lt;/strong&gt;, for example, below functions are supported:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;y = x^2 + 2;&lt;/li&gt;
+&lt;li&gt;x = y^3 + 2;&lt;/li&gt;
+&lt;li style="color: red;"&gt;Each function should begin with x= or y= and end with a semicolon (;)&lt;/li&gt;
+&lt;li style="color: red;"&gt;If a function begins with y=, then the independent variable on the right hand side of the equal sign (=) must be x, and vice versa.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Below functions (Unexplicit functions) are not supported:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;x + y = 5;&lt;/li&gt;
+&lt;li&gt;x^2 + y^2 = 1;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For trigonometric functions, you should input them this way (The &lt;strong style="color: red;"&gt;parenthesis&lt;/strong&gt; should follow the function name):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;y = sin&lt;span style="color: red;"&gt;(&lt;/span&gt;x&lt;span style="color: red;"&gt;)&lt;/span&gt;;&lt;/li&gt;
+&lt;li&gt;y = cos&lt;span style="color: red;"&gt;(&lt;/span&gt;2*x&lt;span style="color: red;"&gt;)&lt;/span&gt;;&lt;/li&gt;
+&lt;li&gt;y = tan&lt;span style="color: red;"&gt;(&lt;/span&gt;0.5*x&lt;span style="color: red;"&gt;)&lt;/span&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This tool supports the function group like this(Please do wrap them in curly brackets {}):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;{x = sin(t); y = cos(t)}&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All the functions this tool supports can be found &lt;a href="http://www.zizhujy.com/blog/post/2011/10/10/Alphabetic-list-of-functions-supported-by-Online-Function-Graffiti.aspx" target="_blank" title="Alphabetic list of functions supported by Online Function Grapher"&gt;Here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Operators should be input as below:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Addition: +&lt;/li&gt;
+&lt;li&gt;Subtraction: -&lt;/li&gt;
+&lt;li&gt;Multiplication: *&lt;/li&gt;
+&lt;li&gt;Dividition: /&lt;/li&gt;
+&lt;li&gt;Power: ^&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You can scroll your mouse wheel to zoom out/in the graphs.&lt;/p&gt;</value>
+  </data>
+  <data name="GetLinkTitle" xml:space="preserve">
+    <value>&lt;span style="text-decoration: underliner;"&gt;L&lt;/span&gt;ink to this view</value>
+  </data>
+  <data name="CloseLinkDialog" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="GetLinkMessageTitle" xml:space="preserve">
+    <value>Get permanent link to these graphs on current page.</value>
+  </data>
+  <data name="BannerTitle" xml:space="preserve">
+    <value>Online Function Grapher &lt;span style="color: red; font-weight: normal; font-size: small;"&gt;Supporting implict functions now!&lt;/span&gt;</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="TipForSavingGraph" xml:space="preserve">
+    <value>To save current graph, you can directly "mouse right click" on the graph, then choose "Save image as..." option. </value>
+  </data>
+  <data name="Context" xml:space="preserve">
+    <value>Context</value>
+  </data>
+  <data name="ErrorList" xml:space="preserve">
+    <value>Input has some errors:</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="CLOSING_BRACE_EXPECTED" xml:space="preserve">
+    <value>Closing Brace "}" is expected.</value>
+  </data>
+  <data name="CLOSING_PARENTHESIS_EXPECTED" xml:space="preserve">
+    <value>Closing Parenthesis ")" is expected.</value>
+  </data>
+  <data name="COMMA_EXPECTED" xml:space="preserve">
+    <value>Comma ","  is expected.</value>
+  </data>
+  <data name="CONSTANT_VALUE_EXPECTED" xml:space="preserve">
+    <value>Constant value (PI) is expected.</value>
+  </data>
+  <data name="DEPENDENT_VAR_X_EXPECTED" xml:space="preserve">
+    <value>Dependent Variable x is expected.</value>
+  </data>
+  <data name="DEPENDENT_VAR_Y_EXPECTED" xml:space="preserve">
+    <value>Dependent Variable y is expected.</value>
+  </data>
+  <data name="DIGITAL_NUMBER_EXPECTED" xml:space="preserve">
+    <value>Digital Number (123.123) is expected.</value>
+  </data>
+  <data name="END_OF_SOURCE_EXPECTED" xml:space="preserve">
+    <value>End of input is expected.</value>
+  </data>
+  <data name="EQUAL_SIGN_EXPECTED" xml:space="preserve">
+    <value>Equal sign '=' is expected.</value>
+  </data>
+  <data name="EVALUATION_OPERATOR_EXPECTED" xml:space="preserve">
+    <value>Evaluation Operator "=" is expected.</value>
+  </data>
+  <data name="FUNCTION_EXPECTED" xml:space="preserve">
+    <value>Function name (sin or cos) is expected.</value>
+  </data>
+  <data name="LATEX_COMMAND_EXPECTED" xml:space="preserve">
+    <value>LaTex command (\\frac or \\sqrt) is expected.</value>
+  </data>
+  <data name="NEGATIVE_SIGN_EXPECTED" xml:space="preserve">
+    <value>Negative sign '-' is expected.</value>
+  </data>
+  <data name="OPEN_BRACE_EXPECTED" xml:space="preserve">
+    <value>Open Brace "{" is expected.</value>
+  </data>
+  <data name="OPEN_PARENTHESIS_EXPECTED" xml:space="preserve">
+    <value>Open Parenthesis "(" is expected.</value>
+  </data>
+  <data name="POSITIVE_SIGN_EXPECTED" xml:space="preserve">
+    <value>Positive sign '+' is expected.</value>
+  </data>
+  <data name="SEMICOLON_EXPECTED" xml:space="preserve">
+    <value>Semicolon ";" is expected.</value>
+  </data>
+  <data name="UNEXPECTED_END_OF_SOURCE" xml:space="preserve">
+    <value>Unexpected end of source met.</value>
+  </data>
+  <data name="UNKNOWN_ERROR" xml:space="preserve">
+    <value>Unknown error.</value>
+  </data>
+  <data name="VARIABLE_NAME_EXPECTED" xml:space="preserve">
+    <value>Variable name (abc) is expected.</value>
+  </data>
+  <data name="VAR_T_EXPECTED" xml:space="preserve">
+    <value>Variable t is expected.</value>
+  </data>
+  <data name="VAR_X_EXPECTED" xml:space="preserve">
+    <value>Variable x is expected.</value>
+  </data>
+  <data name="VAR_Y_EXPECTED" xml:space="preserve">
+    <value>Variable y is expected.</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>Or </value>
+  </data>
+  <data name="Drawing" xml:space="preserve">
+    <value>Drawing...</value>
+  </data>
+  <data name="DrawingDesc" xml:space="preserve">
+    <value>Calculating, please wait a second...</value>
+  </data>
+  <data name="RefreshGraph" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="OldVersion" xml:space="preserve">
+    <value>Old version</value>
+  </data>
+  <data name="RIGHT_COMMAND_EXPECTED" xml:space="preserve">
+    <value>The LaTex command '\\right' is expected.</value>
+  </data>
+  <data name="UNEXPECTED_RIGHT_COMMAND" xml:space="preserve">
+    <value>Unexpected LaTex command '\\right' met.</value>
+  </data>
+  <data name="UNKNOWN_LATEX_COMMAND_MET" xml:space="preserve">
+    <value>Unknown LaTex command met.</value>
+  </data>
+  <data name="LESS_THAN_EXPECTED" xml:space="preserve">
+    <value>The operator Less Than '&lt;' is expected.</value>
+  </data>
+  <data name="LATEX_CLOSING_BRACE_EXPECTED" xml:space="preserve">
+    <value>Closing Brace inside LaTex command \"\\}\" is expected.</value>
+  </data>
+  <data name="LATEX_OPEN_BRACE_EXPECTED" xml:space="preserve">
+    <value>Open Brace inside LaTex command \"\\{\" is expected.</value>
+  </data>
+  <data name="LEFT_COMMAND_EXPECTED" xml:space="preserve">
+    <value>The LaTex command '\\left' is expected.</value>
+  </data>
+  <data name="PIPE_EXPECTED" xml:space="preserve">
+    <value>The pipe line '|' is expected.</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>Toggle Full Screen</value>
+  </data>
+  <data name="SaveAsBMP" xml:space="preserve">
+    <value>Save as BMP...</value>
+  </data>
+  <data name="SaveAsJPEG" xml:space="preserve">
+    <value>Save as JPEG...</value>
+  </data>
+  <data name="SaveAsPNG" xml:space="preserve">
+    <value>Save as PNG...</value>
+  </data>
+  <data name="ToggleNavigationControl" xml:space="preserve">
+    <value>Toggle navigation control</value>
+  </data>
+  <data name="SaveAsImagePlugin.notSupportMessage" xml:space="preserve">
+    <value>Sorry, this browser is not capable of creating image files, please use PRINT SCREEN key instead!</value>
+  </data>
+  <data name="ClearAll" xml:space="preserve">
+    <value>&lt;span style="text-decoration: underline;"&gt;C&lt;/span&gt;lear All</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>Examples:</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Loading... ^_^</value>
+  </data>
+  <data name="FlotOptionButtonTitle" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="FlotOptionsPopUpTitle" xml:space="preserve">
+    <value>Options:</value>
+  </data>
+  <data name="FlotOptionsPopUp_ShowLegend" xml:space="preserve">
+    <value>Legend</value>
+  </data>
+  <data name="FunGrapher" xml:space="preserve">
+    <value>Online Function Grapher:</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Features:</value>
+  </data>
+  <data name="Fast" xml:space="preserve">
+    <value>Fast:</value>
+  </data>
+  <data name="FastDescription" xml:space="preserve">
+    <value>The graphs show just as you are typing their expressions. If you made some typos, it prompts you immediately to help correct them.</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free:</value>
+  </data>
+  <data name="FreeDescription" xml:space="preserve">
+    <value>No limit on the number of function expressions. When you want to add an expression, just hit Enter key.</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Share:</value>
+  </data>
+  <data name="ShareDescription" xml:space="preserve">
+    <value>You can get the permanent link linking to your current work anytime so that you can save it and share it out quickly.</value>
+  </data>
+  <data name="Art" xml:space="preserve">
+    <value>Art:</value>
+  </data>
+  <data name="ArtDescription" xml:space="preserve">
+    <value>You can even use it as an art painter. Look at these examples and other's work, can you get some ideas about creating your owns?</value>
+  </data>
+  <data name="BasicExample" xml:space="preserve">
+    <value>Basic Example</value>
+  </data>
+  <data name="AdvancedExample" xml:space="preserve">
+    <value>Advanced Example</value>
+  </data>
+  <data name="PlotImplicitFunctions" xml:space="preserve">
+    <value>Plot implicit functions</value>
+  </data>
+  <data name="WaitingCaution" xml:space="preserve">
+    <value>(Consume more time, please be patient.)</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>Gallery</value>
+  </data>
+  <data name="WaterStream" xml:space="preserve">
+    <value>Water stream</value>
+  </data>
+  <data name="TightEncirclement" xml:space="preserve">
+    <value>Tight encirclement</value>
+  </data>
+  <data name="Spiral" xml:space="preserve">
+    <value>Spiral</value>
+  </data>
+  <data name="Darts" xml:space="preserve">
+    <value>Darts</value>
+  </data>
+  <data name="Nappe" xml:space="preserve">
+    <value>Nappe</value>
+  </data>
+  <data name="CharmingCurve" xml:space="preserve">
+    <value>Charming Curve</value>
+  </data>
+  <data name="SleepyFace" xml:space="preserve">
+    <value>Sleepy face</value>
+  </data>
+  <data name="RhythmRipple" xml:space="preserve">
+    <value>Rhythm ripple</value>
+  </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Explore functions' graphs</value>
+  </data>
+  <data name="LinearFunction" xml:space="preserve">
+    <value>Linear Function</value>
+  </data>
+  <data name="QuadraticFunction" xml:space="preserve">
+    <value>Quadratic function</value>
+  </data>
+  <data name="CubicFunction" xml:space="preserve">
+    <value>Cubic function</value>
+  </data>
+  <data name="PolynomialFunction" xml:space="preserve">
+    <value>Polynomial function</value>
+  </data>
+  <data name="ExponentialFunction" xml:space="preserve">
+    <value>Exponential function</value>
+  </data>
+  <data name="LogarithmFunction" xml:space="preserve">
+    <value>Logarithm function</value>
+  </data>
+  <data name="TrigonometricFunction" xml:space="preserve">
+    <value>Trigonometric function</value>
+  </data>
+  <data name="UnitCircle" xml:space="preserve">
+    <value>Unit circle</value>
+  </data>
+  <data name="HyperbolaCurve" xml:space="preserve">
+    <value>Hyperbola curve</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>Tutorial:</value>
+  </data>
+  <data name="TutorialDescription" xml:space="preserve">
+    <value>I haven't got time to write it yet. But it is really so simple, and you can learn to use it by looking at the examples. And then you can share your experiences to the world by publishing your usage or your problem solving steps' links to your blog, twitter, and so on. Others will get inspires from you.</value>
+  </data>
+  <data name="LittleHorse" xml:space="preserve">
+    <value>Little Horse made by Wang Xiaochuan</value>
+  </data>
+  <data name="LittleHorseTitle" xml:space="preserve">
+    <value>Wang Xiaochan, the CEO of sogou, drew an Function Graphing Art 'Little Horse'.</value>
+  </data>
+</root>

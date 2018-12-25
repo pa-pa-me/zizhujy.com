@@ -1,0 +1,141 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = "Lex2";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section metas{
+    <link href="@Url.Content("~/Content/css/tables.css")" rel="stylesheet" type="text/css" />
+}
+@section HeaderStyles{
+    <style type="text/css">
+        #input {
+            float: left;
+        }
+
+        #output {
+            float: right;
+            height: 250px;
+            overflow: auto;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .flag {
+            color: Red;
+            font-weight: bold;
+            font-size: larger;
+            margin: 5px;
+        }
+
+        ul li {
+            cursor: pointer;
+        }
+    </style>
+}
+@section HeaderScripts {
+    @Html.RenderJavaScripts("~/Scripts/Maths/zizhujy.com.MathExtended.js")
+    <script src="@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexLex.1.2.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexParser.1.2.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+    (function ($, lex, parser) {
+        $(document).ready(function () {
+            $("#input-area").focus();
+
+            $("#lexeme-button").click(function () {
+                runLex();
+                runParser();
+            });
+
+            $("#input-area").keyup(function () {
+                runLex();
+                runParser();
+            });
+
+            function runLex() {
+                var input = $("#input-area").val();
+                var tokenLexemeTable = lex.run(input);
+                //$("#output-area").html(zizhujy.com.serializeObjectToHTML(tokenLexemeTable, false));
+                $("#output-area").html(lex.htmlTokenLexemeListToTable());
+            }
+
+            function runParser() {
+                var input = $("#input-area").val();
+                parser.init(input);
+                if (input.length > 0) {
+                    var urlParams = zizhujy.com.deserializeUrlParams();
+                    if (!!urlParams && !!urlParams.expression) {
+                        // run expression 
+                        parser.runSpecific(function (p) {
+                            p.expression(true);
+                        })
+                    } else {
+                        parser.run();
+                    }
+                }
+
+                function trimTree(node) {
+                    if (node != null) {
+                        delete node.parent;
+                        //node.nodeType = node.nodeType.name;
+                        node.expression = node.getExpression();
+                        node.eval();
+                        node.intervalEval();
+                        delete node.__initialized__;
+                        for (var i = 0; i < node.children.length; i++) {
+                            trimTree(node.children[i]);
+                        }
+                    }
+                }
+
+                function processErrorNode(a) {
+                    if (a != null && a instanceof Array) {
+                        for (var i = 0; i < a.length; i++) {
+                            a[i].atRow = a[i].row();
+                            a[i].atCol = a[i].col();
+                        }
+                    }
+                }
+
+                parser.tree.constraintsObject = parser.getConstraints(parser.tree);
+                trimTree(parser.tree);
+                $("#parser-result").html(zizhujy.com.serializeObjectToHTML(parser.tree, false));
+                processErrorNode(parser.errorList);
+                $("#parser-error-list").html(zizhujy.com.serializeObjectToHTML(parser.errorList, false));
+                $("#parser-log").html(parser.logBuffer.toString(function (s) { return s.replace("<", "&lt;").replace(">", "&gt;"); }, "<br />"));
+            }
+
+            $(".tree-node").find("li").live("click", function (e) {
+                $(this).find("* > ul").toggleClass("hidden");
+                var $flag = $(this).find("* > .flag");
+                if ($flag.length <= 0)
+                    $flag = $("<span class='flag'></span>").prependTo($(this));
+                $flag.html($(this).find("* > ul").hasClass("hidden") ? "+" : "");
+                e.stopPropagation();
+            });
+        });
+    })(jQuery, zizhujy.com.LaTexLex, zizhujy.com.LaTexParser);
+    //-->
+    </script>
+}
+<h2>Lex</h2>
+<div id="input">
+    <textarea id="input-area" rows="10" cols="40"></textarea>
+    <p>
+        <input type="button" id="lexeme-button" value="Lexeme !" /></p>
+</div>
+<div id="output">
+    <h3>Lex Result:</h3>
+    <div id="output-area"></div>
+</div>
+<div class="clearFloat"></div>
+<div id="parser-output">
+    <h3>Parser Result:</h3>
+    <div id="parser-result"></div>
+    <h3>Parser Error List:</h3>
+    <div id="parser-error-list"></div>
+    <h3>Parser Log:</h3>
+    <div id="parser-log"></div>
+</div>

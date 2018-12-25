@@ -1,0 +1,30 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@model dynamic
+
+@{
+    ViewBag.Title = "Immediate window - run code immediately";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+@section HeaderScripts {
+    @Html.RenderJavaScripts("~/Scripts/jquery.unobtrusive-ajax.js")
+}
+
+<h2>Run code immediately</h2>
+
+@using (Ajax.BeginForm(new AjaxOptions() {UpdateTargetId = "output"})) {
+    <div>
+        <textarea id="usings" name="usings" style="width: 100%;">using WebMarkupMin.Web;</textarea>
+    </div>
+    <div>
+        <textarea id="input" name="input" style="width: 100%;">Console.WriteLine(WebMarkupMin.Core.WebMarkupMinContext.Current.IsCompressionEnabled());</textarea>
+    </div>
+    <div>
+        <button class="" accesskey="r">
+            <span style="text-decoration: underline;">R</span>un
+        </button>
+    </div>
+    <div>
+        <textarea id="output" style="width: 100%;"></textarea>
+    </div>
+}

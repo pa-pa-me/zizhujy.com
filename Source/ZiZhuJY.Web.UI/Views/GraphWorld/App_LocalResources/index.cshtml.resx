@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>图,完全图,正则图,随机图</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>在线生成完全图、正则图、随机图等。</value>
+  </data>
+  <data name="SeoTitle" xml:space="preserve">
+    <value>图的世界 - 在线生成图的工具。</value>
+  </data>
+  <data name="GetLinkTitle" xml:space="preserve">
+    <value>获取链接</value>
+  </data>
+  <data name="GetLinkMessageTitle" xml:space="preserve">
+    <value>获取包含当前算式的永久链接。</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="AdZone_Banner" xml:space="preserve">
+    <value>&lt;script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- Graph World Big Banner --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="5481695789"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>源码：</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>此工具用来生成各种简单图，如完全图、正则图甚至随机图等。你可以选择图的类型、设置顶点数目然后点击“生成”按钮立即得到想要的图。下面还附有 python 源代码供你参考，并给了你一个自定义此工具的机会。</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>生成</value>
+  </data>
+  <data name="NumberOfVertices" xml:space="preserve">
+    <value>顶点数目</value>
+  </data>
+  <data name="TypeOfGraph" xml:space="preserve">
+    <value>图的类型</value>
+  </data>
+  <data name="RegularGraph" xml:space="preserve">
+    <value>正则图</value>
+  </data>
+  <data name="CompleteGraph" xml:space="preserve">
+    <value>完全图</value>
+  </data>
+  <data name="RandomGraph" xml:space="preserve">
+    <value>随机图</value>
+  </data>
+  <data name="NakedGraph" xml:space="preserve">
+    <value>无边图</value>
+  </data>
+  <data name="Degrees" xml:space="preserve">
+    <value>度数</value>
+  </data>
+  <data name="Possibility" xml:space="preserve">
+    <value>边的几率</value>
+  </data>
+  <data name="HowToRun" xml:space="preserve">
+    <value>（修改代码，按 'Alt' + 'R' 运行。）</value>
+  </data>
+  <data name="ConnectedGraphAssertion" xml:space="preserve">
+    <value>这是一个连通图。</value>
+  </data>
+  <data name="NotConnectedGraphAssertion" xml:space="preserve">
+    <value>这不是一个连通图。</value>
+  </data>
+  <data name="QuestionWhatIsSimpleGraph" xml:space="preserve">
+    <value>何为简单图？</value>
+  </data>
+  <data name="AnswerWhatIsSimpleGraph" xml:space="preserve">
+    <value>与复杂图相反，简单图是一个无向图，它不含有圈（圈是同时连接到同一顶点的边）并且在任意两个不同的顶点间至多只存在一条边。简单图中的边形成一个单集（而不是复合集）并且任一边都是不重复的顶点对。一个包含 n 个顶点的简单图，它的每个顶点的度数都是小于 n 的（反过来的命题不成立——因为也存在含有 n 个顶点的非简单图，它的每个顶点的度数也小于 n）。</value>
+  </data>
+  <data name="QuestionWhatIsRegularGraph" xml:space="preserve">
+    <value>何为正则图？</value>
+  </data>
+  <data name="AnswerWhatIsRegularGraph" xml:space="preserve">
+    <value>正则图：正则图是这样的图，它的任一顶点都有同样数目的邻居，也就是说，每个顶点都有相同的度数。一个顶点的度数为 k 的正则图被称作 k 度正则图或者度为 k 的正则图。</value>
+  </data>
+  <data name="QuestionWhatIsCompleteGraph" xml:space="preserve">
+    <value>何为完全图？</value>
+  </data>
+  <data name="AnswerWhatIsCompleteGraph" xml:space="preserve">
+    <value>完全图：完全图是含有这种特性的图，它的任一对顶点间都有一条边相连接。</value>
+  </data>
+  <data name="ACompleteGraphWith5Vertices" xml:space="preserve">
+    <value>一个包含5个顶点的完全图。任一顶点都与每个其他的顶点通过一条边相连接。</value>
+  </data>
+  <data name="QuestionProveCompleteGraphIsRegularGraph" xml:space="preserve">
+    <value>证明完全图是正则图。</value>
+  </data>
+  <data name="AnswerProveCompleteGraphIsRegularGraph" xml:space="preserve">
+    <value>【证明】
+
+图 G 是完全图，设其共有 n 个顶点。因为它是完全图，所以每两个顶点间都有一条边，也即对于顶点 v&lt;sub&gt;i&lt;/sub&gt;，共有 (n-1) 个顶点与它相连，也即它的度是 (n-1)。
+
+对于 i = 1, 2, ..., n，degree(v&lt;sub&gt;i&lt;/sub&gt;) = n - 1.
+所以图 G 也是一个度为 (n-1) 的正则图。
+
+【证毕】</value>
+  </data>
+  <data name="QuestionWhatIsPath" xml:space="preserve">
+    <value>何为路径？</value>
+  </data>
+  <data name="AnswerWhatIsPath" xml:space="preserve">
+    <value>图论中，一条路径就是连接着一系列有序顶点的一系列的有序边。一条路径可以是无限的，但是一条有限路径总是有第一个顶点，称为起始点，并且有最后一个顶点。它们都称作是终端顶点。其他的顶点是内部顶点。</value>
+  </data>
+  <data name="QuestionWhatIsCycle" xml:space="preserve">
+    <value>何为环？</value>
+  </data>
+  <data name="AnswerWhatIsCycle" xml:space="preserve">
+    <value>一个环就是起始顶点与结束顶点相同的一条路径。在环中，起始顶点的挑选是任意的。</value>
+  </data>
+  <data name="QuestionWhatIsForest" xml:space="preserve">
+    <value>何为森林？</value>
+  </data>
+  <data name="AnswerWhatIsForest" xml:space="preserve">
+    <value>森林是不含有环的图（即一个或多个树不交叉的联结）</value>
+  </data>
+  <data name="QuestionWhatIsTree" xml:space="preserve">
+    <value>何为树？</value>
+  </data>
+  <data name="AnswerWhatIsTree" xml:space="preserve">
+    <value>树是不含有环的连通图。</value>
+  </data>
+  <data name="QuestionDescribeAConnectedGraph" xml:space="preserve">
+    <value>说明：如果每个节点都有到其他节点的路径，那么这个图就是连通的。</value>
+  </data>
+  <data name="AnswerDescribeAConnectedGraph" xml:space="preserve">
+    <value>在无向图 **G** 中，两个顶点 *u* 和 *v* 被称为是连通的，如果 **G** 中存在一条从 *u* 到 *v* 的路径。否则，它们就被称为是不连通的。如果图中的每对不同的顶点间都是连通的，那么这个图也就被称为是连通的。否则，它被称为是不连通的。
+
+如果每个节点都有到其他节点的路径，那么如果我从图 **G** 中任选两个顶点 *u*, *v*，那么存在一条从 *u* 到 *v* 的路径，也就是说 *u*，*v* 是连通的。由于 *u*、*v* 是任选的，所以图 **G** 中的两两节点都是连通的，也即图 **G** 是连通的。</value>
+  </data>
+</root>

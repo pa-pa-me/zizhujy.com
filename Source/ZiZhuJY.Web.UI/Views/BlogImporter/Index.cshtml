@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form name="rss" method="post" action="">
+    <p><input type="text" name="url" value="http://localhost/zizhujy/rss1.xml" /> <input type="submit" value="Go !" /></p>
+</form>
+
+<div>
+    <h2>Feed</h2>
+    <p>Item Count: @ViewBag.ItemCount</p>
+
+</div>
+
+<div>
+    <h2>Raw Response</h2>
+    <pre>@ViewBag.RawResponse</pre>
+</div>

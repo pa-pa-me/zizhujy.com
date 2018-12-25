@@ -1,0 +1,12 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    Layout = "~/Views/Shared/_JsLibLayout.cshtml";
+    ViewBag.CurrentPage = this;
+}
+
+<h3>@this.Localize("Demo")</h3>
+<ul>
+    <li>
+        @Html.ActionLink(this.Localize("SimpleExample"), "SeamlessCanvasCapture", new { example = "SimpleExample" }, new { target = "_blank" })
+    </li>
+</ul>

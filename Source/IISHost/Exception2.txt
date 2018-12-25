@@ -1,0 +1,7 @@
+Error occurred: The contract name 'ZiZhuJY.ServiceModel.Services.AdministrationService' could not be found in the list of contracts implemented by the service 'AdministrationService'.
+System.ServiceModel
+   at System.ServiceModel.Description.ConfigLoader.LookupContract(String contractName, String serviceName)
+   at System.ServiceModel.Description.ConfigLoader.LoadServiceDescription(ServiceHostBase host, ServiceDescription description, ServiceElement serviceElement, Action`1 addBaseAddress)
+   at System.ServiceModel.ServiceHostBase.LoadConfigurationSectionInternal(ConfigLoader configLoader, ServiceDescription description, ServiceElement serviceSection)
+   at System.ServiceModel.ServiceHostBase.ApplyConfiguration()
+   at ZiZhuJY.ServiceModel.CertificateServiceHost.ApplyConfiguration() in C:\Users\v-jetian\SkyDrive\zizhujy.com\ZiZhuJYService\ZiZhuJY.ServiceModel\CertificateServiceHost.cs:line 69

@@ -1,0 +1,32 @@
+﻿#divLeftMatrix 
+{
+    float: left;
+    margin-right: 20px;
+}
+
+#taLeftMatrix, #taRightMatrix, #taResultMatrix 
+{
+    overflow: auto;
+}
+
+#divRightMatrix 
+{
+    float:left;
+    margin-right: 20px;
+}
+
+#divResultMatrix 
+{
+    float: left;
+    margin-right: 20px;
+}
+
+#divControls 
+{
+    float: left;
+}
+
+#txtDecimalDigits 
+{
+    width: 2em;
+}

@@ -1,0 +1,543 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    Layout = null;
+}@if (ViewBag.Standalone == true)
+{<text><!DOCTYPE html>
+</text>}
+
+@Html.RenderCsses("~/Content/Baseline.css", "~/Content/css/iconfontsFico.css", "~/Content/css/funCanvas.css",
+                "~/Content/css/apps/funControl.css", "~/Content/css/tables.css", "~/Scripts/mathquill/mathquill.css")
+
+<style type="text/css">
+    .splitter {
+        height: 100%;
+        width: 10px;
+        position: absolute;
+        cursor: e-resize;
+        z-index: 90;
+    }
+</style>
+<div id="layout">
+    <button type="button" id="show-control-panel-button" class="button show link-button" for="#control-panel" accessKey="<">
+        <span class="icon-left"></span>
+    </button>
+    <div id="control-panel" class="jy-ui-resizable left">
+        <div class="header">
+            <button type="button" class="button hide link-button" for="#control-panel" accessKey=">">
+                <span class="icon-right"></span>
+            </button>
+            <button type="button" class="button clear-all link-button" for="" accessKey="C">
+                <span class="icon-remove"></span>
+                @Html.Raw(this.Localize("ClearAll"))
+            </button>
+
+            <a id="get-link" class="link-button icon-link" href="@Url.Action("Index", "FunctionGrapher")" title="@this.Localize("GetLinkMessageTitle")" target="_blank" accesskey="L">
+                @Html.Raw(this.Localize("GetLinkTitle"))
+            </a>
+        </div>
+        <div class="body">
+            <div class="expressionLine">
+                <div id="taExpression1" class="expressionBox"><span class="mathquill-editable"></span><span class="icon clear">×</span></div>
+            </div>
+
+            @Html.RenderAds(Html.Localize(this, "AdZone"), "adZone", "width: 336px; height: 280px; margin: 10px 0 0 0;")
+            <script type="text/javascript">
+                window.FunGrapher = {};
+
+                FunGrapher.Example = function(expressions){
+                    if(typeof FunControl !== "undefined") {
+                        FunControl.UI.DeleteAllExpressionLines();
+                        FunControl.UI.AddExpressions(expressions);
+                    }else {
+                        setTimeout(function() { FunGrapher.Example(expressions); }, 1000);
+                    }
+                };
+            </script>
+            <div class="about" style="box-sizing: border-box; padding: 0 5px;">
+                <h2>@this.Localize("FunGrapher")</h2>
+                <h3>@this.Localize("Examples")</h3>
+                <ul>
+                    <li>
+                        @Html.ScriptItemLink("FunGrapher.Example(['y=x', 'y=2x']);", this.Localize("BasicExample"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=(x-5)^3', 'y=-x\\left\\{0<x<2\\sqrt{2}\\right\\}', 'y=x\\left\\{-2\\sqrt{2}<x<0\\right\\}', 'x=4\\cos (t);y=4\\sin (t)', 'y=\\left|x+sin\\left(x\\right)\\right|']);", this.Localize("AdvancedExample"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink("FunGrapher.Example(['x^2+y^2=10', 'tan(x)=sin(y)', '']);", this.Localize("PlotImplicitFunctions"))
+                        @this.Localize("WaitingCaution")
+                    </li>
+                </ul>
+                <h3>@this.Localize("Gallery")</h3>
+                <ul>
+                    <li>
+                        @Html.ScriptItemLink("FunGrapher.Example(['y=1-23.45/x^4']);", this.Localize("WaterStream"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink("FunGrapher.Example(['x=4\\cos (7t);y=4\\sin (5t)']);", this.Localize("TightEncirclement"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['x=\\cos (t)t/3;y=\\sin (t)t/3\\left\\{0<t<6\\pi \\right\\}']);", this.Localize("Spiral"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['x=1.5(5\\cos (t)-\\cos (6t));y=1.2(3\\sin (t)-\\sin (4t))']);", this.Localize("Darts"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=x^2-4-\\frac{x^4}{10}+\\frac{3x^6}{1000}']);", this.Localize("Nappe"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['x=\\cos (t);y=asin(t)\\left\\{-1<t<1\\right\\}','x=-\\cos (t);y=arcsin(t)\\left\\{-1<t<1\\right\\}']);", this.Localize("CharmingCurve"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=\\frac{4x^2+5x-1}{x^2+x-3}']);", this.Localize("SleepyFace"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['tan\\left(x\\right)+sin\\left(y\\right)=0', 'tan\\left(y\\right)+sin\\left(x\\right)=0', 'sin\\left(x\\right)+\\cos\\left(y\\right)=1', '']);", this.Localize("RhythmRipple"))
+                    </li>
+                    <li class="new">
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=-4.9', '2x^2+y^2=9\\left\\{y<2.5\\right\\}', '\\left(\\left|x\\right|-1\\right)^2+\\left(y-1\\right)^2=1', '\\left(\\left|x\\right|-2.4\\right)^2-\\left(\\left|x\\right|-2.4\\right)\\cdot \\left(y-1.8\\right)+\\left(y-1.8\\right)^2=0.2', '4x^2+\\left(y-3\\right)^2=1', '4\\left(\\left|x\\right|-0.9\\right)^2+\\left(y-3\\right)^2=0.6', '2x^2+\\left(y+4.5\\right)^2=9\\left\\{-4.9<y\\right\\}', '2x^2+\\left(y+5.5\\right)^2=3\\left\\{-4.9<y\\right\\}', '\\left(x-2.7\\right)^2-\\left(x-2.7\\right)\\cdot \\left(y+3\\right)+\\left(y+3\\right)^2=0.3', '\\left(\\left|x\\right|-0.5\\right)^2+\\left(\\left|y+0.5\\right|-1.5\\right)^2=0.02']);", this.Localize("LittleHorse"), this.Localize("LittleHorseTitle"))
+                    </li>
+                </ul>
+                <h3>@this.Localize("Explore")</h3>
+                <ul>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=2x+3']);", this.Localize("LinearFunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=2x^2']);", this.Localize("Quadraticfunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=2x^3']);", this.Localize("CubicFunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=x^5+2x^4-x^3+3x^2+x']);", this.Localize("PolynomialFunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=e^x']);", this.Localize("ExponentialFunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=ln(x)']);", this.Localize("LogarithmFunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=sin(x)+tan(2x)']);", this.Localize("TrigonometricFunction"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['x^2+y^2=1']);", this.Localize("UnitCircle"))
+                    </li>
+                    <li>
+                        @Html.ScriptItemLink(@"FunGrapher.Example(['y=1/x']);", this.Localize("HyperbolaCurve"))
+                    </li>
+                </ul>
+                <h3>@this.Localize("Features")</h3>
+                <ul>
+                    <li>
+                        <strong>@this.Localize("Fast")</strong>
+                        @this.Localize("FastDescription")
+                    </li>
+                    <li>
+                        <strong>@this.Localize("Free")</strong>
+                        @this.Localize("FreeDescription")
+                    </li>
+                    <li>
+                        <strong>@this.Localize("Share")</strong>
+                        @this.Localize("ShareDescription")
+                    </li>
+                    <li>
+                        <strong>@this.Localize("Art")</strong>
+                        @this.Localize("ArtDescription")
+                    </li>
+                </ul>
+                <h3>@this.Localize("Tutorial")</h3>
+                <p>@this.Localize("TutorialDescription")</p>
+            </div>
+        </div>
+    </div>
+    <div id="canvas-wrapper">
+        <div id="loading">@Html.Localize(this, "Loading")</div>
+    </div>
+    <div id="thinking">@Html.Localize(this, "Drawing")</div>
+    <div class="clearFloat" style="float: none; clear: both;"></div>
+</div>
+
+@Html.RenderJavaScripts("~/Scripts/zizhujy.com.js", "~/Scripts/requireLite/requireLite.js",
+"~/Scripts/FunctionGrapher/main.js")
+<script type="text/javascript">
+    requireLite([
+            { path: "@Url.Content("~/Scripts/json2.js")", canary: "typeof JSON !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/globalize.js")", canary: "typeof Globalize !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/jquery-1.8.3.js")", canary: "typeof jQuery !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexLex.1.2.js")", canary: "typeof zizhujy.com.LaTexLex !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexParser.1.2.js")", canary: "typeof zizhujy.com.LaTexParser !== 'undefined'" }
+    ], function () {
+        Globalize.addCultureInfo(
+            "default",
+            {
+                messages: @Html.Raw(ResourceHelper.JsonResource(VirtualPath))
+                });
+
+        $.extend(zizhujy.com.LaTexParser.errorEnum, {
+            EVALUATION_OPERATOR_EXPECTED: { message: Globalize.localize("EVALUATION_OPERATOR_EXPECTED") },
+            OPEN_BRACE_EXPECTED: { message: Globalize.localize("OPEN_BRACE_EXPECTED") },
+            LATEX_OPEN_BRACE_EXPECTED: { message: Globalize.localize("LATEX_OPEN_BRACE_EXPECTED") },
+            CLOSING_BRACE_EXPECTED: { message: Globalize.localize("CLOSING_BRACE_EXPECTED") },
+            LATEX_CLOSING_BRACE_EXPECTED: { message: Globalize.localize("LATEX_CLOSING_BRACE_EXPECTED") },
+            DEPENDENT_VAR_Y_EXPECTED: { message: Globalize.localize("DEPENDENT_VAR_Y_EXPECTED") },
+            SEMICOLON_EXPECTED: { message: Globalize.localize("SEMICOLON_EXPECTED") },
+            DEPENDENT_VAR_X_EXPECTED: { message: Globalize.localize("DEPENDENT_VAR_X_EXPECTED") },
+            OPEN_PARENTHESIS_EXPECTED: { message: Globalize.localize("OPEN_PARENTHESIS_EXPECTED") },
+            CLOSING_PARENTHESIS_EXPECTED: { message: Globalize.localize("CLOSING_PARENTHESIS_EXPECTED") },
+            LATEX_COMMAND_EXPECTED: { message: Globalize.localize("LATEX_COMMAND_EXPECTED") },
+            DIGITAL_NUMBER_EXPECTED: { message: Globalize.localize("DIGITAL_NUMBER_EXPECTED") },
+            VAR_Y_EXPECTED: { message: Globalize.localize("VAR_Y_EXPECTED") },
+            VAR_X_EXPECTED: { message: Globalize.localize("VAR_X_EXPECTED") },
+            VAR_T_EXPECTED: { message: Globalize.localize("VAR_T_EXPECTED") },
+            VARIABLE_NAME_EXPECTED: { message: Globalize.localize("VARIABLE_NAME_EXPECTED") },
+            CONSTANT_VALUE_EXPECTED: { message: Globalize.localize("CONSTANT_VALUE_EXPECTED") },
+            FUNCTION_EXPECTED: { message: Globalize.localize("FUNCTION_EXPECTED") },
+            COMMA_EXPECTED: { message: Globalize.localize("COMMA_EXPECTED") },
+            END_OF_SOURCE_EXPECTED: { message: Globalize.localize("END_OF_SOURCE_EXPECTED") },
+            EQUAL_SIGN_EXPECTED: { message: Globalize.localize("EQUAL_SIGN_EXPECTED") },
+            POSITIVE_SIGN_EXPECTED: { message: Globalize.localize("POSITIVE_SIGN_EXPECTED") },
+            NEGATIVE_SIGN_EXPECTED: { message: Globalize.localize("NEGATIVE_SIGN_EXPECTED") },
+            UNKNOWN_ERROR: { message: Globalize.localize("UNKNOWN_ERROR") },
+            UNEXPECTED_END_OF_SOURCE: { message: Globalize.localize("UNEXPECTED_END_OF_SOURCE") },
+            LESS_THAN_EXPECTED: { message: Globalize.localize("LESS_THAN_EXPECTED") },
+            LEFT_COMMAND_EXPECTED: { message: Globalize.localize("LEFT_COMMAND_EXPECTED") },
+            RIGHT_COMMAND_EXPECTED: { message: Globalize.localize("RIGHT_COMMAND_EXPECTED") },
+            PIPE_EXPECTED: { message: Globalize.localize("PIPE_EXPECTED") },
+            UNEXPECTED_RIGHT_COMMAND: { message: Globalize.localize("UNEXPECTED_RIGHT_COMMAND") },
+            UNKNOWN_LATEX_COMMAND_MET: { message: Globalize.localize("UNKNOWN_LATEX_COMMAND_MET") }
+        });
+
+        requireLite([
+            { path: "@Url.Content("~/Scripts/jquery.colorhelpers.js")", canary: "typeof $.color !== 'undefined'" },
+                { path: "@Url.Content("/Scripts/flot/flot/jquery.flot.js")", canary: "typeof $.plot !== 'undefined'" },
+                { path: "@Url.Content("~/Scripts/flot/jquery.flot.menuBar.js")", canary: "$.plot.plugins.filter(function(item){return item.name === 'menuBar';}).length>0" }
+        ]);
+    });
+</script>
+<script type="text/javascript">
+    requireLite([
+            { path: "@Url.Content("~/Scripts/jquery-1.8.3.js")", canary: "typeof jQuery !== 'undefined'" }
+    ], function () {
+        executeOn(
+            function() {
+                //return document.readyState === "complete" || document.readyState === "interactive";
+                return typeof plot !== "undefined";
+            },
+            function () {
+                $("#loading").remove();
+            });
+    });
+</script>
+<script type="text/javascript">
+    requireLite([
+            { path: "@Url.Content("~/Scripts/zizhujy.com.js")", canary: "typeof zizhujy.com !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/jquery-1.8.3.js")", canary: "typeof jQuery !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/mathquill/mathquill.js")", canary: "typeof jQuery.fn.mathquill !== 'undefined'" },
+            // For showing error list:
+            { path: "@Url.Content("~/Scripts/zizhujy.com.Collection.js")", canary: "typeof zizhujy.com.Collection !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/zizhujy.com.DataTable.js")", canary: "typeof zizhujy.com.DataTable !== 'undefined'" },
+            { path: "@Url.Content("~/Scripts/FunctionGrapher/funControl.js")", canary: "typeof FunControl !== 'undefined'" }
+    ], function () {
+        $(".button.hide").click(function (event) {
+            var $associatedDiv = $($(this).attr("for"));
+
+            $associatedDiv.each(function (index, element) {
+                var $me = $(element);
+                var originWidth = $me.width();
+                $me.animate({ "margin-right": -originWidth }, 100,
+                    function () {
+                        $me.hide();
+                    });
+            });
+        });
+
+        $(".button.show").click(function (event) {
+            var $associatedDiv = $($(this).attr("for"));
+
+            $associatedDiv.each(function (index, element) {
+                var $me = $(element);
+                $me.show();
+                $me.animate({ "margin-right": 0 }, 100);
+            });
+        });
+
+        $(".button.clear-all").click(function(event) {
+            FunControl.UI.DeleteAllExpressionLines();
+        });
+
+        $("#get-link").click(function(event) {
+            $(this).attr("href", FunControl.GetLink(window.location.href));
+        });
+
+        $("#control-panel .body").css({
+            "top": $("#control-panel .header").height()
+        });
+
+        $(document).resize(function(event) {
+            $("#control-panel .body").css({
+                "top": $("#control-panel .header").height()
+            });
+        });
+
+        $(document).ready(function(event) {
+            var $resizable = $(".jy-ui-resizable.left");
+            var $container = $resizable.parent();
+            var $splitter = $("<div class='splitter'></div>");
+
+            $splitter.prependTo($container)
+                .css({
+                    "left": $resizable.position().left,
+                    "top": $resizable.position().top
+                })
+                .on("drag", function(e) {
+                    //console.log("draging");
+
+                    var diff = $(e)[0].offsetX - $resizable.offset().left;
+                    //console.log("diff = " + diff);
+                    var currentWidth = $resizable.width();
+                    var newWidth = currentWidth - diff;
+                    $resizable.width(newWidth);
+
+                    $splitter.css({
+                        "left": $resizable.position().left
+                    });
+
+                    // Important to add the following line to make it work in IE
+                    e.preventDefault();
+                });
+
+            $(document).resize(function(e) {
+                $splitter.css({
+                    "left": $resizable.position().left
+                });
+            });
+
+            if (/Windows Phone/i.test(navigator.userAgent)) {
+                $(document).on("click", ".expressionBox > span.mathquill-editable", function (event) {
+                    $(this).find("textarea").css({
+                        "width": "1px",
+                        "height": "1px",
+                        "display": "block"
+                    }).focus();
+                });
+            }
+        });
+
+    });
+
+    var series = [];
+
+    function funGrapherCallback(funGrapher, plot, options) {
+        requireLite([
+                { path: "@Url.Content("~/Scripts/jquery-1.8.3.js")", canary: "typeof jQuery !== 'undefined'" },
+                { path: "@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexLex.1.2.js")", canary: "typeof zizhujy.com.LaTexLex !== 'undefined'" },
+                { path: "@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexParser.1.2.js")", canary: "typeof zizhujy.com.LaTexParser !== 'undefined'" },
+                { path: "@Url.Content("~/Scripts/flot/extendedForMath/jquery.flot.extendedForMath.js")", canary: "$.plot.plugins.filter(function(item){return item.name==='funGrapher';}).length > 0" },
+                { path: "@Url.Content("~/Scripts/FunctionGrapher/funControl.js")", canary: "typeof FunControl !== 'undefined'" }
+        ], function() {
+            options = $.extend(true, {}, options, {
+                colors: ["#421C52", "#FF0000", "#000099", "#990000", "#009900", "#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#9440ed"],
+                legend: {
+                    labelFormatter: function(label, series){
+                        return ("<span class='mathquill-embedded-latex'>" + label.htmlEncode() + "</span>");
+                    }
+                },
+                onStart: function() {
+                    var $thinking = $("#thinking");
+                    $thinking.show();
+                    plot.paused = false;
+                    plot.end = false;
+                },
+                onProgress: function() {
+                    //var $thinking = $("#thinking");
+                    //$thinking.show();
+                    //console.log("thinking...");
+                    plot.paused = false;
+                    plot.end = false;
+                },
+                onPause:function(plot) {
+                    var $thinking = $("#thinking");
+                    $thinking.hide();
+                    plot.paused = true;
+                },
+                onResume: function(plot) {
+                    var $thinking = $("#thinking");
+
+                    if (plot.paused === true) {
+                        plot.paused = false;
+                    }
+
+                    if (plot.end === false) {
+                        $thinking.show();
+                    } else {
+                        $thinking.hide();
+                    }
+                },
+                onEnd: function() {
+                    var $thinking = $("#thinking");
+                    $thinking.hide();
+                    plot.paused = false;
+                    plot.end = true;
+                }
+            });
+
+            plot = $.plot("#canvas-wrapper", [[]], options);
+
+            $("#layout").on("keydown", ".expressionLine", function(event) {
+                monitorUserActivity.pauseAndLog("Typing expression");
+                executeCallback(plot.getOptions().onPause, [plot]);
+            }).on("drag dragstart dragend", ".splitter", function() {
+                monitorUserActivity.pauseAndLog("dragging control panel");
+            });
+
+            var urlParams = funGrapher.deserializeUrlParams();
+            var deferAddExpression = false;
+
+            if (!!urlParams) {
+                if (!!urlParams.fns) {
+                    var expressions = funGrapher.decodeExpressions(decodeURIComponent(urlParams.fns));
+                    if (expressions instanceof Array) {
+                        var newExpressions = expressions.map(function(e) {
+
+                            if(window["FunControl"]){
+                                FunControl.UI.AddExpression(e);
+                                return undefined;
+                            } else {
+                                deferAddExpression = true;
+                                return funGrapher.analyzeExpression(e, plot);
+                            }
+                        }).filter(function(e) {
+                            return !!e;
+                        });
+
+                        if (deferAddExpression) {
+                            executeOn("typeof FunControl !== 'undefined'", function() {
+                                for (var i = 0; i < expressions.length; i++) {
+                                    // TODO: delete existing expressions in plot:
+                                }
+
+                                FunControl.UI.AddExpressions(newExpressions);
+                            });
+                        }
+
+                        series = series.concat(newExpressions);
+                    }
+                }
+            }
+
+            executeOn("typeof FunControl !== 'undefined'", function() {
+                function bindFunControlUIAndPlot(funControlUI, plot) {
+                    var intervalId = setInterval(function () {
+                        var series = plot.getData();
+                        var newSeries = [];
+                        var $expressionLines = $(".expressionLine");
+                        var needRedraw = false;
+
+                        var ids = [];
+
+                        var currentViewPort = {
+                            left: plot.getAxes().xaxis.min,
+                            right: plot.getAxes().xaxis.max,
+                            bottom: plot.getAxes().yaxis.min,
+                            top: plot.getAxes().yaxis.max,
+                            plotHeight: plot.height(),
+                            plotWidth: plot.width()
+                        };
+
+                        if (plot.recentViewPort && plot.recentViewPort.left == currentViewPort.left && plot.recentViewPort.right == currentViewPort.right && plot.recentViewPort.bottom == currentViewPort.bottom && plot.recentViewPort.top == currentViewPort.top && plot.recentViewPort.plotHeight == currentViewPort.plotHeight && plot.recentViewPort.plotWidth == currentViewPort.plotWidth) {
+                            for (var i = 0; i < series.length; i++) {
+                                series[i].suppressCompute = true;
+                            }
+                        }
+
+                        // upsert
+                        $expressionLines.each(function (index, element) {
+                            var $me = $(element);
+
+                            var s = {
+                                label: $me.find("span.mathquill-editable").mathquill("latex"),
+                                data: [],
+                                $control: $me,
+                                onError: function (errorList) {
+                                    funControlUI.ShowErrorStyle($me, errorList);
+
+                                    // delete its layer
+                                    if (!!this.layerNames) {
+                                        for (var i = 0; i < this.layerNames.length; i++) {
+                                            $("." + this.layerNames[i]).remove();
+                                        }
+                                    }
+                                },
+                                onValid: function () { funControlUI.RemoveErrorStyle($me); },
+                                onStart: function () { },
+                                onProgress: function () { },
+                                onSuccess: function () { },
+                                id: $me.find(".expressionBox").attr("id"),
+                                expression: $me.find("span.mathquill-editable").mathquill("latex"),
+                                lines: {
+                                    show: true
+                                },
+                                suppressCompute: false
+                            };
+
+                            ids.push(s.id);
+
+                            var theSeriesPos = series.indexOf(s, 0, function (item) {
+                                return !!item.id && item.id === s.id;
+                            });
+
+                            if (theSeriesPos >= 0) {
+                                if (series[theSeriesPos].expression !== s.expression) {
+                                    // update:
+                                    needRedraw = true;
+
+                                    series[theSeriesPos] = $.extend(true, series[theSeriesPos], s);
+                                    // To trigger the staled function object get recalculated
+                                    delete series[theSeriesPos]["function"];
+                                }
+                            } else {
+                                if (!!s.expression) {
+                                    needRedraw = true;
+                                    newSeries.push(s);
+                                }
+                            }
+                        });
+
+                        // delete
+                        series.remove(function (item) {
+                            var result = !!item.id && ids.indexOf(item.id) < 0;
+                            if (result) {
+                                needRedraw = true;
+
+                                // delete its layer
+                                if (!!item.layerNames) {
+                                    for (var i = 0; i < item.layerNames.length; i++) {
+                                        $("." + item.layerNames[i]).remove();
+                                    }
+                                }
+                            }
+
+                            return result;
+                        });
+
+                        if (needRedraw) {
+                            plot.redraw(series.concat(newSeries));
+                        }
+                    }, 100);
+
+                    return intervalId;
+                }
+
+                window.bindedInterval = bindFunControlUIAndPlot(FunControl.UI, plot);
+            });
+
+            plot.redraw(series);
+
+            plot.update();
+
+            window.plot = plot;
+        });
+    }
+</script>

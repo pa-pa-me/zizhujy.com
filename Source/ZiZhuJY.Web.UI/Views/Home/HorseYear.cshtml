@@ -1,0 +1,275 @@
+﻿@using System.Web.Optimization
+@using ZiZhuJY.Common.Extensions
+@using ZiZhuJY.Web.UI.Helpers
+@model ZiZhuJY.Web.UI.Models.AnnualRingModel
+
+@{
+    ViewBag.BannerTitle = Model.LunarYear + this.Localize("BannerTitle");
+    ViewBag.Title = "{0} {1}".FormatWith((string)ViewBag.BannerTitle, this.Localize("PageTitle"));
+    ViewBag.Highlights = @"它天生就是一种舍己为人的动物，它甚至会迎合主人的意愿，用敏捷而准确的动作来表达和执行人的意旨；它能满足我们期望它做到的一切；它毫无保留地奉献自己，不拒绝任何使命；它尽一切力量来为人效力。";
+}
+
+@section HeaderScripts {
+    @Html.RenderKeywords("{0}".FormatWith(this.Localize("SeoKeywords")))
+    @Html.RenderDescription("{0} {1}".FormatWith(this.Localize("SeoDescription"), (string)ViewBag.Highlights))
+    @Html.RenderRobots()
+    @Styles.Render("~/Scripts/mathquill/mathquill.css", "~/Content/css/effects.css")
+
+    <style type="text/css">
+        #thinking {
+            font-size: xx-large;
+            text-align: left;
+            vertical-align: middle;
+            line-height: 100%;
+            margin: 100px 1% 0 1%;
+            padding: 0 0 0 40px;
+            background: url('@Url.Content("~/Content/Images/loading.gif")') no-repeat left center;
+            position: absolute;
+            z-index: 8;
+            top: 50px;
+            display: none;
+        }
+
+        .float-left {
+            float: left;
+            margin-right: 1em;
+            margin-bottom: 1em;
+        }
+    </style>
+
+    <script type="text/javascript">
+        // Globalization
+        Globalize.addCultureInfo("default", { messages: @Html.Raw(ResourceHelper.JsonResource(this.VirtualPath))});
+    </script>
+
+    <script type="text/javascript">
+        function funGrapherCallback(funGrapher, plot, options) {
+            var data = [
+                {
+                    data: [[]],
+                    expression: "y=-4.9"
+                },
+                {
+                    data: [[]],
+                    expression: "2x^2+y^2=9\\left\\{y<2.5\\right\\}"
+                },
+                {
+                    data: [[]],
+                    expression: "\\left(\\left|x\\right|-1\\right)^2+\\left(y-1\\right)^2=1"
+                },
+                {
+                    data: [[]],
+                    expression: "\\left(\\left|x\\right|-2.4\\right)^2-\\left(\\left|x\\right|-2.4\\right)\\cdot \\left(y-1.8\\right)+\\left(y-1.8\\right)^2=0.2"
+                },
+                {
+                    data: [[]],
+                    expression: "4x^2+\\left(y-3\\right)^2=1"
+                },
+                {
+                    data: [[]],
+                    expression: "4\\left(\\left|x\\right|-0.9\\right)^2+\\left(y-3\\right)^2=0.6"
+                },
+                {
+                    data: [[]],
+                    expression: "2x^2+\\left(y+4.5\\right)^2=9\\left\\{-4.9<y\\right\\}"
+                },
+                {
+                    data: [[]],
+                    expression: "2x^2+\\left(y+5.5\\right)^2=3\\left\\{-4.9<y\\right\\}"
+                },
+                {
+                    data: [[]],
+                    expression: "\\left(x-2.7\\right)^2-\\left(x-2.7\\right)\\cdot \\left(y+3\\right)+\\left(y+3\\right)^2=0.3"
+                },
+                {
+                    data: [[]],
+                    expression: "\\left(\\left|x\\right|-0.5\\right)^2+\\left(\\left|y+0.5\\right|-1.5\\right)^2=0.02"
+                }
+            ];
+
+            options = $.extend(true, {}, options, {
+                optionsControl: {
+                    position: { left: "10px", top: "10px" },
+                    display: "block"
+                },
+                navigationControl: {
+                    homeRange: { xmin: -10, xmax: 10, ymin: -10, ymax: 10 },
+                    panAmount: 100,
+                    zoomAmount: 1.5,
+                    position: { left: "20px", top: "45px" }
+                },
+                menu: {
+                    position: { left: "40px", top: "10px" },
+                    menuHtml: "<ul class='menu-bar'><li event='click' title='{5}'><span class='helper'></span><a href='@Url.Action("Index",
+                    "FunctionGrapher", new{
+                                 adsFree = true,
+                fns = "base64%2FWyJ5PS00LjkiLCIyeF4yK3leMj05XFxsZWZ0XFx7eTwyLjVcXHJpZ2h0XFx9IiwiXFxsZWZ0KFxcbGVmdHx4XFxyaWdodHwtMVxccmlnaHQpXjIrXFxsZWZ0KHktMVxccmlnaHQpXjI9MSIsIlxcbGVmdChcXGxlZnR8eFxccmlnaHR8LTIuNFxccmlnaHQpXjItXFxsZWZ0KFxcbGVmdHx4XFxyaWdodHwtMi40XFxyaWdodClcXGNkb3RcXGxlZnQoeS0xLjhcXHJpZ2h0KStcXGxlZnQoeS0xLjhcXHJpZ2h0KV4yPTAuMiIsIjR4XjIrXFxsZWZ0KHktM1xccmlnaHQpXjI9MSIsIjRcXGxlZnQoXFxsZWZ0fHhcXHJpZ2h0fC0wLjlcXHJpZ2h0KV4yK1xcbGVmdCh5LTNcXHJpZ2h0KV4yPTAuNiIsIjJ4XjIrXFxsZWZ0KHkrNC41XFxyaWdodCleMj05XFxsZWZ0XFx7LTQuOTx5XFxyaWdodFxcfSIsIjJ4XjIrXFxsZWZ0KHkrNS41XFxyaWdodCleMj0zXFxsZWZ0XFx7LTQuOTx5XFxyaWdodFxcfSIsIlxcbGVmdCh4LTIuN1xccmlnaHQpXjItXFxsZWZ0KHgtMi43XFxyaWdodClcXGNkb3RcXGxlZnQoeSszXFxyaWdodCkrXFxsZWZ0KHkrM1xccmlnaHQpXjI9MC4zIiwiXFxsZWZ0KFxcbGVmdHx4XFxyaWdodHwtMC41XFxyaWdodCleMitcXGxlZnQoXFxsZWZ0fHkrMC41XFxyaWdodHwtMS41XFxyaWdodCleMj0wLjAyIl0%3D"})' target='_blank' style='text-decoration: none; color: #666;'><span class='icon' style='font-size: larger;'>f</span></a></li><li title='{4}' event='click' handler='handleNavigationControl'><span class='helper'></span><span class='icon' style='font-size: larger;'>m</span></li><li title='{0}'><span class='helper'></span><span class='icon' style='font-size: larger'>&#xe001;</span><ul><li event='click' handler='saveAsPng'>{1}</li><li event='click' handler='saveAsJpeg'>{2}</li><li event='click' handler='saveAsBmp'>{3}</li></ul></li></ul>".format(
+                        Globalize.localize("TipForSavingGraph") || "Save as image...",
+                        Globalize.localize("SaveAsPNG") || "Save as PNG...",
+                        Globalize.localize("SaveAsJPEG") || "Save as JPEG...",
+                        Globalize.localize("SaveAsBMP") || "Save as BMP...",
+                        Globalize.localize("ToggleNavigationControl") || "Toggle navigation control",
+                        Globalize.localize("FullScreen") || "Full screen"
+                    )
+                },
+                colors: ["#421C52", "#FF0000", "#000099", "#990000", "#009900", "#edc240", "#afd8f8", "#cb4b4b", "#4da74d", "#9440ed"],
+                legend: {
+                    labelFormatter: function(label, series) {
+                        return ("<span class='mathquill-embedded-latex'>" + label.htmlEncode() + "</span>");
+                    },
+                    show: false
+                },
+                onStart: function() {
+                    var $thinking = $("#thinking");
+                    $thinking.show();
+                    plot && (plot.paused = false);
+                    plot && (plot.end = false);
+                },
+                onProgress: function() {
+                    //var $thinking = $("#thinking");
+                    //$thinking.show();
+                    //console.log("thinking...");
+                    plot.paused = false;
+                    plot.end = false;
+                },
+                onPause: function(plot) {
+                    var $thinking = $("#thinking");
+                    $thinking.hide();
+                    plot.paused = true;
+                },
+                onResume: function(plot) {
+                    var $thinking = $("#thinking");
+
+                    if (plot.paused === true) {
+                        plot.paused = false;
+                    }
+
+                    if (plot.end === false) {
+                        $thinking.show();
+                    } else {
+                        $thinking.hide();
+                    }
+                },
+                onEnd: function() {
+                    var $thinking = $("#thinking");
+                    $thinking.hide();
+                    plot.paused = false;
+                    plot.end = true;
+
+                },
+                onQueueEnd: function(plot) {
+                    setTimeout(
+                        plot.update,
+                        1000);
+                },
+                coordinate: {
+                    type: 'none'
+                },
+                grid: {
+                    show: true,
+                    borderWidth: 1,
+                    borderColor: "#ccc",
+                    backgroundColor: "#eee"
+                },
+                xaxis: {
+                    min: -5,
+                    max: 5
+                },
+                yaxis: {
+                    min: -5.5,
+                    max: 5
+                }
+            });
+
+            requireLite([
+                    { path: "@Url.Content("~/Scripts/flot/jquery.flot.menuBar.js", true)", canary: "$.plot.plugins.filter(function(item){return item.name === 'menuBar';}).length>0" }
+            ], function() {
+                plot = $.plot("#canvas-wrapper", data, options);
+            });
+
+        }
+    </script>
+}
+
+<div class="highlight text-indent" style="background-color: #b22222; color: white; margin-bottom: 5px;">
+    <p>
+        @ViewBag.Highlights
+    </p>
+</div>
+
+<div class="text-indent">
+    <h1 class="text-center">马</h1>
+    <p class="text-right">【法】乔治·布封</p>
+    <div class="float-left sidenote text-indent-none" style="width: 300px;">
+        <div id="canvas-wrapper" style="height: 300px;">
+            <div id="loading">@this.Localize("Loading")</div>
+        </div>
+        <div id="thinking" style="display: none;">@this.Localize("Drawing")</div>
+        <div class="clearFloat" style="float: none; clear: both;"></div>
+        <div class="remark">
+            <ul>
+                <li>
+                    @this.Localize("FunGrapherArt")
+                    <a href="@Url.Action("Index", "FunctionGrapher", new
+                             {
+                                 adsFree = true,
+                                 fns = "base64%2FWyJ5PS00LjkiLCIyeF4yK3leMj05XFxsZWZ0XFx7eTwyLjVcXHJpZ2h0XFx9IiwiXFxsZWZ0KFxcbGVmdHx4XFxyaWdodHwtMVxccmlnaHQpXjIrXFxsZWZ0KHktMVxccmlnaHQpXjI9MSIsIlxcbGVmdChcXGxlZnR8eFxccmlnaHR8LTIuNFxccmlnaHQpXjItXFxsZWZ0KFxcbGVmdHx4XFxyaWdodHwtMi40XFxyaWdodClcXGNkb3RcXGxlZnQoeS0xLjhcXHJpZ2h0KStcXGxlZnQoeS0xLjhcXHJpZ2h0KV4yPTAuMiIsIjR4XjIrXFxsZWZ0KHktM1xccmlnaHQpXjI9MSIsIjRcXGxlZnQoXFxsZWZ0fHhcXHJpZ2h0fC0wLjlcXHJpZ2h0KV4yK1xcbGVmdCh5LTNcXHJpZ2h0KV4yPTAuNiIsIjJ4XjIrXFxsZWZ0KHkrNC41XFxyaWdodCleMj05XFxsZWZ0XFx7LTQuOTx5XFxyaWdodFxcfSIsIjJ4XjIrXFxsZWZ0KHkrNS41XFxyaWdodCleMj0zXFxsZWZ0XFx7LTQuOTx5XFxyaWdodFxcfSIsIlxcbGVmdCh4LTIuN1xccmlnaHQpXjItXFxsZWZ0KHgtMi43XFxyaWdodClcXGNkb3RcXGxlZnQoeSszXFxyaWdodCkrXFxsZWZ0KHkrM1xccmlnaHQpXjI9MC4zIiwiXFxsZWZ0KFxcbGVmdHx4XFxyaWdodHwtMC41XFxyaWdodCleMitcXGxlZnQoXFxsZWZ0fHkrMC41XFxyaWdodHwtMS41XFxyaWdodCleMj0wLjAyIl0%3D"})" target=" _blank" title="@this.Localize("FunGrapherArtName")">
+                        <strong>@this.Localize("FunGrapherArtName")</strong>
+                    </a>
+                </li>
+                <li>
+                    @this.Localize("Author")
+                    <a href="http://weibo.com/xiaochuanwang" target="_blank" title="@this.Localize("AuthorTitle")">
+                        <strong>@this.Localize("AuthorName")</strong>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p>在人类所有的征服中，最高贵的行为，就是征服了豪迈而剽悍的马。马和人类分担着征战的劳苦，分享着胜利的光荣；它如同骑士一样，具有勇猛无畏的精神，面对战争的危急却选择慷慨以赴，勇往直前；它听惯了兵器交接时的铿锵之音，喜欢并追随着这种声音。它也能给主人带来欢乐：在狩猎时，在赛马时，在奔跑时，它以自己出众的行为给主人带来种种愉悦。</p>
+    <p>马懂得顺从，它知道如何去节制自己 的动作，而不会肆意表现自己的烈性。当主 人骑乘时，马不仅能服从于主人的操纵，而且似乎还会揣测主人的意愿―依据主人的面部表情而决定自己是奔跑，还是缓行，抑或是止步。因此，马天生就是一种舍己为人的动物，甚至在某些时候，它会迎合主人的意愿，以其敏捷而准确的动作来表达和执行主人的意旨。除此之外，马还能满足人们的各种期望，甚至不惜以牺牲自己的生命为代价，而为人们提供更好的服务。</p>
+    <p>具有上述特点的马，是其天性已得到驯化的马。这类马，从小就被人养育，并且经过专门的训练。它们所接受的教育以丧失自由而始，以被束缚而终，由于它们已被奴役或驯养得太久，所以我们无法看到它们的自然状态。因为它们在劳动时是披鞍戴辔的， 人类从来不会解除安加在它们身上的束缚， 即使当它们休息时。人们偶尔萌发慈悲之心，让它们自由行走在牧场上，但它们也总是带着被奴役的痕迹： 嘴巴被衔铁嚼子勒得变形，腹侧布满疮痍或被马刺刮出的痕迹，蹄子也被掌钉所洞穿。这些马的身体姿态都不自然，即使人们解除对它们的羁绊也是枉然，它们再也不会表现得自由活泼了。还有一些马，它们额上覆着妍丽的鬓毛，领鬣编成细辫，满身披着金丝和锦毡，然而，这些装饰品并不是为着装饰马，而是为了满足主人的虚荣心，因此，人类的这些对马的侮辱，丝毫不亚于给它们的蹄子上钉着铁掌。</p>
+    <p>然而，天性永远比人工更美丽，因此对于动物来说，最美丽的就是自由地表现自己的天性。让我们看看那些在南美各地自由生活的野马吧——它们无拘无束地行走着、飞驰着、跳跃着，既不受人们的约束，又不受节制。它们为其自由而自豪，因此不屑于看到人类；更不屑于人们对它们的照顾，因为它们自己就能够寻找食料。它们在广裹无垠的草原上自由地行走或跳跃，自由地采食着大自然提供给它们的食物；它们居无定所，晴明的天空就是它们的庇荫；它们呼吸着清新的空气，这些空气，比我们侵占它们应占的空间，而把它们禁闭在圆顶宫殿里的空气，要纯洁许多。所以，这些马，比起那些被豢养的马，更强壮、更遒劲，因为它们具有大自然所赋予它们的一切特质——充沛的精力和高贵的精神。而那些被驯养过的马，则只具备人工所能赋予的东西——技巧与妍媚！ </p>
+    <div class="sidenote float-right" style="width: 400px; margin: 0 0 0 1em;">
+        <img class="photo-frame" src="@Url.Content("~/Content/Images/AnnualRing/wild_horse_paint.jpg")" alt="野马母子" />
+        <div class="remark">
+            <h4 class="text-indent-none title">
+                野马母子
+                <span class="tab-half"></span>
+                斯塔布斯
+                <span class="tab-half"></span>
+                油画
+                <span class="tab-half"></span>
+                18 世纪
+            </h4>
+            <p>野马又名普氏野马，为奇蹄目，马科。分布于中国新疆东北部、甘肃、内蒙古交界处。它形似家马，但外形和习性上与家马存在着较大的区别。</p>
+            <p>这幅《野马母子》作于1760至1769年间。画家用精细的素描，准确地表现了野马的特征。</p>
+        </div>
+    </div>
+    <p>至于马的其他天性，我将进行更详细的论述。它们天生豪迈而狂野，但绝不凶猛，尽管它们的力气，比其他大多数动物都要强大得多，但它们从不攻击其他动物。假若它们受到其他动物的袭击，也不屑于和对方厮杀，仅仅是把它们赶走。它们也是成群来往，但其之所以聚集在一起，并不是惧怕别的动物，而纯粹是为了体验群居之乐，因为它们无所畏惧，不需要团结御侮。另外，由于草粮足够满足它们的食用，更何况它们对兽肉毫无兴趣，所以它们也不需要与其他动物作战，更不会互相作战或者争夺生存资料。它们从来不会侵犯小兽或劫夺同类，而这正是其他肉食动物无法避免的劣根性。所以马总是和平共处，其原因就在于它们的欲望既简单而又有节制，并且由于自然为它们提供了足够的生活资源，因此它们无须相互妒忌。马的这些品质，我们可以从人们成群饲养或放牧的马匹中看得很清楚。</p>
+    <p>马天生具有合群的品质和温和的习性，因此，当它们需要为人类表现出力量和热情时，也只是通过竞赛的方式来表达。奔跑时，努力抢在前头；战争时，争着过河和逾越壕沟，即使面对死亡，也是奋勇向前。这些奔跑在前面的马，是最勇猛、最优秀的，然而，一旦经过人类的驯化，却又是最温和的。</p>
+    <p>马除了具有以上的优良天性外，它们的体姿也是最美的。在所有身材高大的动物中，只有马的身体比例，是最匀称、最优美的。因此，如果我们以马作为参照物，我们就会发现驴子太丑，狮子的头太大，牛的粗大身躯与其细短的腿不相称，骆驼是畸形的。至于那些体形比马更庞大的动物，如犀牛、大象，这些动物的体形，充其量只能算是些不成形的内团而已。另外，颚骨前伸原是兽类头颅区别于人类头颅的主要原因——也是兽类最卑贱的标志，但是，尽管马的颚 骨很长，但它却不似驴的蠢相，如牛的呆相；相反，它的脑袋比例十分匀称，因此具有轻盈的神情，而这种神情又恰好与颈部形状相得益彰。所以，马一抬头，就似乎超出了四足兽的地位，这样的高贵姿态，可以使它和人面对面。</p>
+    <p>马的眼睛闪烁有神，目光十分坦率；它的耳朵形状也好，大小适中，不像牛耳太短，驴耳太长；它的鬣毛正好与其头部相衬，刚好装饰着它的颈项，从而赐予它一种强劲而高傲的模样；它那长而密的尾巴覆盖着身躯后端，并且恰好到它身躯的末端，这就区别于鹿、象的短尾巴，也不同于驴、骆驼、犀牛的秃尾。而且，马的尾巴是由密而长的鬃毛所构成，这些鬃毛仿佛直接从后面生长出来。尽管它的尾巴是下垂的，不像狮子尾巴是翘起的，但是对它来说却非常适宜，由于它的尾巴可以左右摆动，这样就可以驱赶那些令它苦恼的苍蝇，因为即使它的皮肤很坚实，并且长着厚而密的毛发，但还是十分畏惧苍蝇的骚扰。</p>
+    <h2>阿拉伯马</h2>
+    <div class="sidenote float-right" style="width: 400px; margin-left: 1em;">
+        <img class="photo-frame" src="@Url.Content("~/Content/Images/AnnualRing/arab_horse.jpg")" alt="阿拉伯马" />
+        <div class="remark">
+            <h4 class="text-indent-none title">阿拉伯马</h4>
+            <p>阿拉伯马是人类历史进程中最早被驯服的马种，待马驹两岁时，最晚两岁半，就可以供人们骑乘。如今人类利用阿拉伯马优秀的血统，培育出了各种马种，它们适用于现代赛马、马术和休闲娱乐。</p>
+        </div>
+    </div>
+    <p>无论生活多么窘迫，阿拉伯人都必须拥有马，这类马更能忍受疲劳和饥渴，而且其缺陷要比其他马少得多，总之，这类马温和而极少嘶鸣。阿拉伯人保持了这类马合群的习性，它们通常成群地聚在一起，尽管有时整天无人看管，它们却互不争斗，更不互相伤害。由于阿拉伯人的家庭通常只有一顶帐篷，因此这顶帐篷也充当马厩。骒马、马驹与阿拉伯人都睡在这顶帐篷里，所以即使小孩靠在骒马或马驹的身上，马也不去伤 害他们，它们甚至不敢乱动，唯恐伤着主人！由于这些马已经习惯于生活在这种亲密的氛围中，所以它们甚至也能忍受人们对它们的各种戏弄。</p>
+    <p>阿拉伯人温和地对待它们，对它们说话、讲道理，绝不会去伤害它们。他们总是让马自在缓步，除非万不得已，绝不使用马刺击打它们。然而，阿拉伯马却十分有灵性，一旦感到马蹬轻微撞击肋部，就会以惊人的速度奔跑起来，与鹿一样，轻盈地跨越障碍和沟壑。此外，这些马训练有素，一旦骑手失手摔下去，哪怕它们跑得再快也会戛然停住。</p>
+    <p>阿拉伯马身形消瘦，但是形体却很匀称。阿拉伯人每天按时给马匹洗刷，极为认真，不让它们沾染丝毫的泥点；他们为马清洗四肢、鬃毛和马尾，尤其是在清洗马尾时，阿拉伯人会十分小心，以免弄断，因为马尾很长。他们白天不喂马，只给它们饮几次水，因为这些马只在夜间进食，所以一到傍晚的时候，阿拉伯人就在马的脑袋边挂一只口袋，里面装上大约半斤的纯大麦以便马食用。等次日口袋中的食粮没有后，再把口袋拿走。每年的春三月，当青草生长之后，阿拉伯人就把马放牧在牧场，让其自由食用青草，春季一过，就将马从牧场牵回来。除了春季，在一年的其他时节里，阿拉伯人只喂食马少许的青草和词料，甚至干草也难得喂一次，而仅仅喂食大麦，因此大麦是马仅有的食粮。待马驹长到一岁到一岁半时，阿拉伯人就立刻剪掉其鬃毛，以便让鬃毛长得又密又长。等马驹两岁时，最晚两岁半，就可以供人们骑乘。当然，这种年龄段的所有阿拉伯马，都会被装上嚼子和鞍具，待在帐篷门口，等待人的使唤。</p>
+</div>
+
+@Scripts.Render("~/Scripts/zizhujy.com.js", "~/Scripts/requireLite/requireLite.js",
+"~/Scripts/FunctionGrapher/main.js")
+
+<div>
+
+</div>
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}

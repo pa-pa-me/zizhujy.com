@@ -1,0 +1,135 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+
+@{
+    Layout = "~/Views/Shared/_ThreeColumnsLayout.cshtml";
+    ViewBag.Title = this.Localize("Title");
+}
+
+@section HeaderStyles {
+    <link href="@Url.Content("../../Content/css/about.css")" rel="stylesheet" />
+    <style type="text/css">
+        .threecol .colmid {
+            background-image: url('@Url.Content("~/Content/Images/About/SHMarathon.jpg")');
+        }
+    </style>
+}
+
+@section pageid {
+    <zizhujy pageid="About"></zizhujy>
+}
+
+@section col1 {
+    <h2>@HttpContext.GetLocalResourceObject(this.VirtualPath, "Header")</h2>
+    @Html.Raw(HttpContext.GetLocalResourceObject(this.VirtualPath, "Message").ToString())
+    <h2>@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork")</h2>
+    <h3>@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource")</h3>
+    <ul class="list" style="list-style-image: none; list-style-type: none; margin: 0; padding: 0;">
+        <li class="block alpha60 flot">
+            <div class="background"></div>
+            <div class="bar" style="background-image: url('https://2.gravatar.com/avatar/0e042d87ce4acbfe24e18a95ed8c5064?d=https%3A%2F%2Fidenticons.github.com%2F5c3655d1b3cfa3d230b9df6bbb282e17.png&r=x&s=440');">
+                <a href="http://www.flotcharts.org/" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.Text")</a>
+            </div>
+            <ul class="list">
+                <li><a href="http://jeff-tian.github.io/jquery.flot.saveAsImage.js/" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.SaveAsImage.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.SaveAsImage.Text")</a></li>
+                <li><a href="https://github.com/Jeff-Tian/jquery.flot.navigationControl" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.NavigationControl.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.NavigationControl.Text")</a></li>
+                <li><a href="http://jeff-tian.github.io/jquery.flot.comments.js/" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.Comments.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.Comments.Text")</a></li>
+                <li><a href="http://jeff-tian.github.io/jquery.flot.coordinate.js/" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.Coordinate.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.Flot.Coordinate.Text")</a></li>
+            </ul>
+        </li>
+        <li class="block alpha60 blogengine">
+            <div class="background"></div>
+            <div class="bar" style="background-image: url('http://www.dotnetblogengine.net/pics/blogengine.ico');"><a style="color: #D53E2E;" href="http://blogengine.codeplex.com/" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.Text")</a></div>
+            <ul class="list">
+                <li><a href="http://dnbegallery.org/cms/List/Extensions/ImageGuard" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.ImageGuard.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.ImageGuard.Text")</a></li>
+                <li><a href="http://dnbegallery.org/cms/List/Extensions/BetterWordCount" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.WordCount.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.WordCount.Text")</a></li>
+                <li><a href="http://dnbegallery.org/cms/List/Widgets/FileSystemManager" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.FileSystemManager.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.BlogEngine.NET.FileSystemManager.Text")</a></li>
+            </ul>
+        </li>
+        <li class="block alpha60 visual-studio">
+            <div class="background"></div>
+            <div class="bar" style="background-image: url('http://i3.msdn.microsoft.com/Areas/Epx/Themes/VStudio/Content/sprite.min.png'); background-repeat: no-repeat; background-position: 5px 7px; background-size: 7em auto;">
+                <div style="background-color: #68217A; font-weight: normal;">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.VisualStudio.Text")</div>
+            </div>
+            <ul class="list">
+                <li>
+                    <a href="https://github.com/Jeff-Tian/ResX-Aggregator" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.ResxAggregator.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.ResxAggregator.Text")</a>
+                    (<a href="http://visualstudiogallery.msdn.microsoft.com/b9663e50-56ff-4e39-8ac5-fcc8135a8af6" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.ResxAggregator.DownloadTitle")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.OpenSource.ResxAggregator.DownloadText")</a>)
+                </li>
+            </ul>
+        </li>
+        <li class="block alpha60 windows-8">
+            <div class="background"></div>
+            <div class="bar" style="background-image: url('http://apps.microsoft.com/windows/images/Store.png');">
+                @HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.Windows8.Text")
+            </div>
+            <ul class="list">
+                <li><a href="http://apps.microsoft.com/windows/app/963f612f-2eed-4175-9b2b-06de964f9eeb" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.Windows8.Plotter.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.Windows8.Plotter.Text")</a></li>
+            </ul>
+        </li>
+        <li class="block alpha60 chrome-store">
+            <div class="background"></div>
+            <div class="bar">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.ChromeStore.Text")</div>
+            <ul class="list">
+                <li><a href="https://chrome.google.com/webstore/detail/image-explorer/bjplaimfmacmplmlacojiafeoojonmfk" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.ChromeStore.ImageExplorer.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.ChromeStore.ImageExplorer.Text")</a></li>
+                <li><a href="https://chrome.google.com/webstore/detail/fun-grapher/finpihnfokdnmcjaifhjgnbfaadlckih?utm_source=chrome-ntp-launcher" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.ChromeStore.FunctionGrapher.Title")">@HttpContext.GetLocalResourceObject(this.VirtualPath, "MyWork.ChromeStore.FunctionGrapher.Text")</a></li>
+            </ul>
+        </li>
+    </ul>
+}
+
+@section col2 {
+    <div>
+        <ul class="profile-images">
+            <li><img src="@Url.Content("~/Content/Images/About/2c98b6a5-cb5f-4650-839f-6ccf97ce812d.gif")" alt=""/></li>
+        </ul>
+        <h2>@HttpContext.GetLocalResourceObject(this.VirtualPath, "ContactInfo")</h2>
+        <ul class="social-links">
+            <li style="background-image: url('https://github.com/favicon.ico');">
+                <label for="social-link-github">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Label.Github")</label><a class="social-link" id="social-link-github" href="https://github.com/Jeff-Tian" target="_blank">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Title.Github")</a>
+            </li>
+            <li style="background-image: url('https://facebook.com/favicon.ico');">
+                <label for="social-link-fb">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Label.Facebook")</label><a class="social-link" id="social-link-fb" href="https://www.facebook.com/jeff.tian" target="_blank">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Title.Facebook")</a></li>
+            <li style="background-image: url('http://www.qq.com/favicon.ico');">
+                <label for="social-link-qq">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Label.QQ")</label><a class="social-link" id="social-link-qq" href="http://37179130.qzone.qq.com/" target="_blank">37179130</a></li>
+            <li style="background-image: url('http://weibo.com/favicon.ico');">
+                <label for="social-link-weibo">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Label.Weibo")</label><a class="social-link" id="social-link-weibo" href="http://weibo.com/jeffatzizhu" target="_blank">@@紫竹的姐夫</a></li>
+            <li style="background-image: url('http://a.xnimg.cn/favicon-rr.ico?ver=3');">
+                <label for="social-link-renren">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SocialLinks.Label.Renren")</label><a class="social-link" id="social-link-renren" href="www.renren.com/tian_jie" target="_blank">@HttpContext.GetLocalResourceObject(this.VirtualPath, "SoialLinks.Title.Renren")</a></li>
+        </ul>
+        <ul class="profile-images">
+            <li>
+                <a href="@Url.Content("~/Content/Images/About/BMWMarathon.jpg")" target="_blank" title="@HttpContext.GetLocalResourceObject(this.VirtualPath, "ProfileImage.Alt")">
+                    <img src="@Url.Content("~/Content/Images/About/BMWMarathon.jpg")" alt="@HttpContext.GetLocalResourceObject(this.VirtualPath, "ProfileImage.Alt")" /></a>
+            </li>
+            <li>
+                <img src="@Url.Content("~/Content/Images/About/rockClimbing.jpg")" alt="" />
+            </li>
+        </ul>
+    </div>
+}
+
+@section col3 {
+    <div>
+        <ul class="profile-images">
+            <li>
+                <iframe src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=0VsCM-4KUNU&lcode=&resourceId=0_06_05_99" allowtransparency="true" scrolling="no" border="0" frameborder="0" style="width:480px;"></iframe>
+            </li>
+            <li>
+                <img src="@Url.Content("~/Content/Images/About/psb.jpg")" alt="" />
+            </li>
+            <li>
+                <img src="@Url.Content("~/Content/Images/About/default.jpeg")" alt="" />
+            </li>
+            <li>
+                <img src="@Url.Content("~/Content/Images/About/Olympics1.jpg")" alt="" />
+            </li>
+            <li>
+                <iframe src="http://www.tudou.com/programs/view/html5embed.action?type=0&code=AC2Zmqk_Hvc&lcode=&resourceId=0_06_05_99" allowtransparency="true" scrolling="no" border="0" frameborder="0" style="width:480px;"></iframe>
+            </li>
+        </ul>
+    </div>
+}
+
+@section Cultures{
+    @this.RenderCultureSelection()
+}

@@ -1,0 +1,35 @@
+﻿@using System.Web.Optimization
+@using ZiZhuJY.Web.UI.App_GlobalResources
+@using ZiZhuJY.Web.UI.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Images/zizhujy.ico")" type="image/x-icon" />
+    @RenderSection("metas", false)
+    @Html.RenderCsses("~/Content/commonStyles", "~/Scripts/jquery-ui/css/smoothness/jquery-ui", "~/Content/css/iconfontsFico.css")
+    @Html.RenderCsses("~/Scripts/select2/select2.css")
+
+    @RenderSection("HeaderStyles", false)
+    @Scripts.Render("~/Scripts/Common/js")
+    @RenderSection("HeaderScripts", false)
+</head>
+<body>
+    <div id="page">
+        <div id="main">
+            @RenderBody()
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+    @RenderSection("Scripts", false)
+    
+    @{
+        if (!Request.IsLocal)
+        {
+        @Html.Raw(Application.SiteTrackingCode)
+        }
+    }
+</body>
+</html>

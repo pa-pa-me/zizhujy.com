@@ -1,0 +1,7 @@
+﻿user-agent: *
+Disallow: /BlogEngine/BlogEngine/BlogEngine.NET/*.*
+Disallow: /BlogEngine/BlogEngine/*.*
+Disallow: /BlogEngine/*.*
+
+#Remove the '#' character below and replace example.com with your own website address.
+sitemap: http://www.zizhujy.com/sitemap.xml

@@ -1,0 +1,257 @@
+﻿#funGrapher {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-bottom: 50px;
+}
+
+/* Canvas 
+--------------------------------------------*/
+
+#canvasWrapper {
+    padding: 0;
+    width: 40%;
+    height: auto;
+    overflow: visible;
+    float: left;
+    position: relative;
+}
+
+#canvas {
+    width: 490px;
+    height: 490px;
+    margin: auto auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#canvas #navButtons {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    right: 5px;
+    bottom: 22px;
+}
+
+#canvas div.button {
+    font-size: smaller;
+    color: #999;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#canvas #navButtons #navButtonUp {
+    left: 15px;
+    top: 0;
+    background: url('../Images/arrow-up.gif') no-repeat center center;
+}
+
+#canvas #navButtons #navButtonRight {
+    left: 29px;
+    top: 15px;
+    background: url('../Images/arrow-right.gif') no-repeat center center;
+}
+
+#canvas #navButtons #navButtonDown {
+    left: 15px;
+    top: 29px;
+    background: url('../Images/arrow-down.gif') no-repeat center center;
+}
+
+#canvas #navButtons #navButtonLeft {
+    left: 0;
+    top: 15px;
+    background: url('../Images/arrow-left.gif') no-repeat center center;
+}
+
+#coor {
+    position: absolute;
+    padding: 5px 10px;
+}
+
+/* Controls
+----------------------------------------------------------------------------*/
+
+#controls {
+    float: left;
+    /* For IE 7 */
+    *width: 245px;
+}
+
+#leftPanel {
+    padding: 5px;
+    overflow: hidden;
+    clear: both;
+    float: none;
+}
+
+#divFunctionList {
+    width: auto;
+    height: auto;
+}
+
+#taFunctionList {
+    width: 220px;
+    height: 250px;
+    max-width: 300px;
+    max-height: 250px;
+    margin-bottom: 5px;
+}
+
+#rightPanel {
+    float: left;
+    padding: 5px;
+    overflow: hidden;
+}
+
+#rightPanel .section {
+    margin: 5px 0;
+    padding: 0;
+}
+
+#rightPanel label.from {
+    width: 2.5em;
+    display: inline-block;
+}
+
+#aGetLink {
+    background: url('../Images/link.png') no-repeat center center;
+    width: 24px;
+    height: 18px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+#aGetLink:link {
+}
+
+#aGetLink:hover {
+}
+
+#aGetLink:active {
+}
+
+#aGetLink:visited {
+}
+
+#linkDialog {
+    display: none;
+}
+
+#logoPanel {
+    float: right;
+    width: 80px;
+    height: 80px;
+    max-width: 90px;
+    max-height: 90px;
+    overflow:  hidden;
+    margin: 5px;
+}
+
+#logoPanel img {
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+input[type="text"] {
+    width: 40px;
+}
+
+/* AdZone
+------------------------------------------------------*/
+
+#adZone {
+    float: left;
+}
+
+/* Misc 
+------------------------------------------------------*/
+
+#msg {
+    display: none;
+    color: red;
+    background-color: #EFDDE9;
+    background-image: url('../images/error.png');
+    background-repeat: no-repeat;
+    background-position: 25px 7px;
+    border: solid 1px #C4ACBC;
+    position: absolute;
+    width: 490px;
+    height: 250px;
+    left: 20px;
+    top: 160px;
+    z-index: 11;
+}
+
+#tips {
+    display: none;
+    color: #555;
+    background-color: #DDEAFF;
+    background-image: url('../images/status-info.png');
+    background-repeat: no-repeat;
+    background-position: 25px 7px;
+    border: solid 1px #8BB9FF;
+    position: absolute;
+    width: 490px;
+    height: 310px;
+    left: 10px;
+    top: 135px;
+    z-index: 10;
+}
+
+#tips .header, #msg .header {
+    position: absolute;
+    z-index: 11;
+    right: 19px;
+    top: 0;
+}
+
+#tips .header a#closeTips:link, #msg .header a#closeMsg:link {
+    text-decoration: none;
+    color: Red;
+}
+
+#tips .header a#closeTips:visited, #msg .header a#closeMsg:visited {
+    text-decoration: none;
+    color: Red;
+}
+#tips .header a#closeTips:hover, #msg .header a#closeMsg:hover {
+    text-decoration: underline;
+    color: Red;
+}
+#tips .header a#closeTips:active, #msg .header a#closeMsg:active {
+    text-decoration: underline;
+    color: Red;
+}
+
+#tips .body {
+    width: 420px;
+    height: 290px;
+    padding-bottom: 10px;
+    padding-left: 55px;
+    padding-right: 15px;
+    padding-top: 10px;
+    overflow: auto;
+}
+
+#msg .body {
+    width: 420px;
+    height: 230px;
+    padding-bottom: 10px;
+    padding-left: 55px;
+    padding-right: 15px;
+    padding-top: 10px;
+    overflow: auto;
+}
+
+#tips .body p, #msg .body p, #msg .body h3 {
+    margin: 3px 0;
+}
+
+#divErrorList {
+    margin: 25px 0 0 0;
+}

@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about" xml:space="preserve">
+    <value>关于本应用</value>
+  </data>
+  <data name="about.text1" xml:space="preserve">
+    <value>本应用可以让你轻松地做出数据的散点图，求出各种统计量（均值、样本/总体标准差、方差、两变量的线性相关系数等），而且还能够求出线性回归、二次函数回归、三次函数回归以及指数回归方程（使用最小二乘算法）。它根据两个变量之间的相关关系，求出给定数据的最优拟合直线、二次函数曲线、三次函数曲线以及指数曲线。</value>
+  </data>
+  <data name="about.text2" xml:space="preserve">
+    <value>复制粘贴功能：</value>
+  </data>
+  <data name="about.text3" xml:space="preserve">
+    <value>你可以从电子表格、制表符分隔值文件或者逗号分隔值（.csv）文件中直接复制数据，粘贴到图形区域下边的框框中。任何不能做为数字部分的字符——空格、逗号、分号、制表符等——均被视为分列符。指数部分用E或者e做前导，如5.1E-1、 1.78e+3 都是合法的数字。记住，数据必须包含两列，即 x 和 y，否则不能作图，也求不出回归方程。</value>
+  </data>
+  <data name="appName" xml:space="preserve">
+    <value>统计计算器 </value>
+  </data>
+  <data name="appName.note" xml:space="preserve">
+    <value>&lt;span style="font-size: small;"&gt;（&lt;a href="{0}" title="紫竹叽歪" style="color: red;"&gt;ZiZhuJY.com&lt;/a&gt;）&lt;/span&gt;</value>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>清除（&lt;span style="text-decoration: underline;"&gt;C&lt;/span&gt;）</value>
+  </data>
+  <data name="correlation.coefficient.with.x" xml:space="preserve">
+    <value>与x的线性相关系数</value>
+  </data>
+  <data name="correlation.coefficient.with.y" xml:space="preserve">
+    <value>与y的线性相关系数</value>
+  </data>
+  <data name="count" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="cubic" xml:space="preserve">
+    <value>三次回归</value>
+  </data>
+  <data name="cubicFit" xml:space="preserve">
+    <value>三次拟合</value>
+  </data>
+  <data name="data" xml:space="preserve">
+    <value>数据</value>
+  </data>
+  <data name="estimateOrPredict" xml:space="preserve">
+    <value>估计/预测</value>
+  </data>
+  <data name="estimateOrPredict.text" xml:space="preserve">
+    <value>通过输入x值，利用拟合的模型来估计/预测其对应的y值。输入的x值在已有数据范围内的，称为估计；输入的x值超出已有数据范围的，称为预测。</value>
+  </data>
+  <data name="exponential" xml:space="preserve">
+    <value>指数回归</value>
+  </data>
+  <data name="exponentialFit" xml:space="preserve">
+    <value>指数拟合</value>
+  </data>
+  <data name="formula.expression" xml:space="preserve">
+    <value>表达式</value>
+  </data>
+  <data name="graph" xml:space="preserve">
+    <value>图形</value>
+  </data>
+  <data name="input.x.here" xml:space="preserve">
+    <value>请输入 x 值： </value>
+  </data>
+  <data name="linear" xml:space="preserve">
+    <value>线性回归</value>
+  </data>
+  <data name="linearFit" xml:space="preserve">
+    <value>线性拟合</value>
+  </data>
+  <data name="logarithm" xml:space="preserve">
+    <value>对数回归</value>
+  </data>
+  <data name="logarithmFit" xml:space="preserve">
+    <value>对数拟合</value>
+  </data>
+  <data name="mean" xml:space="preserve">
+    <value>平均值</value>
+  </data>
+  <data name="message.format" xml:space="preserve">
+    <value>&lt;h3&gt;&lt;h3&gt;碰到如下错误：&lt;/h3&gt;&lt;ul&gt;{0}&lt;/ul&gt;&lt;p&gt;尝试更正以上错误，然后点击“画图”按钮。&lt;/p&gt;&lt;p&gt;请注意每行输入一个 x y 数据对，数据x 与 y请用空格、逗号或者分号分隔；不要只输入x或者只输入y，也不要输入字母或者其他特殊字符。&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p style='color	black;'&gt;如果您确定输入没有问题，那么请发邮件给&lt;a href='mailto	jeff@zizhujy.com?subject=BUG	Ploter&amp;body={1}'&gt;jeff@zizhujy.com&lt;/a&gt;，向开发者报告此问题。谢谢！&lt;/p&gt;</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying" xml:space="preserve">
+    <value>识别时碰到错误：'{0}'</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.1st.data.point" xml:space="preserve">
+    <value>在识别第{0}个数据点输入 ‘{2}’ 时碰到错误：‘{1}’</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.2nd.data.point" xml:space="preserve">
+    <value>在识别第{0}个数据点输入 ‘{2}’ 时碰到错误：‘{1}’</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.3rd.data.point" xml:space="preserve">
+    <value>在识别第{0}个数据点输入 ‘{2}’ 时碰到错误：‘{1}’</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.nth.data.point" xml:space="preserve">
+    <value>在识别第{0}个数据点输入 ‘{2}’ 时碰到错误：‘{1}’</value>
+  </data>
+  <data name="message.format.not.a.valid.data.point" xml:space="preserve">
+    <value>{0} 不是一个有效的数据点。一个有效的数据点是[x, y]的数据对。</value>
+  </data>
+  <data name="message.not.a.valid.data.point" xml:space="preserve">
+    <value>识别错误，输入的不是有效的数据点列。有效的数据点列应该是一个两列的数据点列。</value>
+  </data>
+  <data name="model.name" xml:space="preserve">
+    <value>模型名称</value>
+  </data>
+  <data name="name.of.stats" xml:space="preserve">
+    <value>统计量名称</value>
+  </data>
+  <data name="options" xml:space="preserve">
+    <value>选项</value>
+  </data>
+  <data name="ordinal.1st.suffix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ordinal.2nd.suffix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ordinal.3rd.suffix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ordinal.nth.suffix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="original.data" xml:space="preserve">
+    <value>原始数据</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>统计计算器 —— 在线回归计算器，数据描点、基本数学统计量计算、线性回归、趋势拟合，一步到位！</value>
+  </data>
+  <data name="parameters" xml:space="preserve">
+    <value>参数</value>
+  </data>
+  <data name="please.pay.attention" xml:space="preserve">
+    <value>请注意！</value>
+  </data>
+  <data name="plot" xml:space="preserve">
+    <value>画图（&lt;span style="text-decoration: underline;"&gt;P&lt;/span&gt;）</value>
+  </data>
+  <data name="polynomial.model.name.post" xml:space="preserve">
+    <value>次多项式</value>
+  </data>
+  <data name="polynomial.model.name.pre" xml:space="preserve">
+    <value />
+  </data>
+  <data name="polynomialFit.post" xml:space="preserve">
+    <value>次多项式拟合</value>
+  </data>
+  <data name="polynomialFit.pre" xml:space="preserve">
+    <value />
+  </data>
+  <data name="population.standard.deviation" xml:space="preserve">
+    <value>总体标准差</value>
+  </data>
+  <data name="population.variance" xml:space="preserve">
+    <value>总体方差</value>
+  </data>
+  <data name="quadratic" xml:space="preserve">
+    <value>二次回归</value>
+  </data>
+  <data name="quadraticFit" xml:space="preserve">
+    <value>二次拟合</value>
+  </data>
+  <data name="sample.standard.deviation" xml:space="preserve">
+    <value>样本标准差</value>
+  </data>
+  <data name="sample.variance" xml:space="preserve">
+    <value>标本方差</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>在线数据描点 - 描点、统计计算、趋势拟合，一步到位！线性回归、多项式拟合、趋势拟合、统计量计算。在线回归计算器。</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>数据描点,统计计算,趋势拟合,线性拟合,多项式拟合, 回归</value>
+  </data>
+  <data name="square.sum.of.fitting.errors" xml:space="preserve">
+    <value>拟合误差平方和</value>
+  </data>
+  <data name="stats" xml:space="preserve">
+    <value>统计量</value>
+  </data>
+  <data name="stats.for.x" xml:space="preserve">
+    <value>x 的统计量</value>
+  </data>
+  <data name="stats.for.y" xml:space="preserve">
+    <value>y 的统计量</value>
+  </data>
+  <data name="sum" xml:space="preserve">
+    <value>和</value>
+  </data>
+  <data name="sum.of.product" xml:space="preserve">
+    <value>乘积的和</value>
+  </data>
+  <data name="sum.of.squares" xml:space="preserve">
+    <value>平方和</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>值</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>切换全屏</value>
+  </data>
+  <data name="SaveAsBMP" xml:space="preserve">
+    <value>保存为 BMP 格式的图片...</value>
+  </data>
+  <data name="SaveAsImagePlugin.notSupportMessage" xml:space="preserve">
+    <value>当前浏览器不支持创建图片文件，请手动按 Print Screen 键保存图形。</value>
+  </data>
+  <data name="SaveAsJPEG" xml:space="preserve">
+    <value>保存为 JPEG 格式的图片...</value>
+  </data>
+  <data name="SaveAsPNG" xml:space="preserve">
+    <value>保存为 PNG 格式的图片...</value>
+  </data>
+  <data name="TipForSavingGraph" xml:space="preserve">
+    <value>要保存当前图形，您可以直接在图形上“按鼠标右键”，然后选择”另存为……“选项。</value>
+  </data>
+  <data name="ToggleNavigationControl" xml:space="preserve">
+    <value>显示/隐藏 控制面板</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="BannerTitle" xml:space="preserve">
+    <value>&lt;h1&gt;统计计算器 &lt;span style="font-size: small; color: red; font-weight: normal;"&gt;在线描点、趋势拟合、估计预测，一步到位！&lt;/span&gt;&lt;/h1&gt;</value>
+  </data>
+  <data name="message.no.data" xml:space="preserve">
+    <value>没有拿到数据。你输入了吗？</value>
+  </data>
+  <data name="AdZoneSkyScraper" xml:space="preserve">
+    <value>&lt;script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- Image Explorer App Ad --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="9558341781"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="ChartInteractiveTip" xml:space="preserve">
+    <value>在图形上拖曳可以平移图形，在图形上按下'shift'键并同时使用鼠标滚轮进行缩放。</value>
+  </data>
+</root>

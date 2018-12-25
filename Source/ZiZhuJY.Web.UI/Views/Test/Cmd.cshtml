@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Cmd";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+<h2>Cmd</h2>
+<div id="divInput">
+    <form name="frmCmd" method="post">
+        <div><textarea name="input" id="taInput" cols="150" rows="10" autofocus="autofocus" aria-multiline="false" aria-autocomplete="list">@ViewBag.Input</textarea></div>
+        <p><input type="submit" value="Execute" name="Execute" id="btnExecute" /></p>
+    </form>
+</div>
+<div id="divOutput">
+    <div><textarea name="output" id="taOutput" cols="150" rows="20">@ViewBag.Output</textarea></div>
+</div>

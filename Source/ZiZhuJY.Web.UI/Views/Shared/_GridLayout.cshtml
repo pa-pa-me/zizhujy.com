@@ -1,0 +1,29 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section HeaderScripts{
+    <link href="@Url.Content("~/Content/fullpage.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/Grid.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("metas", false)
+    @RenderSection("HeaderStyles", false)
+    <!--[if lt IE 9]>
+    @Html.RenderJavaScripts("~/Scripts/html5/html5shiv.js")
+    <![endif]-->
+    @RenderSection("HeaderScripts", false)
+}
+
+@RenderSection("pageid", false)
+
+<div class="wrapper">
+    <div class="main-content">
+        @RenderSection("grids")
+    </div>
+</div>
+@section Cultures {
+    @RenderSection("Cultures", false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

@@ -1,0 +1,297 @@
+﻿@model IEnumerable<ZiZhuJY.Web.UI.Models.BESyndicationItem>
+@{
+    const string THIS_FILE_PATH = "~/Views/BlogImporter/RssTree.cshtml";
+    ViewBag.Title = "RssTree";
+    
+}
+@section HeaderScripts {
+    <style  type="text/css">
+        .item 
+        {
+            background-color: Silver;
+            
+        }
+        
+        .item .title 
+        {
+            font-size: larger;
+        }
+        
+        .item .desc 
+        {
+            background-color: Lime;
+        }
+        
+        .item .createDate 
+        {
+            font-style: italic;
+        }
+    </style>
+    <script type="text/javascript">
+    <!--
+        (function($){
+            String.format = function () {
+                if (arguments.length <= 0) {
+                    return "";
+                } else {
+                    var string = arguments[0];
+                    for (var i = 1; i < arguments.length; i++) {
+                        string = string.replace("{" + (i - 1) + "}", arguments[i]);
+                    }
+
+                    return string;
+                }
+            };
+
+            String.prototype.right = function (n) {
+                var index = this.length - n;
+                index = index >= 0 ? index : 0;
+                return this.substr(index);
+            };
+
+            Date.prototype.toString_Origin = Date.prototype.toString;
+            Date.prototype.toIso8601 = function () {
+                var year = this.getFullYear();
+                var month = this.getMonth() + 1;
+                var date = this.getDate();
+
+                var hour = this.getHours();
+                var minute = this.getMinutes();
+                var second = this.getSeconds();
+
+                return year.toString() + ("00" + month.toString()).right(2) + ("00" + date.toString()).right(2) +
+                    "T" + ("00" + hour.toString()).right(2) + ":" + ("00" + minute.toString()).right(2) + ":" + ("00" + second.toString()).right(2);
+            };
+
+            Date.prototype.toString = function () {
+                if(arguments.length <= 0) {
+                    return this.toString_Origin();
+                } else if (arguments.length <= 1) {
+                    var format = arguments[0];
+
+                    switch (format) {
+                        case "dateTime.iso8601":
+                            return this.toIso8601();
+                            break;
+                        default:
+                            return this.toString_Origin();
+                            break;
+                    }
+                } else {
+                    return this.toString_Origin();
+                }
+            };
+
+            function htmlEncode(html) {
+            
+                var text = html.replace(/&/g, "&amp;").replace(/\"/g, "&quot;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
+                return text;
+            }
+
+            var apiDataLoad = {
+                newPost: "<?xml version=\"1.0\" encoding=\"utf-8\"?><methodCall>  <methodName>metaWeblog.newPost</methodName>  <params>    <param>      <value>        <string>http://www.zizhujy.com/blog/</string>      </value>    </param>    <param>      <value>        <string>Jeff</string>      </value>    </param>    <param>      <value>        <string>1050709</string>      </value>    </param>    <param>      <value>        <struct>          <member>            <name>title</name>            <value>              <string>{0}</string>            </value>          </member>          <member>            <name>description</name>            <value>              <string>{1}</string>            </value>          </member>          <member>            <name>mt_keywords</name>            <value>              <string>{2}</string>            </value>          </member>          <member>            <name>wp_slug</name>            <value>              <string />            </value>          </member>          <member>            <name>mt_basename</name>            <value>              <string />            </value>          </member>          <member>            <name>categories</name>            <value>              <array>                <data>                  <value>                    <string>{3}</string>                  </value>                </data>              </array>            </value>          </member>          <member>            <name>dateCreated</name>            <value>              <dateTime.iso8601>{4}</dateTime.iso8601>            </value>          </member>          <member>            <name>date_created_gmt</name>            <value>              <dateTime.iso8601>{5}</dateTime.iso8601>            </value>          </member>          <member>            <name>mt_excerpt</name>            <value>              <string />            </value>          </member>        </struct>      </value>    </param>    <param>      <value>        <boolean>1</boolean>      </value>    </param>  </params></methodCall>",
+                getPost: "<?xml version=\"1.0\" encoding=\"utf-8\"?><methodCall> <methodName>metaWeblog.getPost</methodName> <params>  <param>   <value>    <string>ce4882bc-048d-41da-b4bc-de20c5b26b6e</string>   </value>  </param>  <param>   <value>    <string>Jeff</string>   </value>  </param>  <param>   <value>    <string>1050709</string>   </value>  </param> </params></methodCall>", 
+                newMedia: "<?xml version=\"1.0\" encoding=\"utf-8\"?><methodCall> <methodName>metaWeblog.newMediaObject</methodName> <params>  <param>   <value>    <string>http://www.zizhujy.com/blog/</string>   </value>  </param>  <param>   <value>    <string>Jeff</string>   </value>  </param>  <param>   <value>    <string>1050709</string>   </value>  </param>  <param>   <value>    <struct>     <member>      <name>name</name>      <value>       <string>image.png</string>      </value>    </member>     <member>      <name>type</name>     <value>      <string>image/png</string>      </value>     </member>     <member>      <name>bits</name>      <value>       <base64>{0}</base64>     </value>     </member>    </struct>   </value>  </param> </params></methodCall>"
+            };
+
+            apiDataLoad.getNewPostLoad = function (title, desc, keyword, category, createdDate) {
+                return String.format(this.newPost, title, htmlEncode(desc), keyword, category, createdDate, createdDate);
+            };
+
+            apiDataLoad.getGetPostLoad = function () {
+                return this.getPost;
+            };
+
+            apiDataLoad.getNewMediaLoad = function() {
+                return this.newMedia;
+            };
+
+            function makeData(type, url, data) {
+                return {
+                    Type: type,
+                    Url: url,
+                    Data: data
+                };
+            }
+            
+            var successPosts = 0;
+            var failedPosts = 0;
+
+            function clickImport(i, n) {
+                if(i < n) {
+                    $($(".importLink")[i]).trigger("click");
+                    $("#divProgress").html(String.format("{3}/{0}, Success: {1}, Failed: {2}", n, successPosts, failedPosts, (i+1)));
+                    i++;
+                }
+
+                if(i < n) {
+                    setTimeout(clickImport, 1000, i, n);
+                } else {
+                    $("#preLog").append(String.format("\r\nAll: {0}, Success: {1}, Failed: {2}\r\n", successPosts + failedPosts, successPosts, failedPosts));
+                }
+            }
+
+            $(document).ready(function() {
+                function newPost(title, desc, timeIso8601) {
+                    $.ajax( {
+                        async: false,
+                        type: "POST",
+                        url: "Proxy/Proxy", 
+                        //data: {Type: "POST", Url: "http://localhost/zizhujy/blog/metaweblog.axd", Data: apiDataLoad.getNewPostLoad(title, desc, "沙滩脚印", "沙滩脚印", timeIso8601), action: "Proxy" },
+                        data: {Type: "POST", Url: "http://www.zizhujy.com/blog/metaweblog.axd", Data: apiDataLoad.getNewPostLoad(title, desc, "沙滩脚印", "沙滩脚印", timeIso8601), action: "Proxy" },
+                        success: function (data, textStatus) {
+                            //alert(data);
+                            //alert("New post Success");
+                            successPosts ++;
+                            $("#preLog").append(String.format("imported {0}. \r\n", title));
+                            $("#preLog").append(String.format("\t{0}\r\n", data.replace("<", "&lt;").replace(">", "&gt;")));
+                        },
+                        error: function (xhr, textStatus, errorThrown) {
+                            //alert("An error occurred! " + errorThrown + "\r\nTitle: " + title);
+
+                            failedPosts ++;
+                            $("#preLog").append(String.format("{0} failed. \r\n", title));
+                            $("#preLog").append(String.format("\t{0}\r\n", errorThrown));
+                        }
+                    });
+                }
+
+                function uploadImage(link) {
+                    var newLink = "";
+                    $.ajax( {
+                        async: false, 
+                        type: "POST", 
+                        url: "Proxy/UploadImage",
+                        //data: {Type: "POST", Url: "http://localhost/zizhujy/blog/metaweblog.axd", Data: apiDataLoad.getNewMediaLoad(), OriginImageLink: link}, 
+                        data: {Type: "POST", Url: "http://www.zizhujy.com/blog/metaweblog.axd", Data: apiDataLoad.getNewMediaLoad(), OriginImageLink: link}, 
+                        success: function (data, textStatus) {
+                            //alert(data);
+                            var reNewLink = /<member>\s*<name>url<\/name>\s*<value>\s*<string>(.*)<\/string>\s*<\/value>\s*<\/member>/gi;
+                            var matches = data.match(reNewLink);
+                            if(matches != null) {
+                                newLink = RegExp.$1;
+                            } else {
+                                newLink = link;
+                            }
+                        }, 
+                        error: function (xhr, textStatus, errorThrown) {
+                            //alert("An error occurred! " + errorThrown);
+                            $("#preLog").append(String.format("\tError occurred when uploading this image: {0}\r\n", link));
+                            $("#preLog").append(String.format("\t{0}\r\n", errorThrown));
+                            newLink = link;
+                        }
+                    });
+
+                    return newLink;
+                }
+
+                $(".importAllLink").click(function () {
+                    var n = $(".importLink").length;
+
+                    clickImport(0, n);
+
+                    //$($(".importLink")[0]).trigger("click");
+
+                    //$(".importLink").trigger("click");
+
+                    //$("#preLog").append(String.format("\r\nAll: {0}, Success: {1}, Failed: {2}\r\n", successPosts + failedPosts, successPosts, failedPosts));
+
+                    return false;
+                });
+
+                $(".importLink").click(function() {
+                    var currentUl = $(this).parent().parent();
+                    var title = currentUl.find(".title").text();
+                    var desc = currentUl.find(".desc").html();
+                    var time = new Date();
+                    try{
+                        time = new Date(currentUl.find(".createDate").text());
+                    } catch (err) {
+                        time = new Date();
+                    }
+
+                    var attachments = parse(desc);
+
+                    if(attachments.length > 0) {
+                        //alert(attachments);  
+                        for(var i = 0; i < attachments.length; i++) {
+                            var link = attachments[i][1];
+                            //alert(link);
+                            var newLink = uploadImage(link);
+
+                            if(newLink != "") {
+                                //alert(newLink);
+                                desc = desc.replace(link, newLink);
+                                //alert(desc);
+                            }
+                        }
+
+                        newPost(title, desc, time.toIso8601());
+                    } else {
+                        newPost(title, desc, time.toIso8601());
+                    }
+
+                    return false;
+                });
+
+                function parse(html) {
+                    var attachments = new Array();
+                    var reImg = /<img[^>]+>/gi;
+                    var reLink = /src=\"([^\"]+)\"/gi;
+                    var tags = html.match(reImg);
+                    if(tags != null) {
+                        if(tags instanceof Array) {
+                            for(var i = 0; i < tags.length; i++) {
+                                //var link = reLink.exec(tags[i]);
+                                var matches = tags[i].match(reLink);
+                                if(matches != null) {
+                                    attachments.push([tags[i], RegExp.$1]);
+                                }
+                            }
+                        } else {
+                            //var link = reLink.exec(tags);
+                            var matches = tags.match(reLink);
+                            if(matches != null) {
+                                attachments.push(tags, RegExp.$1);
+                            }
+                        }
+                    }
+
+                    return attachments;
+                };
+            });
+        })(jQuery);
+    //-->
+    </script>
+}
+<h2>
+    RssTree</h2>
+<p>
+    <a href="#" class="importAllLink">Import All</a>
+</p>
+<div id="divProgress"></div>
+<pre id="preLog"></pre>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            <ul class="item">
+                <li><a href="#" class="importLink">Import</a> |
+                    @Html.ActionLink("Details", "Details", new { id = item.SyndicationItem.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SyndicationItem.Id })
+                </li>
+                @*@foreach (var attachment in item.Attachments)
+                {
+                    <li class="attachment">@Html.DisplayFor(itemAttachment => attachment.Link)</li>
+                }*@
+                <li class="title">@Html.DisplayFor(modelItem => item.SyndicationItem.Title.Text)</li>
+                <li class="desc">@Html.DisplayTextFor(modelItem => item.SyndicationItem.Summary.Text)</li>
+                <li class="createDate">@Html.DisplayFor(modelItem => item.SyndicationItem.PublishDate)</li>
+            </ul>
+        </li>
+    }
+</ul>
+<div id="divInfo">
+    <pre id="preRawResponse"></pre>
+</div>
