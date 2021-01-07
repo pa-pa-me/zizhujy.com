@@ -1,0 +1,23 @@
+{
+  "name": "zizhujy.com",
+  "version": "1.0.0",
+  "description": "to build with build.bat:",
+  "main": "index.js",
+  "scripts": {
+    "test": "ls Source/ZiZhuJY.Web.UI.Scripts.Test/spec/*/*.html | xargs -n 1 phantomjs \"AutoTools/Scripts/run-jasmine.js\"",
+    "ci": "sh ci.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pa-pa-me/zizhujy.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pa-pa-me/zizhujy.com/issues"
+  },
+  "homepage": "https://github.com/pa-pa-me/zizhujy.com#readme",
+  "devDependencies": {
+    "phantomjs-prebuilt": "^2.1.16"
+  }
+}
