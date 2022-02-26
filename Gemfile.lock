@@ -2,19 +2,22 @@ GEM
   remote: https://rubygems.org/
   specs:
     albacore (0.2.6)
-    mini_portile2 (2.4.0)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.10-x64-mingw32)
-      mini_portile2 (~> 2.4.0)
-    nokogiri (1.10.10-x86-mingw32)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.13.2-x64-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.13.2-x86-mingw32)
+      racc (~> 1.4)
+    nokogiri (1.13.2-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.2-x86_64-linux)
+      racc (~> 1.4)
+    racc (1.6.0)
     rubyzip (0.9.9)
 
 PLATFORMS
   x64-mingw32
   x86-mingw32
   x86_64-darwin-18
+  x86_64-linux
 
 DEPENDENCIES
   albacore (= 0.2.6)
