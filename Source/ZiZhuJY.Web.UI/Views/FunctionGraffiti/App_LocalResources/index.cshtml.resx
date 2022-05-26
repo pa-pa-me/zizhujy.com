@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CharmingCurve" xml:space="preserve">
+    <value>Charming Curve.</value>
+  </data>
+  <data name="Circle" xml:space="preserve">
+    <value>How to draw a unit circle?</value>
+  </data>
+  <data name="ClickToSeeGraph" xml:space="preserve">
+    <value>Click here to see its graph</value>
+  </data>
+  <data name="Darts" xml:space="preserve">
+    <value>Darts.</value>
+  </data>
+  <data name="FunctionsTitle" xml:space="preserve">
+    <value>Function(s):</value>
+  </data>
+  <data name="GraphButtonText" xml:space="preserve">
+    <value>Graph! (G)</value>
+  </data>
+  <data name="InputFunctions" xml:space="preserve">
+    <value>Input into the function(s) text box:</value>
+  </data>
+  <data name="InstructionsDesc1" xml:space="preserve">
+    <value>Type one or more equations into the box above and click the Graph button. Separate multiple equations with semicolons.</value>
+  </data>
+  <data name="InstructionsDesc2" xml:space="preserve">
+    <value>Below is some interesting examples, you can click on them to see their graph.</value>
+  </data>
+  <data name="InstructionsDesc3" xml:space="preserve">
+    <value>Have a nice journey!</value>
+  </data>
+  <data name="InstructionsTitle" xml:space="preserve">
+    <value>Instructions</value>
+  </data>
+  <data name="Jiong" xml:space="preserve">
+    <value>冏.</value>
+  </data>
+  <data name="LinkButtonText" xml:space="preserve">
+    <value>Get Link (L)</value>
+  </data>
+  <data name="LinkLabelText" xml:space="preserve">
+    <value>Link To This Graph:</value>
+  </data>
+  <data name="LiXinBlog" xml:space="preserve">
+    <value>力新博客</value>
+  </data>
+  <data name="Nappe" xml:space="preserve">
+    <value>Nappe.</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Online Function Graffiti - The best function grapher! Draw functions easily.</value>
+  </data>
+  <data name="PointsCountTip" xml:space="preserve">
+    <value>Optional. The default value is 500, maximum is 10000. The more the points number is, the more accurate the graph is.</value>
+  </data>
+  <data name="PointsCountTitle" xml:space="preserve">
+    <value>Points: </value>
+  </data>
+  <data name="Provide" xml:space="preserve">
+    <value>for providing this</value>
+  </data>
+  <data name="ResetButtonText" xml:space="preserve">
+    <value>Reset (R)</value>
+  </data>
+  <data name="ScaleOfTAxiesTitle" xml:space="preserve">
+    <value>Scale of t axies: </value>
+  </data>
+  <data name="ScaleOfXAxiesTitle" xml:space="preserve">
+    <value>Scale of x axies: </value>
+  </data>
+  <data name="ScaleOfYAxiesTitle" xml:space="preserve">
+    <value>Scale of y axies: </value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>Online Function Grapher. Graphing Calculator. Graph functions immediately. Graph online. Multi-functions support, no upper limit for the number of functions, you can graph as many functions as you wish in a single graph! Many funny samples! Draw functions easily.</value>
+  </data>
+  <data name="ShareButtonText" xml:space="preserve">
+    <value>Share (S)</value>
+  </data>
+  <data name="Smoke" xml:space="preserve">
+    <value>Smoke.</value>
+  </data>
+  <data name="Spaghetti" xml:space="preserve">
+    <value>Spaghetti.</value>
+  </data>
+  <data name="Spiral" xml:space="preserve">
+    <value>Spiral.</value>
+  </data>
+  <data name="Thanks" xml:space="preserve">
+    <value>Thanks</value>
+  </data>
+  <data name="TightEncirclement" xml:space="preserve">
+    <value>Tight encirclement.</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Please use lower case x or y to indicate the independent variable, use x^2 to indicate square, x^3 to indicate cubic, and so forth. You can omit the denpendent variable "y = " part, and use the semicolon ";" to separate multiply functions.</value>
+  </data>
+  <data name="TitleOfWaterStream" xml:space="preserve">
+    <value>Water stream.</value>
+  </data>
+  <data name="ToTitle" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>&lt;h1&gt;Function Graffiti &lt;span style="font-size: xx-small; color: Red;"&gt;graph functions online!&lt;/span&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://www.zizhujy.com/blog/page/Online-Function-Graffiti!.aspx" target="_blank"&gt;About Function Graffiti.&lt;/a&gt;&lt;/p&gt;</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>function graffiti, graffiti, function graph, function grapher, grapher, plot, graphs online, graphs on-line, online function grapher, 2d function grapher, graphing calculator</value>
+  </data>
+  <data name="ListOfFunctions" xml:space="preserve">
+    <value>&lt;a href="http://www.zizhujy.com/blog/post/2011/10/10/Alphabetic-list-of-functions-supported-by-Online-Function-Graffiti.aspx" title="List of all functions" target="_blank"&gt;List of all functions&lt;/a&gt;</value>
+  </data>
+  <data name="ApplicationName" xml:space="preserve">
+    <value>Function Graffiti</value>
+  </data>
+  <data name="ApplicationNameRemark" xml:space="preserve">
+    <value>&lt;span style="color: white; font-size: small; background-color: red; padding: 5px 10px;"&gt;Graph functions online!&lt;/span&gt;&lt;span style="margin-left: 100px; font-size: small; display: none;"&gt;&lt;a style="color: yellow; display: none;" href="/Ploter"&gt;Go to Ploter!&lt;/a&gt;&lt;/span&gt;</value>
+  </data>
+  <data name="CommentTitle" xml:space="preserve">
+    <value>Add comment</value>
+  </data>
+  <data name="ThirdPartyCommentCode" xml:space="preserve">
+    <value>&lt;div id="disqus_thread"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'zizhujy'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+&lt;/script&gt;
+&lt;noscript&gt;Please enable JavaScript to view the &lt;a href="http://disqus.com/?ref_noscript"&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;
+&lt;a href="http://disqus.com" class="dsq-brlink"&gt;blog comments powered by &lt;span class="logo-disqus"&gt;Disqus&lt;/span&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="Ad" xml:space="preserve">
+    <value>&lt;a href="/Ploter" title="Go to Ploter!"&gt;&lt;img src="/Content/Images/Ploter.png" alt="Ploter" /&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="AutoYRangeLabel" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>Legend</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>&lt;p&gt;Another smoke &lt;a href="javascript:jGraffiti.graph('sin(x) + (1/100)*cos(100*x);', -0.1, 0.1, -0.1, 0.1, null, null, 500, false);"
+            title="Another smoke" target="_self"&gt;Click here to see its graph&lt;/a&gt;&lt;/p&gt;
+    &lt;p style="text-indent: 2em;"&gt;Input into the function(s) text box:&lt;/p&gt;
+    &lt;pre class="brush: javascript"&gt;sin(x) + (1/100)*cos(100*x);&lt;/pre&gt;</value>
+  </data>
+  <data name="NewVersion" xml:space="preserve">
+    <value>New version is available with implicit function plotting support!</value>
+  </data>
+</root>

@@ -1,0 +1,7 @@
+﻿@if(Request.IsAuthenticated) {
+    <text>@HttpContext.GetLocalResourceObject("~/Views/Shared/_LogOnPartial.cshtml", "Welcome").ToString() <b>@Context.User.Identity.Name</b>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+}
+else {
+    @:[ @Html.ActionLink(HttpContext.GetLocalResourceObject("~/Views/Shared/_LogOnPartial.cshtml", "LogOn").ToString(), "LogOn", "Account") ]
+}

@@ -1,0 +1,238 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = this.Localize("SeoTitle");
+    ViewBag.ShowBanner = false;
+}
+
+@section metas {
+    <meta name="keywords" content="@this.Localize("SeoKeywords")" />
+    <meta name="description" content="@this.Localize("SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+}
+
+@section HeaderStyles{
+    @Html.RenderCsses("~/Content/css/effects.css", "~/Content/css/tables.css")
+    @Html.RenderCsses("~/Scripts/CodeMirror/lib/codemirror.css")
+}
+@section HeaderScripts {
+    @Html.RenderJavaScripts("~/Scripts/es5-shim/es5.js", "~/Scripts/skulpt/js",
+    "~/Scripts/CodeMirror/lib/codemirror.js", "~/Scripts/CodeMirror/mode/python/python.js",
+    "~/Scripts/drawing/canvas2image.js", "~/Scripts/flot/saveAsImage/canvasAsImage.js")
+
+    <script type="text/javascript">
+        requireLite([
+                {
+                    path: "@Url.Content("~/Scripts/flot/flot/lib/excanvas.min.js")",
+                    canary: "typeof ie !== 'undefined'"
+                }
+        ], function () {
+
+        });
+        // output functions are configurable.  This one just appends some text
+        // to a pre element.
+        function outf(text) {
+            var mypre = document.getElementById("output");
+            mypre.innerHTML = mypre.innerHTML + text;
+        }
+        function builtinRead(x) {
+            if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
+                throw "File not found: '" + x + "'";
+            return Sk.builtinFiles["files"][x];
+        }
+
+        // Here's everything you need to run a python program in skulpt
+        // grab the code from your textarea
+        // get a reference to your pre element for output
+        // configure the output function
+        // call Sk.importMainWithBody()
+        function runit() {
+            !!myCodeMirror && myCodeMirror.save();
+
+            var prog = document.getElementById("yourcode").value;
+            var numberOfVertices = document.getElementById("txt-number-of-vertices").value;
+            numberOfVertices -= 10;
+            var typeOfGraph = document.getElementById("select-type-of-graph").value;
+            var degrees = document.getElementById("txt-degrees").value;
+            var possibility = document.getElementById("txt-possibility").value;
+            prog = prog.replace("#NumberOfVertices", numberOfVertices)
+                .replace("#g.add_edges()", typeOfGraph)
+                .replace("g.add_regular_edges(degrees)", "g.add_regular_edges(" + degrees + ")")
+                .replace("g.add_random_edges(possibility)", "g.add_random_edges(" + possibility + ")");
+
+            //document.getElementById("yourcode").value = prog;
+
+            var mypre = document.getElementById("output");
+            mypre.innerHTML = '';
+            Sk.canvas = "mycanvas";
+            Sk.pre = "output";
+            Sk.configure({ output: outf, read: builtinRead });
+            eval(Sk.importMainWithBody("<stdin>", false, prog));
+        }
+
+        var myCodeMirror = null;
+
+        $(document).ready(function () {
+            function hideShowControls(trigger) {
+                var selected = $(trigger).val();
+
+                var $degrees = $("#txt-degrees,label[for=txt-degrees],#txt-degrees ~ .tab").hide();
+                var $possibility = $("#txt-possibility,label[for=txt-possibility],#txt-possibility ~ .tab").hide();
+
+                if (selected === "g.add_all_edges()") {
+
+                } else if (selected === "g.add_regular_edges(degrees)") {
+                    $degrees.show();
+                } else if (selected === "g.add_random_edges(possibility)") {
+                    $possibility.show();
+                } else {
+
+                }
+            }
+
+            $("#select-type-of-graph").change(function () {
+                hideShowControls(this);
+            }).trigger("change");
+
+            myCodeMirror = CodeMirror.fromTextArea(document.getElementById("yourcode"), {
+                lineNumbers: true
+            });
+
+            runit();
+        });
+    </script>
+}
+
+<zizhujy pageid="GraphWorld"></zizhujy>
+
+@Html.RenderAds(this.Localize("AdZone_Banner"), "adZone", "width: 970px; height: 90px; margin: auto;")
+
+<div class="tips">
+    @this.Localize("Tips")
+</div>
+
+<div>
+    <label for="txt-number-of-vertices">@this.Localize("NumberOfVertices")</label>
+    <input type="text" id="txt-number-of-vertices" value="10" style="width: 50px;" />
+    <span class="tab"></span>
+    <label for="select-type-of-graph">@this.Localize("TypeOfGraph")</label>
+    <select id="select-type-of-graph">
+        <option value="g.add_all_edges()">@this.Localize("CompleteGraph")</option>
+        <option value="g.add_regular_edges(degrees)">@this.Localize("RegularGraph")</option>
+        <option value="g.add_random_edges(possibility)" selected="selected">@this.Localize("RandomGraph")</option>
+        <option value="">@this.Localize("NakedGraph")</option>
+    </select>
+    <span class="tab"></span>
+    <label for="txt-degrees">@this.Localize("Degrees")</label>
+    <input type="text" id="txt-degrees" value="2" style="width: 50px;" />
+    <span class="tab"></span>
+    <label for="txt-possibility">@this.Localize("Possibility")</label>
+    <input type="text" id="txt-possibility" value="0.5" style="width: 50px;" />
+    <span class="tab"></span>
+    <button type="button" onclick="runit()" accesskey="r">
+        @this.Localize("Run") (<span style="text-decoration: underline;">r</span>)
+    </button>
+</div>
+
+<p></p>
+<table class="layout-table" style="width: 100%;">
+    <colgroup>
+        <col style="width: 50%;" />
+        <col style="width: 50%;" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td style="vertical-align: top;" class="full-cell">
+                <pre id="output" class="cmd auto-wrap" style="margin: 0; height: 100%;"></pre>
+            </td>
+            <td style="vertical-align: top;">
+                <canvas id="mycanvas" class="cmd" style="padding: 0; box-sizing: border-box; width: 100%; min-height: 314px;"></canvas>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div class="clearFloat" style="margin-bottom: 20px;"></div>
+
+@this.Localize("Source") @this.Localize("HowToRun")
+<form id="code-form">
+    <textarea id="yourcode" cols="150" rows="20">@this.FileContent("PythonFiles//GraphWorld.py")</textarea><br />
+</form>
+
+<div class="ref">
+    <ol>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsSimpleGraph")</h3>
+            <div>
+                <p>@this.Localize("AnswerWhatIsSimpleGraph")</p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsRegularGraph")</h3>
+            <div>
+                <p>@this.Localize("AnswerWhatIsRegularGraph")</p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsCompleteGraph")</h3>
+            <div>
+                <p>
+                    @this.Localize("AnswerWhatIsCompleteGraph")
+                </p>
+                <div class="sidenote" style="width: 250px; margin: 0; float: none;">
+                    <img src="@Url.Content("~/Content/Images/GraphWorld/ACompleteGraphWith5Vertices.png")" alt="@this.Localize("ACompleteGraphWith5Vertices")" />
+                    <div class="remark">
+                        @this.Localize("ACompleteGraphWith5Vertices")
+                    </div>
+                </div>
+                <div class="clearFloat"></div>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionProveCompleteGraphIsRegularGraph")</h3>
+            <div>
+                <p>
+                    @Html.Markdown(this.Localize("AnswerProveCompleteGraphIsRegularGraph"))
+                </p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsPath")</h3>
+            <div>
+                <p>
+                    @this.Localize("AnswerWhatIsPath")
+                </p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsCycle")</h3>
+            <div>
+                <p>
+                    @this.Localize("AnswerWhatIsCycle")
+                </p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsForest")</h3>
+            <div>
+                <p>@this.Localize("AnswerWhatIsForest")</p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionWhatIsTree")</h3>
+            <div>
+                <p>@this.Localize("AnswerWhatIsTree")</p>
+            </div>
+        </li>
+        <li>
+            <h3>@this.Localize("QuestionDescribeAConnectedGraph")</h3>
+            <div>
+                <p>
+                    @Html.Markdown(this.Localize("AnswerDescribeAConnectedGraph"))
+                </p>
+            </div>
+        </li>
+    </ol>
+</div>
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}

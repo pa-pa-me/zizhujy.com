@@ -1,0 +1,89 @@
+﻿@{
+    const string THIS_FILE_PATH = "~/Views/Apps/Ploter.cshtml";
+    ViewBag.Title = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "PageTitle");
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section metas {
+    <meta name="keywords" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoKeywords")" />
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+    <link href="@Url.Content("~/Content/css/Apps/ploterStyle.css?minify=true")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/tables.css?minify=true")" rel="Stylesheet" type="text/css" />
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/excanvas.min.js")"></script><![endif]-->
+    <script src="@Url.Content("~/Scripts/flot/jquery.flot.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/flot/jquery.flot.resize.js")" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/jquery.flot.navigate.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/zizhujy.com.js?minify=true")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Maths/zizhujy.com.Matrix.js?minify=true")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Maths/jStats.js?minify=true")"></script>
+    <script src="@Url.Content("~/Scripts/Apps/Ploter/jPoint.js?minify=true")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/Apps/Ploter/jPloter.js?minify=true")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+        $(document).ready(function () {
+            //alert("Hello");
+        });
+    //-->
+    </script>
+}
+
+<div id="ploter">
+    <div id="header">
+        <div id="logoPanel">
+            @Html.Raw(string.Format(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LogoRaw").ToString(), Url.Content(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LogoPath").ToString())))
+        </div>
+        <div id="banner">
+            <h1>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "BannerText")</h1>
+            <div style="z-index: 10; position: absolute;">
+                <input type="checkbox" id="chkHelp" /><label for="chkHelp">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowHelp")</label>
+                <input type="checkbox" id="chkShowLegend" /><label for="chkShowLegend">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowLegend")</label>
+            </div>
+        </div>
+        <div class="clearFloat"></div>
+    </div>
+    <div id="canvasWrapper">
+        <div id="canvas"><div id="navButtons"><div id="navButtonUp" class="button" pan='{"top": 30}'></div><div id="navButtonRight" class="button" pan='{"left": -30}'></div><div id="navButtonDown" class="button" pan='{"top": -30}'></div><div id="navButtonLeft" class="button" pan='{"left": 30}'></div></div></div>
+        <div id="coor"></div>
+        <div id="options">
+            <input type="checkbox" id="chkStats" /><label for="chkStats">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowStats")</label>
+            <input type="checkbox" id="chkLinearFit" /><label for="chkLinearFit">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowLinearFit").ToString())</label>
+            <input type="checkbox" id="chkQuadraticFit" /><label for="chkQuadraticFit">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowQuadraticFit").ToString())</label>
+            <input type="checkbox" id="chkCubicFit" /><label for="chkCubicFit">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowCubicFit").ToString())</label>
+            <input type="checkbox" id="chkExpFit" /><label for="chkExpFit">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowExpFit").ToString())</label>
+        </div>
+    </div>
+    <div id="controls">
+        <div><label for="taDataPoints">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "InputLabel").ToString())</label><br />x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y</div>
+        <textarea id="taDataPoints" cols="15" rows="15">1900	10.83
+1904	11.48
+1908	12.17
+1912	12.96
+1920	13.42
+1924	12.96
+1928	13.77
+1932	14.15
+1936	14.27
+1948	14.1
+1952	14.92
+1956	14.96
+1960	15.42
+1964	16.73
+1968	17.71
+1972	18.04
+1976	18.04
+1980	18.96
+1984	18.85
+1988	19.77
+1992	19.02
+1996	19.42</textarea>
+        <div>
+            <input type="button" id="btnPlot" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "PlotButtonText")" />
+            <input type="button" id="btnClear" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ClearButtonText")" />
+        </div>
+    </div>
+    <div class="clearFloat"></div>
+    <div id="tips" class="messageWindow"><div class="header"><a id="closeTips" class="closeWindow" href="#" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "CloseTips")">[<strong>x</strong>]</a></div><div class="body">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Tips").ToString())</div></div>
+    <div id="msg" class="errorWindow"><div class="header"><a id="closeMsg" class="closeWindow" href="#" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "CloseMsg")">[<strong>x</strong>]</a></div><div class="body"></div></div>
+    <div id="statsInfo" class="messageWindow" style="left: 12px; top: 73px; background-color: White; background-image: none; border: solid 2px black; color: Black; width: 500px;"><div class="header"><a id="closeStats" class="closeWindow" href="#" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "CloseStats")">[<strong>x</strong>]</a></div><div class="body" style="padding: 5px; width: 490px; height: 340px;">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Stats").ToString())</div></div>
+</div>

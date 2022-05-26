@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Me";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+<h2>How do you look like from this web server's point view?</h2>
+<ul>
+    <li>HttpContext.Current.Request.UrlReferer: @HttpContext.Current.Request.UrlReferrer</li>
+    <li>HttpContext.Current.Request.Url.Host: @HttpContext.Current.Request.Url.Host.ToString()</li>
+</ul>
+

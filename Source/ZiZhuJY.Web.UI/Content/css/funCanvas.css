@@ -1,0 +1,93 @@
+﻿html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.icon {
+    font-size: smaller!important;
+}
+
+#layout {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+    overflow-x: hidden;
+}
+
+#show-control-panel-button {
+    position: absolute;
+    right: 0;
+    width: 30px;
+    z-index: 2;
+}
+
+#canvas-wrapper {
+    height: 100%;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* auto; */ /* This will make the width fill available space */
+    z-index: 1;
+    min-height: 1px;
+    min-width: 1px;
+}
+
+#loading {
+    font-size: xx-large;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 100%;
+    margin: 60px 0 0 60px;
+    padding: 0 0 0 60px;
+    background: url('../../Content/Images/loading.gif') no-repeat left center;
+}
+
+#thinking {
+    font-size: xx-large;
+    text-align: left;
+    vertical-align: middle;
+    line-height: 100%;
+    margin: 1% 1% 0 1%;
+    padding: 0 0 0 60px;
+    background: url('../../Content/Images/loading.gif') no-repeat left center;
+    position: absolute;
+    z-index: 8;
+    top: 0;
+    right: 50%;
+    display: none;
+}
+
+#control-panel {
+    float: right;
+    width: 23%;
+    min-width: 340px;
+    display: block;
+    position: relative;
+    z-index: 3;
+    box-sizing: border-box;
+    border-left: solid 2px #c0c0c0;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+    #control-panel .header {
+        background-color: #c0c0c0;
+        height: auto;
+        width: 100%;
+    }
+
+    #control-panel .body {
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        bottom: 0;
+        top: 30px;
+        width: 100%;
+        _height: 100%;
+    }

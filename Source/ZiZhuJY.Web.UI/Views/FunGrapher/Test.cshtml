@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "函数语法分析";
+}
+
+@section HeaderScripts {
+    <script src="@Url.Content("~/Scripts/FunGrapher/jFunction.js?minify=false")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnGo").click(function () {
+                var s = $("#taExpressions").val();
+                var fl = new JFunctionList(s);
+
+                $("#divInfo").html(fl.toHtmlString());
+            });
+
+            $("#taExpressions").keyup(function () {
+                var s = $("#taExpressions").val();
+                var fl = new JFunctionList(s);
+
+                $("#divInfo").html(fl.toHtmlString());
+            });
+
+            $("#btnGo").click();
+        });
+    </script>
+}
+
+<h2>函数语法分析：</h2>
+<div style="float: left; width: 50%;">
+    <p>多个函数使用;分隔，目前只识别显函数。</p>
+    <h3>在下面输入函数表达式：</h3>
+    <p><textarea id="taExpressions" cols="60" rows="20" style="width: 90%;">y = sin(10x);
+y = cos(2*x);
+y = x ^ 3;
+y = x/3;
+y = -x/3;
+y = 0;
+x = 0;
+{x = 5*cos(t); y = 5*sin(t)}
+y = x ^ 2;
+y = x ^ -2;
+y = x ^ + 2;
+y = x ^ (-3/2);
+y = x^2^3;
+y = (x^2)^3;
+y = x^(2^3);
+y = sin(x)^2;
+y = sin(x^2);
+y = x^(-2)^3;
+y = x^2^-3;
+y = 2^x;
+y = e^x;
+y = 5^x;
+y = 20^x;
+y = x^x;
+y = x^sin(2);
+y = e^+x;
+y = 8^-x;
+y = 12.897^x;
+y = x^42.93;
+y = x^.98;
+y = .99^x;
+y = x^+sin(x);
+y = x^-x;
+y = 0.577^-.97;
+y = x.5;
+y = x(x+6)(x-9);
+y = tan(x);
+$y=\frac{\sqrt{x}}{2}$</textarea></p>
+    <p><input type="button" value="分析" id="btnGo" /></p>
+</div>
+<div style="float: right; width: 50%;">
+    <h3>识别结果：</h3>
+    <div id="divInfo"></div>
+</div>
+
+<div class="clearFloat"></div>

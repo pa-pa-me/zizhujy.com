@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "String";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+<h2>String</h2>
+
+@section metas{
+    <link href="@Url.Content("~/Scripts/jquery-qunit/qunit/qunit.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="@Url.Content("~/Scripts/jquery-qunit/qunit/qunit.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+        (function ($) {
+            test("StartsWith() Testing", function () {
+                var string = "Http";
+                
+                equal(string.startsWith("http", true), false);
+                equal(string.startsWith("http"), true);
+            });
+        })(jQuery);
+    //-->
+    </script>
+}
+<div id="qunit"></div>
+<div id="qunit-fixture">test markup</div>

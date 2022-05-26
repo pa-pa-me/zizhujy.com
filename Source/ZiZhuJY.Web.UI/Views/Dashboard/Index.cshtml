@@ -1,0 +1,17 @@
+﻿@using System.Dynamic
+@using ZiZhuJY.Helpers
+@model ExpandoObject
+
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+<ul>
+    <li>@Html.ActionLink("Http Runtime Cache Monitor", "HttpRuntimeCacheMonitor")</li>
+    <li>@Html.ActionLink("Immediate", "Immediate")</li>
+</ul>
+
+<h2>Dashboard</h2>
+
+@Html.Raw(Model.ToHtmlUnorderedList())

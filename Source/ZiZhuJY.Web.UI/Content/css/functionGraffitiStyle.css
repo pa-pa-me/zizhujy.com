@@ -1,0 +1,115 @@
+﻿html, body 
+{
+    height: 100%; /* make the percentage height on placeholder (divGraffiti) work */
+}
+
+.page 
+{
+    min-width: 920px;
+}
+
+#divLeft 
+{
+    float: left;
+    width: 40%;
+}
+
+#divGraffiti
+{
+    max-width: 530px;
+    max-height: 530px;
+    min-width: 200px;
+    min-height: 200px;
+    width: auto;
+}
+
+#divGraffiti .button {
+    position: absolute;
+    cursor: pointer;
+}
+#divGraffiti div.button {
+    font-size: smaller;
+    color: #999;
+    background-color: #eee;
+    padding: 2px;
+}
+
+#divTools
+{
+    width: 400px;
+    float: right;
+}
+
+#divTools p
+{
+    margin: 0;
+    padding: 0;
+}
+
+#txtMinOfx, #txtMinOfy, #txtMinOft, #txtMaxOfx, #txtMaxOfy, #txtMaxOft
+{
+    width: 100px;
+}
+
+#txtPointsCount
+{
+    width: 50px;
+}
+
+#taExpression
+{
+    width: 400px;
+}
+
+.tip
+{
+    padding: 0;
+    margin: 0;
+    width: 500px;
+}
+
+#txtLink
+{
+    width: 20em;
+}
+
+#divInstructions {
+    float: none; clear: both;
+}
+
+#divInstructions p
+{
+    margin: 0;
+    padding: 0;
+    font-size: larger;
+}
+
+.leftPanel 
+{
+    float: left;
+}
+
+#divMisc 
+{
+    float: right;
+    width: 420px;
+}
+
+.commentForm 
+{
+    background: url(../Images/bg_1.jpg) 0 0 repeat;
+    border: 3px solid #CCC;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    -webkit-border-radius: 5px;
+}
+
+.commentForm #addComment
+{
+    letter-spacing: 1px;
+    color: #333;
+    font-family: Arial,Helvetica,sans-serif;
+    line-height: 100%;
+    padding-top: 5px;
+}

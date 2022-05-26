@@ -1,0 +1,283 @@
+﻿@{
+    ViewBag.Title = "New3";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section HeaderScripts {
+    <style type="text/css">
+        #myCanvas
+        {
+            border: solid 1px blue;
+        }
+    </style>
+}
+<canvas id="myCanvas" width="512" height="512">Your browser does not support the canvas element.</canvas>
+<input type="button" value="Draw" id="btnDraw" />
+<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.3.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/bigjs/big.js")"></script>
+<script src="@Url.Content("~/Scripts/Maths/zizhujy.com.MathExtended.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/Maths/zizhujy.com.IntervalArithmetic.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/drawing/zizhujy.com.coordinate.js")"></script>
+<script type="text/javascript">
+    ; (function ($, IntervalArithmetic) {
+        $(document).ready(function () {
+            $("#btnDraw").click(function () {
+                draw();
+            });
+
+            draw();
+
+            function draw() {
+                var c = document.getElementById("myCanvas");
+                var context = c.getContext("2d");
+                var W = $("#myCanvas").width();
+                var H = $("#myCanvas").height();
+
+                var left = -4, right = 1.5, top = -6.6, bottom = -7.4;
+                var width = right - left;
+                var height = top - bottom;
+
+                var coor = new zizhujy.com.RectangularCoordinate(context, left, right, bottom, top, 0, W, H, 0);
+
+                // paint red
+                coor.fillRegion({ xRange: { val: [left, right], def: [true, true] }, yRange: { val: [bottom, top], def: [true, true]} }, "#FF0000");
+                //coor.line(0, 0, 100, 100);
+                //return;
+
+                var k = Math.gcd(W, H);
+                alert(k);
+                var U = [];
+                var undecidedU = [];
+
+                function init() {
+                    //k = Math.floor(Math.lg(Math.gcd(k, Math.pow(2, Math.floor(Math.lg(k))))));
+                    //alert(k);
+                    //k = 7;
+
+                    //                                                            var aU = width / Math.pow(2, k);
+                    //                                                            var bU = height / Math.pow(2, k);
+                    //                                                            for (var a = left; a < aU; a++) {
+                    //                                                                for (var b = bottom; b < bU; b++) {
+                    //                                                                    U.push({
+                    //                                                                        xRange: {val: [a * Math.pow(2, k), (a + 1) * Math.pow(2, k)], def: [true, true]},
+                    //                                                                        yRange: {val: [b * Math.pow(2, k), (b + 1) * Math.pow(2, k)], def: [true, true]}
+                    //                                                                    });
+                    //                                                                }
+                    //                                                            }
+
+                    U = fourCoorSubsquares(coor, { xRange: { val: [left, right], def: [true, true] }, yRange: { val: [bottom, top], def: [true, true]} }, undecidedU);
+                    //                    var newU = [];
+                    //                    for (var i = 0; i < U.length; i++) {
+                    //                        newU = newU.concat( fourCoorSubsquares(coor, U[i], undecidedU));
+                    //                    }
+                    //                    U = newU;
+
+                    //                    newU = [];
+                    //                    for (var i = 0; i < U.length; i++) {
+                    //                        newU = newU.concat(fourCoorSubsquares(coor, U[i], undecidedU));
+                    //                    }
+                    //                    U= newU;
+                }
+                init();
+
+                //contourU(coor, U);
+
+                //                while (k >= 0 && !!U && U.length > 0) {
+                //                    U = refinePixels(coor, r, U);
+
+                //                    k--;
+                //                }
+
+                doRefinePixels(coor, r, U, k, undecidedU);
+
+                //coor.drawAxis();
+
+                function doRefinePixels(coor, r, U, k, undecidedU) {
+                    if (k >= 0 && !!U && U.length > 0) {
+                        U = refinePixels(coor, r, U, undecidedU);
+                        k--;
+
+                        setTimeout(function () { doRefinePixels(coor, r, U, k, undecidedU) }, 1000);
+                    } else {
+                        handleRestU(coor, r, undecidedU.concat(U));
+                        coor.strokeStyle("#FFFF00");
+                        //coor.line(left, bottom, right, top);
+                        //coor.line(0, 0, 8, 8);
+                        //coor.drawAxis();
+                        coor.strokeStyle("#00FF00");
+                        coor.line(Math.PI / 2, 0, Math.PI / 2, 10);
+
+                        alert("k = " + k + ", U.length = " + U.length);
+
+                        var restU = [];
+                        for (var m = 0; m < U.length; m++) {
+                            restU.push(String.format("{0}\t{1}\t{2}\t{3}", U[m].xRange.val[0], U[m].xRange.val[1], U[m].yRange.val[0], U[m].yRange.val[1]));
+                        }
+
+                        //console.log(restU.toString("\r\n"));
+
+                        var sames = [];
+                        for (var n = 0; n < restU.length; n++) {
+                            for (var l = n + 1; l < restU.length; l++) {
+                                if (restU[n] == restU[l]) {
+                                    sames.push(restU[n]);
+                                }
+                            }
+                        }
+                        console.log("Sames:");
+                        console.log(sames.toString("\r\n"));
+                        console.log(coor.pixelWidth);
+                        console.log(coor.pixelHeight);
+                    }
+                }
+            }
+        });
+
+
+        function r(u) {
+            var result = { val: [false, true], def: [true, true] };
+
+            //            var left = IntervalArithmetic.add(
+            //                IntervalArithmetic.multiply(u.yRange, u.yRange),
+            //                IntervalArithmetic.multiply(u.xRange, u.xRange)
+            //            );
+            //            var right = {val: [10, 10], def: [true, true]};
+
+            var left = IntervalArithmetic.subtract(
+                u.yRange,
+                IntervalArithmetic.divide(
+                    IntervalArithmetic.subtract(
+                        IntervalArithmetic.subtract(
+                            IntervalArithmetic.pow(
+                                u.xRange,
+                                { val: [2, 2], def: [true, true] }
+                            ),
+                            u.xRange
+                        ),
+
+                        { val: [12, 12], def: [true, true] }
+                    ), 
+                        
+                    (
+                        IntervalArithmetic.add(
+                            u.xRange, 
+                            { val: [3, 3], def: [true, true] }
+                        )
+                    )
+                )
+            );
+            var right = { val: [0, 0], def: [true, true] };
+
+            var r1 = IntervalArithmetic.greaterThan(left, right);
+            var r2 = IntervalArithmetic.greaterThan(right, left);
+
+            r1 = IntervalArithmetic.not(r1);
+            r2 = IntervalArithmetic.not(r2);
+            //result = r1;
+            result = IntervalArithmetic.and(r1, r2);
+            return result;
+        }
+
+        function r2(u) {
+            var result = [false, true];
+
+            var left = u.yRange;
+            var right = u.xRange;
+
+            result = IntervalArithmetic.greaterThan(right, left);
+
+            return result;
+        }
+
+        function contourU(coor, U) {
+            if (!!U && U.length > 0) {
+                for (var i = 0; i < U.length; i++) {
+                    coor.strokeRegion(U[i]);
+                }
+            }
+        }
+
+        function refinePixels(coor, r, U, undecidedU) {
+            var newU = [];
+
+            if (!!U && U.length > 0) {
+                //contourU(coor, U);
+                for (var i = 0; i < U.length; i++) {
+                    var u = U[i];
+                    paintCoorColor(coor, u, "#FFFF00");
+                    
+                    console.log("[{0}, {1}] x [{2}, {3}]".format(u.xRange.val[0], u.xRange.val[1], u.yRange.val[0], u.yRange.val[1]));
+                    var res = r(coor.outerBoundary(u));
+                    if (res.val.equals([true, true]) && res.def.equals([true, true])) {
+                        paintCoorColor(coor, u, "#000000");
+                    } else if (res.val.equals([false, false]) && res.def.equals([true, true]) || res.def.equals([false, false])) {
+                        paintCoorColor(coor, u, "#FFFFFF");
+                    } else {
+                        paintCoorColor(coor, u, "#FF0000");
+                        newU = newU.concat(fourCoorSubsquares(coor, u, undecidedU));
+                    }
+                }
+            }
+
+            return newU;
+        }
+
+        function handleRestU(coor, r, U) {
+            if (!!U && U.length > 0) {
+                //contourU(coor, U);
+                console.log("Rest U:");
+                var rest = [];
+                for (var i = 0; i < U.length; i++) {
+                    var u = U[i];
+                    var res = r(coor.outerBoundary(u));
+                    rest.push("{0}\t{1}\t{2}\t{3}\t={4}\t{5}\t{6}\t{7}".format(u.xRange.val[0], u.xRange.val[1], u.yRange.val[0], u.yRange.val[1], res.val[0], res.val[1], res.def[0], res.def[1]));
+                    if (!res.def.equals([true, true])) {
+                        paintCoorColor(coor, u, "#FFFFFF");
+                    } else {
+                        if (!res.val.equals([false, false])) {
+                            paintCoorColor(coor, u, "#000000");
+                        } else {
+                            paintCoorColor(coor, u, "#FFFFFF");
+                        }
+                    }
+                }
+
+                console.log(rest.toString("\r\n"));
+            }
+        }
+
+        function paintCoorColor(coor, u, color) {
+            coor.fillRegion(u, color);
+        }
+
+        function fourCoorSubsquares(coor, u, undecidedU) {
+            var subSquares = [];
+            if (!!u) {
+                var xDistance = u.xRange.val[1] - u.xRange.val[0];
+                var yDistance = u.yRange.val[1] - u.yRange.val[0];
+                if (xDistance > coor.pixelWidth && yDistance > coor.pixelHeight) {
+                    var xMid = (u.xRange.val[0] + xDistance / 2);
+                    var yMid = (u.yRange.val[0] + yDistance / 2);
+                    subSquares.push({ xRange: { val: [u.xRange.val[0], xMid], def: [true, true] }, yRange: { val: [u.yRange.val[0], yMid], def: [true, true]} });
+                    subSquares.push({ xRange: { val: [xMid, u.xRange.val[1]], def: [true, true] }, yRange: { val: [u.yRange.val[0], yMid], def: [true, true]} });
+                    subSquares.push({ xRange: { val: [u.xRange.val[0], xMid], def: [true, true] }, yRange: { val: [yMid, u.yRange.val[1]], def: [true, true]} });
+                    subSquares.push({ xRange: { val: [xMid, u.xRange.val[1]], def: [true, true] }, yRange: { val: [yMid, u.yRange.val[1]], def: [true, true]} });
+                } else if (xDistance > coor.pixelWidth) {
+                    var xMid = (u.xRange.val[0] + xDistance / 2);
+                    subSquares.push({ xRange: { val: [u.xRange.val[0], xMid], def: [true, true] }, yRange: u.yRange });
+                    subSquares.push({ xRange: { val: [xMid, u.xRange.val[1]], def: [true, true] }, yRange: u.yRange });
+                } else if (yDistance > coor.pixelHeight) {
+                    var yMid = (u.yRange.val[0] + yDistance / 2);
+                    subSquares.push({ xRange: u.xRange, yRange: { val: [u.yRange.val[0], yMid], def: [true, true]} });
+                    subSquares.push({ xRange: u.xRange, yRange: { val: [yMid, u.yRange.val[1]], def: [true, true]} });
+                } else {
+                    // undecision region += u
+                    // Note: can't use undecidedU = undecidedU.concat(u), it won't touch the original undecidedU ???
+                    // But push() can work
+                    undecidedU.push(u);
+                }
+            }
+
+            return subSquares;
+        }
+    })(jQuery, zizhujy.com.TupperIntervalArithmetic);
+</script>

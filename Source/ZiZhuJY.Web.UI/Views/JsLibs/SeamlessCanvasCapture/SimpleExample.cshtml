@@ -1,0 +1,29 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = "Seamless Canvas Capture Example";
+    Layout = "~/Views/Shared/_ExampleLayout.cshtml";
+}
+
+@section metas{
+    @Html.RenderJavaScripts("~/Scripts/base64.js", "~/Scripts/drawing/canvas2image.js", "~/Scripts/jquery-1.8.3.js")
+    @Html.RenderJavaScripts(
+        Url.Action("RenderJavaScript", "Proxy",
+            new { url = "https://raw.githubusercontent.com/Jeff-Tian/SeamlessCanvasCapture/master/seamlessCanvasCapture.js" }))
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var ctx = $('#myCanvas')[0].getContext('2d');
+            ctx.fillStyle = 'rgba(255,0,0,1)';
+            ctx.fillRect(10, 10, 50, 50);
+            ctx.fillStyle = "rgba(0, 255, 0, 0.5)";
+            ctx.fillRect(30, 30, 50, 50);
+            ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+            ctx.fillRect(50, 50, 50, 50);
+        });
+    </script>
+}
+
+<div>
+    <p>Right click the following canvas and you can save it to your local disk:</p>
+    <canvas id="myCanvas"></canvas>
+</div>

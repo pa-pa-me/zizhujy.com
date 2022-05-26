@@ -1,0 +1,150 @@
+﻿@using ZiZhuJY.Web.UI.App_GlobalResources
+@using ZiZhuJY.Web.UI.Helpers
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="@Url.Content("~/Content/Images/zizhujy.ico")" type="image/x-icon" />
+    @RenderSection("metas", false)
+    @Html.RenderCsses("~/Content/commonStyles", "~/Scripts/jquery-ui/css/smoothness/jquery-ui", "~/Content/css/iconfontsFico.css")
+    @Html.RenderCsses("~/Scripts/select2/select2.css")
+
+    @RenderSection("HeaderStyles", false)
+    <!--[if lt IE 9]>
+    @Html.RenderJavaScripts("~/Scripts/html5/html5shiv.js")
+    <![endif]-->
+    @Html.RenderJavaScripts("~/Scripts/Common/js")
+    @RenderSection("HeaderScripts", false)
+</head>
+<body>
+    <div id="page">
+        @if (ViewBag.HideHeader != true)
+        {
+            <div id="header">
+                <div id="menucontainer">
+                    <ul class="menu" style="float: left;">
+                        <li pageid="Home">
+                            @Html.ActionLink(this.Localize("MenuHomeText"), "Index", "Home", new { }, new
+                       {
+                           title = this.Localize("MenuHomeTitle")
+                       })
+                        </li>
+                        <li pageid="FunctionGrapher">
+                            @Html.ActionLink(Html.Localize(this, "MenuFunctionGrapherText"), "Index", "FunctionGrapher", new { }, new { title = Html.Localize(this, "MenuFunctionGrapherTitle") })
+                        </li>
+                        <li pageid="Plotter">
+                            @Html.ActionLink(Html.Localize(this, "MenuPloterText"), "Index", "Plotter", new { }, new { title = Html.Localize(this, "MenuPloterTitle") })
+                        </li>
+                        <li pageid="ScientificCalculator">
+                            @Html.ActionLink(Html.Localize(this, "MenuScientificCalculatorText"), "Index", "GeekCalculator", new { }, new { title = Html.Localize(this, "MenuScientificCalculatorTitle") })
+                        </li>
+                        <li pageid="PDFConverter">
+                            @Html.ActionLink(this.Localize("MenuPDFConverterText"), "Index", "PDFConverter", new { }, new { title = this.Localize("MenuPDFConverterTitle") })
+                        </li>
+                        <li pageid="GraphWorld">
+                            @Html.ActionLink(Html.Localize(this, "MenuGraphWorld"), "Index", "GraphWorld", new { }, new { title = Html.Localize(this, "MenuGraphWorldTitle") })
+                        </li>
+                        <li pageid="Matrix">
+                            @Html.ActionLink(Html.Localize(this, "MenuMatrixText"), "Index", "Matrix", new { }, new { title = Html.Localize(this, "MenuMatrixTitle") })
+                        </li>
+
+                        <li pageid="ApplicationFactory">
+                            @Html.ActionLink(Html.Localize(this, "MenuApplicationFactoryText"), "Index", "ApplicationFactory", new { }, new { title = Html.Localize(this, "MenuApplicationFactoryTitle") })
+                        </li>
+                        <li pageid="Blog">
+                            <a href="@Url.Content("~/blog")" title="@Html.Localize(this, "MenuBlogTitle")" target="_blank">@Html.Localize(this, "MenuBlogText")</a>
+                        </li>
+                        <li pageid="About">
+                            @Html.ActionLink(Html.Localize(this, "MenuAboutText"), "About", "Home", new { }, new { title = Html.Localize(this, "MenuAboutTitle") })
+                        </li>
+                        @RenderSection("MenuSection", false)
+                    </ul>
+                    <div class="clearFloat"></div>
+                </div>
+                @{
+            if (ViewBag.ShowBanner == null || (bool)ViewBag.ShowBanner)
+            {
+                <div id="banner">
+                    <div id="logo">
+                        <div id="logoImage"></div>
+                        <div id="logoText">
+                            <h1><a href="@Url.Content("~/blog")" title="@this.Localize("LogoTitleTitle")">@this.Localize("LogoTitleText")</a></h1>
+                            <span class="logo-text-desc">@Html.Raw(Html.Localize(this, "LogoTextDescRaw"))</span>
+                        </div>
+                    </div>
+                    <div id="bannerRight">
+                        @{
+                if (!string.IsNullOrEmpty(ViewBag.BannerTitle))
+                {
+                    <h1>@Html.Raw(ViewBag.BannerTitle)</h1>
+                }
+                        }
+                        @RenderSection("banner", false)
+                    </div>
+                </div>
+            }
+                }
+                <div id="additional-header">@RenderSection("additionalHeader", false)</div>
+            </div>
+        }
+        <div id="main">
+            @RenderBody()
+            <div class="clearFloat"></div>
+        </div>
+        <div id="footer">
+            <ul class="footerMenu">
+                <li>
+                    <a href="@this.Localize("FooterMenuContactMeLink")" title="@this.Localize("FooterMenuContactMeTitle")" target="_blank">
+                        @this.Localize("FooterMenuContactMeText")
+                    </a>
+                </li>
+                <li>
+                    @Html.ActionLink(Application.FooterMenuHireMeLink, "Resume", "Home",
+                    null, new { target = "_blank" })
+                </li>
+                @Html.Raw(this.Localize("FriendLinks"))
+                @RenderSection("FooterLinks", false)
+                @*<li>
+                        <a href="@Html.Localize(this, "FooterMenuDonateMeLink")" title="@Html.Localize(this, "FooterMenuDonateMeTitle")">@Html.Localize(this, "FooterMenuDonateMeText")</a>
+                    </li>*@
+            </ul>
+            @*<div class="adLinks">
+                    @Html.RenderAds(Html.Localize(this, "AdLinks").ToString())
+                </div>*@
+            <div style="float: right;">
+                <ul class="footerMenu">
+                    <li>
+                        <a href="@this.Localize("FooterMenuWikiLink")" title="@this.Localize("FooterMenuWikiTitle")" target="_blank">
+                            @this.Localize("FooterMenuWikiText")
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@this.Localize("FooterMenuReportBugLink")" title="@this.Localize("FooterMenuReportBugTitle")" target="_blank">
+                            @this.Localize("FooterMenuReportBugText")
+                        </a>
+                    </li>
+                </ul>
+                @RenderSection("Cultures", false)
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+    @RenderSection("Scripts", false)
+
+    @if (ViewBag.HideSocialPlugin != true && !Request.IsLocal)
+    {
+        <link href="@Url.Content("~/Scripts/SocialPlugin/socialplugin.css")" rel="Stylesheet" type="text/css" />
+        <script defer="defer" src="@Url.Content("~/Scripts/SocialPlugin/socialplugin.js")" type="text/javascript"></script>
+    }
+
+    @{
+        if (!Request.IsLocal)
+        {
+            @Html.Raw(this.Localize("TrackingCode"))
+        }
+    }
+</body>
+</html>

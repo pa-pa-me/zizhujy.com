@@ -1,0 +1,61 @@
+﻿@using ZiZhuJY.Helpers
+@using ZiZhuJY.Web.UI.Helpers
+@model System.Dynamic.ExpandoObject
+
+@{
+    ViewBag.Title = "HttpRuntime Cache Monitor";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+@section HeaderStyles{
+    @Html.RenderCsses("~/Content/css/tables.css")
+    
+    <style type="text/css">
+        table th, table td {
+            word-wrap: normal;
+            white-space: normal;
+        }
+    </style>
+}
+
+<ul>
+    <li>@Html.ActionLink("Index", "Index")</li>
+</ul>
+
+<h2>HttpRuntime Cache Monitor</h2>
+
+@Html.Raw(Model.ToHtmlUnorderedList())
+
+<div>
+    <table class="tbGridView">
+        <thead>
+            <tr>
+                <th>Key</th>
+                <th>Value</th>
+                <th>Rough Size</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var enumerator = HttpRuntime.Cache.GetEnumerator();
+
+                while (enumerator.MoveNext())
+                {
+                    var key = (string)enumerator.Key;
+                    var value = enumerator.Value;
+
+                    <text>
+                        <tr>
+                            <td>@key</td>
+                            <td style="max-width: 600px; max-height: 50px; text-overflow: ellipsis; overflow: hidden;">
+                                <div style="max-height: 50px; text-overflow: ellipsis;">@value</div>
+                            </td>
+                            <td>@value.GetRoughSize()</td>
+                        </tr>
+                    </text>
+
+                }
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,60 @@
+﻿@model ZiZhuJY.Web.UI.Models.ProxyParams
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section metas {
+    <style type="text/css">
+        
+    </style>
+}
+
+<h2>Index</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>ProxyParams</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Type)
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Url)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Url)
+            @Html.ValidationMessageFor(model => model.Url)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Data)
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Data, 12, 80, "")
+            @Html.ValidationMessageFor(model => model.Data)
+        </div>
+
+        <p>
+            <input type="submit" value="Submit" name="action" /> 
+        </p>
+    </fieldset>
+}
+
+<div>
+    <h2>Raw Response:</h2>
+    <pre style="overflow: auto;">@ViewBag.ResponseRaw</pre>
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

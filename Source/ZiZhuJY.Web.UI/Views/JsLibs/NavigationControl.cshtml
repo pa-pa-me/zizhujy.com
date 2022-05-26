@@ -1,0 +1,16 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    Layout = "~/Views/Shared/_JsLibLayout.cshtml";
+    ViewBag.CurrentPage = this;
+}
+
+<h3>@this.Localize("Demo")</h3>
+
+<ul>
+    <li>
+        @Html.ActionLink(this.Localize("BasicExample"), "NavigationControl", new { example = "BasicExample" }, new { target = "_blank" })
+    </li>
+    <li>
+        @Html.ActionLink(this.Localize("MultipleChartsExample"), "NavigationControl", new { example = "MultipleCharts" }, new { target = "_blank" })
+    </li>
+</ul>

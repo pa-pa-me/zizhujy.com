@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="about.text1" xml:space="preserve">
+    <value>This app allows you to plot the scatter of your data easily as well as to work out the stats (mean sample/population standard deviation variance and correlation co-efficient etc.) of your data. Moreover it can find out the linear regression quadratic regression cubic regression and exponential regressions for your data also known as the least square fittings. According to the relation between two variables it finds the linear function quadratic function cubic function and exponential function that best fit a given set of data points.</value>
+  </data>
+  <data name="about.text2" xml:space="preserve">
+    <value>Copy &amp; Paste: </value>
+  </data>
+  <data name="about.text3" xml:space="preserve">
+    <value>You can copy and paste data directly from a spreadsheet a tabulated data file or a comma separated values (.csv) file in the box underneath the graph area. Any character that cannot be part of a number - space comma semicolon tabulation... - is considered a column separator. The exponent can be indicated by preceding it by the character E or e for example 5.1E-1 1.78e+3 are valid numbers. Remember data must consist of two columns x and y to get the scatter graph and its regression functions.</value>
+  </data>
+  <data name="appName" xml:space="preserve">
+    <value>Statistical calculator</value>
+  </data>
+  <data name="appName.note" xml:space="preserve">
+    <value>&lt;span style="font-size: small;"&gt;(by &lt;a href="{0}" title="ZiZhuJY.com" style="color: red;"&gt;ZiZhuJY.com&lt;/a&gt;)&lt;/span&gt;</value>
+  </data>
+  <data name="clear" xml:space="preserve">
+    <value>&lt;span style="text-decoration: underline;"&gt;C&lt;/span&gt;lear</value>
+  </data>
+  <data name="correlation.coefficient.with.x" xml:space="preserve">
+    <value>Correlation co-efficient with x</value>
+  </data>
+  <data name="correlation.coefficient.with.y" xml:space="preserve">
+    <value>Correlation co-efficient with y</value>
+  </data>
+  <data name="count" xml:space="preserve">
+    <value>Count</value>
+  </data>
+  <data name="cubic" xml:space="preserve">
+    <value>Cubic Regression</value>
+  </data>
+  <data name="cubicFit" xml:space="preserve">
+    <value>Cubic Fit</value>
+  </data>
+  <data name="data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="estimateOrPredict" xml:space="preserve">
+    <value>Estimate/Predict</value>
+  </data>
+  <data name="estimateOrPredict.text" xml:space="preserve">
+    <value>Estimate/Predict the y value for a specified x value. If the specified x is within the original data's domain then this process is called estimating; if the specified x exceeds the original data's domain then this process is called predicting.</value>
+  </data>
+  <data name="exponential" xml:space="preserve">
+    <value>Exponential Regression</value>
+  </data>
+  <data name="exponentialFit" xml:space="preserve">
+    <value>Exponential Fit</value>
+  </data>
+  <data name="formula.expression" xml:space="preserve">
+    <value>Formula expression</value>
+  </data>
+  <data name="graph" xml:space="preserve">
+    <value>Graph</value>
+  </data>
+  <data name="input.x.here" xml:space="preserve">
+    <value>Input x here: </value>
+  </data>
+  <data name="linear" xml:space="preserve">
+    <value>Linear Regression</value>
+  </data>
+  <data name="linearFit" xml:space="preserve">
+    <value>Linear Fit</value>
+  </data>
+  <data name="logarithm" xml:space="preserve">
+    <value>Logarithm Regression</value>
+  </data>
+  <data name="logarithmFit" xml:space="preserve">
+    <value>Logarithm Fit</value>
+  </data>
+  <data name="mean" xml:space="preserve">
+    <value>Mean</value>
+  </data>
+  <data name="message.format" xml:space="preserve">
+    <value>&lt;h3&gt;Errors encountered:&lt;/h3&gt;&lt;ul&gt;{0}&lt;/ul&gt;&lt;p&gt;Try correct the error and then click the "Plot" button again.&lt;/p&gt;&lt;p&gt;Please ensure that only one data point (i.e. x y pair) on each line and please separte x and y by space comma or semicolon; please not only input x or y in a line and don't type in special characters.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p style='color: black;'&gt;If you are sure that your input is good then please send email to &lt;a href='mailto:jeff@zizhujy.com?subject=BUG:Ploter&amp;body={1}'&gt;jeff@zizhujy.com&lt;/a&gt; to report to developer thanks!&lt;/p&gt;</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying" xml:space="preserve">
+    <value>Error encountered when trying to identify '{0}'</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.1st.data.point" xml:space="preserve">
+    <value>Error '{1}' encountered when trying to identify the {0}st data point input '{2}'</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.2nd.data.point" xml:space="preserve">
+    <value>Error '{1}' encountered when trying to identify the {0}nd data point input '{2}'</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.3rd.data.point" xml:space="preserve">
+    <value>Error '{1}' encountered when trying to identify the {0}rd data point input '{2}'</value>
+  </data>
+  <data name="message.format.error.encountered.when.identifying.nth.data.point" xml:space="preserve">
+    <value>Error '{1}' encountered when trying to identify the {0}th data point input '{2}'</value>
+  </data>
+  <data name="message.format.not.a.valid.data.point" xml:space="preserve">
+    <value>{0} is not a valid data point.A valid data point is an [x, y] data pair.</value>
+  </data>
+  <data name="message.not.a.valid.data.point" xml:space="preserve">
+    <value>Failed to identify the input because it's not a valid data point list. The valid data point list should be a list with 2 columns' data.</value>
+  </data>
+  <data name="model.name" xml:space="preserve">
+    <value>Model name</value>
+  </data>
+  <data name="name.of.stats" xml:space="preserve">
+    <value>Name of Stats</value>
+  </data>
+  <data name="options" xml:space="preserve">
+    <value>Options</value>
+  </data>
+  <data name="ordinal.1st.suffix" xml:space="preserve">
+    <value>st</value>
+  </data>
+  <data name="ordinal.2nd.suffix" xml:space="preserve">
+    <value>nd</value>
+  </data>
+  <data name="ordinal.3rd.suffix" xml:space="preserve">
+    <value>rd</value>
+  </data>
+  <data name="ordinal.nth.suffix" xml:space="preserve">
+    <value>th</value>
+  </data>
+  <data name="original.data" xml:space="preserve">
+    <value>Original data</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Plotter - Online regression/statistics Calculator, basic math statistics, scatter plot, trend fit on the fly!</value>
+  </data>
+  <data name="parameters" xml:space="preserve">
+    <value>Parameters</value>
+  </data>
+  <data name="please.pay.attention" xml:space="preserve">
+    <value>Please pay attention!</value>
+  </data>
+  <data name="plot" xml:space="preserve">
+    <value>&lt;span style="text-decoration: underline;"&gt;P&lt;/span&gt;lot</value>
+  </data>
+  <data name="polynomial.model.name.post" xml:space="preserve">
+    <value>Polynomial</value>
+  </data>
+  <data name="polynomial.model.name.pre" xml:space="preserve">
+    <value />
+  </data>
+  <data name="polynomialFit.post" xml:space="preserve">
+    <value>th Polynomial Fit</value>
+  </data>
+  <data name="polynomialFit.pre" xml:space="preserve">
+    <value />
+  </data>
+  <data name="population.standard.deviation" xml:space="preserve">
+    <value>Population standard deviation</value>
+  </data>
+  <data name="population.variance" xml:space="preserve">
+    <value>Population variance</value>
+  </data>
+  <data name="quadratic" xml:space="preserve">
+    <value>Quadratic Regression</value>
+  </data>
+  <data name="quadraticFit" xml:space="preserve">
+    <value>Quadratic Fit</value>
+  </data>
+  <data name="sample.standard.deviation" xml:space="preserve">
+    <value>Sample standard deviation</value>
+  </data>
+  <data name="sample.variance" xml:space="preserve">
+    <value>Sample variance</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>Ploter - online regression calculator. Scatter plot, statistical calculation, linear fit, quadratic fit,cubic fit on the fly!</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>Ploter, scatter, statistical calculation, trend, fit, linear, quadratic, cubic, regression</value>
+  </data>
+  <data name="square.sum.of.fitting.errors" xml:space="preserve">
+    <value>Square sum of fitting errors</value>
+  </data>
+  <data name="stats" xml:space="preserve">
+    <value>Stats</value>
+  </data>
+  <data name="stats.for.x" xml:space="preserve">
+    <value>Stats for x</value>
+  </data>
+  <data name="stats.for.y" xml:space="preserve">
+    <value>Stats for y</value>
+  </data>
+  <data name="sum" xml:space="preserve">
+    <value>Sum</value>
+  </data>
+  <data name="sum.of.product" xml:space="preserve">
+    <value>Sum of product</value>
+  </data>
+  <data name="sum.of.squares" xml:space="preserve">
+    <value>Sum of squares</value>
+  </data>
+  <data name="value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="FullScreen" xml:space="preserve">
+    <value>Toggle Full Screen</value>
+  </data>
+  <data name="SaveAsBMP" xml:space="preserve">
+    <value>Save as BMP... </value>
+  </data>
+  <data name="SaveAsImagePlugin.notSupportMessage" xml:space="preserve">
+    <value>Sorry, this browser is not capable of creating image files, please use PRINT SCREEN key instead!</value>
+  </data>
+  <data name="SaveAsJPEG" xml:space="preserve">
+    <value>Save as JPEG...</value>
+  </data>
+  <data name="SaveAsPNG" xml:space="preserve">
+    <value>Save as PNG...</value>
+  </data>
+  <data name="TipForSavingGraph" xml:space="preserve">
+    <value>To save current graph, you can directly "mouse right click" on the graph, then choose "Save image as..." option. </value>
+  </data>
+  <data name="ToggleNavigationControl" xml:space="preserve">
+    <value>Toggle navigation control</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="BannerTitle" xml:space="preserve">
+    <value>&lt;h1&gt;Plotter &lt;span style="font-size: small; color: red; font-weight: normal;"&gt;Online plots, statistics, trends, data fits, estimates and predicts!&lt;/span&gt;&lt;/h1&gt;</value>
+  </data>
+  <data name="message.no.data" xml:space="preserve">
+    <value>Failed to get the data. Have you input it?</value>
+  </data>
+  <data name="AdZoneSkyScraper" xml:space="preserve">
+    <value>&lt;script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- Image Explorer App Ad --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="9558341781"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="ChartInteractiveTip" xml:space="preserve">
+    <value>Drag the chart to pan, and press 'shift' + mouse wheel on to the chart to zoom.</value>
+  </data>
+</root>

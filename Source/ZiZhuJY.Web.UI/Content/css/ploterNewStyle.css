@@ -1,0 +1,196 @@
+﻿#ploter {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding-bottom: 50px;
+}
+
+#canvasWrapper {
+    float: left;
+    padding: 0;
+    margin: 10px 0 0 10px;
+    width: 350px;
+    height: auto;
+    overflow: auto;
+}
+
+#canvas {
+    width: 350px;
+    height: 350px;
+    margin: auto auto;
+    overflow: hidden;
+    position: relative;
+}
+
+#canvas #navButtons {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    right: 5px;
+    bottom: 22px;
+}
+
+#canvas .button {
+    font-size: smaller;
+    color: #999;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+
+#canvas #navButtons #navButtonUp {
+    left: 15px;
+    top: 0;
+    background: url('../Images/arrow-up.gif') no-repeat center center;
+}
+
+#canvas #navButtons #navButtonRight {
+    left: 29px;
+    top: 15px;
+    background: url('../Images/arrow-right.gif') no-repeat center center;
+}
+
+#canvas #navButtons #navButtonDown {
+    left: 15px;
+    top: 29px;
+    background: url('../Images/arrow-down.gif') no-repeat center center;
+}
+
+#canvas #navButtons #navButtonLeft {
+    left: 0;
+    top: 15px;
+    background: url('../Images/arrow-left.gif') no-repeat center center;
+}
+
+#coor {
+    /*position: absolute;*/
+    height: 1em;
+    padding: 5px 10px;
+}
+
+#options {
+    
+}
+
+#controls {
+    float: left;
+    overflow: hidden;
+    margin: 10px 10px 0 20px;
+    width: 140px;
+    height: 400px;
+}
+
+#taDataPoints {
+    width: 130px;
+    height: 280px;
+}
+
+input[type="text"] {
+    width: 40px;
+}
+
+/* AdZone
+------------------------------------------------------*/
+
+#adZone {
+    float: left;
+}
+
+/* Introduction
+------------------------------------------------------*/
+
+#intro {
+    float: left;
+    margin-left: 1em;
+    width: 30%;
+    height: auto;
+    font-size: larger;
+    overflow: auto;
+}
+
+#msg {
+    display: none;
+    color: red;
+    background-color: #EFDDE9;
+    background-image: url('../images/error.png');
+    background-repeat: no-repeat;
+    background-position: 305px 20px;
+    border: solid 1px #C4ACBC;
+    position: absolute;
+    width: 345px;
+    height: 345px;
+    left: 70px;
+    top: 140px;
+    z-index: 11;
+}
+
+#tips, .messageWindow {
+    display: none;
+    color: #555;
+    background-color: #DDEAFF;
+    background-image: url('../images/status-info.png');
+    background-repeat: no-repeat;
+    background-position: 25px 7px;
+    border: solid 1px #8BB9FF;
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    left: 60px;
+    top: 130px;
+    z-index: 10;
+}
+
+#tips .header, #msg .header, .messageWindow .header {
+    position: absolute;
+    z-index: 11;
+    right: 19px;
+    top: 0;
+}
+
+#msg .header a#closeMsg:link, .messageWindow .header a.closeWindow:link {
+    text-decoration: none;
+    color: Red;
+}
+
+#msg .header a#closeMsg:visited, .messageWindow .header a.closeWindow:visited {
+    text-decoration: none;
+    color: Red;
+}
+#msg .header a#closeMsg:hover, .messageWindow .header a.closeWindow:hover {
+    text-decoration: underline;
+    color: Red;
+}
+#msg .header a#closeMsg:active, .messageWindow .header a.closeWindow:active {
+    text-decoration: underline;
+    color: Red;
+}
+
+.messageWindow .body {
+    width: 280px;
+    height: 350px;
+    padding-bottom: 10px;
+    padding-left: 55px;
+    padding-right: 15px;
+    padding-top: 10px;
+    overflow: auto;
+}
+
+.messageWindow .body table th {
+    font-weight: bold;
+}
+
+#msg .body {
+    width: 320px;
+    height: 345px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top: 10px;
+    overflow: auto;
+}
+
+#msg .body p, #msg .body h3, .messageWindow .body p {
+    margin: 3px 0;
+}

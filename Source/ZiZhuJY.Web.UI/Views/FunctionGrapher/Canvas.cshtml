@@ -1,0 +1,30 @@
+﻿@using System.Web.Optimization
+@using ZiZhuJY.Web.UI.Helpers
+@model ZiZhuJY.Web.UI.Models.AnnualRingModel
+
+@{
+    Layout = null;
+    ViewBag.Title = this.Localize("PageTitle");
+}@if (ViewBag.Standalone == true){<text><!DOCTYPE html></text>}
+@if (ViewBag.Standalone == true)
+{
+    @Html.RenderKeywords(this.Localize("SeoKeywords"))
+    @Html.RenderDescription(this.Localize("SeoDescription"))
+    @Html.RenderRobots()
+}
+    
+<script type="text/javascript">
+    function funGrapherCallback(funGrapher, plot, options) {
+        plot = $.plot("#canvas-wrapper", [[]], options);
+    }
+</script>
+
+<div id="canvas-wrapper" style="width: 400px; height: 400px;">
+    <div id="loading">@this.Localize("Loading")</div>
+</div>
+<div id="thinking" style="display: none;">@this.Localize("Drawing")</div>
+<div class="clearFloat" style="float: none; clear: both;"></div>
+
+
+@Scripts.Render("~/Scripts/zizhujy.com.js", "~/Scripts/requireLite/requireLite.js",
+"~/Scripts/FunctionGrapher/main.js")

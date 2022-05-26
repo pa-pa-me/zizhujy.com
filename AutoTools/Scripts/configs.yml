@@ -1,0 +1,9 @@
+project_name:
+  ZiZhuJYWeb: "ZiZhuJYWeb"
+  
+config_name:
+  debug: "debug"
+  Release: "Release"
+  
+project_dir:
+  ZiZhuJYWeb_SLN: "Source/zizhujy.sln"

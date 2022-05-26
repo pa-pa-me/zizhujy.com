@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Resume of Jeff Tian</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>Resume of Devlepor Jeff Tian</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>Resume, Jeff, Tian, developer</value>
+  </data>
+  <data name="RESUME_URI" xml:space="preserve">
+    <value>https://raw.githubusercontent.com/Jeff-Tian/Resume/master/en-US.md</value>
+  </data>
+  <data name="RESUME_CSS_URI" xml:space="preserve">
+    <value>https://raw.githubusercontent.com/Jeff-Tian/Resume/master/resume.css</value>
+  </data>
+  <data name="RESUME_Content" xml:space="preserve">
+    <value>&lt;h2&gt;Resume&lt;/h2&gt;
+&lt;hr style="background-color: #cccccc; height: 1px;" /&gt;
+&lt;div id="bio" class="section"&gt;
+    &lt;h3&gt;Bio&lt;/h3&gt;
+    &lt;div style="float: left; margin-right: 1em;"&gt;
+        &lt;img src="../../Content/Images/JeffTian.jpg" style="width: 140px;" /&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Jeff Tian, Bachelor degree, has been working for 7 years. With great passion on programming, high pursuit of product quality, is now working as a senior developer at a CRM system team. He enjoys learning skills and is good at applying what he learnt to daily work. He got many rewards from employers because his problem solving, willing to face challenge, hardworking and positive achievements. In spare time he writes his own technology blog and is very active on GitHub!&lt;/p&gt;
+    &lt;div class="clearFloat"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div id="contact" class="section"&gt;
+    &lt;h3&gt;Contact Info:&lt;/h3&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Email:&lt;/strong&gt; 
+        &lt;a href="mailto:jeff.tian@outlook.com" title="Contact me!"&gt;jeff.tian@outlook.com&lt;/a&gt;
+        &lt;strong&gt;Website:&lt;/strong&gt;
+        &lt;a href="http://zizhujy.com" title="My website" target="_blank"&gt;http://zizhujy.com&lt;/a&gt;
+        &lt;strong&gt;Github:&lt;/strong&gt;
+        &lt;a href="https://github.com/Jeff-Tian" title="My Github profile" target="_blank"&gt;https://github.com/Jeff-Tian&lt;/a&gt;
+    &lt;/p&gt;
+&lt;/div&gt;
+    
+&lt;div id="focuses" class="section"&gt;
+    &lt;h3&gt;Focuses&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;JavaScript, Css, Html&lt;/li&gt;
+        &lt;li&gt;C#, ASP.NET MVC, SQL&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id="work" class="section"&gt;
+    &lt;h3&gt;Work&lt;/h3&gt;
+    &lt;h4&gt;Senior Developer at EF Education&lt;/h4&gt;
+    &lt;p class="period"&gt;&lt;i&gt;Jun 2013 - current&lt;/i&gt;&lt;/p&gt;
+    &lt;p&gt;
+        I am leading the charting feature development in the internal CRM system. One of my contributions to Github is also related to this JavaScript chart library. For the client side, I design friendly UI both to users and developers by skillful javascript and css. For the server side, I design robust algorithms with rigorous mathematics reasoning (One Example: http://zizhujy.com/blog/post/2014/06/08/.aspx ).
+    &lt;/p&gt;
+    &lt;h4&gt;SDET II at Microsoft as vendor staff&lt;/h4&gt;
+    &lt;div class="special"&gt;Star Staff Reward of 2012!&lt;img src="../../Content/Images/About/StarStaffReward.jpg" alt="Star Staff Reward of 2012!" style="height: 300px;" /&gt;&lt;/div&gt;
+    &lt;p class="period"&gt;&lt;i&gt;Apr 2011 - Jun 2013&lt;/i&gt;&lt;/p&gt;
+    &lt;p&gt;As a developer in test, besides normal testing work, I develop test automation tools for test team, and other systems for internal users such as Microsoft Scientists.&lt;/p&gt;
+
+    &lt;h5&gt;Test framework that can be auto deployed to other machines and across different domains.&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Test Team&lt;/li&gt;
+	&lt;li&gt;Features:
+		&lt;ul&gt;
+			&lt;li&gt;Supports both GUI and command line.&lt;/li&gt;
+			&lt;li&gt;Auto deployment, cross domains, auto run, collects results and sends reports by email.&lt;/li&gt;
+			&lt;li&gt;Easy to be extended and integrated with other test cases.&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+
+
+    &lt;h5&gt;Online Python&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Microsoft Scientists Team&lt;/li&gt;
+	&lt;li&gt;An ASP.NET MVC application that hosts Python code. Scientists are more familiar with Python than C#, they had written many Python scripts to ease their daily work. They want a central online management system to add new scripts, edit existed scripts and run them on the fly across the whole team from different places. They can use this online application to maintain their python scripts and execute it online without the need to install Python on their own machines.&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;div class="clearFloat"&gt;&lt;/div&gt;
+    &lt;div class="special"&gt;Excellent Staff Reward!&lt;img src="../../Content/Images/About/ExcellentStaffReward.jpg" alt="Excellent Staff Reward!" style="width: 100%;" /&gt;&lt;/div&gt;
+
+
+    &lt;h5&gt;Online BVT testing system&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Test Team&lt;/li&gt;
+	&lt;li&gt;An ASP.NET application that manage many sub teams’ BVT testing. Features:
+		&lt;ul&gt;
+			&lt;li&gt;Integrated with Source Control (Auto execute when dev checking in code)&lt;/li&gt;
+			&lt;li&gt;Configurable, easy to be customized by sub teams through xml, Reporting&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+
+
+    &lt;h5&gt;HTML5 Video online testing suite&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Test Team&lt;/li&gt;
+	&lt;li&gt;A javascript based testing framework aimed to automate the testing for Html5 video controls.&lt;/li&gt;
+	&lt;/ul&gt;
+
+    &lt;div class="clearFloat"&gt;&lt;/div&gt;
+    &lt;h4&gt;Software engineer at KerryEAS company&lt;/h4&gt;
+    &lt;p class="period"&gt;&lt;i&gt;Feb 2010 - Apr 2011&lt;/i&gt;&lt;/p&gt;
+    
+    &lt;h5&gt;Express sorting system&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Management team and courier operators&lt;/li&gt;
+	&lt;li&gt;A system contains SQL server, ASP.NET MVC web application, WCF services, and hand-held scanning device client applications. Features:
+		&lt;ul&gt;
+			&lt;li&gt;Real time monitoring sorting process and reporting functionalities&lt;/li&gt;
+			&lt;li&gt;Fast check for couriers and reducing human errors&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+
+    &lt;h5&gt;Nokia warehouse management system&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Nokia warehouse which outsourced to KerryEAS&lt;/li&gt;
+	&lt;li&gt;An ASP.NET application that implemented the work flow for the new founded Nokia Beijing warehouse. Features:
+		&lt;ul&gt;
+			&lt;li&gt;Receiving, Sorting, Auto replenishment, Shipments, Bar code label printing, reporting...&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+
+    &lt;h4&gt;Sales analyst at DHL&lt;/h4&gt;
+    &lt;p class="period"&gt;&lt;i&gt;Jul 2007 - Sep 2009&lt;/i&gt;&lt;/p&gt;
+    
+    &lt;h5&gt;Heavy Cargo Price Adjustment System&lt;/h5&gt;
+	&lt;ul&gt;
+	&lt;li&gt;Users: Sales Team&lt;/li&gt;
+	&lt;li&gt;	This is an excel VBA application. Features:
+		&lt;ul&gt;
+			&lt;li&gt;Quota special prices for large shipments customer&lt;/li&gt;
+			&lt;li&gt;Auto application form filling, Manager approval checking&lt;/li&gt;
+			&lt;li&gt;Generates monthly sales reporting, Sales prediction using exponential smoothing&lt;/li&gt;
+		&lt;/ul&gt;
+&lt;/li&gt;
+	&lt;/ul&gt;
+
+&lt;/div&gt;
+
+&lt;div id="other-works" class="section"&gt;
+    &lt;h3&gt;Other works&lt;/h3&gt;
+    &lt;h4&gt;&lt;i&gt;Contributions to &lt;a href="https://github.com/Jeff-Tian" title="Jeff Tian on Github" target="_blank"&gt;many github projects&lt;/a&gt;&lt;/i&gt;&lt;/h4&gt;
+    &lt;h4&gt;&lt;i&gt;Contributions to &lt;a href="http://www.dotnetblogengine.net/" title="BlogEngine.NET"&gt;BlogEngine.NET&lt;/a&gt;&lt;/i&gt;&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="http://dnbegallery.org/cms/List/Extensions/ImageGuard" title="Image Guard extension for BlogEngine.NET"&gt;Image Guard extension&lt;/a&gt;
+            &lt;a href="http://dnbegallery.org/cms/List/Extensions/BetterWordCount" title="Better Word Count extension for BlogEngine.NET"&gt;Better Word Count extension&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li&gt;
+            &lt;a href="http://dnbegallery.org/cms/List/Widgets/FileSystemManager" title="File System Manager widget for BlogEngine.NET"&gt;File System Manager widget&lt;/a&gt;
+            &lt;a href="http://dnbegallery.org/cms/List/Extensions/MarkdownDeepFormatter" title="Mark down formatter extension"&gt;Mark down formatter extension&lt;/a&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+	&lt;h4&gt;&lt;i&gt;&lt;a href="http://apps.microsoft.com/windows/en-US/app/963f612f-2eed-4175-9b2b-06de964f9eeb" title="Windows 8 application: Statistical Calculator"&gt;Statistical Calculator for Windows 8&lt;/a&gt;&lt;/i&gt;&lt;/h4&gt;
+    &lt;h4&gt;&lt;i&gt;Contributions to &lt;a href="https://github.com/flot/flot" title="Flot - Attractive JavaScript charts for jQuery" target="_blank"&gt;Flot&lt;/a&gt; Javascript Chart library&lt;/i&gt;&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;a href="https://github.com/flot/flot/pull/1178" title="Goal map feature" target="_blank"&gt;Goal map feature&lt;/a&gt;, 
+            &lt;a href="http://jeff-tian.github.io/jquery.flot.saveAsImage.js/" title="Exporting image plugin" target="_blank"&gt;Exporting image plugin&lt;/a&gt;, 
+            &lt;a href="https://github.com/Jeff-Tian/jquery.flot.navigationControl" title="Navigation control plugin" target="_blank"&gt;Navigation control plugin&lt;/a&gt;, 
+            …
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;h4&gt;&lt;i&gt;Chrome store apps&lt;/i&gt;&lt;/h4&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/image-explorer/bjplaimfmacmplmlacojiafeoojonmfk" title="Image explorer" target="_blank"&gt;Image explorer plugin&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="https://chrome.google.com/webstore/detail/fun-grapher/finpihnfokdnmcjaifhjgnbfaadlckih?utm_source=chrome-ntp-launcher" title="Fun Grapher" target="_blank"&gt;Fun Grapher app&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;div id="education" class="section"&gt;
+    &lt;h3&gt;Education&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;
+            &lt;h4&gt;Bachelor in Mathematics Science&lt;/h4&gt;
+            &lt;p class="period"&gt;&lt;i&gt;Soochow University&lt;/i&gt;&lt;/p&gt;
+            &lt;p class="period"&gt;&lt;i&gt;2003 - 2007&lt;/i&gt;&lt;/p&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+&lt;div id="miscellaneous" class="section"&gt;
+    &lt;h3&gt;Miscellaneous facts&lt;/h3&gt;
+    &lt;p&gt;Diligent, persistent, great teamwork&lt;/p&gt;
+&lt;/div&gt;</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="PDF" xml:space="preserve">
+    <value>PDF</value>
+  </data>
+  <data name="ResumePDFFileName" xml:space="preserve">
+    <value>Resume of Jeff Tian.pdf</value>
+  </data>
+</root>

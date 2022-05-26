@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = HttpContext.GetLocalResourceObject(this.VirtualPath, "PageTitle");
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section HeaderScripts{
+    <style type="text/css">
+        /* styles to make preformatted text wrap */
+        pre {
+            white-space: pre-wrap; /* css-3 */
+        }
+    </style>
+}
+<h2>@HttpContext.GetLocalResourceObject(this.VirtualPath, "PageTitle")</h2>
+
+<div>
+    <h3>Currently online data:</h3>
+    @{
+        var geoDic
+            = ViewBag.AllGeoCoordinates as Dictionary<ZiZhuJY.Web.UI.ZiZhuJYLocationService.IdentifiedDevice, ZiZhuJY.Web.UI.ZiZhuJYLocationService.GeoCoordinate> ?? new Dictionary<ZiZhuJY.Web.UI.ZiZhuJYLocationService.IdentifiedDevice, ZiZhuJY.Web.UI.ZiZhuJYLocationService.GeoCoordinate>();
+    }
+    <table class="tbDoodles" border="1">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Device Name</th>
+                <th>Latitude</th>
+                <th>Longtitude</th>
+                <th>Altitude</th>
+                <th>Course</th>
+                <th>HorizontalAccuracy</th>
+                <th>VerticalAccuracy</th>
+                <th>Speed</th>
+                <th>Timestamp</th>
+                <th>Remark</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var entity in geoDic)
+            {
+                var device = entity.Key;
+                var geoCoor = entity.Value;        
+                <tr>
+                    <td>@device.UserName</td>
+                    <td>@device.Device.DeviceName</td>
+                    <td>@geoCoor.Latitude</td>
+                    <td>@geoCoor.Longitude</td>
+                    <td>@geoCoor.Altitude</td>
+                    <td>@geoCoor.Course</td>
+                    <td>@geoCoor.HorizontalAccuracy</td>
+                    <td>@geoCoor.VerticalAccruracy</td>
+                    <td>@geoCoor.Speed</td>
+                    <td>@geoCoor.TimeStamp</td>
+                    <td>@geoCoor.Remark</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="console">
+    <pre>@ViewBag.Console</pre>
+</div>
+

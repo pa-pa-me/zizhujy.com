@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BannerText" xml:space="preserve">
+    <value>数据描点器 —— 散点图、统计计算、趋势拟合，一步到位！</value>
+  </data>
+  <data name="ClearButtonText" xml:space="preserve">
+    <value>清除</value>
+  </data>
+  <data name="CloseMsg" xml:space="preserve">
+    <value>关闭消息</value>
+  </data>
+  <data name="CloseStats" xml:space="preserve">
+    <value>关闭统计计算信息窗口</value>
+  </data>
+  <data name="CloseTips" xml:space="preserve">
+    <value>关闭帮助</value>
+  </data>
+  <data name="InputLabel" xml:space="preserve">
+    <value>请&lt;strong style="font-size: larger;"&gt;粘贴&lt;/strong&gt;或输入数据：</value>
+  </data>
+  <data name="LogoPath" xml:space="preserve">
+    <value>~/Content/Images/Apps/PloterLogo.jpg</value>
+  </data>
+  <data name="LogoRaw" xml:space="preserve">
+    <value>&lt;a href="#" onclick="return false;" title="在线统计计算器"&gt;&lt;img src="{0}" alt="在线统计计算器" /&gt;&lt;/a&gt;</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>在线数据描点 - 散点图、统计计算、趋势拟合，一步到位！</value>
+  </data>
+  <data name="PlotButtonText" xml:space="preserve">
+    <value>描点</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>在线数据描点 - 描点、统计计算、趋势拟合，一步到位！线性回归、多项式拟合、趋势拟合、统计量计算。</value>
+  </data>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>数据描点,统计计算,趋势拟合,线性拟合,多项式拟合</value>
+  </data>
+  <data name="ShowCubicFit" xml:space="preserve">
+    <value>&lt;span style="color: #009900;"&gt;三次函数拟合&lt;/span&gt;</value>
+  </data>
+  <data name="ShowExpFit" xml:space="preserve">
+    <value>&lt;span style="color: #000099;"&gt;指数拟合&lt;/span&gt;</value>
+  </data>
+  <data name="ShowHelp" xml:space="preserve">
+    <value>帮助</value>
+  </data>
+  <data name="ShowLegend" xml:space="preserve">
+    <value>图例</value>
+  </data>
+  <data name="ShowLinearFit" xml:space="preserve">
+    <value>&lt;span style="color: #FF0000;"&gt;线性拟合&lt;/span&gt;</value>
+  </data>
+  <data name="ShowQuadraticFit" xml:space="preserve">
+    <value>&lt;span style="color: #990000;"&gt;二次函数拟合&lt;/span&gt;</value>
+  </data>
+  <data name="ShowStats" xml:space="preserve">
+    <value>统计计算</value>
+  </data>
+  <data name="Stats" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>&lt;p&gt;在数据框内输入数据点列。点击“描点”按钮，散点图轻松完成。&lt;/p&gt;
+&lt;p&gt;所谓数据点，即x y数据的配对。如1 2就是一个数据点，其横坐标为1，其纵坐标为2。数据点的横、纵坐标值可以用空格、逗号或者分号分隔，即如下输入都是有效的数据点：&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;1 2&lt;/li&gt;
+&lt;li&gt;1,2&lt;/li&gt;
+&lt;li&gt;1;2&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;一行输入一个数据点，即组成了一个数据点列。大多数情况下，你可以将做好的表格里的数据直接复制粘贴到这里，非常方便。&lt;/p&gt;</value>
+  </data>
+</root>

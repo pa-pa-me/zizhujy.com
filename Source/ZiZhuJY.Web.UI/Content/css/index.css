@@ -1,0 +1,179 @@
+﻿
+.alpha60 {
+    /* Fallback for web browsers that don't support RGBa */
+    background-color: rgb(0, 0, 0);
+    /* RGBa with 0.6 opacity */
+    background-color: rgba(0, 0, 0, 0.6);
+    /* For IE 5.5 - 7*/
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000);
+    /* For IE 8*/
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+ul.profile-images, .blog-feeds {
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+}
+
+ul.profile-images li {
+    box-sizing: border-box;
+}
+
+    ul.profile-images img, ul.profile-images embed, ul.profile-images iframe,
+    ul.blog-feeds img, ul.blog-feeds embed, ul.blog-feeds iframe {
+        max-width: 100%;
+        height: initial;
+    }
+
+.social-links {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+    .social-links label {
+        min-width: 0;
+        width: 6em;
+        text-wrap: none;
+        word-break: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 40%;
+        display: inline;
+        display: none;
+    }
+
+    .social-links li {
+        padding: 0 0 0 30px;
+        background-repeat: no-repeat;
+        background-size: auto 1em;
+        background-position: center left 5px;
+        white-space: normal;
+        word-break: break-all;
+        text-wrap: normal;
+    }
+
+.main-section:after {
+    
+    background-position: 50% bottom;
+    background-repeat: no-repeat;
+    background-color: #421C52;
+    background-image: url('../Images/About/SHMarathon.jpg');
+}
+
+.main-section .tile {
+    color: white;
+    -ms-text-shadow: 1px 1px 4px black, 0 0 4px black, -1px -1px 3px black, -1px 1px 3px black, 1px -1px 3px black;
+    text-shadow: 1px 1px 4px black, 0 0 4px black, -1px -1px 3px black, -1px 1px 3px black, 1px -1px 3px black;
+}
+
+.post p {
+    text-indent: 2em;
+}
+
+.list li {
+    margin: 10px 0;
+}
+
+.list a:link {
+    color: white;
+    /*-ms-text-shadow: 1px 1px 4px black, 0 0 4px black, -1px -1px 3px black, -1px 1px 3px black, 1px -1px 3px black;
+            text-shadow: 1px 1px 4px black, 0 0 4px black, -1px -1px 3px black, -1px 1px 3px black, 1px -1px 3px black;*/
+}
+
+.list a:visited {
+    color: black;
+    -ms-text-shadow: none;
+    text-shadow: none;
+}
+
+.list a:hover {
+    color: yellow;
+    -ms-text-shadow: none;
+    text-shadow: none;
+}
+
+.list a:active {
+    color: yellow;
+    -ms-text-shadow: none;
+    text-shadow: none;
+}
+
+.block .list a:link {
+    color: blue;
+}
+
+.block .list a:visited {
+    color: black;
+}
+
+.block .list a:hover {
+    color: yellow;
+}
+
+.block .list a:active {
+    color: yellow;
+}
+
+.bar {
+    padding: 5px 10px 5px 30px;
+    display: inline-block;
+    font-weight: bold;
+    background-repeat: no-repeat;
+    -ms-background-size: auto 1em;
+    background-size: auto 1em;
+    background-position: center left 5px;
+}
+
+li.block {
+    background-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.6);
+    position: relative;
+    z-index: 1;
+    padding-bottom: 10px;
+    -ms-border-top-left-radius: 10px 10px;
+    border-top-left-radius: 10px 10px;
+    -ms-border-bottom-right-radius: 10px 10px;
+    border-bottom-right-radius: 10px 10px;
+    -ms-text-shadow: none;
+    text-shadow: none;
+}
+
+    li.block .background {
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: auto 90%;
+        background-position: right 5px center;
+        opacity: 0.6;
+        filter: alpha(opacity=60);
+    }
+
+.area-link:link {
+    text-decoration: none;
+}
+
+.area-link:visited {
+    text-decoration: none;
+}
+
+.area-link:hover {
+    text-decoration: none;
+}
+
+.area-link:active {
+    text-decoration: none;
+}
+
+.text {
+    max-height: 10em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

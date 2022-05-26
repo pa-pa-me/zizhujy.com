@@ -1,0 +1,320 @@
+﻿@using System.Web.Optimization
+@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = this.Localize("SeoTitle");
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+    ViewBag.ShowBanner = false;
+}
+
+@section HeaderScripts {
+    <meta name="keywords" content="@this.Localize("SeoKeywords")" />
+    <meta name="description" content="@this.Localize("SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+    @Styles.Render("~/Content/css/effects.css",
+        "~/Scripts/mathquill/mathquill.css", "~/Content/css/apps/funControl.css")
+
+    <style type="text/css">
+        .expressionBox {
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+        }
+
+        .expressionBox .clear {
+            right: 5px;
+            top: 3px;
+        }
+
+        .answer {
+            width: 50%;
+            float: right;
+            box-sizing: border-box;
+            padding-left: 2em;
+        }
+
+        #get-link {
+            float: right;
+            margin-right: 50%;
+        }
+    </style>
+    @Scripts.Render("~/Scripts/Math/js")
+    <script type="text/javascript" src="@Url.Content("~/Scripts/zizhujy.com.Collection.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/zizhujy.com.DataTable.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/FunctionGrapher/funControl.js")"></script>
+    @Html.RenderJavaScripts("~/Scripts/mathjs/math.js")
+    @Html.RenderJavaScripts("~/Scripts/Maths/geekCalculator.js")
+
+    <script type="text/javascript">
+        Globalize.addCultureInfo("default", {
+            messages: @Html.Raw(ResourceHelper.JsonResource("~/Views/FunctionGrapher/funCanvas.cshtml"))
+        });
+
+        $.extend(zizhujy.com.LaTexParser.errorEnum, {
+            EVALUATION_OPERATOR_EXPECTED: { message: Globalize.localize("EVALUATION_OPERATOR_EXPECTED") },
+            OPEN_BRACE_EXPECTED: { message: Globalize.localize("OPEN_BRACE_EXPECTED") },
+            LATEX_OPEN_BRACE_EXPECTED: { message: Globalize.localize("LATEX_OPEN_BRACE_EXPECTED") },
+            CLOSING_BRACE_EXPECTED: { message: Globalize.localize("CLOSING_BRACE_EXPECTED") },
+            LATEX_CLOSING_BRACE_EXPECTED: { message: Globalize.localize("LATEX_CLOSING_BRACE_EXPECTED") },
+            DEPENDENT_VAR_Y_EXPECTED: { message: Globalize.localize("DEPENDENT_VAR_Y_EXPECTED") },
+            SEMICOLON_EXPECTED: { message: Globalize.localize("SEMICOLON_EXPECTED") },
+            DEPENDENT_VAR_X_EXPECTED: { message: Globalize.localize("DEPENDENT_VAR_X_EXPECTED") },
+            OPEN_PARENTHESIS_EXPECTED: { message: Globalize.localize("OPEN_PARENTHESIS_EXPECTED") },
+            CLOSING_PARENTHESIS_EXPECTED: { message: Globalize.localize("CLOSING_PARENTHESIS_EXPECTED") },
+            LATEX_COMMAND_EXPECTED: { message: Globalize.localize("LATEX_COMMAND_EXPECTED") },
+            DIGITAL_NUMBER_EXPECTED: { message: Globalize.localize("DIGITAL_NUMBER_EXPECTED") },
+            VAR_Y_EXPECTED: { message: Globalize.localize("VAR_Y_EXPECTED") },
+            VAR_X_EXPECTED: { message: Globalize.localize("VAR_X_EXPECTED") },
+            VAR_T_EXPECTED: { message: Globalize.localize("VAR_T_EXPECTED") },
+            VARIABLE_NAME_EXPECTED: { message: Globalize.localize("VARIABLE_NAME_EXPECTED") },
+            CONSTANT_VALUE_EXPECTED: { message: Globalize.localize("CONSTANT_VALUE_EXPECTED") },
+            FUNCTION_EXPECTED: { message: Globalize.localize("FUNCTION_EXPECTED") },
+            COMMA_EXPECTED: { message: Globalize.localize("COMMA_EXPECTED") },
+            END_OF_SOURCE_EXPECTED: { message: Globalize.localize("END_OF_SOURCE_EXPECTED") },
+            EQUAL_SIGN_EXPECTED: { message: Globalize.localize("EQUAL_SIGN_EXPECTED") },
+            POSITIVE_SIGN_EXPECTED: { message: Globalize.localize("POSITIVE_SIGN_EXPECTED") },
+            NEGATIVE_SIGN_EXPECTED: { message: Globalize.localize("NEGATIVE_SIGN_EXPECTED") },
+            UNKNOWN_ERROR: { message: Globalize.localize("UNKNOWN_ERROR") },
+            UNEXPECTED_END_OF_SOURCE: { message: Globalize.localize("UNEXPECTED_END_OF_SOURCE") },
+            LESS_THAN_EXPECTED: { message: Globalize.localize("LESS_THAN_EXPECTED") },
+            LEFT_COMMAND_EXPECTED: { message: Globalize.localize("LEFT_COMMAND_EXPECTED") },
+            RIGHT_COMMAND_EXPECTED: { message: Globalize.localize("RIGHT_COMMAND_EXPECTED") },
+            PIPE_EXPECTED: { message: Globalize.localize("PIPE_EXPECTED") },
+            UNEXPECTED_RIGHT_COMMAND: { message: Globalize.localize("UNEXPECTED_RIGHT_COMMAND") },
+            UNKNOWN_LATEX_COMMAND_MET: { message: Globalize.localize("UNKNOWN_LATEX_COMMAND_MET") }
+        });
+    </script>
+
+    <script type="text/javascript">
+        (function(parser, geekCalc) {
+            $(document).ready(function() {
+                math.config({ number: 'bignumber', precision: 64 });
+                var scope = {};
+
+                $(".button.clear-all").click(function(event) {
+                    FunControl.UI.DeleteAllExpressionLines();
+                });
+
+                $("#get-link").click(function(event) {
+                    $(this).attr("href", FunControl.GetLink(window.location.href));
+                });
+
+                FunControl.UI.Hooks.addExpressionLine.push(function(funControlUI, $expressionLine, $mathquill, latex, event) {
+                    $expressionLine.append(
+                        "<div class=\"answer\">" +
+                            "<div><span class=\"mathquill-embedded-latex\"></span></div>" +
+                            "<div class=\"message\"></div>" +
+                            "</div>" +
+                            "<div class=\"clearFloat\"></div>");
+                });
+
+                function calculateExpression(funControlUI, $expressionLine, $mathquill, latex, event) {
+
+                    function displayAnswer(ans) {
+                        $answerMathquill.text(ans).mathquill();
+                        $message.text("");
+                        funControlUI.RemoveErrorStyle($expressionLine);
+                    }
+
+                    var $answer = $expressionLine.find(".answer");
+                    var $answerMathquill = $answer.find(".mathquill-embedded-latex");
+                    var $message = $answer.find(".message");
+
+                    var answer = latex;
+
+                    try {
+                        answer = geekCalc.parseAndEval(latex, scope);
+
+                        displayAnswer(answer);
+                    } catch(ex) {
+                        if ((typeof ex === 'string' && ex === answer) || // parer.tree is null
+                            ex instanceof Array) { // parser errorList is not empty
+
+                            var expression = latex.replace(/\\\w+/g, "");
+
+                            try {
+                                answer = eval(expression);
+
+                                displayAnswer(answer);
+                            } catch(e) {
+                                $answerMathquill.text("");
+
+                                $message.html("");
+                                var errorBox = funControlUI.ShowErrorStyle(
+                                    $expressionLine,
+                                    typeof ex === 'string'
+                                        ? []
+                                        : ex,
+                                    true).show();
+
+                                errorBox.css({
+                                    "position": "relative",
+                                    "left": 0,
+                                    "top": 0,
+                                    "right": 0,
+                                    "bottom": 0,
+                                    "margin": "0 0 5px 0"
+                                });
+
+                                $message.append(errorBox);
+                                $message.append("<div>" + e + "</div>");
+                            }
+                        }
+
+                        // console.error(ex);
+                    } finally {
+                        var $nextExpressionLine = $expressionLine.next();
+                        if ($nextExpressionLine.length > 0) {
+                            var $nextMathquill = $nextExpressionLine.find("span.mathquill-editable");
+                            var nextLatex = $nextMathquill.mathquill("latex");
+
+                            calculateExpression(funControlUI, $nextExpressionLine, $nextMathquill, nextLatex, event);
+                        }
+                    }
+                }
+
+                function refreshExpression(funControlUI, $expressionLine, $mathquill, latex, event) {
+                    var $nextExpressionLine = $expressionLine.next();
+                    if ($nextExpressionLine.length > 0) {
+                        var $nextMathquill = $nextExpressionLine.find("span.mathquill-editable");
+                        var nextLatex = $nextMathquill.mathquill("latex");
+
+                        calculateExpression(funControlUI, $nextExpressionLine, $nextMathquill, nextLatex, event);
+                    }
+                }
+
+                FunControl.UI.Hooks.keyup.push(calculateExpression);
+                FunControl.UI.Hooks.deleteExpressionLine.push(refreshExpression);
+
+                var urlParams = zizhujy.com.deserializeUrlParams();
+
+                if (!!urlParams && !!urlParams.fns) {
+                    var expressions = FunControl.DecodeExpressions(decodeURIComponent(urlParams.fns));
+                    if (expressions instanceof Array) {
+                        for (var i = 0; i < expressions.length; i++) {
+                            var e = expressions[i];
+                            FunControl.UI.AddExpression(e);
+                        }
+                    }
+                }
+
+                if (/Windows Phone/i.test(navigator.userAgent)) {
+                    $(document).on("click", ".expressionBox > span.mathquill-editable", function(event) {
+                        $(this).find("textarea").css({
+                            "width": "1px",
+                            "height": "1px",
+                            "display": "block"
+                        }).focus();
+                    });
+                }
+            });
+        })(this['zizhujy']['com']['LaTexParser'], this['geekCalc']);
+    </script>
+}
+
+<zizhujy pageid="ScientificCalculator"></zizhujy>
+
+<div id="layout">
+    <div id="control-panel">
+        <div class="header">
+            <input type="button" class="button clear-all" value="@Html.Localize(this, "ClearExpressions")" accesskey="c" />
+
+            <a id="get-link" href="@Url.Action("Index", "GeekCalculator")" title="@Html.Localize(this, "GetLinkMessageTitle")" target="_blank">@Html.Localize(this, "GetLinkTitle")</a>
+            <div class="clearFloat"></div>
+        </div>
+        <div class="body">
+            <div class="expressionLine">
+                <div id="taExpression1" class="expressionBox">
+                    <span class="mathquill-editable"></span><span class="icon clear">×</span>
+                </div>
+                <div class="answer">
+                    <div><span class="mathquill-embedded-latex"></span></div>
+                    <div class="message"></div>
+                </div>
+                <div class="clearFloat"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div style="width: 100%;">
+    @*@Html.RenderAds(this.Localize("AdZone"), "adZone float-left", "width: 336px; height: 280px; margin-right: 1em;")
+    @Html.RenderAds(this.Localize("AdZone"), "adZone float-right", "width: 336px; height: 280px; margin-left: 1em;")*@
+
+    <div>
+        <h2>@this.Localize("GeekCalculator")</h2>
+        <h3>@this.Localize("Features")</h3>
+        <ul>
+            <li>
+                <strong>@this.Localize("Fast")</strong>
+                @this.Localize("FastDescription")
+            </li>
+            <li>
+                <strong>@this.Localize("Free")</strong>
+                @this.Localize("FreeDescription")
+            </li>
+            <li>
+                <strong>@this.Localize("Step")</strong>
+                @this.Localize("StepDescription")
+            </li>
+            <li class="new">
+                <strong>@this.Localize("DecimalFractionConvertion")</strong>
+                @this.Localize("DecimalFractionConvertionDescription")
+            </li>
+            <li>
+                <strong>@this.Localize("Share")</strong>
+                @this.Localize("ShareDescription")
+            </li>
+        </ul>
+        <h3>@this.Localize("Examples")</h3>
+        <ul>
+            <li>
+                @Html.ActionLink(
+                    this.Localize("BasicExample"), "Index", new
+                    {
+                        fns = "base64%252FWyJcXHNxcnR7MjV9IiwieD0zIiwieT02NiIsInheMit5XjIiXQ%253D%253D"
+                    }, new
+                    {
+                        target = "_blank",
+                        title = this.Localize("BasicExample")
+                    })
+            </li>
+            <li>
+                <strong>
+                    @Html.ActionLink(
+                        this.Localize("YouChooseLinkTitle"), "Index", new
+                        {
+                            fns = "base64%252FWyIxLjAxXnszNjV9IiwiMC45OV57MzY1fSJd"
+                        }, new
+                        {
+                            target = "_blank",
+                            title = this.Localize("YouChooseLinkText")
+                        })
+                </strong> @this.Localize("YouChooseLinkText")
+            </li>
+            <li>
+                <strong>
+                    @Html.ActionLink(
+                    this.Localize("DecimalFractionConvertionLinkTitle"), "Index", new {
+                        fns = "base64%252FWyIwLjYiLCIwLjY2IiwiMC42NmA2YCIsIjAuMyIsIjAuMzMiLCIwLmAzYCIsIjAuMTQyODU3YDE0Mjg1N2AiXQ%253D%253D"
+                    }, new {
+                        target = "_blank",
+                        title = this.Localize("DecimalFractionConvertionLinkText")
+                    })
+                </strong> @Html.Raw(this.Localize("DecimalFractionConvertionLinkText"))
+            </li>
+        </ul>
+        <h3>@this.Localize("Tutorial")</h3>
+        <p>@this.Localize("TutorialDescription")</p>
+        <h3>@this.Localize("Infinite")</h3>
+        <p>@this.Localize("InfiniteIntro")</p>
+        <p class="align-right">@this.Localize("MathHistory")</p>
+        <p>
+            <img src="@Url.Content("~/Content/Images/GeekCalculator/Infinite.jpg")" alt="@this.Localize("Infinite")" />
+        </p>
+    </div>
+    <div class="clearFloat"></div>
+</div>
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}

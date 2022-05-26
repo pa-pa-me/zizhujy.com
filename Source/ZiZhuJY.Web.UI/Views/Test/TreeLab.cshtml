@@ -1,0 +1,79 @@
+﻿@{
+    ViewBag.Title = "TreeLab";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+@section metas{
+    <style type="text/css">
+        #input {
+            float: left;
+            width: 40%;
+        }
+
+        #output {
+            float: right;
+            width: 55%;
+            height: 300px;
+            border: solid 1px #484;
+        }
+    </style>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.svg.package-1.4.5/jquery.svg.js")"></script>
+    <script type="text/javascript">
+    <!--
+        (function ($) {
+            $(document).ready(function () {
+                $("#taInput").change(function () {
+                    makeTree($(this).val());
+                });
+
+                $("#output").svg();
+
+                $("#output svg").click(function (e) {
+                    var x = e.offsetX;
+                    var y = e.offsetY;
+                    createNode(x, y);
+                });
+            });
+
+            function createNode() {
+                //                var nodeTemplate = '<circle cx="{0}" cy="{1}" r="{2}" stroke="{3}" stroke-width="{4}" fill="{5}" />';
+
+                var cx = 100; if (arguments.length > 0) cx = arguments[0];
+                var cy = 100; if (arguments.length > 1) cy = arguments[1];
+                var r = 30; if (arguments.length > 2) r = arguments[2];
+                var stroke = "black"; if (arguments.length > 3) stroke = arguments[3];
+                var strokeWidth = 2; if (arguments.length > 4) strokeWidth = arguments[4];
+                var fill = "red"; if (arguments.length > 5) fill = arguments[5];
+
+                //                var s = nodeTemplate.format(cx, cy, r, stroke, strokeWidth, fill);
+                //                $("#canvas").append(s);
+                var svg = $("#output").svg("get");
+                svg.circle(cx, cy, r, { fill: fill, stroke: stroke, 'stroke-width': strokeWidth });
+            }
+
+            function serializeObject(o) {
+                var s = "";
+                for (i in o) {
+                    s += i + ";\r\n";
+                }
+
+                return s;
+            }
+
+            function makeTree(s) {
+
+            }
+        })(jQuery);
+    //-->
+    </script>
+}
+
+<h2>TreeLab</h2>
+
+<div id="input">
+    <textarea id="taInput" rows="10" cols="40"></textarea>
+</div>
+<div id="output">
+</div>
+    
+</svg>

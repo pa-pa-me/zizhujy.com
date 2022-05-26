@@ -1,0 +1,128 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #A90AA0. If you'd like
+to use a different color start by replacing all instances of
+#A90AA0 with your new color.
+----------------------------------------------------------*/
+body
+{
+    background-color: #FFFFFF;
+    font-size: 75%;
+    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+    background: url('Images/desktopBg2.jpg') center top;
+    overflow: hidden;
+}
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page
+{
+    width: 540px;
+    height: 483px;
+    padding: 0;
+    /*background-color: #ccc;*/
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+    color: Black;
+    margin-top: 0;
+    /*background-color: #F3F3F3;*/
+    overflow: hidden;
+}
+
+#main
+{
+    padding: 15px 10px;
+    margin: 0;
+    /*background-color: #fff;*/
+    display: block;
+    position: relative;
+    height: 100%;
+    /*width: 520px;*/
+    _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
+    overflow: hidden;
+}
+
+#app {
+    background-color: #F3F3F3;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 453px;
+    display: block;
+    position: relative;
+    border: solid 1px #E1E1E1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#appLeftBg {
+    width: 50%;
+    height: 6px; 
+    float: left;
+    background: url('Images/app_bg.png');
+}
+
+#appRightBg{
+    width: 50%; 
+    height: 6px; 
+    float: left;
+    background: url('Images/app_bg.png') no-repeat bottom right;
+}
+
+.clearFloat {
+    clear: both;
+    float: none;
+    width: 0;
+    height: 0;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+textarea 
+{
+    min-height: 75px;
+}
+
+input[type="text"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+input[type="password"] 
+{
+    width: 200px;
+    border: 1px solid #CCC;
+}
+
+.messageBox {
+    position: absolute;
+    border: solid 1px #8BB9FF;
+    display: none;
+    left: 60px;
+    top: 30px;
+    background-color: #DDEAFF;
+}
+
+.messageBox .header {
+    padding: 5px;
+}
+
+.messageBox .header .closeButton {
+    float: right;
+    color: Red;
+    text-decoration: none;
+}
+
+.messageBox .body {
+    padding: 0 5px;
+    color: Black;
+}

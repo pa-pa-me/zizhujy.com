@@ -1,0 +1,16 @@
+﻿.socialTop 
+{
+    position: absolute;
+    width: auto;
+    /*height: 65px;*/
+    /*border: solid 1px red;*/
+    right: 3px;
+    top: 3px;
+    vertical-align: top;
+}
+
+.socialTop > div 
+{
+    float: left;
+    margin: 1px;
+}

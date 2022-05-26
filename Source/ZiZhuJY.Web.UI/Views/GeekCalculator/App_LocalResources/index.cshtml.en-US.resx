@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>calculator, scientific, geek</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>A fast awesome scientific calculator. Type mathematical expressions and the answer just shows immediately next to your expressions, which makes geeks love it so much.</value>
+  </data>
+  <data name="SeoTitle" xml:space="preserve">
+    <value>Geek Calculator - An awesome scientific calculator, fast then ever!</value>
+  </data>
+  <data name="ClearExpressions" xml:space="preserve">
+    <value>Clear expressions</value>
+  </data>
+  <data name="GetLinkTitle" xml:space="preserve">
+    <value>Get link</value>
+  </data>
+  <data name="GetLinkMessageTitle" xml:space="preserve">
+    <value>Get a permanent link to this page with current expressions.</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="GeekCalculator" xml:space="preserve">
+    <value>Geek Calculator</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Features:</value>
+  </data>
+  <data name="Fast" xml:space="preserve">
+    <value>Fast:</value>
+  </data>
+  <data name="FastDescription" xml:space="preserve">
+    <value>Instant response, calculates and displays results as you type.Prompt error messages to help you correct it if you made some;</value>
+  </data>
+  <data name="Free" xml:space="preserve">
+    <value>Free:</value>
+  </data>
+  <data name="FreeDescription" xml:space="preserve">
+    <value>You only need to focus on your typing with mathematics expressions, the answers will be shown next to them automatically;</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Step by step:</value>
+  </data>
+  <data name="StepDescription" xml:space="preserve">
+    <value>You can show others your problem solving process step by step via list the expressions you used line by line;</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>Share:</value>
+  </data>
+  <data name="ShareDescription" xml:space="preserve">
+    <value>You can save or share your problem solving process easily by clicking "Get link".</value>
+  </data>
+  <data name="Examples" xml:space="preserve">
+    <value>Examples:</value>
+  </data>
+  <data name="BasicExample" xml:space="preserve">
+    <value>Basic example</value>
+  </data>
+  <data name="Tutorial" xml:space="preserve">
+    <value>Tutorial:</value>
+  </data>
+  <data name="TutorialDescription" xml:space="preserve">
+    <value>I haven't got time to write it yet. But it is really so simple, and you can learn to use it by looking at the examples. And then you can share your experiences to the world by publishing your usage or your problem solving steps' links to your blog, twitter, and so on. Others will get inspires from you.</value>
+  </data>
+  <data name="YouChooseLinkTitle" xml:space="preserve">
+    <value>You Choose!</value>
+  </data>
+  <data name="YouChooseLinkText" xml:space="preserve">
+    <value>Small change can make a big difference, which change would you choose?</value>
+  </data>
+  <data name="DecimalFractionConvertionDescription" xml:space="preserve">
+    <value>Quick convertions between fractions and decimals, and let you convert the repeating decimals to the corresponding fraction representation.</value>
+  </data>
+  <data name="DecimalFractionConvertion" xml:space="preserve">
+    <value>Convert decimal to fraction and vice versa</value>
+  </data>
+  <data name="DecimalFractionConvertionLinkTitle" xml:space="preserve">
+    <value>Convert decimal to fraction</value>
+  </data>
+  <data name="DecimalFractionConvertionLinkText" xml:space="preserve">
+    <value>Convert the decimal to its fraction representation, you can even convert a repeating decimal to its fraction! Want to know how does it do it? Read this blog where the detail algorithm was discussed:  &lt;strong&gt;&lt;a href="http://zizhujy.com/blog/post/2014/01/21/%E5%B0%86%E5%B0%8F%E6%95%B0%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%88%86%E6%95%B0%E7%9A%84%E7%AE%97%E6%B3%95.aspx" target="_blank"&gt;The algorithm of converting a decimal to its equivalent fraction representation&lt;/a&gt;&lt;/strong&gt;.</value>
+  </data>
+  <data name="Infinite" xml:space="preserve">
+    <value>About Infinite</value>
+  </data>
+  <data name="InfiniteIntro" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MathHistory" xml:space="preserve">
+    <value>A History of Mathematics</value>
+  </data>
+</root>

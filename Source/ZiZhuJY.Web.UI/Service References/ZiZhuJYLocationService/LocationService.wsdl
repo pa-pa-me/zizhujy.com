@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ZiZhuJY.Services.Location" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ZiZhuJY.Services.Location" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://ZiZhuJY.Services.Location/Imports">
+      <xsd:import schemaLocation="http://zizhujy.com/Services/LocationService.svc?xsd=xsd0" namespace="http://ZiZhuJY.Services.Location" />
+      <xsd:import schemaLocation="http://zizhujy.com/Services/LocationService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://zizhujy.com/Services/LocationService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILocationService_UpdateGeoCoordinate_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGeoCoordinate" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_UpdateGeoCoordinate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGeoCoordinateResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinateByDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinateByDevice" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinateByDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinateByDeviceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinates_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinates" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinatesByUserName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinatesByUserName" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinatesByUserName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinatesByUserNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinateByUserNameAndDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinateByUserNameAndDevice" />
+  </wsdl:message>
+  <wsdl:message name="ILocationService_GetLatestGeoCoordinateByUserNameAndDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLatestGeoCoordinateByUserNameAndDeviceResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILocationService">
+    <wsdl:operation name="UpdateGeoCoordinate">
+      <wsdl:input wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/UpdateGeoCoordinate" message="tns:ILocationService_UpdateGeoCoordinate_InputMessage" />
+      <wsdl:output wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/UpdateGeoCoordinateResponse" message="tns:ILocationService_UpdateGeoCoordinate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestGeoCoordinateByDevice">
+      <wsdl:input wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinateByDevice" message="tns:ILocationService_GetLatestGeoCoordinateByDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinateByDeviceResponse" message="tns:ILocationService_GetLatestGeoCoordinateByDevice_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestGeoCoordinates">
+      <wsdl:input wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinates" message="tns:ILocationService_GetLatestGeoCoordinates_InputMessage" />
+      <wsdl:output wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinatesResponse" message="tns:ILocationService_GetLatestGeoCoordinates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestGeoCoordinatesByUserName">
+      <wsdl:input wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinatesByUserName" message="tns:ILocationService_GetLatestGeoCoordinatesByUserName_InputMessage" />
+      <wsdl:output wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinatesByUserNameResponse" message="tns:ILocationService_GetLatestGeoCoordinatesByUserName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLatestGeoCoordinateByUserNameAndDevice">
+      <wsdl:input wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinateByUserNameAndDevice" message="tns:ILocationService_GetLatestGeoCoordinateByUserNameAndDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://ZiZhuJY.Services.Location/ILocationService/GetLatestGeoCoordinateByUserNameAndDeviceResponse" message="tns:ILocationService_GetLatestGeoCoordinateByUserNameAndDevice_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

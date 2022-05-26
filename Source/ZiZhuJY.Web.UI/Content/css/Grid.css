@@ -1,0 +1,99 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    position: relative;
+    height: auto;
+    height: 100%;
+    min-height: 100%;
+}
+
+#page {
+    position: absolute;
+    height: auto;
+    min-height: 100%;
+}
+
+#main {
+    height: auto;
+    height: 100%;
+    min-height: 100%;
+}
+
+.wrapper {
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+    height: auto;
+    min-height: 100%;
+}
+
+.main-content {
+    min-height: 100px;
+    height: auto;
+    position: relative;
+}
+
+    .main-content:after {
+        display: block;
+        clear: both;
+        float: none;
+        content: '';
+    }
+
+.grid {
+    box-sizing: border-box;
+    float: left;
+    border-collapse: collapse;
+    margin: 0;
+}
+
+    .grid:before {
+        /*border: solid 1px red;*/
+    }
+
+.full-height {
+    height: 100%;
+    display: block;
+}
+
+.grid.full-height:after {
+    content: '';
+    width: inherit;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    display: block;
+    z-index: -1;
+    /*border: solid 1px blue;*/
+}
+
+.sixteenth-wide {
+    width: 6.25%;
+}
+
+.eighth-wide {
+    width: 12.5%;
+    font-size: smaller;
+}
+
+.three-eighths-wide {
+    width: 37.5%;
+}
+
+.quarter-wide {
+    width: 25%;
+}
+
+.half-wide {
+    width: 50%;
+}
+
+.tile {
+    /*padding: 8px 16px;*/
+    box-sizing: border-box;
+    margin: 0.6em 0.6em;
+    display: block;
+}

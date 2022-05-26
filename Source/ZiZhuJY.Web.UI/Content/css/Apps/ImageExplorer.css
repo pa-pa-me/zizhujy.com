@@ -1,0 +1,29 @@
+﻿#location-bar 
+{
+    width: 60%;
+}
+
+#container-body {
+    overflow: auto;
+    max-height: 650px;
+}
+
+#container-big-images img 
+{
+    max-height: 300px;
+}
+
+#container-small-images img {
+    max-height: 20px;
+}
+
+#container-exception img {
+    border: solid 1px red;
+}
+
+.adZone 
+{
+    /*border: solid 1px black;*/
+    box-sizing: border-box;
+    float: right;
+}

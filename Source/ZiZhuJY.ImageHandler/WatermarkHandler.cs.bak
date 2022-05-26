@@ -1,0 +1,234 @@
+﻿using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+
+namespace zizhujy.ImageHandler
+{
+    /// <summary>
+    /// Watermark handler
+    /// </summary>
+    public static class WatermarkHandler
+    {
+        /// <summary>
+        /// Add a copyright message on the bottom of the original image.
+        /// </summary>
+        /// <param name="originImage">The original image.</param>
+        /// <param name="copyrightText">The copyright message.</param>
+        /// <returns>An image with a copyright message on the bottom.</returns>
+        public static Image AddCopyrightText(Image originImage, string copyrightText)
+        {
+            return AddCopyrightText(originImage, copyrightText, CopyrightPosition.BottomCenter);
+        }
+
+        public static Image AddCopyrightText(Image originImage, string copyrightText, CopyrightPosition position)
+        {
+            return AddCopyrightText(originImage, copyrightText, Color.FromArgb(153, 0, 0, 0), Color.FromArgb(153, 255, 255, 255), null, position, 0.05, 1, 1, "Arial", FontStyle.Regular,
+                72f, 72f);
+        }
+
+        /// <summary>
+        /// Add a copyright message on the bottom of the original image.
+        /// </summary>
+        /// <param name="originImage">The original image.</param>
+        /// <param name="copyrightText">The copyright message.</param>
+        /// <param name="shadowColor">The Shadow color. Set null would be default to Black with opacity 60%, Color.FromArgb(153, 0, 0, 0).</param>
+        /// <param name="color">The copyright message text color. Set null would be default to White with opacity 60%, Color.FromArgb(153, 0, 0, 0).</param>
+        /// <param name="x">The horizental position of the copyright message.</param>
+        /// <param name="y">The vertical position of the copyright message.</param>
+        /// <param name="shadowOffsetX">The shadow offset on horizental.</param>
+        /// <param name="shadowOffsetY">The shadow offset on vertical.</param>
+        /// <param name="fontFamily">The font family of the copyright message.</param>
+        /// <param name="fontStyle">The font style of the copyright message.</param>
+        /// <param name="alignment">The alignment of the copyright message.</param>
+        /// <param name="xDpi">The resolution on the horizontal.</param>
+        /// <param name="yDpi">The resolution on the vertical.</param>
+        /// <returns>An image with a copyright message on the bottom.</returns>
+        public static Image AddCopyrightText(Image originImage, string copyrightText, Color shadowColor, Color color, float x, float y, int[] fontSizes,
+            int shadowOffsetX = 1, int shadowOffsetY = 1, string fontFamily = "Arial", FontStyle fontStyle = FontStyle.Regular, StringAlignment alignment = StringAlignment.Center,
+            float xDpi = 72f, float yDpi = 72f)
+        {
+            // Create the target image to handle
+            Image image = originImage;
+            int width = image.Width;
+            int height = image.Height;
+            Bitmap bmp = new Bitmap(width, height, PixelFormat.Format24bppRgb);
+            bmp.SetResolution(xDpi, yDpi);
+            Graphics g = Graphics.FromImage(bmp);
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.DrawImage(image, new Rectangle(0, 0, width, height), 0, 0, width, height, GraphicsUnit.Pixel);
+
+            // Try to find the possible max size of the Copyright message 
+            if (fontSizes == null || fontSizes.Length <= 0)
+            {
+                fontSizes = new int[] { 18, 16, 14, 12, 10, 8, 6, 4 };
+            }
+
+            int fontSize = 0;
+            if (fontSizes.Length > 1)
+            {
+                fontSize = FindAvailableMaxTextSize(fontSizes, fontFamily, fontStyle, copyrightText, g, width, height);
+            }
+            else
+            {
+                fontSize = fontSizes[0];
+            }
+
+            Font font = new Font(fontFamily, fontSize, fontStyle);
+
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = alignment;
+
+            // Draw the text with shadow effect
+            if (shadowColor == null)
+            {
+                shadowColor = Color.FromArgb(153, 0, 0, 0);
+            }
+            SolidBrush semiTransBrushShadow = new SolidBrush(shadowColor);
+            g.DrawString(copyrightText, font, semiTransBrushShadow, new PointF(x + shadowOffsetX, y + shadowOffsetY), stringFormat);
+
+            if (color == null)
+            {
+                color = Color.FromArgb(153, 255, 255, 255);
+            }
+            SolidBrush semiTransBrush = new SolidBrush(color);
+            g.DrawString(copyrightText, font, semiTransBrush, new PointF(x, y), stringFormat);
+            g.Dispose();
+
+            image.Dispose();
+
+            return bmp;
+        }
+
+        public static Image AddCopyrightText(Image originImage, string copyrightText, Color shadowColor, Color color, int[] fontSizes,
+            CopyrightPosition position = CopyrightPosition.BottomCenter,
+            double marginPercent = 0.05, int shadowOffsetX = 1, int shadowOffsetY = 1, string fontFamily = "Arial", FontStyle fontStyle = FontStyle.Regular,
+            float xDpi = 72f, float yDpi = 72f)
+        {
+            // Try to find the possible max size of the Copyright message 
+            Graphics g = Graphics.FromImage(originImage);
+            if (fontSizes == null || fontSizes.Length <= 0)
+            {
+                fontSizes = new int[] { 18, 16, 14, 12, 10, 8, 6, 4 };
+            }
+
+            int fontSize = 0;
+            if (fontSizes.Length > 1)
+            {
+                fontSize = FindAvailableMaxTextSize(fontSizes, fontFamily, fontStyle, copyrightText, g, originImage.Width, originImage.Height);
+            }
+            else
+            {
+                fontSize = fontSizes[0];
+            }
+
+            Font font = new Font(fontFamily, fontSize, fontStyle);
+            SizeF size = new SizeF();
+            size = g.MeasureString(copyrightText, font);
+            g.Dispose();
+
+            // Compute x and y
+            float x = 0, y = 0;
+            StringAlignment alignment = StringAlignment.Center;
+
+            switch (GetHorizentalPosition(position))
+            {
+                case CopyrightHorizontalPosition.Left:
+                    x = (int)(originImage.Width * marginPercent);
+                    alignment = StringAlignment.Near;
+                    break;
+
+                case CopyrightHorizontalPosition.Center:
+                    x = originImage.Width / 2;
+                    alignment = StringAlignment.Center;
+                    break;
+
+                case CopyrightHorizontalPosition.Right:
+                    x = (originImage.Width - ((int)(originImage.Width * marginPercent)));
+                    alignment = StringAlignment.Far;
+                    break;
+
+                default:
+                    break;
+            }
+
+            switch (GetVerticalPosition(position))
+            {
+                case CopyrightVerticalPosition.Top:
+                    y = (int)(originImage.Height * marginPercent);
+                    break;
+
+                case CopyrightVerticalPosition.Middle:
+                    y = originImage.Height / 2;
+                    break;
+                    
+                case CopyrightVerticalPosition.Bottom:
+                    y = (originImage.Height - ((int)(originImage.Height * marginPercent))) - (size.Height / 2);
+                    break;
+
+                default:
+                    break;
+            }
+
+            return AddCopyrightText(originImage, copyrightText, shadowColor, color, x, y, fontSizes, shadowOffsetX, shadowOffsetY, fontFamily, fontStyle, alignment, xDpi, yDpi);
+        }
+
+        /// <summary>
+        /// Try to find the possible max size of the Copyright message 
+        /// </summary>
+        /// <returns></returns>
+        private static int FindAvailableMaxTextSize(int[] fontSizes, string fontFamily, FontStyle fontStyle, string text, Graphics g, int width, int height)
+        {
+            Array.Sort(fontSizes, delegate(int item1, int item2) { return item2.CompareTo(item1); });
+            Font font = null;
+            SizeF size = new SizeF();
+            for (int i = 0; i < fontSizes.Length; i++)
+            {
+                font = new Font(fontFamily, fontSizes[i], fontStyle);
+                size = g.MeasureString(text, font);
+
+                if ((ushort)size.Width < (ushort)width && (ushort)size.Height < (ushort)height)
+                    return fontSizes[i];
+            }
+
+            return 0;
+        }
+
+        private static CopyrightHorizontalPosition GetHorizentalPosition(CopyrightPosition pos)
+        {
+            // Mask: 000 111
+            return (CopyrightHorizontalPosition)((char)pos & (char)0x07);
+        }
+
+        private static CopyrightVerticalPosition GetVerticalPosition(CopyrightPosition pos)
+        {
+            // Mask: 111 000
+            return (CopyrightVerticalPosition)((char)pos & (char)0x38);
+        }
+    }
+
+    public enum CopyrightPosition
+    {
+        TopLeft = 0x24,         // 100 100
+        TopCenter = 0x22,       // 100 010
+        TopRight = 0x21,        // 100 001
+        MiddleLeft = 0x14,      // 010 100
+        MiddleCenter = 0x12,    // 010 010
+        MiddleRight = 0x11,     // 010 001    
+        BottomLeft = 0x0C,      // 001 100
+        BottomCenter = 0x0A,    // 001 010
+        BottomRight = 0x09,     // 001 001
+    }
+
+    public enum CopyrightHorizontalPosition {
+        Left = 0x04,            // 000 100
+        Center = 0x02,          // 000 010
+        Right = 0x01,           // 000 001
+    }
+
+    public enum CopyrightVerticalPosition {
+        Top = 0x20,             // 100 000
+        Middle = 0x10,          // 010 000
+        Bottom = 0x08,          // 001 000
+    }
+}

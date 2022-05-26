@@ -1,0 +1,193 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@model dynamic
+
+@{
+    ViewBag.Title = this.Localize("PageTitle");
+    Layout = "~/Views/Shared/_LandscapeLayout.cshtml";
+    ViewBag.ShowBanner = false;
+}
+
+@section HeaderScripts{
+    <style type="text/css">
+        #along-the-river-at-QingMing-festival {
+            cursor: pointer;
+        }
+    </style>
+
+    <script type="text/javascript">
+        ;
+        (function ($) {
+            $(document).ready(function () {
+                var mouseWheelEvt = function (e) {
+                    var event = e || window.event;
+                    if (document.body.doScroll) {
+                        document.body.doScroll(event.wheelDelta > 0 ? "left" : "right");
+                    } else {
+                        var scrolled = (window.pageXOffset !== undefined) ? window.pageXOffset : (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+                        scrolled -= (event.wheelDelta);
+                        window.scrollTo(scrolled, 0);
+                    }
+
+                    return false;
+                };
+
+                window.mouseWheelEvt = mouseWheelEvt;
+
+                if ("onmousewheel" in document.body)
+                    document.body.onmousewheel = mouseWheelEvt;
+                else
+                    document.body.addEventListener("DOMMouseScroll", mouseWheelEvt);
+
+            });
+        })(jQuery);
+    </script>
+
+    <script type="text/javascript">
+        ;
+        (function ($) {
+            $(document).ready(function () {
+                var panningStart = false;
+                var panningX = 0;
+
+                function startPan(event) {
+                    if (!panningStart) {
+                        panningStart = true;
+                        //console.log('panning start = ' + panningStart);
+                        //console.log('start pos = ' + event.clientX);
+                        panningX = event.clientX;
+                    }
+                }
+
+                function changePanningStatus(event) {
+                    event.preventDefault();
+                    panningStart = !panningStart;
+                    //console.log('changePanningStatus panning start = ' + panningStart);
+                    //console.log('cur pos = ' + event.clientX);
+                    //console.log(event);
+                    panningX = event.clientX;
+                }
+
+                function stopPan(event) {
+                    if (panningStart) {
+                        panningStart = false;
+                        //console.log('stopPan panning start = ' + panningStart);
+                        //console.log('stop pos = ' + event.clientX);
+                        event.wheelDelta = event.clientX - panningX;
+                        panningX = event.clientX;
+                        mouseWheelEvt(event);
+                    }
+                }
+
+                function checkPanning(event) {
+                    if (panningStart) {
+                        //console.log('panning');
+                        //console.log('panning pos = ' + event.clientX);
+                        //console.log(event);
+                        event.wheelDelta = event.clientX - panningX;
+                        panningX = event.clientX;
+                        mouseWheelEvt(event);
+                    }
+                }
+
+                var $img = $('img.panable');
+
+                $img.on('mousedown', changePanningStatus)
+                    .on('mousemove', checkPanning)
+                    .on('mouseout mouseup', stopPan);
+            });
+        })(jQuery);
+    </script>
+}
+<zizhujy pageid="AlongTheRiverAtTheQingMingFestival"></zizhujy>
+
+<img id="along-the-river-at-QingMing-festival"
+     src="@Url.RandomContent("~/Content/AlongTheRiverDuringQingMingFestival/")"
+     style="max-height: 100%; width: auto; overflow: visible;"
+     alt="@this.Localize("PaintingIntro")" class="panable" />
+
+<script type="text/javascript">
+    ;
+
+    // adds .naturalWidth() and .naturalHeight() methods to jQuery
+    // for retreaving a normalized naturalWidth and naturalHeight.
+    (function ($) {
+        var
+            props = ['Width', 'Height'],
+            prop;
+
+        while (prop = props.pop()) {
+            (function (natural, prop) {
+                $.fn[natural] = (natural in new Image()) ?
+                    function () {
+                        return this[0][natural];
+                    } :
+                    function () {
+                        var
+                            node = this[0],
+                            img,
+                            value;
+
+                        if (node.tagName.toLowerCase() === 'img') {
+                            img = new Image();
+                            img.src = node.src,
+                            value = img[prop];
+                        }
+                        return value;
+                    };
+            }('natural' + prop, prop.toLowerCase()));
+        }
+    }(jQuery));
+
+    (function ($) {
+        function adjustImageSize($image, ratio) {
+            var $parent = $image.parent();
+
+            var height = $parent.height();
+            var width = $parent.width();
+
+            if (typeof ratio !== 'undefined') {
+                width = ratio * height;
+            }
+
+            $image
+                .css({
+                    height: height + 'px',
+                    width: width + 'px'
+                });
+        }
+
+        window.killInterval = function () {
+            clearInterval(intervalId);
+            intervalId = undefined;
+        };
+
+        function detectImageAndFireAdjustment() {
+            var $image = $('#along-the-river-at-QingMing-festival');
+
+            //console.log($image.naturalWidth() + 'x' + $image.naturalHeight());
+
+            if ($image.naturalWidth() && $image.naturalHeight()) {
+                killInterval();
+
+                var ratio = $image.naturalWidth() / $image.naturalHeight();
+                adjustImageSize($image, ratio);
+
+                $(window).resize(function () {
+                    // wait for parent resizing
+                    // then resize itself
+                    setTimeout(function () {
+                        adjustImageSize($image, ratio);
+                    }, 500);
+                });
+            }
+        }
+
+        var intervalId = setInterval(detectImageAndFireAdjustment, 500);
+
+        $('#along-the-river-at-QingMing-festival').load(function () {
+            if (typeof intervalId !== 'undefined') {
+                detectImageAndFireAdjustment();
+            }
+        });
+    })(jQuery);
+</script>

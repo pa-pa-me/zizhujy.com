@@ -1,0 +1,57 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@using ZiZhuJY.Web.UI.Utility
+@{
+    ViewBag.Title = HttpContext.GetLocalResourceObject(this.VirtualPath, "Seo.Title.Text");
+    ViewBag.BannerTitle = HttpContext.GetLocalResourceObject(this.VirtualPath, "Banner.Title.Text");
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section HeaderScripts {    
+    <meta name="keywords" content="@HttpContext.GetLocalResourceObject(this.VirtualPath, "SeoKeywords")" />
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(this.VirtualPath, "SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+    <link href="@Url.Content("~/Content/css/Apps/ImageExplorer.css")" rel="stylesheet" />
+    <script type="text/javascript">
+        ;Globalize.addCultureInfo("default", {messages: @Html.Raw(ResourceHelper.JsonResource(this.VirtualPath))});
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/base64.js")"></script>
+    @Html.RenderJavaScripts("~/Scripts/jquery.extended.js", "~/Scripts/Apps/imageExplorer.js")
+}
+
+@section banner{
+
+}
+<zizhujy pageid="ImageExplorer"></zizhujy>
+<div id="container">
+    <div id="container-header">
+        <input type="text" id="location-bar" value="www.sina.com" />
+        <input type="button" id="go" value="@HttpContext.GetLocalResourceObject(this.VirtualPath, "Go.Button.Text")" />
+        <input type="button" id="stop-button" value="Stop" localize />
+        <input type="checkbox" id="auto-scroll" checked  localize />
+        <label for="auto-scroll" id="auto-scroll-label" localize>Auto Scroll</label>
+		<br />
+			<span id="image-queue-label" localize>Image Queue: </span><span id="image-queue">0</span>; 
+			<span id="http-request-queue-label" localize>HttpRequest Queue: </span><span id="http-request-queue">0</span>.
+			<!--<span id="status-label" localize>Status: </span><span id="status">Not started</span>. -->
+			<span id="image-checked-label" localize>ImageChecked: </span><span id="image-checked">0</span>; 
+			<span id="http-request-sent-label" localize>Http Request Sent: </span><span id="http-request-sent">0</span>. 
+			<span id="current-url-label" localize>Current url: </span><span id="current-url"></span>.
+    </div>
+    <div id="container-body">
+        <div id="container-big-images"></div>
+        <div id="container-small-images"></div>
+        <div id="container-exception"></div>
+        <div id="container-description">
+            <div style="float: left; width: 66%;">
+                @Html.Raw(HttpContext.GetLocalResourceObject(this.VirtualPath, "Raw_Description").ToString())
+            </div>
+            @Html.RenderAds(Html.Localize(this, "Raw_AdZone"), "adZone", "width: 300px; height: 600px; margin-top: 10px;")
+            <div class="clearFloat"></div>
+        </div>
+    </div>
+    <pre id="preTest"></pre>
+</div>
+
+@section Cultures {
+    <span class="icon">&#xe000;</span>
+    @Html.DropDownList("cultures", Html.GetAllAvailableCultureList(this.VirtualPath))
+}

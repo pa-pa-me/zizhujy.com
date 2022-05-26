@@ -1,0 +1,61 @@
+﻿@{
+    const string THIS_FILE_PATH = "~/Views/Apps/Matrix.cshtml";
+    ViewBag.Title = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "PageTitle");
+    Layout = "~/Views/Shared/_AppLayout.cshtml";
+}
+
+@section metas {
+    <meta name="keywords" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoKeywords")" />
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+    <link href="@Url.Content("~/Content/css/Apps/matrixStyle.css?minify=true")" rel="Stylesheet" type="text/css" />    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Maths/zizhujy.com.Matrix.js?minify=true")"></script>
+    <script src="@Url.Content("~/Scripts/Apps/Matrix/Matrix.js?minify=true")" type="text/javascript"></script>
+}
+<div id="matrix">
+    <div id="header">
+        <div id="logoPanel">
+            @Html.Raw(string.Format(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LogoRaw").ToString(), Url.Content(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LogoPath").ToString())))    
+        </div>
+        <div id="banner">
+            <h1>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "BannerText")</h1>
+        </div>
+        <div class="clearFloat"></div>
+    </div>
+    <div id="body">
+        <div id="matrixPanel">
+            <div id="divLeftMatrix" class="matrixPanel">
+                <p>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LeftMatrix")</p>
+                <div><textarea id="taLeftMatrix" rows="10" cols="20" class="matrix">1 2 3
+3 4 6
+1 22 3</textarea></div>
+                <div id="divLeftMatrixMsg" class="matrixMonitor"></div>
+            </div>
+            <div id="divRightMatrix" class="matrixPanel">
+                <p>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "RightMatrix")</p>
+                <div><textarea id="taRightMatrix" rows="10" cols="20" class="matrix">3 4 5
+7 5 9
+18 12 3</textarea></div>
+                <div id="divRightMatrixMsg" class="matrixMonitor"></div>
+            </div>
+            <div id="divResultMatrix" class="matrixPanel">
+                <p>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ResultMatrix")</p>
+                <div><textarea id="taResultMatrix" rows="10" cols="20" class="matrix" readonly="readonly"></textarea></div>
+                <div id="divResultMatrixMsg" class="matrixMonitor"></div>
+            </div>
+            <div id="divControls">
+                <p>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "DecimalDigitLeftLabel")<input type="text" id="txtDecimalDigits" value="2" />@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "DecimalDigitRightLabel")</p>
+                <p>
+                    <input type="button" name="inverse" id="btnInverse" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "InverseButtonLabel")" />
+                    <input type="button" name="transpose" id="btnTranspose" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "TransposeButtonLabel")" /><br />
+                    <input type="button" name="add" id="btnAdd" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "AddButtonLabel")" /><br />
+                    <input type="button" name="subtract" id="btnSubtract" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SubtractButtonLabel")" /><br />
+                    <input type="button" name="multiply" id="btnMultiply" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "MultiplyButtonLabel")" />
+                </p>
+            </div>
+            <div class="clearFloat"></div>
+        </div>
+        <div id="messagePanel">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+﻿@{
+    const string THIS_FILE_PATH = "~/Views/FunctionGrapher/Index.cshtml";
+    ViewBag.Title = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "PageTitle");
+    ViewBag.BannerTitle = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "BannerTitle"); 
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section HeaderScripts {
+    <meta name="keywords" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoKeywords")" />
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoDescription")" />
+    <meta name="robots" content="index, follow" />
+    <link href="@Url.Content("~/Content/css/tables.css?minify=true")" rel="Stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/messageBoxes.css?minify=true")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/functionGrapherStyle.css?minify=true")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/zizhujy.com.Collection.js?minify=true")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/zizhujy.com.DataTable.js?minify=true")"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/excanvas.min.js")"></script><![endif]-->
+	<script src="@Url.Content("~/Scripts/jquery.colorhelpers.js")"></script>
+    <script src="@Url.Content("~/Scripts/flot/jquery.flot.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/flot/jquery.flot.resize.js")" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/jquery.flot.navigate.js")"></script>
+    <script type="text/javascript" type="text/javascript" src="@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexLex.js?minify=true")"></script>
+    <script type="text/javascript" type="text/javascript" src="@Url.Content("~/Scripts/LaTex/zizhujy.com.LaTexParser.js?minify=true")"></script>
+    <script src="@Url.Content("~/Scripts/FunGrapher/jFunction-1.3.js?minify=true")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/FunGrapher/FunGrapher.js?minify=true")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/FunctionGrapher/FunctionGrapher.js?minify=true")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+    //-->
+    </script>
+}
+@section banner{
+    <div style="position: absolute; bottom: 0; left: 30%; font-size: small;">@Html.ActionLink(HttpContext.GetLocalResourceObject(this.VirtualPath, "NewVersion").ToString(), "Index")</div>
+}
+<zizhujy pageId="FunctionGrapher"></zizhujy>
+<div id="funGrapher">
+    <div id="canvasWrapper">
+        <div id="canvas"><div id="navButtons"><div id="navButtonUp" class="button" pan='{"top": 30}'></div><div id="navButtonRight" class="button" pan='{"left": -30}'></div><div id="navButtonDown" class="button" pan='{"top": -30}'></div><div id="navButtonLeft" class="button" pan='{"left": 30}'></div></div></div>
+        <div id="coor"></div>
+    </div>
+    <div id="controls">    
+        <div id="rightPanel">
+            <div>
+                @*<a href="">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Setting")</a>*@
+                <div style="display: none;"><input type="checkbox" id="chkLockRatio" checked="checked" /><label for="chkLockRatio">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LockRatio")</label> </div>
+                <input type="checkbox" id="chkShowLegend" checked="checked" /><label for="chkShowLegend">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowLegend")</label>
+                <input type="checkbox" id="chkHelp" /><label for="chkHelp">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ShowHelp")</label>
+                <span><a id="aGetLink" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "GetLinkTitle")"></a></span>
+            </div>
+            <div class="section">
+                <label for="txtXmin" class="from">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ScaleOfXAxiesTitle").ToString())</label>
+                <input type="text" id="txtXmin" value="-6" />
+                <label for="txtXmax">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ToTitle").ToString())</label>
+                <input type="text" id="txtXmax" value="6" />
+            </div>
+            <div class="section">
+                <label for="txtYmin" class="from">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ScaleOfYAxiesTitle").ToString())</label>
+                <input type="text" id="txtYmin" value="-6" />
+                <label for="txtYmax">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ToTitle").ToString())</label>
+                <input type="text" id="txtYmax" value="6" />            
+            </div>
+            <div class="section">
+                <label for="txtTmin" class="from">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ScaleOfTAxiesTitle").ToString())</label>
+                <input type="text" id="txtTmin" value="0" />
+                <label for="txtTmax">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ToTitle").ToString())</label>
+                <input type="text" id="txtTmax" value="2*PI" />            
+            </div>
+        </div>
+        <div id="logoPanel">
+            @Html.Raw(string.Format(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LogoRaw").ToString(), Url.Content(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "LogoPath").ToString())))
+        </div>
+        <div id="leftPanel">
+            <div><label for="taFunctionList">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "FunctionsTitle")</label></div>
+            <div id="divFunctionList"><textarea id="taFunctionList" rows="6" cols="30">y = sin(10*x);
+y = cos(2*x);
+y = x ^ 3;
+y = x/3;
+y = -x/3;
+y = 0;
+x = 0;
+{x = 5*cos(t); y = 5*sin(t)}</textarea></div>
+        </div>
+        <div class="section">
+            <input type="button" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "GraphButtonText")" id="btnGraph" accesskey="G" />
+            <input type="button" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "ResetButtonText")" id="btnClear" accesskey="C" />
+        </div>
+        <div class="clearFloat"></div>
+    </div>
+    <div id="adZone">
+    @{
+        if (!Request.Url.Host.Contains("localhost"))
+        {
+            @Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "AdZone").ToString())
+        } 
+    }
+    </div>
+    <div id="tips"><div class="header"><a id="closeTips" href="#" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "CloseTips")">[<strong>x</strong>]</a></div><div class="body">@Html.Raw(HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Tips").ToString())</div></div>
+    <div id="msg"><div class="header"><a id="closeMsg" href="#" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "CloseMsg")">[<strong>x</strong>]</a></div><div class="body"></div></div>
+    <div id="linkDialog" class="messageBox" style="left: 250px; top: 130px;">
+        <div class="header"><label for="link">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "GetLinkMessageTitle")</label><a class="closeButton" id="closeLinkDialog" href="#" onclick="$('#linkDialog').hide(); return false;" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "CloseLinkDialog")">[<strong>x</strong>]</a><div class="clearFloat"></div></div>
+        <div class="body"><input type="text" value="http://www.zizhujy.com/funGrapher" id="link" readonly="readonly" style="width: 500px;" /></div>
+    </div>
+    <div class="clearFloat"></div>
+    <div id="divErrorList"></div>
+</div>

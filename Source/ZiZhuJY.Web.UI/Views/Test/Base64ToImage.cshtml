@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Base64ToImage";
+}
+
+<h2>Base64ToImage</h2>
+
+@using (Html.BeginForm())
+{
+    <textarea name="base64" rows="30" cols="80"></textarea>
+    <input type="submit" name="action" value="Submit" />
+}

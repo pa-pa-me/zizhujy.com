@@ -1,0 +1,109 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = "Flot Examples: Adding comments to the flot chart";
+    Layout = "~/Views/Shared/_ExampleLayout.cshtml";
+}
+
+@section metas{
+    <!-- flot -->
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/flot/lib/excanvas.js")"></script><![endif]-->
+    @Html.RenderJavaScripts("~/Scripts/jquery-1.8.3.js", "~/Scripts/jquery.colorhelpers.js", 
+    "~/Scripts/flot/flot/jquery.flot.js", "~/Scripts/flot/jquery.flot.resize.js")
+
+    <!-- this plugin -->
+    @Html.RenderJavaScripts("~/Scripts/flot/jquery.flot.comments/jquery.flot.comments.js")
+
+    <script type="text/javascript">$(function () {
+    var data = [
+        [
+            [-3, -5],
+            [-2, 1],
+            [1, 2],
+            [3, 4],
+            [5, 6],
+            [7, 8]
+        ],
+        [
+            [-1, Math.sin(-1)],
+            [0, Math.sin(0)],
+            [1, Math.sin(1)],
+            [2, Math.sin(2)],
+            [3, Math.sin(3)],
+            [4, Math.sin(4)],
+            [5, Math.sin(5)],
+            [6, Math.sin(6)]
+        ]
+    ];
+
+    var options = {
+        series: {
+            points: {
+                show: true
+            },
+            lines: {
+                show: true
+            }
+        },
+        grid: {
+            show: true,
+            borderColor: "#000",
+            borderWidth: 0,
+            aboveData: false
+        },
+        comment: {
+            show: true,
+            wrapperCss: {
+                "background-color": "blue",
+                "color": "yellow"
+            },
+            notch: {
+                color: "blue"
+            }
+        },
+        comments: [
+            {
+                x: -2,
+                y: 1,
+                contents: "this point 1",
+                notch: {
+                    position: 'top'
+                }
+            },
+            {
+                x: 1,
+                y: 2,
+                contents: "this point 2"
+            },
+            {
+                x: 3.6,
+                y: 2.5,
+                contents: "Expect new point",
+                notch: {
+                    position: 'top'
+                }
+            }
+        ]
+    };
+
+    $(document).ready(function () {
+        $.plot("#canvas-wrapper", data, options);
+    });
+});
+    </script>
+}
+
+<div id="header">
+    <h2>Customized the comment box</h2>
+</div>
+
+<div id="content">
+    <div class="demo-container">
+        <div id="canvas-wrapper" class="demo-placeholder"></div>
+    </div>
+
+    <p>This example shows how to customize the comment box.</p>
+</div>
+
+<div id="footer">
+    Copyright &copy; 2013-2014 http://zizhujy.com
+</div>

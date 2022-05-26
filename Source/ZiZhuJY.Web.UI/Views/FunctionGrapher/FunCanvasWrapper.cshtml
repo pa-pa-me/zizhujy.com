@@ -1,0 +1,53 @@
+﻿@using System.Web.Optimization
+@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = this.Localize("PageTitle");
+    ViewBag.BannerTitle = this.Localize("BannerTitle");
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+
+    ViewBag.ShowBanner = false;
+}
+@section metas{
+    @Html.RenderCommonMetas()
+}
+
+@section HeaderStyles {
+    <link href="@Url.Content("~/Content/fullpage.css")" rel="stylesheet" type="text/css" />
+    @Html.RenderCsses("~/Content/css/effects.css")
+}
+
+@section HeaderScripts{
+    @Scripts.Render("~/Scripts/Math/js")
+    @Scripts.Render("~/Scripts/Flot/js")
+    @Scripts.Render("~/Scripts/Flot/PluginsForFunctionGrapher/js")
+}
+
+@if (ViewBag.ShowBanner == null || (bool)ViewBag.ShowBanner)
+{
+    <text>
+    @section banner
+	{
+        <div style="position: absolute; bottom: 0; left: 40%; font-size: small;">
+            @Html.ActionLink(Html.Localize(this, "OldVersion").ToString(), "Old")
+        </div>
+    }
+    </text>
+}
+
+<zizhujy pageid="FunctionGrapher" class="full-available-space"></zizhujy>
+
+@Html.Partial("FunCanvas")
+
+@section Cultures
+{
+    @this.RenderCultureSelection()
+}
+
+@section Scripts{
+}
+
+@section FooterLinks{
+    <li>
+        @Html.ActionLink(this.Localize("FunGrapherArt"), "AnnualRing", "Home", new { lunarYear = 2014 }, null)
+    </li>
+}

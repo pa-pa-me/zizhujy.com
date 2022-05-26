@@ -1,0 +1,41 @@
+﻿@{
+    Layout = "~/Views/Shared/_SimpleLayout_IE10.cshtml";
+}
+@section HeaderScripts{
+    <link href="@Url.Content("~/Content/fullpage.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/css/ThreeColumns.css")" rel="stylesheet" type="text/css" />
+    @RenderSection("metas", false)
+    @RenderSection("HeaderStyles", false)
+    @RenderSection("HeaderScripts", false)
+}
+
+@RenderSection("pageid", false)
+
+<div class="colmask threecol">
+    <div class="colmid">
+        <div class="colleft">
+            <div class="col1">
+                <!-- Column 1 start -->
+                @RenderSection("col1", false)
+                <!-- Column 1 end -->
+            </div>
+            <div class="col2">
+                <!-- Column 2 start -->
+                @RenderSection("col2", false)
+                <!-- Column 2 end -->
+            </div>
+            <div class="col3">
+                <!-- Column 3 start -->
+                @RenderSection("col3", false)
+                <!-- Column 3 end -->
+            </div>
+        </div>
+    </div>
+</div>
+@section Cultures {
+    @RenderSection("Cultures", false)
+}
+
+@section Scripts {
+    @RenderSection("Scripts", false)
+}

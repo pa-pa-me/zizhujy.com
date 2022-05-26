@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "String_Format";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+@section metas{
+    <link href="@Url.Content("~/Scripts/jquery-qunit/qunit/qunit.css")" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+    </style>
+    <script src="@Url.Content("~/Scripts/jquery-qunit/qunit/qunit.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+    <!--
+        (function ($) {
+            test("Smoke Test", function () {
+                var format = "{0}{1}{{2}}";
+                var s = String.format(format, "hello", "world", "nonsense");
+                equal(s, "helloworld{2}");
+                s = format.format("hello", "world", "nonsense");
+                equal(s, "helloworld{2}");
+
+                format = "{0}{1}{{2}}";
+                s = String.format(format, "hello");
+                equal(s, "hello{1}{2}");
+                s = format.format("hello");
+                equal(s, "hello{1}{2}");
+
+                format = "{0}{1}";
+                s = String.format(format, "hello", "world");
+                equal(s, "helloworld");
+                s = format.format("hello", "world");
+                equal(s, "helloworld");
+
+                format = "{0}{1}";
+                s = String.format(format, "hello", "world", "i");
+                equal(s, "helloworld");
+                s = format.format("hello", "world", "i");
+                equal(s, "helloworld");
+
+                format = "{{{0}}}";
+                s = String.format(format, "hello");
+                equal(s, "{hello}");
+                s = format.format("hello");
+                equal(s, "{hello}");
+
+                format = "{{{{0}}}}";
+                s = String.format(format, "hello");
+                equal(s, "{{0}}");
+                s = format.format("hello");
+                equal(s, "{{0}}");
+
+                format = "{{{{{0}}}}}";
+                s = String.format(format, "hello");
+                equal(s, "{{hello}}");
+                s = format.format("hello");
+                equal(s, "{{hello}}");
+
+                format = "<ul class='menu-bar'><li>1</li><li>2</li><li title='{0}'>3<ul><li event='click' handler='saveAsPng'>{1}</li><li event='click' handler='saveAsJpeg'>{2}</li><li event='click' handler='saveAsBmp'>{3}</li></ul></ul>";
+                s = String.format(format, "hello", "sub menu 1", "sub menu 2", "sub menu 3");
+                equal(s, "<ul class='menu-bar'><li>1</li><li>2</li><li title='hello'>3<ul><li event='click' handler='saveAsPng'>sub menu 1</li><li event='click' handler='saveAsJpeg'>sub menu 2</li><li event='click' handler='saveAsBmp'>sub menu 3</li></ul></ul>");
+                s = format.format("hello", "sub menu 1", "sub menu 2", "sub menu 3");
+                equal(s, "<ul class='menu-bar'><li>1</li><li>2</li><li title='hello'>3<ul><li event='click' handler='saveAsPng'>sub menu 1</li><li event='click' handler='saveAsJpeg'>sub menu 2</li><li event='click' handler='saveAsBmp'>sub menu 3</li></ul></ul>");
+            });
+
+            test("Comprehensive Test", function () {
+                var format = "<div class='expressionLine'><div id='taExp-123456' class='expressionBox'><span class='mathquill-editable'>{0}</span><span class='icon clear'>×</span></div></div>";
+                var s = String.format(format, "x=-\\cos (t);y=arcsin(t)\\left\\{-1<t<1\\right\\}");
+                equal(s, "<div class='expressionLine'><div id='taExp-123456' class='expressionBox'><span class='mathquill-editable'>x=-\\cos (t);y=arcsin(t)\\left\\{-1<t<1\\right\\}</span><span class='icon clear'>×</span></div></div>");
+
+                s = format.format("x=-\\cos (t);y=arcsin(t)\\left\\{-1<t<1\\right\\}");
+                equal(s, "<div class='expressionLine'><div id='taExp-123456' class='expressionBox'><span class='mathquill-editable'>x=-\\cos (t);y=arcsin(t)\\left\\{-1<t<1\\right\\}</span><span class='icon clear'>×</span></div></div>");
+            });
+        })(jQuery);
+    //-->
+    </script>
+}
+<div id="qunit"></div>
+<div id="qunit-fixture">test markup</div>

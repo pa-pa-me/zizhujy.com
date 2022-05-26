@@ -1,0 +1,238 @@
+﻿@using ZiZhuJY.Common.Extensions
+@using ZiZhuJY.Web.UI.App_GlobalResources
+@using ZiZhuJY.Web.UI.Helpers
+@{
+    Layout = "~/Views/Shared/_GridLayout.cshtml";
+    ViewBag.Title = this.Localize("Title");
+}
+
+@section metas{
+    @Html.RenderCommonMetas()
+}
+
+@section HeaderStyles {
+    @Html.RenderCsses("~/Content/css/index.css", "~/Content/css/effects.css")
+    @Html.RenderCsses("~/Scripts/syntaxhighlighter_3.0.83/styles/shCore.css",
+    "~/Scripts/syntaxhighlighter_3.0.83/styles/shThemeDefault.css", "~/Content/css/effects.css")
+}
+
+@section HeaderScripts {
+    @Html.RenderJavaScripts(
+        "~/Scripts/xregexp/xregexp.js",
+        "~/Scripts/syntaxhighlighter_3.0.83/src/shCore.js",
+        "~/Scripts/syntaxhighlighter_3.0.83/scripts/shAutoloader.js", 
+        "~/Scripts/jquery.extended.js")
+    <script type="text/javascript">
+        //<![CDATA[
+        $(document).ready(function() {
+            function renderBlogPosts(responseTextAsJson) {
+                try {
+                    var xml = decodeURIComponent(escape(atob(responseTextAsJson.contents)));
+
+                    xml = xml.trim();
+
+                    var $xml = $($.parseXML(xml));
+                    $xml.find('item').each(function(index, item) {
+                        var $this = $(this);
+
+                        var post = {
+                            title: htmlEncode($this.find('title').text()),
+                            link: $this.find('link').text(),
+                            description: $this.find('description').text(),
+                            pubDate: $this.find('pubDate').text(),
+                            author: $this.find('author').text(),
+                            pingback: $this.find('pingback:target').text()
+                        };
+
+                        var html =
+                            '<h3><a href="{2}" target="_blank" title="{3}">{0}</a></h3>' +
+                                '<a href="{2}" target="_blank" class="area-link"><div class="post text">{1}</div></a>';
+                        html = html.format(post.title, post.description,
+                            post.link || post.pingback, post.title);
+
+                        $('ul.blog-feeds').append('<li>' + html + '</li>');
+
+                        setTimeout(function() {
+                            // highlight
+                            SyntaxHighlighter.autoloader(
+                                'js jscript javascript	@Url.Content("~/Scripts/syntaxhighlighter_3.0.83/scripts/shBrushJScript.js")',
+                                'xml xhtml xslt html @Url.Content("~/Scripts/syntaxhighlighter_3.0.83/scripts/shBrushXml.js")',
+                                'sql @Url.Content("~/Scripts/syntaxhighlighter_3.0.83/scripts/shBrushSql.js")'
+                            );
+
+                            SyntaxHighlighter.all();
+                        }, 1000);
+
+                        function htmlEncode(value) {
+                            return $('<div />').text(value).html();
+                        }
+
+                        function htmlDecode(value) {
+                            return $('<div />').html(value).text();
+                        }
+                    });
+                } catch (ex) {
+                    console.log(ex);
+                }
+            }
+
+            $.retryableAjax(
+                '{0}?url={1}'.format('http://proxy-jefftian.rhcloud.com/proxy.php', encodeURIComponent('http://zizhujy.com/blog/syndication.axd')),
+                2,
+                4000,
+                renderBlogPosts,
+                function(xhr, textStatus, errorThrown) {
+                    $.retryableAjax(
+                        '{0}?url={1}'.format('https://proxy-php.herokuapp.com/proxy.php', encodeURIComponent('http://zizhujy.com/blog/syndication.axd')),
+                        4,
+                        8000,
+                        renderBlogPosts,
+                        function(xhr, textStatus, errorThrown) {
+                            console.log('Stopped retrying.');
+                        });
+                });
+        });
+        //]]>
+    </script>
+}
+
+@section pageid {
+    <zizhujy pageid="Home"></zizhujy>
+}
+
+@section grids {
+
+    <div class="grid full-height eighth-wide">
+        <div class="tile">
+            <div>
+                <ul class="profile-images">
+                    <li class="circular">
+                        <img src="@Url.Content("~/Content/Images/About/2c98b6a5-cb5f-4650-839f-6ccf97ce812d.gif")" alt="@Application.ZiZhuJY" style="margin-top: -25px;" />
+                    </li>
+                </ul>
+                <h2>@this.Localize("ContactInfo")</h2>
+                <ul class="social-links">
+                    <li style="background-image: url('https://github.com/favicon.ico');">
+                        <label for="social-link-github">
+                            @this.Localize("SocialLinks.Label.Github")
+                        </label>
+                        <a class="social-link" id="social-link-github"
+                           href="https://github.com/Jeff-Tian"
+                           target="_blank"
+                           title="@("{0} {1}".FormatWith(this.Localize("SocialLinks.Label.Github"),
+                           this.Localize("SocialLinks.Title.Github")))">
+                            @this.Localize("SocialLinks.Title.Github")
+                        </a>
+                    </li>
+                    <li style="background-image: url('https://facebook.com/favicon.ico');">
+                        <label for="social-link-fb">@this.Localize("SocialLinks.Label.Facebook")</label>
+                        <a class="social-link" id="social-link-fb"
+                           href="https://www.facebook.com/jeff.tian" target="_blank"
+                           title="@("{0} {1}".FormatWith(this.Localize("SocialLinks.Label.Facebook"), this.Localize("SocialLinks.Title.Facebook")))">
+                            @this.Localize("SocialLinks.Title.Facebook")
+                        </a>
+                    </li>
+                    <li style="background-image: url('http://www.qq.com/favicon.ico');">
+                        <label for="social-link-qq">@this.Localize("SocialLinks.Label.QQ")</label>
+                        <a class="social-link" id="social-link-qq" href="http://37179130.qzone.qq.com/" target="_blank"
+                           title="@("{0} {1}".FormatWith(this.Localize("SocialLinks.Label.QQ"),
+                                        "37179130"))">
+                            37179130
+                        </a>
+                    </li>
+                    <li style="background-image: url('http://weibo.com/favicon.ico');">
+                        <label for="social-link-weibo">@this.Localize("SocialLinks.Label.Weibo")</label>
+                        <a class="social-link" id="social-link-weibo" href="http://weibo.com/jeffatzizhu"
+                           target="_blank" title="@("{0} {1}".FormatWith(this.Localize("SocialLinks.Label.Weibo"),
+                           "@紫竹的姐夫"))">
+                            @@紫竹的姐夫
+                        </a>
+                    </li>
+                    <li style="background-image: url('http://a.xnimg.cn/favicon-rr.ico?ver=3');">
+                        <label for="social-link-renren">@this.Localize("SocialLinks.Label.Renren")</label>
+                        <a class="social-link" id="social-link-renren" href="www.renren.com/tian_jie" target="_blank"
+                           title="@("{0} {1}".FormatWith(this.Localize("SocialLinks.Label.Renren"),
+                           this.Localize("SocialLinks.Title.Renren")))">
+                            @this.Localize("SoialLinks.Title.Renren")
+                        </a>
+                    </li>
+                </ul>
+                <ul class="profile-images">
+                    <li>
+                    </li>
+                    <li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="grid full-height three-eighths-wide main-section">
+        <div class="tile">
+
+            <h2>@this.Localize("OnlineTools")</h2>
+            <ul class="list" style="list-style-image: none; list-style-type: none; margin: 0; padding: 0;">
+                <li class="block alpha60">
+                    <div class="background"></div>
+                    <div class="bar" style="background-image: url('');">
+                    </div>
+                    <ul class="list" style="font-weight: bold;">
+                        <li>
+                            @Html.ActionLink(Application.Plotter, "Index", "Plotter", new
+                            {
+
+                            }, new
+                            {
+                                title = Application.PlotterIntro
+                            })
+                        </li>
+                        <li>
+                            @Html.ActionLink(Application.FunctionGrapher, "Index", "FunctionGrapher", new
+                            {
+
+                            }, new
+                            {
+                                title = Application.FunctionGrapherIntro
+                            })
+                        </li>
+                        <li>
+                            @Html.ActionLink(Application.GeekCalculator, "Index", "GeekCalculator", new
+                            {
+
+                            }, new
+                            {
+                                title = Application.GeekCalculatorIntro
+                            })
+                        </li>
+                        <li>
+                            @Html.ActionLink(Application.GraphWorld, "Index",
+                                "GraphWorld", new
+                                {
+                                    title = Application.GraphWorldIntro
+                                })
+                        </li>
+                        <li>
+                            @Html.ActionLink(Application.PDFConverter, "Index", "PDFConverter", new
+                            {
+                                title = Application.PDFConverterIntro
+                            })
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <h2>@this.Localize("Header")</h2>
+            <div class="post">@Html.Markdown(this.Localize("Story"))</div>
+        </div>
+    </div>
+    <div class="grid half-wide full-height">
+        <div class="tile">
+            <div>
+                <h2>@this.Localize("BlogFeeds")</h2>
+                <ul class="blog-feeds"></ul>
+            </div>
+        </div>
+    </div>
+}
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}

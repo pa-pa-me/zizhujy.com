@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "ObjectViewer";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+@section metas{
+    <style type="text/css">
+    
+    </style>
+    <script type="text/javascript">
+    <!--
+        $(document).ready(function () {
+            alert(zizhujy.com.serializeObject("abc"));
+                        alert(zizhujy.com.serializeObject(String, null, null, "String"));
+                        alert(zizhujy.com.serializeObject(function () { alert("hello"); }));
+                        alert(zizhujy.com.serializeObject(null));
+                        alert(zizhujy.com.serializeObject(undefined));
+                        alert(zizhujy.com.serializeObject(Math));
+            var o = {
+                a: 2,
+                b: 3,
+                c: {
+                    a: 2,
+                    b: 3,
+                    c: {
+                        a: 1,
+                        b: 2,
+                        c: null,
+                        d: undefined
+                    },
+                    d: function () {
+                        alert("hello");
+                    }
+                }
+            };
+            alert(zizhujy.com.serializeObject(o));
+        });
+
+    //-->
+    </script>
+}
+<h2>ObjectViewer</h2>

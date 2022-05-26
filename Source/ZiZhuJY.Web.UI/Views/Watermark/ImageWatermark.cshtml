@@ -1,0 +1,129 @@
+﻿@using ZiZhuJY.ImageHandler
+@model ZiZhuJY.Web.UI.Models.ImageWatermarkModel
+@{
+    const string THIS_FILE_PATH = "~/Views/Watermark/ImageWatermark.cshtml";
+    ViewBag.Title = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Title");
+    
+    List<WatermarkPostion> positions = new List<WatermarkPostion>();
+    positions.Add(WatermarkPostion.TopLeft);
+    positions.Add(WatermarkPostion.TopCenter);
+    positions.Add(WatermarkPostion.TopRight);
+    positions.Add(WatermarkPostion.MiddleLeft);
+    positions.Add(WatermarkPostion.MiddleCenter);
+    positions.Add(WatermarkPostion.MiddleRight);
+    positions.Add(WatermarkPostion.BottomLeft);
+    positions.Add(WatermarkPostion.BottomCenter);
+    positions.Add(WatermarkPostion.BottomRight);
+
+    List<SelectListItem> positionList = new SelectList(positions).ToList();
+    for (int i = 0; i < positionList.Count; i++)
+    {
+        positionList[i].Value = positionList[i].Text;
+        positionList[i].Text = HttpContext.GetLocalResourceObject(THIS_FILE_PATH, positionList[i].Value.ToString()).ToString();
+    }
+    positionList[positionList.Count - 1].Selected = true;
+}
+@section metas {
+    <meta name="description" content="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "SeoDescription")" />
+    
+    <style type="text/css">
+        #divAdvancedSettings
+        {
+            border: solid 1px gray;
+            margin: 1em 0 0 0;
+        }
+    
+        #divAdvancedSettingsTitle
+        {
+            background-color: Lime;
+            margin: 0 0 0 0;
+            padding: 5px 0 5px 5px;
+            cursor: pointer;
+        }
+    
+        #divAdvancedSettingsBody
+        {
+            padding: 5px 10px;
+        }
+    
+        .hided
+        {
+            display: none;
+        }
+    
+        #divForm
+        {
+        }
+    
+        #divPreview
+        {
+        }
+    
+        #divResult
+        {
+        }
+    
+        .clearFloat
+        {
+            float: none;
+            clear: both;
+        }
+    </style>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script><script type="text/javascript">
+    <!--
+        $(document).ready(function () {
+            $("#divAdvancedSettingsTitle").click(function () {
+                var hided = $("#divAdvancedSettingsBody").hasClass("hided");
+                if (hided) {
+                    $("#divAdvancedSettingsBody").removeClass("hided");
+                } else {
+                    $("#divAdvancedSettingsBody").addClass("hided");
+                }
+            });
+        });
+    //-->
+    </script>
+}
+<h2>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Header") <span style="font-size: smaller; float: right;"><a href="@Url.Content("~/Watermark")" title="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "TextWatermarkLinkTitle")">@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "TextWatermarkLinkText")</a></span></h2>
+<div class="clearFloat"></div>
+@using (Html.BeginForm("WatermarkImage", "Watermark", FormMethod.Post, new { enctype = "multipart/form-data", id = "fmWatermarkInfo", target = "_self" }))
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Description")</legend>
+        <div class="editor-label">@Html.LabelFor(model => model.File)</div>
+        <div class="editor-field">@Html.Raw("<input id='fileImage' type='file' name='File' data-val='true' data-val-required='" + "请选择一个图像！" + "' />")
+            @Html.ValidationMessageFor(model => model.File)</div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FileWatermark)
+        </div>
+        <div class="editor-field">
+            @Html.Raw("<input id='fileWatermark' type='file' name='FileWatermark' data-val='true' data-val-required='" + "请选择一个图片！" + "' />")
+            @Html.ValidationMessageFor(model => model.FileWatermark)
+        </div>
+
+        <div id="divAdvancedSettings">
+            <div id="divAdvancedSettingsTitle">
+                    <strong>@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "AdvancedSettingsTitle").ToString()</strong>
+            </div>
+            <div id="divAdvancedSettingsBody" class="hided">                
+                    <div class="editor-label">@Html.LabelFor(model => model.WatermarkPosition)</div>
+                    <div class="editor-field">
+                        @Html.DropDownListFor(model => model.WatermarkPosition, positionList)
+                    </div>
+            </div>
+        </div>
+                @*
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WatermarkOpacity)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WatermarkOpacity)
+            @Html.ValidationMessageFor(model => model.WatermarkOpacity)
+        </div>*@
+                <p>
+                    <input id="btnSubmit" type="submit" value="@HttpContext.GetLocalResourceObject(THIS_FILE_PATH, "Submit").ToString()" />
+                </p>
+    </fieldset>
+}

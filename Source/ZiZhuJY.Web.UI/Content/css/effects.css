@@ -1,0 +1,197 @@
+﻿.cmd {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #202020;
+    border: 4px solid silver;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #6e6e6e;
+    color: #e2e2e2;
+    display: block;
+    font: 1em 'andale mono', 'lucida console', monospace;
+    line-height: 1em;
+    overflow: auto;
+    padding: 15px;
+}
+
+.auto-wrap {
+    word-wrap: normal;
+    white-space: normal;
+}
+
+pre.auto-wrap {
+    word-wrap: normal;
+    white-space: pre-wrap;
+}
+
+.sidenote {
+    border: solid 1px gray;
+    padding: 5px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.sidenote .title {
+    color: #421C52;
+}
+
+    .sidenote img, .sidenote canvas {
+        display: block;
+        width: 100%;
+    }
+
+    .sidenote .remark {
+        margin-top: 10px;
+    }
+
+    .sidenote .remark ul {
+        margin: 0;
+        list-style-type: none;
+        list-style-position: inside;
+    }
+
+.highlight {
+    padding: 0.5em 1em;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.text-indent {
+    text-indent: 2em;
+}
+
+.text-indent-none {
+    text-indent: 0;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.photo-frame {
+    border: solid 1px black;
+}
+
+.tab {
+    width: 4em;
+    display: inline-block;
+}
+
+.tab-half {
+    width: 2em;
+    display: inline-block;
+}
+
+.new {
+    border: solid 2px red;
+    background-color: yellow;
+    padding: 5px 10px;
+}
+
+.btn-link {
+    color: #421c52;
+    cursor: pointer;
+    border-color: #f3f3f3;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: solid 1px #dddddd;
+    padding: 5px 15px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+    .btn-link:hover,
+    .btn-link:focus {
+        color: black;
+        /*text-decoration: underline;*/
+        background-color: white;
+        border: solid 1px #999999;
+        font-weight: bold;
+    }
+
+    .btn-link[disabled]:hover,
+    .btn-link[disabled]:focus {
+        color: #333333;
+        text-decoration: none;
+    }
+
+.link-button, a.link-button {
+    text-decoration: none;
+    background-color: #EEEEEE;
+    color: #333333;
+    padding: 5px 10px 5px 10px;
+    border-top: 1px solid #aaa;
+    border-right: 1px solid #aaa;
+    border-bottom: 1px solid #777;
+    border-left: 1px solid #aaa;
+    font-family: Arial;
+    font-size: 13px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-top: 2px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+a.link-button {
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+    .link-button:hover, a.link-button:hover {
+        border-top: 1px solid #777;
+        border-right: 1px solid #777;
+        border-bottom: 1px solid #555;
+        border-left: 1px solid #777;
+        font-weight: bold;
+    }
+
+    .link-button:active, a.link-button:active {
+        background-color: #FFF;
+    }
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.circular {
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+}
+
+code {
+    margin: 0 2px;
+    padding: 1px 5px;
+    border: solid 1px #e1e1e8;
+    background-color: #f7f7f9;
+    color: #333;
+    font-size: 85%;
+    border-radius: 4px;
+    font-family: Consolas, "Courier New", monospace;
+    box-sizing: border-box;
+}

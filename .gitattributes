@@ -1,0 +1,2 @@
+*.exe filter=lfs diff=lfs merge=lfs -text
+Tools/WebStorm-8.0.4.exe filter=lfs diff=lfs merge=lfs -text

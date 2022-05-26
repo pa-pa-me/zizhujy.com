@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ZiZhuJY.Services.Location" elementFormDefault="qualified" targetNamespace="http://ZiZhuJY.Services.Location" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://zizhujy.com/Services/LocationService.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="UpdateGeoCoordinate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="device" nillable="true" type="tns:Device" />
+        <xs:element minOccurs="0" name="geoCoor" nillable="true" type="tns:GeoCoordinate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="Device">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Device" nillable="true" type="tns:Device" />
+  <xs:complexType name="GeoCoordinate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Altitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Course" type="xs:double" />
+      <xs:element minOccurs="0" name="HorizontalAccuracy" type="xs:double" />
+      <xs:element minOccurs="0" name="Latitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Longitude" type="xs:double" />
+      <xs:element minOccurs="0" name="Remark" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Speed" type="xs:double" />
+      <xs:element minOccurs="0" name="TimeStamp" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="VerticalAccruracy" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GeoCoordinate" nillable="true" type="tns:GeoCoordinate" />
+  <xs:element name="UpdateGeoCoordinateResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinateByDevice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="device" nillable="true" type="tns:Device" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinateByDeviceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLatestGeoCoordinateByDeviceResult" nillable="true" type="tns:GeoCoordinate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinates">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLatestGeoCoordinatesResult" nillable="true" type="q1:ArrayOfKeyValueOfIdentifiedDeviceGeoCoordinateBb5ONJom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="IdentifiedDevice">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Device" nillable="true" type="tns:Device" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdentifiedDevice" nillable="true" type="tns:IdentifiedDevice" />
+  <xs:element name="GetLatestGeoCoordinatesByUserName">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinatesByUserNameResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetLatestGeoCoordinatesByUserNameResult" nillable="true" type="q2:ArrayOfKeyValueOfDeviceGeoCoordinateBb5ONJom" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinateByUserNameAndDevice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="device" nillable="true" type="tns:Device" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLatestGeoCoordinateByUserNameAndDeviceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLatestGeoCoordinateByUserNameAndDeviceResult" nillable="true" type="tns:GeoCoordinate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

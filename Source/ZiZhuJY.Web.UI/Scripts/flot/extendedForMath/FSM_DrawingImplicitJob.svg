@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="436.5" cy="225.5" rx="30" ry="30"/>
+	<text x="407.5" y="231.5" font-family="Times New Roman" font-size="20">running</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="563.5" cy="357.5" rx="30" ry="30"/>
+	<text x="530.5" y="363.5" font-family="Times New Roman" font-size="20">stopping</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="563.5" cy="357.5" rx="24" ry="24"/>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="166.5" cy="99.5" rx="30" ry="30"/>
+	<text x="136.5" y="105.5" font-family="Times New Roman" font-size="20">pausing</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="622.5" cy="78.5" rx="30" ry="30"/>
+	<text x="599.5" y="84.5" font-family="Times New Roman" font-size="20">empty</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="114.5" cy="254.5" rx="30" ry="30"/>
+	<text x="95.5" y="260.5" font-family="Times New Roman" font-size="20">done</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="114.5" cy="254.5" rx="24" ry="24"/>
+	<polygon stroke="black" stroke-width="1" points="735.5,55.5 651.897,72.516"/>
+	<text x="742.5" y="58.5" font-family="Times New Roman" font-size="20">Start</text>
+	<polygon fill="black" stroke-width="1" points="651.897,72.516 660.734,75.82 658.739,66.021"/>
+	<path stroke="black" stroke-width="1" fill="none" d="M 406.883,230.162 A 244.874,244.874 0 0 1 181.951,125.193"/>
+	<polygon fill="black" stroke-width="1" points="406.883,230.162 398.446,225.943 399.393,235.898"/>
+	<text x="202.5" y="229.5" font-family="Times New Roman" font-size="20">User Idle</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 196.445,97.913 A 289.056,289.056 0 0 1 418.482,201.531"/>
+	<polygon fill="black" stroke-width="1" points="196.445,97.913 204.45,102.905 204.439,92.905"/>
+	<text x="322.5" y="115.5" font-family="Times New Roman" font-size="20">User interactive</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 408.901,237.246 A 479.529,479.529 0 0 1 143.754,261.126"/>
+	<polygon fill="black" stroke-width="1" points="143.754,261.126 150.656,267.557 152.559,257.74"/>
+	<text x="200.5" y="296.5" font-family="Times New Roman" font-size="20">Undecided U exhausted</text>
+	<polygon stroke="black" stroke-width="1" points="598.963,97.102 460.037,206.898"/>
+	<polygon fill="black" stroke-width="1" points="460.037,206.898 469.414,205.861 463.213,198.015"/>
+	<text x="483.5" y="143.5" font-family="Times New Roman" font-size="20">draw</text>
+	<polygon stroke="black" stroke-width="1" points="639.5,318.5 590.191,343.803"/>
+	<text x="646.5" y="313.5" font-family="Times New Roman" font-size="20">New Same Job</text>
+	<polygon fill="black" stroke-width="1" points="590.191,343.803 599.591,344.599 595.026,335.702"/>
+	<polygon stroke="black" stroke-width="1" points="569.707,328.149 616.293,107.851"/>
+	<polygon fill="black" stroke-width="1" points="616.293,107.851 609.746,114.643 619.53,116.712"/>
+	<text x="485.5" y="220.5" font-family="Times New Roman" font-size="20">Stopped Old</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 535.936,369.014 A 93.649,93.649 0 0 1 423.93,252.599"/>
+	<polygon fill="black" stroke-width="1" points="535.936,369.014 526.991,366.019 529.324,375.743"/>
+	<text x="325.5" y="363.5" font-family="Times New Roman" font-size="20">New same Job</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 536.331,370.2 A 355.451,355.451 0 0 1 133.418,277.772"/>
+	<polygon fill="black" stroke-width="1" points="536.331,370.2 527.022,368.664 530.871,377.894"/>
+	<text x="222.5" y="414.5" font-family="Times New Roman" font-size="20">New same job</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 557.35,386.846 A 260.13,260.13 0 1 1 142.181,117.039"/>
+	<polygon fill="black" stroke-width="1" points="557.35,386.846 550.434,393.262 560.087,395.874"/>
+	<text x="45.5" y="558.5" font-family="Times New Roman" font-size="20">New same job</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 193.966,87.442 A 596.24,596.24 0 0 1 594.042,69.017"/>
+	<polygon fill="black" stroke-width="1" points="193.966,87.442 203.264,89.038 199.476,79.784"/>
+	<text x="326.5" y="31.5" font-family="Times New Roman" font-size="20">User interactive</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 633.147,106.526 A 240.785,240.785 0 0 1 584.582,336.183"/>
+	<polygon fill="black" stroke-width="1" points="584.582,336.183 593.609,333.444 586.075,326.868"/>
+	<text x="646.5" y="237.5" font-family="Times New Roman" font-size="20">New same job</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 455.527,248.542 A 22.5,22.5 0 1 1 429.784,254.619"/>
+	<text x="433.5" y="317.5" font-family="Times New Roman" font-size="20">Undecided U &gt; 0</text>
+	<polygon fill="black" stroke-width="1" points="429.784,254.619 422.083,260.067 431.307,263.929"/>
+	<path stroke="black" stroke-width="1" fill="none" d="M 144.893,78.857 A 22.5,22.5 0 1 1 169.742,69.793"/>
+	<text x="17.5" y="25.5" font-family="Times New Roman" font-size="20">User interactive</text>
+	<polygon fill="black" stroke-width="1" points="169.742,69.793 176.749,63.477 167.135,60.727"/>
+</svg>

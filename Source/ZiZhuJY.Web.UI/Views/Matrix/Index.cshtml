@@ -1,0 +1,58 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+	Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+    ViewBag.Title = Html.Localize(this, "PageTitle");
+    ViewBag.ApplicationName = Html.Localize(this, "ApplicationName");
+    ViewBag.ApplicationNameRemark = Html.Localize(this, "ApplicationNameRemark"); 
+}
+
+@section metas{
+    @Html.RenderCommonMetas()
+}
+
+@section HeaderScripts {
+    <link href="@Url.Content("~/Content/css/MatrixStyle.css?minify=true")" rel="stylesheet" type="text/css" />    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/Maths/zizhujy.com.Matrix.js?minify=true")"></script>
+    <script src="@Url.Content("~/Scripts/Matrix/Matrix.js?minify=true")" type="text/javascript"></script>
+}
+
+<zizhujy pageId="Matrix"></zizhujy>
+
+<div id="divLeftMatrix">
+    <p>@Html.Localize(this, "LeftMatrixLabel")</p>
+    <textarea name="LeftMatrx" id="taLeftMatrix" rows="12" cols="22" wrap="off">1 2 3
+3 4 6
+1 22 3</textarea>
+    <pre id="preLeftMatrix"></pre>
+</div>
+
+<div id="divRightMatrix">
+    <p>@Html.Localize(this, "RightMatrixLabel")</p>
+    <textarea name="RightMatrx" id="taRightMatrix" rows="12" cols="22" wrap="off">3 4 5
+7 5 9
+18 12 3</textarea>
+    <pre id="preRightMatrix"></pre>
+</div>
+
+<div id="divResultMatrix">
+    <p>@Html.Localize(this, "ResultMatrixLabel")</p>
+    <textarea name="ResultMatrx" id="taResultMatrix" rows="12" cols="22" readonly="readonly" wrap="hard"></textarea>
+    <pre id="preResultMatrix"></pre>
+</div>
+
+<div id="divControls">
+    <p>@Html.Localize(this, "DecimalDigitLeftLabel")<input type="text" id="txtDecimalDigits" value="2" />@Html.Localize(this, "DecimalDigitRightLabel")</p>
+    <p>
+        <input type="button" name="inverse" id="btnInverse" value="@Html.Localize(this, "InverseButtonLabel")" /><br />
+        <input type="button" name="transpose" id="btnTranspose" value="@Html.Localize(this, "TransposeButtonLabel")" /><br />
+        <input type="button" name="add" id="btnAdd" value="@Html.Localize(this, "AddButtonLabel")" /><br />
+        <input type="button" name="subtract" id="btnSubtract" value="@Html.Localize(this, "SubtractButtonLabel")" /><br />
+        <input type="button" name="multiply" id="btnMultiply" value="@Html.Localize(this, "MultiplyButtonLabel")" />
+    </p>
+</div>
+
+<div class="clearFloat"></div>
+
+@section Cultures {
+    @this.RenderCultureSelection()
+}

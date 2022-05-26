@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="ZiZhuJY.ServiceModel.Services.AdministrationService, Service" Factory="ZiZhuJY.ServiceModel.CertificateServiceHostFactory, ZiZhuJY.ServiceModel" %>

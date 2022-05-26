@@ -1,0 +1,94 @@
+﻿/* Pane configuration */
+.left.col
+{
+    width: 330px;
+}
+.right.col
+{
+    left: 330px;
+    right: 0;
+}
+.layout-header.row
+{
+    height: 30;
+    line-height: 30px;
+}
+.body.row
+{
+    top: 30px;
+    bottom: 60px;
+}
+.layout-footer.row
+{
+    height: 60px;
+    bottom: 0;
+    line-height: 60px;
+}
+
+/* Menu container */
+#menucontainer 
+{
+    font-size: 75%;
+    font-family: Arial, sans-serif;
+    height: auto;
+    width: auto;
+    background-color: #421C52;
+    margin: 0;
+    position: relative;
+    /* For IE 7 */
+    *height: 1%;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+ul.menu
+{
+    color: #BBBBBB;
+    font-family: Arial, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul.menu li {
+    display: inline-block;
+    float: left;
+    border-top: 2px solid #421C52;
+}
+
+ul.menu li:hover {
+    background-color: #800080;
+    border-top: 2px solid #800080;
+    color: White;
+}
+
+ul.menu li.selected {
+    font-weight: bold;
+    color: White;
+    border-top: 2px solid #FF6600;
+}
+
+ul.menu li a, ul.menu li a:link {
+    padding: 0 10px 5px 10px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    /* For IE 7 */
+    *color: #BBB;
+}
+
+ul.menu li a:visited {
+}
+
+ul.menu li a:hover {
+}
+
+ul.menu li a:active {
+}
+
+#ad-bottom
+{
+    width: 468px;
+    height: 60px;
+}

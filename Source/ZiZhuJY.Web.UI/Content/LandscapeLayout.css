@@ -1,0 +1,285 @@
+﻿html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: auto;
+    display: inline-block;
+    box-sizing: border-box;
+    overflow-x: visible;
+    overflow-y: hidden;
+}
+
+#page {
+    width: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Sans-Serif;
+    position: relative;
+    overflow-x: visible;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+#header {
+    width: auto;
+}
+
+#menucontainer {
+    height: auto;
+    width: auto;
+    background-color: #421C52;
+    padding: 0 50px;
+    margin: 0;
+    position: relative;
+    /* For IE 7 */
+    *height: 1%;
+}
+
+/* TAB MENU   
+----------------------------------------------------------*/
+
+ul.menu
+{
+    color: #BBBBBB;
+    font-family: Arial, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+ul.menu li {
+    display: inline-block;
+    float: left;
+    border-top: 2px solid #421C52;
+}
+
+ul.menu li:hover {
+    background-color: #800080;
+    border-top: 2px solid #800080;
+    color: White;
+}
+
+ul.menu li.selected {
+    font-weight: bold;
+    color: White;
+    border-top: 2px solid #FF6600;
+}
+
+ul.menu li a, ul.menu li a:link {
+    padding: 5px 10px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    /* For IE 7 */
+    *color: #BBB;
+}
+
+ul.menu li a:visited {
+}
+
+ul.menu li a:hover {
+}
+
+ul.menu li a:active {
+}
+
+/* Banner
+-----------------------------------------------------------*/
+#banner {
+    background-color: #F5F5F5;
+    height: 70px;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 0 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+#banner #logo {
+    float: left;
+    padding-top: 10px;
+    margin-right: 50px;
+    /* For IE 7 */
+    *width: 273px;
+}
+
+#banner #logo #logoImage {
+    width: 112px;
+    height: 54px;
+    background: url('Images/logo.png') no-repeat center top;
+    float: left;
+    margin-right: 1em;
+}
+
+#banner #logo #logoImage.hover {
+    background: url('Images/logo.png') no-repeat center bottom;
+}
+
+#banner #logo #logoText {
+    float: right;
+}
+
+#banner #logo #logoText h1 {
+    font-size: 26px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+}
+
+#banner #logo #logoText .logo-text-desc {
+    position: absolute;
+}
+
+#banner a, #banner a:link {
+    text-decoration: none;
+    color: #800080;
+}
+
+#banner a:visited {
+    color: #800080;
+}
+
+#banner a:hover{
+    color: #FF6600;
+}
+
+#banner a:active{
+    color: #FF6600;
+}
+
+#banner #bannerRight 
+{
+    padding-left: 30%;
+}
+
+#banner #bannerRight h1 {
+    height: 100%;
+    line-height: 100%;
+    margin: 0;
+}
+
+#additional-header div {
+    padding: 10px 50px;
+    border-bottom: solid 1px #eeeeee;
+    margin-bottom: 10px;
+}
+
+#additional-header div h2 {
+    color: #FF6600;
+    margin: 0;
+}
+
+    #additional-header div div {
+        padding: 0;
+        border: none;
+        margin: 0;
+    }
+
+hr {
+    background-color: #dddddd;
+    height: 1px;
+}
+
+/* Main
+-----------------------------------------------------------*/
+
+#main {
+    width: auto;
+    padding: 0;
+    min-height: 100px;
+    position: relative;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: visible;
+    display: inline-block;
+}
+
+zizhujy {
+    height: 0;
+    width: 0;
+    display: none;
+}
+
+/* Footer
+-----------------------------------------------------------*/
+
+#footer {
+    border-top: 1px solid #EBEBEB;
+    color: #666666;
+    padding: 10px 50px 0 50px;
+    height: auto;
+}
+
+/* Footer MENU   
+----------------------------------------------------------*/
+
+ul.footerMenu
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    font-size: smaller;
+    float: left;
+    position: relative;
+}
+
+ul.footerMenu li {
+    display: inline-block;
+    float: left;
+}
+
+ul.footerMenu li:hover {
+    text-decoration: underline;
+}
+
+ul.footerMenu li.selected {
+    text-decoration: underline;
+}
+
+ul.footerMenu li a, ul.footerMenu li a:link {
+    padding: 5px 10px;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    /* For IE 7 */
+    *color: #666;
+}
+
+ul.footerMenu li a:visited {
+}
+
+ul.footerMenu li a:hover {
+}
+
+ul.footerMenu li a:active {
+}
+
+.adLinks 
+{
+    width: 468px;
+    height: 15px;
+    float: left;
+    margin: 5px 5px 5px 0;
+}
+
+/* Misc
+-----------------------------------------------------------*/
+
+.clearFloat {
+    float: none;
+    clear: both;
+    height: 0;
+    width: 0;
+}
+
+.tab {
+    width: 20px;
+    display: inline-block;
+}

@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "A very handy text processor tool to do the replace, distill jobs among a text block.";
+    Layout = "~/Views/Shared/_SimpleLayout.cshtml";
+}
+
+@section metas {
+    <script type="text/javascript">
+    <!--
+    (function ($) {
+        $(document).ready(function () {
+            $("#btnCommand").click(function () {
+                var source = $("#taSource").val();
+                var command = $("#taCommand").val();
+                var dest = source;
+                eval(command);
+                $("#taDest").val(dest);
+            });
+
+            $("#main .right ul li a").click(function () {
+                var command = $(this).attr("title");
+                $("#taCommand").val(command);
+                return false;
+            });
+        });
+    })(jQuery);
+    //-->
+    </script>
+    <style type="text/css">
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        #main .left, #main .right {
+            width: 50%;
+        }
+
+        .left textarea, .right textarea {
+            width: 90%;
+        }
+
+        .read-me {
+            margin-top: 20px;
+        }
+
+            .read-me i {
+                font-weight: bold;
+            }
+    </style>
+}
+@section additionalHeader{
+    <div class="clearFloat">
+        <div class="left">
+            <h2>String</h2>
+        </div>
+        <div class="left" style="padding: 5px 0 0 50px;">
+            <input type="button" id="btnCommand" value="Execute" />
+        </div>
+        <div class="clearFloat"></div>
+    </div>
+}
+<div class="left">
+    <textarea id="taSource" rows="10" cols="40">First line Id: 123
+Second Line Id: 456 asdf
+Third line Id: 789 bbii</textarea>
+</div>
+<div class="right">
+    <textarea id="taDest" rows="10" cols="40"></textarea>
+</div>
+<div class="clearFloat"></div>
+<div class="left">
+    <h4>Current command:</h4>
+    <textarea id="taCommand" rows="5" cols="40">dest = source.replace(/[\n\r]/g, "");</textarea>
+</div>
+<div class="right">
+    <h4>Available command samples:</h4>
+    <ul>
+        <li><a href="#" title="dest = source.replace(/[\n\r]/g, &quot;&quot;);">Replace</a></li>
+        <li><a href="#" title="var regex = /Id: \d+/g;&#13;&#10;dest = &quot;&quot;;&#13;&#10;while(match = regex.exec(source)){&#13;&#10;    dest += match.toString() + &quot;\r\n&quot;;&#13;&#10;}">Distill</a></li>
+    </ul>
+</div>
+<div class="clearFloat"></div>
+<div class="read-me">
+    <p>String is a very handy tool to do the the text processing such as replacing, distilling jobs among a text block. Use your imagination, then you can do more with this tool!</p>
+    <p>The command is made up of javascript statements. In the statements, you can use variable <i>source</i> to reference the content in the above left box. And if you want something to be displayed in the above right box, you can store them into variable <i>dest</i>.</p>
+</div>

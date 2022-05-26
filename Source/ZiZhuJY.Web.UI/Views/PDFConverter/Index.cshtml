@@ -1,0 +1,85 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+
+@{
+    ViewBag.Title = this.Localize("SeoTitle");
+    ViewBag.ShowBanner = false;
+}
+
+@section metas{
+    @Html.RenderCommonMetas()
+}
+
+@section HeaderStyles {
+    @Html.RenderCsses("~/Content/css/effects.css")
+}
+
+@section HeaderScripts {
+    <style type="text/css">
+        #txt-url {
+            width: 50%;
+            font-size: larger;
+        }
+
+        .icon-file-pdf:before {
+            font-weight: normal!important;
+            text-decoration: none !important;
+        }
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function (event) {
+            var originUrl = $("#lnk-generate").attr("href");
+            $("#txt-url").focus();
+
+            function generate() {
+                var url = $("#txt-url").val().trim();
+
+                if (!url.startsWith("http")) {
+                    url = "http://" + url;
+                }
+
+                var href = $("#lnk-generate").attr("href");
+                href = href.replace("____", url);
+
+                $("#lnk-generate").attr("href", href);
+            }
+
+            $("#lnk-generate").click(function (event) {
+                generate();
+            });
+
+            $("#txt-url").change(function (event) {
+                $("#lnk-generate").attr("href", originUrl);
+            }).keypress(function (event) {
+                if (event.which == 13) {
+                    $("#lnk-generate").attr("href", originUrl);
+                    $("#lnk-generate")[0].click();
+                }
+            });
+        });
+    </script>
+}
+
+<zizhujy pageid="PDFConverter"></zizhujy>
+
+<div class="align-center">
+    @Html.RenderAds(this.Localize("AdZone_Banner"), "adZone", "width: 970px; height: 90px; display: inline-block;")
+</div>
+
+<p class="align-center">
+    <input type="text" id="txt-url" value="http://google.com" />
+</p>
+<p class="align-center">
+    <a href="@Url.Action("FetchPDF", new {url="____"})" id="lnk-generate" target="_blank" class="btn-link icon-file-pdf">
+        <span class="clear-icon">@this.Localize("Generate")</span>
+    </a>
+</p>
+
+<div>
+    <p class="align-center">
+        @this.Localize("Intro")
+    </p>
+</div>
+
+@section Cultures{
+    @this.RenderCultureSelection()
+}

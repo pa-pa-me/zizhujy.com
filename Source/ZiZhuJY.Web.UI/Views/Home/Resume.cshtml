@@ -1,0 +1,130 @@
+﻿@using Microsoft.SqlServer.Server
+@using ZiZhuJY.Web.UI.App_GlobalResources
+@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = this.Localize("PageTitle");
+    Layout = ViewBag.Layout;
+}
+
+@section metas{
+    @this.RenderCommonMetas()
+}
+
+@if (ViewBag.PrintView != true)
+{
+    @section MenuSection {
+        <li pageid="Resume">
+            @Html.ActionLink(Application.FooterMenuHireMeLink, "Resume", "Home",
+                    null, new { })
+        </li>
+    }
+    
+    <zizhujy pageid="Resume"></zizhujy>
+}
+
+@section HeaderScripts {
+    @Html.RenderCsses("~/Content/css/tables.css")
+    <style type="text/css">
+        i {
+            font-size: smaller;
+        }
+
+        h2, h3 {
+            color: #800080;
+        }
+
+        h5 {
+            font-style: italic;
+            font-size: 100%;
+        }
+
+        .section {
+        }
+
+            .section h4 {
+                margin-bottom: 5px;
+            }
+
+            .section p.period, .section:first-child p {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .section:nth-child(2) {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .section .special {
+                float: right;
+                background-color: #eeeeee;
+                border: solid 1px #cccccc;
+                height: auto;
+                width: 250px;
+                margin-left: 1em;
+                padding: 10px;
+            }
+
+        #certificates img {
+            width: 300px;
+        }
+    </style>
+    <style type="text/css" media="screen">
+        #lnk-print {
+            margin-right: 1em;
+        }
+    </style>
+    <style type="text/css" media="print">
+        body {
+            margin: 1cm 0 1cm 0;
+        }
+
+        #header {
+            display: none;
+        }
+
+        #footer {
+            display: none;
+        }
+
+        #helper-area {
+            display: none;
+        }
+    </style>
+
+    @if (ViewBag.PrintView == true)
+    {
+        <script type="text/javascript">
+            ;
+            (function ($) {
+                $(document).ready(function () {
+                    window.print();
+                });
+            })(jQuery);
+        </script>
+    }
+}
+
+@if (ViewBag.PrintView != true)
+{
+    <div id="helper-area">
+        <p>
+            <a href="@Html.GetUrlWithQueryString("Resume", "Home", new Dictionary<string, object>() { { "print", true } })" id="lnk-print" target="_blank" class="link-button icon-print">
+                <span class="clear-icon">@this.Localize("Print")</span>
+            </a>
+
+            <a href="@Url.Action("ViewPDF", "PDF", new { url = Html.GetUrlWithQueryString("Resume", "Home", new Dictionary<string, object>() { { "print", true } }), format = @"A4;portrait;{left:0,top:\""1cm\"",right:0,bottom:\""1cm\""}", fileName = this.Localize("ResumePDFFileName") })" id="lnk-pdf" target="_blank" class="link-button icon-file-pdf">
+                <span class="clear-icon">@this.Localize("PDF")</span>
+            </a>
+        </p>
+    </div>
+}
+
+@Html.Markdown(this.Localize("RESUME_Content"))
+
+@if (ViewBag.PrintView != true)
+{
+    @section Cultures {
+        @this.RenderCultureSelection()
+    }   
+}

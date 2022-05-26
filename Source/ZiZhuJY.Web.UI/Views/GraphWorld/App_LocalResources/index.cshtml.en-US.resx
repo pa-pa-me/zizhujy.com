@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="SeoKeywords" xml:space="preserve">
+    <value>graph, regular graph, complete graph, random graph</value>
+  </data>
+  <data name="SeoDescription" xml:space="preserve">
+    <value>Generate/draw complete, regular, and random graphs, etc, online.</value>
+  </data>
+  <data name="SeoTitle" xml:space="preserve">
+    <value>Graph World - An online graph generating tool.</value>
+  </data>
+  <data name="GetLinkTitle" xml:space="preserve">
+    <value>Get link</value>
+  </data>
+  <data name="GetLinkMessageTitle" xml:space="preserve">
+    <value>Get a permanent link to this page with current expressions.</value>
+  </data>
+  <data name="AdZone" xml:space="preserve">
+    <value>&lt;script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- New version of Fun Grapher --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:336px;height:280px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="7322914588"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="AdZone_Banner" xml:space="preserve">
+    <value>&lt;script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"&gt;&lt;/script&gt;
+&lt;!-- Graph World Big Banner --&gt;
+&lt;ins class="adsbygoogle"
+     style="display:inline-block;width:970px;height:90px"
+     data-ad-client="ca-pub-9332882982479681"
+     data-ad-slot="5481695789"&gt;&lt;/ins&gt;
+&lt;script&gt;
+(adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Tips" xml:space="preserve">
+    <value>This tool can generate different simple graphs such as complete grpahs, regular graphs and even random graphs. You can choose the graph type and set the number of the vertices and then click "run" button to get the graph immediately. The source code which is written in python for your reference, and give you a chance to do more with this tool.</value>
+  </data>
+  <data name="Run" xml:space="preserve">
+    <value>Run</value>
+  </data>
+  <data name="NumberOfVertices" xml:space="preserve">
+    <value>Number of Vertices</value>
+  </data>
+  <data name="TypeOfGraph" xml:space="preserve">
+    <value>Type of Graph</value>
+  </data>
+  <data name="RegularGraph" xml:space="preserve">
+    <value>Regular Graph</value>
+  </data>
+  <data name="CompleteGraph" xml:space="preserve">
+    <value>Complete Graph</value>
+  </data>
+  <data name="RandomGraph" xml:space="preserve">
+    <value>Random Graph</value>
+  </data>
+  <data name="NakedGraph" xml:space="preserve">
+    <value>Graph with no edge</value>
+  </data>
+  <data name="Degrees" xml:space="preserve">
+    <value>Degrees</value>
+  </data>
+  <data name="Possibility" xml:space="preserve">
+    <value>Possibility</value>
+  </data>
+  <data name="HowToRun" xml:space="preserve">
+    <value>(Edit the code, and then press 'Alt' + 'R' to run it.)</value>
+  </data>
+  <data name="ConnectedGraphAssertion" xml:space="preserve">
+    <value>This graph is connected.</value>
+  </data>
+  <data name="NotConnectedGraphAssertion" xml:space="preserve">
+    <value>This graph is NOT connected.</value>
+  </data>
+  <data name="QuestionWhatIsSimpleGraph" xml:space="preserve">
+    <value>What is Simple Graph?</value>
+  </data>
+  <data name="AnswerWhatIsSimpleGraph" xml:space="preserve">
+    <value>As opposed to a multigraph, a simple graph is an undirected graph that has no loops (edges connected at both ends to the same vertex) and no more than one edge between any two different vertices. In a simple graph the edges of the graph form a set (rather than a multiset) and each edges is a distinct pair of vertices. In a simple graph with n vertices every vertex has a degree that is less than n (the converse, however, is not true - there exist non-simple graphs with n vertices in which every vertex has a degree smaller than n).</value>
+  </data>
+  <data name="QuestionWhatIsRegularGraph" xml:space="preserve">
+    <value>What is Regular Graph?</value>
+  </data>
+  <data name="AnswerWhatIsRegularGraph" xml:space="preserve">
+    <value>Regular Graph: A regular graph is a graph where each vertex has the same number of neighbours, i.e., every vertex has the same degree or valency. A regular graph with vertices of degree k is called a k-regular graph or regular graph of degree k.</value>
+  </data>
+  <data name="QuestionWhatIsCompleteGraph" xml:space="preserve">
+    <value>What is Complete Graph?</value>
+  </data>
+  <data name="AnswerWhatIsCompleteGraph" xml:space="preserve">
+    <value>Complete Graph: Complete graphs have the feature that each pair of vertices has an edge connecting them.</value>
+  </data>
+  <data name="ACompleteGraphWith5Vertices" xml:space="preserve">
+    <value>A complete graph with 5 vertices. Each vertex has an edge to every other vertex.</value>
+  </data>
+  <data name="QuestionProveCompleteGraphIsRegularGraph" xml:space="preserve">
+    <value>Prove that a complete graph is a also a regular graph.</value>
+  </data>
+  <data name="AnswerProveCompleteGraphIsRegularGraph" xml:space="preserve">
+    <value>[Proof]
+
+Let Graph G is a complete graph, and assume its contains n vertices. Because it is a complete graph, so there exists an edge between every 2 vertices, in other words, for vertex v&lt;sub&gt;i&lt;/sub&gt;, it connects to (n-1) other vertices. So its degree is (n-1).
+
+For i = 1, 2, ..., n, degree(v&lt;sub&gt;i&lt;/sub&gt;) = n - 1.
+So Graph G is also a regular graph with (n-1) degrees.
+
+[Done]</value>
+  </data>
+  <data name="QuestionWhatIsPath" xml:space="preserve">
+    <value>What is a Path?</value>
+  </data>
+  <data name="AnswerWhatIsPath" xml:space="preserve">
+    <value>In graph theory, a path in a graph is a sequence of edges which connect a sequence of vertices. A path may be infinite, but a finite path always has a first vertex, called its start vertex, and a last vertex. Both of them are called terminal vertices of the path. The other vertices in the path are internal vertices.</value>
+  </data>
+  <data name="QuestionWhatIsCycle" xml:space="preserve">
+    <value>What is a Cycle?</value>
+  </data>
+  <data name="AnswerWhatIsCycle" xml:space="preserve">
+    <value>A cycle is a path such that the start vertex and end vertex are the same. The choice of the start vertex in a cycle is arbitrary.</value>
+  </data>
+  <data name="QuestionWhatIsForest" xml:space="preserve">
+    <value>What is forest?</value>
+  </data>
+  <data name="AnswerWhatIsForest" xml:space="preserve">
+    <value>A forest is a graph with no cycles (i.e. the disjoint union of one or more trees).</value>
+  </data>
+  <data name="QuestionWhatIsTree" xml:space="preserve">
+    <value>What is tree?</value>
+  </data>
+  <data name="AnswerWhatIsTree" xml:space="preserve">
+    <value>A tree is a connected graph with no cycles.</value>
+  </data>
+  <data name="QuestionDescribeAConnectedGraph" xml:space="preserve">
+    <value>Please explain: If for each vertex, there exist paths to other vertices, then this graph is connected.</value>
+  </data>
+  <data name="AnswerDescribeAConnectedGraph" xml:space="preserve">
+    <value>In an undirected graph **G**, two vertices *u* and *v* are called connected if **G** contains a path from *u* to *v*. Otherwise, they are called disconnected. A graph is called connected if every pair of distinct vertices in the graph is connected, otherwise, it is called disconnected.
+
+If for each vertex, there exists a path it to aother vertex, then we can also say that if I chose 2 distinct vertices *u* and *v* arbitrarily from Graph **G**, there exists at least one path from *u* to *v*, in other words, that the *u* and *v* are connected. Because the *u* and *v* are chosen arbitrarily, so every other distinct pair of vertices in the graph is connected, and so the graph **G** is connected.</value>
+  </data>
+</root>

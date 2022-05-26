@@ -1,0 +1,81 @@
+﻿@using ZiZhuJY.Web.UI.Helpers
+@{
+    ViewBag.Title = "Flot Examples: Adding navigation controls to the flot charts.";
+    Layout = "~/Views/Shared/_ExampleLayout.cshtml";
+}
+
+@section metas{
+    <!-- flot -->
+    <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="@Url.Content("~/Scripts/flot/flot/lib/excanvas.js")"></script><![endif]-->
+    @Html.RenderJavaScripts("~/Scripts/jquery-1.8.3.js", "~/Scripts/jquery.colorhelpers.js",
+    "~/Scripts/flot/flot/jquery.flot.js", "~/Scripts/flot/jquery.flot.navigate.js")
+
+    <!-- this plugin -->
+    @Html.RenderJavaScripts("~/Scripts/flot/navigationControl/jquery.flot.navigationControl.js")
+
+    <script type="text/javascript">
+        $(function () {
+            var data = [
+                [
+                    [1, 2],
+                    [3, 4],
+                    [5, 6],
+                    [7, 8]
+                ],
+                [
+                    [1, Math.sin(1)],
+                    [2, Math.sin(2)],
+                    [3, Math.sin(3)],
+                    [4, Math.sin(4)]
+                ]
+            ];
+
+            var options = {
+                grid: {
+                    show: true,
+                    borderColor: "#000",
+                    backgroundColor: { colors: ["#fff", "#fff"] }
+                },
+                xaxis: {
+                    min: -10,
+                    max: 10
+                },
+                yaxis: {
+                    min: -10,
+                    max: 10
+                },
+                zoom: {
+                    interactive: true
+                },
+                pan: {
+                    interactive: true
+                },
+                navigationControl: {
+                    position: { left: "30px", top: "20px" },
+                    display: "block"
+                }
+            };
+
+            $(document).ready(function () {
+                $.plot("#canvas-wrapper", data, options);
+            });
+        });
+    </script>
+}
+
+<div id="header">
+    <h2>Navigation control for flot chart.</h2>
+</div>
+
+<div id="content">
+    <div class="demo-container">
+        <div id="canvas-wrapper" class="demo-placeholder"></div>
+    </div>
+    <p>This example shows how to add a navigation control to the flot chart.</p>
+    <p>Explore by yourself through click these lovely buttons on the left top corner the above chart.</p>
+
+</div>
+
+<div id="footer">
+    Copyright &copy; 2013-2014 http://zizhujy.com
+</div>
