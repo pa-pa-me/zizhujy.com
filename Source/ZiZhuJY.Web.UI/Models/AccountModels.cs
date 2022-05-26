@@ -27,7 +27,7 @@ namespace ZiZhuJY.Web.UI.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "确认新密码")]
-        [Compare("NewPassword", ErrorMessage = "新密码和确认密码不匹配。")]
+        [System.Web.Mvc.Compare("NewPassword", ErrorMessage = "新密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -69,7 +69,7 @@ namespace ZiZhuJY.Web.UI.Models
 
         [DataType(DataType.Password)]
         [Display(Name = "确认密码")]
-        [Compare("Password", ErrorMessage = "密码和确认密码不匹配。")]
+        [System.Web.Mvc.Compare("Password", ErrorMessage = "密码和确认密码不匹配。")]
         public string ConfirmPassword { get; set; }
     }
     #endregion
